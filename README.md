@@ -1,0 +1,2 @@
+# presslocal
+ThePress local assets
