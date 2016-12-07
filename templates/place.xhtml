@@ -1,0 +1,667 @@
+
+
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>The Press</title>
+
+  <meta property="og:type" content="place" /> 
+  <meta property="og:url" content="/place/chimney-rock-winery" /> 
+  <meta property="og:image" content="/image?method=image.icrop&context=venue&id=351&w=2000&h=800" /> 
+  <meta property="place:location:latitude"  content="38.3825" /> 
+  <meta property="place:location:longitude" content="-122.312" /> 
+  <meta property="og:title" content="Chimney Rock Winery" /> 
+    <link rel="shortcut icon" href="/partners/thepress/img/thepress-logo-sm.png" />
+    <meta name="description" content="">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/partners/thepress/css/global.css">
+    <link rel="stylesheet" href="/partners/thepress/css/index.css">
+  <script type="text/javascript" id="adPositionManagerScriptTag" src="http://aps.hearstnp.com/Scripts/loadAds.js"></script>
+<SCRIPT type="text/javascript" lang="javascript" src="http://cdn.gigya.com/JS/gigya.js?apikey=3_BMFZOCwXDrSMoeTYN2uiVIBZhHski0qbm2oj7S3NL2gKLHcAjq-sx3cuKnLVg_pN"></SCRIPT>
+  <script src="/includes/lib/mustache/mustache.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="/partners/thepress/js/thepressx.js?x=browse&t=<[timestamp]>"></script>
+
+<script type="text/javascript"
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-gHN0lD5gfgKu4bp0h6ZPRM_jkCuIHps&libraries=drawing"></script>
+    <script type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js'></script>
+    <script src="//use.typekit.net/wuq4anx.js"></script>
+<script>
+var _LAT = 38.334997;
+var _LON =  -122.298203;
+</script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+<script>
+tripsExist = JSON.parse(localStorage.getItem('trips'));
+console.log(tripsExist);
+if (tripsExist && tripsExist.length > 0) {
+  $(document).ready(function() {
+    $('.my-trip-inactive').removeClass('my-trip-inactive'); 
+  })
+
+}
+</script>
+  </head>
+  <body class="index <[_class]>"><!-- Main Nav (Clear) -->
+
+<style>
+.subnav {
+display: none;
+}
+
+</style>
+<div id="modal-background" style="display:none;"></div><div id="modal" style="display:none;"></div>
+<div id="trip-bar" style="display:none"><div class="trip-details"><a href="/my-trip">My Trip</a> <span>0 items </span> </div><div class="trip-meta"><span id="trip-bar-name" contenteditable=true>My Trip</span></div></div>
+<div style="display:none" id="toast">Added To <a href="/my-trip">My Trip</a></div>
+<script>
+function addTrip(id,el) {
+  $('#toast').slideDown(100);
+$('#toast').html('Added to <a href="/my-trip">My Trip</a>');
+  setTimeout(function() { $('#toast').slideUp(); }, 5000);
+  addToTrip(id,el);
+}
+
+
+
+
+</script>
+
+  <!-- nav area -->
+  <nav class="nav-sm affix-top">
+  <a href="#" class="toggle-nav hidden-lg hidden-md hidden-sm"><i class="fa fa-bars"></i><i class="fa fa-close hidden"></i></a><a href="/map" class="map-button hidden-lg hidden-md hidden-sm"><img class="map-icon" src="/partners/thepress/img/icons/map-icon.png" alt="Go to Map"></a>
+  <div class="container nav-wrapper">
+    <div class="row logo-container">
+      <div class="col-sm-12">
+        <a href="/">
+          <img class="logo hidden-xs" src="/partners/thepress/img/thepress-logo.png" alt="The Press">
+          <img class="logo-mobile hidden-sm hidden-md hidden-lg" src="/partners/thepress/img/thepress-logo-mobile.png" alt="The Press">
+          <img class="logo-fixed" src="/partners/thepress/img/thepress-logo-sm.png" alt="The Press">
+        </a>
+      </div>
+    </div>
+    <div class="row nav-container hidden-xs">
+      <ul class="main-nav sans-bold">
+        <li><a href="/map" class="nav-map">Map</a></li>
+        <li><a href="/trips" class="nav-trips">Trips</a></li>
+        <li><a href="/stories" class="nav-stories">Reviews</a></li>
+        <li><a href="/wineries" class="nav-places">Places</a></li>
+        <li><a href="/wine-events" class="nav-events">Events</a></li>
+
+      </ul>
+    </div>
+    <div class="fixed-tools">
+      <ul class="hidden-xs">
+        <li class="search"><a href="#" class="toggle-search"><i class="fa fa-search"></i></a></li>
+        <li class="signin"><a href="#" class="button button-sm clear sans toggle-signin" data-toggle="modal" data-target="#signinModal">Sign In</a></li>
+        <li class="dropdown login hidden">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">user</a>
+          <ul class="dropdown-menu">
+            <li><a href="/my-trip">My Trip</a></li>
+            <li><a href="/my-trips">My Trips</a></li>
+            <li><a onclick="gigyaLogout();">Log out</a></li>
+          </ul>
+        </li>
+        <li class="chronicle"><a href="#"><img src="/partners/thepress/img/sfchronicle-logo.png" alt="SF Chronicle"></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Dropdown Menu -->
+<nav class="mobile-dropdown hidden-sm hidden-md hidden-lg">
+  <div class="search-bar">
+    <form class="form-inline" action="/search" role="form" method="post">
+      <input name="search" type="text" placeholder="Search">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+  </div>
+  <div class="dropdown-nav">
+    <ul>
+      <li><a href="/map" >Map</a></li>
+      <li><a href="/trips" >Trips</a></li>
+      <li><a href="/stories" >Stories</a></li>
+      <li><a href="/wineries" >Wineries</a></li>
+      <li><a href="/events" >Events</a></li>
+      <li><a href="/mytrip" >My Trip</a></li>
+    </ul>
+  </div>
+  <div class="login-state">
+    <div class="login-state-container">
+      <div class="login-pic" style="display:none;"><a href="#" class="toggle-signin" data-toggle="modal" data-target="#signinModal"><img src="/partners/thepress/img/login-pic.png"></a></div>
+      <div class="login-name sans-bold white"><a href="#" class="toggle-signin" data-toggle="modal" data-target="#signinModal"></a></div>
+      <div class="login-status white sans-bold"><a href="#" class="toggle-signin" data-toggle="modal" data-target="#signinModal">Log Out</a></div>
+    </div>
+  </div>
+</nav><!-- Sign In Popup Modal -->
+<div class="modal fade" tabindex="-1" role="dialog" id="signinModal" aria-labelledby="signinModal">
+  <div class="modal-dialog login">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true sans">&times;</span></button>
+        <h4 class="sans-bold brownmodal-title">Login</h4>
+        <p class="sans brown">Welcome back. If you already have an account with us, please login below.</p>
+        <p class="sans error" id="login-error"></p>        
+      </div>
+      <div class="modal-body">
+        <form class="signinForm">
+          <div class="form-group">
+            <input id="login-email" type="email" placeholder="Email Address">
+          </div>
+          <div class="form-group">
+            <input id="login-password" type="password" placeholder="Password">
+          </div>
+        </form>
+      </div>
+       <div class="modal-buttons">
+        <button onclick="gigyaLogin();" type="submit" class="button button-xs bg-olive sans-bold">Login</button> <br>
+        <a href="#" class="forgot-pass sans brown" onclick="showModal('lostpassword');">I've lost my password</a> <span style="display:inline-block;margin-left:20px;"></span> No account? <a href="#" onclick="showModal('register');" class="sans brown">Create One</a>
+      </div>
+    </div>
+  </div>
+  <div class="modal-dialog register" style="display:none;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true sans">&times;</span></button>
+        <h4 class="sans-bold brownmodal-title">Register</h4>
+        <p class="sans brown">Create a Profile With ThePress</p>
+        <p class="sans error" id="register-error"></p>
+      </div>
+      <div class="modal-body">
+        <form class="signinForm">
+          <div class="form-group">
+            <input id="register-email" type="email" placeholder="Email Address">
+          </div>
+          <div>Passwords must be at least 8 characters, contain upper and lowercase letters and at least one number.</div>
+          <div class="form-group">
+            <input id="register-username" type="text" placeholder="Username">
+          </div>          
+          <div class="form-group">
+            <input id="register-password" type="password" placeholder="Password">
+          </div>
+          <div class="form-group">
+            <input id="register-password2" type="password" placeholder="Password (Repeat)">
+          </div>          
+        </form>
+      </div>
+       <div class="modal-buttons">
+        <button onclick="gigyaRegister();" type="submit" class="button button-xs bg-olive sans-bold">Register</button> <br>
+         Already have an account? <a href="#" onclick="showModal('login');" class="sans brown">Sign In</a>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal-dialog register-success" style="display:none;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true sans">&times;</span></button>
+        <h4 class="sans-bold brownmodal-title">Registration Successful</h4>
+
+      </div>
+      <div class="modal-body">
+        You have successfully registered with The Press.
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="modal-dialog lostpassword" style="display:none;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true sans">&times;</span></button>
+        <h4 class="sans-bold brownmodal-title">Reset Your Password</h4>
+        <p class="sans brown">Create a Profile With ThePress</p>
+        <p class="sans error" id="register-error"></p>
+      </div>
+      <div class="modal-body">
+        <form class="signinForm">
+          <div class="form-group">
+            <input id="register-email" type="email" placeholder="Email Address">
+          </div>
+      
+
+        
+        </form>
+      </div>
+       <div class="modal-buttons">
+        <button onclick="showModal('login');" type="submit" class="button button-xs bg-olive sans-bold">Cancel</button>   
+      </div>
+    </div>
+  </div>
+
+
+
+
+</div><!-- Search Modal -->
+<div class="search-modal hidden-xs">
+  <div class="search-container">
+    <a href="#" class="close-button white sans"><svg width="30" height="30" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1490 1322q0 40-28 68l-136 136q-28 28-68 28t-68-28l-294-294-294 294q-28 28-68 28t-68-28l-136-136q-28-28-28-68t28-68l294-294-294-294q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 294 294-294q28-28 68-28t68 28l136 136q28 28 28 68t-28 68l-294 294 294 294q28 28 28 68z"/></svg></a>
+    <form class="form-inline" role="form" action="/search" method="post">
+      <input type="text" name="search" placeholder="Search">
+      <button type="submit" class="hidden"><i class="fa fa-search"></i></button>
+    </form>
+  </div>
+</div>
+
+
+  
+
+  <div class="oldmain">
+
+  <!-- PLACES DETAILS -->
+
+
+
+
+
+
+
+<style>
+.not-featured {
+  display: none;
+}
+</style>
+<script>$(document).ready(function() {setNav('places');});</script>
+
+<link rel="stylesheet" href="/partners/thepress/css/single-winery.css">
+<header class="header-single">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 header-title">
+          <div class="header-label lightBrown">Napa</div>
+          <h1 class="sans-bold brown">Chimney Rock Winery</h1>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid " >
+      <div class="row scrollable" id="scroll1"><div class="scroller" style="width: 3948px; transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1); transition-duration: 0ms; transform: translate(0px, 0px) translateZ(0px);">
+        <div class="slide block-container" style="width: 1316px; float: left;">
+          <div class="item" style="background: url('/image?method=image.icrop&context=venue&id=351&w=2000&h=800') center center no-repeat; background-size: cover;"></div>
+        </div>
+        <div class="slide block-container" style="width: 1316px; float: left;">
+          <div class="item" style="background: url('img/headers/single-winery1.png') center center no-repeat; background-size: cover;"></div>
+        </div>
+        <div class="slide block-container" style="width: 1316px; float: left;">
+          <div class="item" style="background: url('img/headers/single-winery1.png') center center no-repeat; background-size: cover;"></div>
+        </div>
+      </div></div>
+      <div class="indicators" style="display:none;">
+        <div id="indicator" class=" iScrollLoneScrollbar">
+          <div id="dotty" style="transition-duration: 0ms; display: block; transform: translate(0px, 0px) translateZ(0px); transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1);"></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+<main>
+
+    <!-- Single Toolbar Module -->
+    <section class="single-toolbar container">
+      <div class="row toolbar-container">
+        <div class="col-sm-7 toolbar-button hidden-xs">
+          <a href="#" onclick="addTrip({type:'venue',name: '', lat: 38.3825, lon: -122.312 }, this)" class="button button-xs sans-bold bg-olive">Add to Trip</a>
+        </div>
+        <div class="col-sm-5 toolbar-options">
+          <ul>
+            <li class="hidden-sm hidden-md hidden-lg"><a href="#" onclick="addTrip({type:'venue',name: '', lat: 38.3825, lon: -122.312 }, this)" class="button button-xs bg-olive">Add to Trip</a></li>
+            <li><a class="sans-bold olive" href="http://www.chimneyrock.com/">Website</a></li>
+            <li style="display:none;"><a class="sans-bold olive" href="#"><i class="fa fa-location-arrow"></i> Directions</a></li>
+            <li class="social-label lightBrown hidden-xs">share</li>
+            <li class="social hidden-xs"><a class="olive" href="https://twitter.com/home?status=57ea88bcb96ef:%20http://thepress.pointslocal.com/place/chimney-rock-winery"><i class="fa fa-twitter"></i></a></li>
+            <li class="social hidden-xs"><a class="olive" href="http://www.facebook.com/sharer.php?u=http://thepress.pointslocal.com/place/chimney-rock-winery"><i class="fa fa-facebook-square"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Single Winery Content (Two Columns) -->
+    <section class="single-content container no-padding">
+      <div class="row">
+      <!-- Left Content -->
+        <div class="col-sm-8">
+          <div class="single-body">
+            <h2 class="sans-bold brown">About Us</h2>
+            <article>
+              <p>Located on the fabled Silverado Trail in the world-renowned Stags Leap District of California&#39;s Napa Valley, our beautiful Cape Dutch-inspired estate winery is recognized as one of the world&#39;s premier fine wine producers.&nbsp;</p>
+
+            </article>
+
+
+            <article>
+              <div class="row">
+                <div class="col-sm-12"  id="gallery-focus" style="position:relative; min-height:300px;">
+                    <div id="gallery-image" style="transition:all ease-in 200ms;"></div>
+
+                </div>
+
+              </div>
+              <div class="row" style="margin:0px;">
+              <div class="col-sm-3 gallery_image" style="padding: 0px;text-align:center;">
+              <a onclick="gallerySelect(this);"><img style="max-width:96%;" src="/image?method=image.icrop&context=venue.image&id=210&w=200&h=120" /></a>
+              </div>
+              <div class="col-sm-3 gallery_image" style="padding: 0px;text-align:center;">
+              <a onclick="gallerySelect(this);"><img style="max-width:96%;" src="/image?method=image.icrop&context=venue.image&id=211&w=200&h=120" /></a>
+              </div>
+              <div class="col-sm-3 gallery_image" style="padding: 0px;text-align:center;">
+              <a onclick="gallerySelect(this);"><img style="max-width:96%;" src="/image?method=image.icrop&context=venue.image&id=213&w=200&h=120" /></a>
+              </div>
+              <div class="col-sm-3 gallery_image" style="padding: 0px;text-align:center;">
+              <a onclick="gallerySelect(this);"><img style="max-width:96%;" src="/image?method=image.icrop&context=venue.image&id=214&w=200&h=120" /></a>
+              </div>
+              <script>
+              $(document).ready(function() {
+                gallerySelect( $('.gallery_image:first-child') );
+              });
+              </script>
+              </div>
+            </article>          
+
+
+            <div class="row">
+              <div class="col-sm-12">
+                <h2 class="sans-bold brown">The Press Reviews</h2>
+              </div>    
+              <div class="col-sm-12 block-container">
+                <a href="/story/chimney-rock-winery" class="block-padding" style="background: url('/image?method=image.icrop&context=stories&id=160&w=400&h=300') center center no-repeat; background-size: cover;"></a>
+                <div class="block-text">
+                  <div class="block-label lightBrown" style="display:none;">Category</div>
+                  <h3 class="sans-bold red">Chimney Rock Winery: Napa's Nod to South Africa
+                  <span class="date brown"></span>
+                </h3>
+                <p><h3>If you&rsquo;ve ever visited Stellenbosch, South Africa, then you might feel a little nostalgic when you visitthis estate.</h3>
+
+<p>The land itself was actually a golf course until Sheldon and Stella Wilson purchased it in 1980 and established the winery. As an ...</p>
+                <div style="text-align:center;"><a class="button button-xs sans-bold bg-olive" href="/story/chimney-rock-winery">Read Review</a></div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="row">
+  
+
+              
+              <div class="col-sm-12 block-container">
+
+                  <div style="text-align:center;margin-top: 10px;">
+                    <a style="margin-right:5px;" class="button button-xs sans-bold bg-olive" href="#" onclick="openModal('https://www.cellarpass.com/chimney-rock-winery-profile?ID=449&iframe=3&')">Book Now</a> 
+                    <a class="button button-xs sans-bold bg-olive" href="/book/chimney-rock-winery">Buy Tickets</a>                    
+                  </div>
+              </div>
+              
+            </div>
+
+
+            <div class="row">
+              <div class="col-sm-12">
+                <h2 class="sans-bold brown">Videos</h2>
+              </div>            
+              
+              <div class="col-sm-9">
+                  <div id="video-main"></div>
+              </div>
+              <div class="col-sm-3">
+                <div id="video-list"></div>
+                <div class="block-text">
+                  <script>addVideo('https://www.youtube.com/embed/RpnCQXnfyRo');</script>
+                </div>
+                <div class="block-text">
+                  <script>addVideo('https://www.youtube.com/embed/wBnYq1H5tGY');</script>
+                </div>
+                <div class="block-text">
+                  <script>addVideo('https://www.youtube.com/embed/e1x6i_uYPPs');</script>
+                </div>
+                <script> startVideos();</script>
+              </div>
+              
+            </div>
+
+          </div>
+          <!-- Trips Two Column Divider -->
+          <div class="two-column stories two-column-divider hidden-xs">
+
+
+          </div>
+          <!-- Trips Two Column Divider -->
+          <div class="two-column trips two-column-divider hidden-xs" style="display:none;">
+            <div class="row">
+              <div class="col-sm-12">
+                <h2 class="divider divider-xs lightBrown"><span>Trips</span></h2>
+              </div>
+            </div>
+            <div class="row">
+
+
+            </div>
+          </div>
+
+        </div>
+
+
+
+        <!-- Right Content -->
+        <div class="col-sm-4">
+          <div class="single-sidebar">
+            <article class="location">
+              <h4 class="sans-bold brown sidebar-title">Location</h4>
+              <div class="row">
+                <div class="col-xs-5" style="display:none;">
+                  <div class="winery-logo">
+                    
+                  </div>
+                </div>
+                <div class="col-xs-12">
+                  <h4 class="sans-bold olive location-label"><!-- Spring Mountain District --></h4>
+                  <div class="address">
+                    <p class="sans brown">5350 Silverado Trl, Napa, CA<br>800-257-2641</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <article class="hours">
+              <h4 class="sans-bold brown sidebar-title">Hours</h4>
+              Daily 10am - 5pm
+              <div class="status" style="display:none;"><span class="sans-bold olive">Open</span> <span class="sans-bold olive">No Reservation Required</span></div>
+            </article>
+
+            <div id="venue_map" style="width:100%;height:200px;">
+
+            </div>
+
+            <script>
+  function initMap() {
+    initLat = '38.3825';
+    initLon = '-122.312';
+    if (!initLat || !initLon) {
+      initLat = _LAT;
+      initLon = _LON;
+    } else {
+      initLat = parseFloat(initLat);
+      initLon = parseFloat(initLon);      
+    }
+    map = new google.maps.Map(document.getElementById('venue_map'), {
+      center: {lat: initLat, lng: initLon},
+      zoom: 8
+    });
+  }
+  initMap();
+            </script>
+
+            <article class="special">
+              <h4 class="sans-bold brown sidebar-title">Specializing In</h4>
+              <ul>
+                <p class="sans brown">Open weekends</p>
+                <p class="sans brown">Open weekdays</p>
+                <p class="sans brown">Reservation only</p>
+              </ul>
+            </article>
+
+
+
+            <article class="prices">
+              <h4 class="sans-bold brown sidebar-title">Wine Prices</h4>
+              <p class="sans brown">&dollar;50 - &dollar;75</p>
+            </article>
+
+            <article class="more" style="display:none;">
+              <h4 class="sans-bold brown sidebar-title">More Information</h4>
+              <ul>
+                ["Dog friendly","Family friendly","Art exhibit","Outdoor area/garden","No Outside Food/Drink Allowed","Sustainability focus","Wheelchair accessible"]
+              </ul>
+            </article>
+            <!-- Related Stories -->
+            <div class="related-stories hidden-sm hidden-md hidden-lg">
+
+            </div>
+            <!-- Trips Two Column Divider -->
+            <div class="two-column two-column-divider hidden-sm hidden-md hidden-lg">
+              <div class="row">
+                <div class="col-sm-12">
+                  <h2 class="divider divider-xs lightBrown"><span>Trips</span></h2>
+                </div>
+              </div>
+              <div class="row scrollable2" id="scroll2">
+                <div class="col-sm-6 block-container">
+                  <a href="#" class="block-padding" style="background: url('img/backgrounds/wine-pour.png') center center no-repeat; background-size: cover;"></a>
+                  <div class="block-text">
+                    <div class="block-label lightBrown">Sonoma</div>
+                    <h3 class="sans-bold orange"><a href="#">The Name of a Featured Editorial Sonoma Trip</a><p></p>
+                  </h3></div>
+                </div>
+                <div class="col-sm-6 block-container">
+                  <a href="#" class="block-padding" style="background: url('img/backgrounds/wine-cheese.png') center center no-repeat; background-size: cover;"></a>
+                  <div class="block-text">
+                    <div class="block-label lightBrown">Sonoma</div>
+                    <h3 class="sans-bold orange"><a href="#">The Name of a Featured Editorial Sonoma Trip</a></h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Events -->
+            <div class="directory hidden-sm hidden-md hidden-lg">
+              <div class="row">
+                <div class="col-sm-12">
+                  <h2 class="divider divider-xs lightBrown"><span>Events</span></h2>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12 directory-list">
+                  <!-- Directory Item -->
+                  <div class="row directory-item">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+<div style="text-align:center;">
+ <!-- hearst/ads/full_banner_A728.tpl -->
+    <!-- hmb:a728 full banner A728 ad -->
+    <div id="ctpl-fullbanner1" class="ctpl-fullbanner fixed" data-collapse-timer="10">
+    <div id="A728" class="ad_deferrable"><script type="text/javascript">/*<![CDATA[*/ hearstPlaceAd("A728"); /*]]>*/</script></div>
+    
+    <script>
+    (function() {
+        var checkCount = 120;
+        var intervalID = setInterval(function() {
+            if(checkCount > 0) {
+                checkCount--;
+                setTimeout(function() {
+                    if(document.getElementById("A728").offsetHeight > 3) {
+                        if(!document.documentElement.classList.contains("header-ad") && !document.documentElement.classList.contains("cropped")) {
+                            document.documentElement.className += " header-ad header-A728 header-adSlide";
+                            setTimeout(function() {
+                                document.documentElement.classList.remove("header-adSlide");
+                            }, 500);
+                            clearInterval(intervalID);
+                        }
+                    }
+                }, 2500);
+            }
+            else {
+                if(document.getElementById("A728").offsetHeight <= 3) {
+                    document.documentElement.className += " header-noAd";
+                }
+                clearInterval(intervalID);
+            }
+        }, 1000);
+    })();
+    </script>
+    
+    </div>
+<!-- e hearst/ads/full_banner_A728.tpl -->
+</div>
+
+  </div>
+
+        <footer>
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12 footer-logo">
+              <a href="/wine"><img src="/partners/thepress/img/thepress-logo-green.png" alt="The Press"></a>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12 footer-links">
+              <ul>
+                <li><a href="/map">Map</a></li>
+                <li><a href="/trips">Trips</a></li>
+                <li><a href="/stories">Reviews</a></li>
+                <li><a href="/wineries">Places</a></li>
+                <li><a href="/wine-events">Events</a></li>
+                <li><a href="/about">About</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12 footer-copyright">
+              <a href="http://www.sfchronicle.com/foodandhome/wine/"><img src="/partners/thepress/img/sfchronicle-logo-lg.png" alt="SF Chronicle"></a>
+              <p class="sans lightBrown">&copy; 2016 Hearst Corporation</p>
+            </div>
+          </div>
+        </div>
+      </footer>
+  <script src="/partners/pointslocal/js/cache.js" type="text/javascript"></script>
+<!-- Begin Hearst analytics --> <script type="text/javascript" src="//nexus.ensighten.com/hearst/news-3p/Bootstrap.js"></script> <!-- End Hearst analytics -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script type="text/javascript" src="/partners/thepress/js/libs/jquery-touch-punch.js"></script>
+    <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
+<script type="text/javascript" src="/partners/thepress/js/libs/markerwithlabel.js"></script><script type="text/javascript" src="/partners/thepress/js/libs/jquery-editable-poshytip.min.js"></script>
+    <script type="text/javascript" src="/partners/thepress/js/libs/iscroll.js?t=<[timestamp]>"></script>
+    <script type="text/javascript" src="/partners/thepress/js/global.js?t=1"></script>
+    <script src="/partners/thepress/js/map.js?1470683612"></script>
+    <script src="/partners/thepress/js/index.js?1467835203"></script>
+  </body>
+</html><!-- Cannot open <b>/mnt/pointslocal-app/partners/thepress/templates/site/media/media_stream.template</b> --><!-- --><!-- from cache -->

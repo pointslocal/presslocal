@@ -1,0 +1,440 @@
+/*
+=======================
+Single Trip
+======================= */
+
+/* Nav Hovers */
+
+nav.solid .nav-container ul.main-nav li a:hover,
+nav.solid .nav-container ul.main-nav li a.active {
+  color: #FF944E !important;
+}
+
+nav.affix .nav-container ul.main-nav li a:hover,
+nav.affix .nav-container ul.main-nav li a.active,
+nav.nav-sm .nav-container ul.main-nav li a:hover,
+nav.nav-sm .nav-container ul.main-nav li a.active,
+nav.solid.affix .nav-container ul.main-nav li a:hover,
+nav.solid.affix .nav-container ul.main-nav li a.active {
+  color: #FF944E !important;
+}
+
+nav.affix .fixed-tools ul li a:hover,
+nav.nav-sm .fixed-tools ul li a:hover {
+  color: #FF944E !important;
+}
+
+nav.solid .logo-container .tools ul li.search a:hover i {
+  color: #FF944E !important;
+}
+
+.header-single .header-map {
+  position: relative;
+}
+
+.header-single .header-map img {
+  width: 100%;
+  height: auto;
+}
+
+.header-single .header-map .button-float-top {
+  width: 100%;
+  position: absolute;
+  top: 20px;
+  z-index: 999;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.header-single .header-map .button-float-bottom {
+  width: 100%;
+  position: absolute;
+  bottom: 30px;
+  z-index: 999;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.quad-column.quad-column-divider .divider {
+  font-size: 18px;
+}
+
+.quad-column .quad-block:after {
+  background-color: rgba(255, 148, 78, 0.60);
+}
+
+/* Single Toolbar */
+
+.single-toolbar .toolbar-container {
+  padding: 0 0 40px 0;
+}
+
+.single-toolbar .toolbar-button {
+  text-align: right;
+}
+
+.single-toolbar .toolbar-options ul {
+  float: right;
+  margin-top: 10px;
+}
+
+.single-toolbar .toolbar-options ul li {
+  list-style: none;
+  float: left;
+  margin-left: 15px;
+}
+
+.single-toolbar .toolbar-options ul li a {
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.single-toolbar .toolbar-options ul li.social-label {
+  font-size: 14px;
+}
+
+.single-toolbar .toolbar-options ul li.social i {
+  font-size: 25px;
+}
+
+/* Single Content */
+
+.single-content .single-body {
+  padding: 0 80px 0 40px;
+  text-align: left;
+}
+
+.single-content .single-body article {
+  padding-bottom: 30px;
+}
+
+.single-content .single-body h2 {
+  font-size: 28px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  margin: 35px 0 25px 0;
+}
+
+.single-content .single-body p {
+  line-height: 28px;
+}
+
+@media (max-width: 992px) {
+  .single-content {
+    padding: 0 20px !important;
+  }
+}
+
+/* Single Sidebar */
+
+.single-content .single-sidebar {
+  padding-top: 25px;
+}
+
+.single-content .single-sidebar .related-stories .related-title {
+  text-transform: uppercase;
+  border-bottom: 1px solid #C4C5B4;
+}
+
+.single-content .single-sidebar .related-stories .related-title h3 {
+  font-size: 18px;
+  letter-spacing: 3.21px;
+  margin-bottom: 15px;
+}
+
+.single-content .single-sidebar .related-stories ul {
+  margin-top: 30px;
+}
+
+.single-content .single-sidebar .related-stories ul li {
+  list-style: none;
+  margin-bottom: 30px;
+}
+
+/* Single Featured Section */
+
+.single-featured {
+  margin: 0 auto 100px auto;
+}
+
+.single-featured .featured-image img {
+  width: 100%;
+  height: auto;
+}
+
+.single-featured .featured-title {
+  margin: 50px auto;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #C4C5B4;
+}
+
+.single-featured .featured-title .featured-label {
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.single-featured .featured-title h1 {
+  font-size: 48px;
+  margin-top: 5px;
+  text-transform: uppercase;
+  float: left;
+}
+
+.single-featured .featured-title .featured-button {
+  margin-top: 30px;
+  text-align: right;
+}
+
+.single-featured .featured-title .featured-address {
+  font-size: 20px;
+  clear: both;
+}
+
+.single-featured .featured-content p {
+  padding: 0 40px;
+  line-height: 28px;
+  font-size: 18px;
+}
+
+.single-featured .featured-content .featured-map {
+  text-align: right;
+}
+
+.single-featured .featured-title .affiliate-badge,
+.single-featured .featured-title .partner-badge {
+  float: left;
+  vertical-align: middle;
+  display: inline-block;
+  text-align: left;
+  width: 23px;
+  margin-left: 8px;
+  margin-top: 15px;
+}
+
+/* Mobile Itinerary */
+.itinerary-mobile .itinerary {
+  background-color: #F9F9F2;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.itinerary-mobile .itinerary-title {
+  background-color: #fff;
+}
+
+.itinerary-mobile .itinerary-title .toggle-rename {
+  display: block;
+  margin-top: 25px;
+  text-align: center;
+}
+
+.itinerary-mobile .itinerary-title #editable-title {
+  margin: 15px 0;
+  font-size: 30px;
+  display: inline-block;
+}
+
+.itinerary-mobile .itinerary-list {
+  padding: 20px;
+  background-color: #F9F9F2;
+}
+
+.itinerary-mobile .itinerary-list .itinerary-item {
+  border-bottom: 1px solid #C4C5B4;
+  padding: 15px 0 10px 0;
+  cursor: pointer;
+}
+
+.itinerary-mobile .itinerary-list .itinerary-item:before {
+  content: '\f142';
+  font-family: FontAwesome;
+  font-size: 25px;
+  display: block;
+  color: #C4C5B4;
+  position: absolute;
+  margin-top: 8px;
+  z-index: 999;
+  opacity: 0;
+}
+
+.directory-alt .directory-list .directory-item .directory-pic a:after {
+  background-color: rgba(255, 148, 78, 0.60) !important;
+}
+
+.itinerary-mobile .itinerary-list .itinerary-item:hover:before {
+  opacity: 1;
+}
+
+.itinerary-mobile .itinerary-list .itinerary-item:first-child {
+  padding-top: 0;
+}
+
+.itinerary-mobile .itinerary-list .itinerary-item .item-title {
+  margin: 0;
+}
+
+.itinerary-mobile .itinerary-list .itinerary-item .num {
+  font-size: 21px;
+  text-align: center;
+  color: #fff;
+}
+
+.itinerary-mobile .itinerary-list .itinerary-item .num span {
+  width: 31px;
+  height: 39px;
+  background: url('../img/markers/marker-blank.png') center center no-repeat;
+  background-size: 31px 39px;
+  display: block;
+  z-index: 1;
+  position: relative;
+  margin: 0 auto;
+}
+
+.itinerary-mobile .itinerary-list .itinerary-item .remove-item {
+  font-size: 35px;
+  text-align: right;
+  display: block;
+}
+
+.itinerary-mobile .itinerary-buttons {
+  background-color: #fff;
+  padding: 13px 0;
+}
+
+.itinerary-mobile .itinerary-buttons ul {
+  width: 75%;
+  margin: 0 auto;
+  text-align: center;
+  display: table;
+}
+
+.itinerary-mobile .itinerary-buttons ul li {
+  list-style: none;
+  display: table-cell;
+}
+
+/* Transportation */
+
+.single-content .transportation {
+  margin-bottom: 40px;
+}
+
+.single-content .transportation .divider {
+  font-size: 18px;
+}
+
+.single-content .transportation .two-up-pic img {
+  width: 100%;
+  height: auto;
+}
+
+.single-content .transportation h4 {
+  font-size: 20px;
+  margin-top: 0;
+  margin-bottom: 5px;
+  float: left;
+}
+
+.single-content .transportation p {
+  font-size: 14px;
+  clear: both;
+}
+
+.single-content .transportation .affiliate-badge,
+.single-content .transportation .partner-badge {
+  float: left;
+  vertical-align: middle;
+  display: inline-block;
+  text-align: left;
+  width: 23px;
+  margin-left: 8px;
+  margin-top: 3px;
+}
+
+/* Related Stories */
+
+.single-content .related-stories .divider {
+  font-size: 18px;
+}
+
+.single-content .related-stories .story-container {
+  min-height: 100px;
+  border-right: 1px solid #C4C5B4;
+}
+
+.single-content .related-stories .story-container:last-child {
+  border-right: none;
+}
+
+.single-content .related-stories .story-container a {
+  width: 100%;
+  height: auto;
+}
+
+.single-content .related-stories .story-content {
+  width: 100%;
+  height: auto;
+  padding: 0 20px;
+}
+
+
+@media (max-width: 768px) {
+  .header-single .header-title {
+    margin-bottom: 0;
+  }
+  .header-single .edit-button {
+    margin-bottom: 0;
+  }
+  .single-content .single-body {
+    padding: 0 15px;
+  }
+  main {
+    padding-top: 15px;
+  }
+  .single-featured .featured-title {
+    text-align: center;
+  }
+  .single-featured .featured-title .featured-button {
+    text-align: center;
+  }
+  .single-featured .featured-content .featured-map {
+    text-align: center;
+    margin-top: 40px;
+  }
+  .single-toolbar .toolbar-options ul {
+    float: none;
+    display: table;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 330px;
+    text-align: center;
+  }
+  .single-toolbar .toolbar-options ul li {
+    display: table-cell;
+    float: none;
+  }
+  .single-toolbar .toolbar-options {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #C4C5B4;
+  }
+  .single-toolbar ul {
+    float: left;
+    display: table;
+  }
+  .single-toolbar ul li {
+    margin-left: 0;
+    margin-right: 15px;
+  }
+  .single-featured .featured-title .affiliate-badge,
+  .single-featured .featured-title .partner-badge {
+    margin: 0 auto;
+    float: none;
+  }
+  .single-featured .featured-content p {
+    padding: 0 20px;
+  }
+}

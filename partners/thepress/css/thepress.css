@@ -1,0 +1,187 @@
+
+
+/* UI */
+.ad {
+  background-color: #666;
+  margin: auto; }
+
+.ad728x90 {
+  width: 728px;
+  height: 90px;
+  line-height: 90px;
+  color: #ececec; }
+
+.centered {
+  text-align: center; }
+
+.spacious {
+  padding-top: 40px;
+  padding-bottom: 40px; }
+
+.button {
+  text-transform: uppercase;
+  border-radius: 20px;
+  border: 1px solid #666;
+  display: inline-block;
+  width: auto;
+  padding: 8px;
+  padding-left: 32px;
+  padding-right: 32px;
+  cursor: pointer;
+  transition: 200ms all ease-in;
+  font-size: 18px;
+  color: #333;
+  text-decoration: none; }
+  .button:hover {
+    background-color: #ececec; }
+  .button.centered {
+    margin: auto; }
+
+/* General headers */
+body {
+  font-family: 'Montserrat'; }
+
+.thepress-header-container, footer {
+  width: 1000px;
+  margin: auto; }
+
+#thepress-header {
+  background-color: #d8d8d8;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #999; }
+
+.thepress-header-auth {
+  text-align: right; }
+
+.thepress-header-branding, .thepress-footer-branding {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #666;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold; }
+
+.thepress-header-jumbotron, .thepress-header-nav, .thepress-footer-nav {
+  text-align: center; }
+
+.thepress-footer-nav {
+  padding-bottom: 80px;
+  border-bottom: 1px solid #666; }
+
+.thepress-header-nav li, .thepress-footer-nav li {
+  display: inline-block;
+  list-style: none;
+  text-transform: uppercase;
+  text-align: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 18px; }
+
+.thepress-header-nav li a, .thepress-footer-nav li a {
+  color: #000;
+  text-decoration: none;
+  font-family: 'Raleway';
+  font-weight: 400 !important;
+  color: #555; }
+
+.thepress-header-jumbotron {
+  padding: 40px; }
+
+.thepress-header-jumbotron h3, .thepress-header-jumbotron h4 {
+  margin: 0px; }
+
+.thepress-header-jumbotron h3, .thepress-promo-block h3 {
+  font-size: 36px;
+  font-weight: 800;
+  padding-bottom: 10px;
+  margin: 0px; }
+
+.thepress-header-jumbotron h4, .thepress-promo-block h4 {
+  font-size: 18px;
+  font-family: 'Raleway';
+  margin: 0px;
+  text-align: center; }
+
+/* Search */
+#thepress-search {
+  background-color: #ececec;
+  padding: 10px;
+  z-index: 9999; }
+  #thepress-search-inner {
+    width: 1000px;
+    margin: auto;
+    text-align: center; }
+    #thepress-search-inner-widget {
+      border-right: 1px solid #666;
+      border-left: 1px solid #666;
+      width: 70%;
+      margin: auto;
+      font-size: 18px;
+      font-weight: 300; }
+      #thepress-search-inner-widget-options {
+        margin-left: 10px;
+        margin-right: 10px;
+        border: 1px solid #666;
+        border-right: none;
+        display: inline-block;
+        background-color: #fff; }
+        #thepress-search-inner-widget-options .material-icons {
+          font-size: 14px; }
+  #thepress-search-toggle {
+    border: 1px solid #000;
+    border-left: none;
+    border-right: none;
+    background-color: #fff;
+    padding: 50px; }
+
+.thepress-search-option {
+  cursor: pointer;
+  transition: 200ms all ease-in;
+  padding: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: inline-block;
+  border-right: 1px solid #666;
+  font-family: Raleway;
+  font-size: 14px; }
+  .thepress-search-option.toggle {
+    background-color: #666;
+    color: #fff; }
+  .thepress-search-option:hover {
+    background-color: #ececec;
+    color: #666; }
+
+.thepress-promo-roadblock {
+  background-color: #ececec; }
+
+.thepress-promo-block-inner {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  width: 1000px;
+  margin: auto; }
+  .thepress-promo-block-inner h3, .thepress-promo-block-inner h4 {
+    text-align: center; }
+  .thepress-promo-block-inner h5 {
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: bold; }
+    .thepress-promo-block-inner h5:before {
+      background: #999;
+      content: "";
+      display: block;
+      height: 1px;
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      left: 0; }
+    .thepress-promo-block-inner h5 span {
+      background: #fff;
+      padding: 0 25px;
+      position: relative;
+      z-index: 1; }
+
+/*# sourceMappingURL=thepress.css.map */
