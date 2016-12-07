@@ -1,0 +1,72 @@
+/*
+=======================
+Category
+======================= */
+
+/* Nav Hovers */
+
+nav.solid .nav-container ul.main-nav li a:hover,
+nav.solid .nav-container ul.main-nav li a.active {
+  color: #FF5B50 !important;
+}
+
+nav.affix .nav-container ul.main-nav li a:hover,
+nav.affix .nav-container ul.main-nav li a.active,
+nav.nav-sm .nav-container ul.main-nav li a:hover,
+nav.nav-sm .nav-container ul.main-nav li a.active,
+nav.solid.affix .nav-container ul.main-nav li a:hover,
+nav.solid.affix .nav-container ul.main-nav li a.active {
+  color: #FF5B50 !important;
+}
+
+nav.affix .fixed-tools ul li a:hover,
+nav.nav-sm .fixed-tools ul li a:hover {
+  color: #FF5B50 !important;
+}
+
+nav.solid .logo-container .tools ul li.search a:hover i {
+  color: #FF5B50 !important;
+}
+
+/* Header Tweaks */
+
+.header-sm {
+  height: auto !important;
+}
+
+.two-column .sub-header {
+  margin-bottom: 40px;
+  line-height: 26px;
+}
+
+.two-column.two-column-divider .block-padding:after {
+  background-color: rgba(255, 91, 80, 0.50);
+}
+
+.three-column .block:after {
+  background-color: rgba(255, 91, 80, 0.50);
+}
+
+.quad-column .quad-block:after {
+  background-color: rgba(255, 91, 80, 0.50);
+}
+
+.three-column .button-cta {
+  margin-bottom: 0;
+}
+
+.quad-column .button-cta {
+  margin: 0;
+}
+
+.quad-column.quad-column-divider .divider {
+  margin-bottom: 40px !important;
+}
+
+.quad-column .block-container {
+  margin-bottom: 40px;
+}
+
+.contributors .divider span {
+  background-color: #F9F4E4;
+}

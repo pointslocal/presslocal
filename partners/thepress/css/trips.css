@@ -1,0 +1,54 @@
+/*
+=======================
+Trips
+======================= */
+
+/* Nav Hovers */
+
+nav.solid .nav-container ul.main-nav li a:hover,
+nav.solid .nav-container ul.main-nav li a.active {
+  color: #FF944E !important;
+}
+
+nav.affix .nav-container ul.main-nav li a:hover,
+nav.affix .nav-container ul.main-nav li a.active,
+nav.nav-sm .nav-container ul.main-nav li a:hover,
+nav.nav-sm .nav-container ul.main-nav li a.active,
+nav.solid.affix .nav-container ul.main-nav li a:hover,
+nav.solid.affix .nav-container ul.main-nav li a.active {
+  color: #FF944E !important;
+}
+
+nav.affix .fixed-tools ul li a:hover,
+nav.nav-sm .fixed-tools ul li a:hover {
+  color: #FF944E !important;
+}
+
+nav.solid .logo-container .tools ul li.search a:hover i {
+  color: #FF944E !important;
+}
+
+.two-column .divider {
+  margin-bottom: 40px;
+}
+
+.three-column .button-cta {
+  margin-bottom: 0;
+}
+
+.quad-column .quad-block:hover:after {
+  content: '';
+  width: 100%;
+  position: absolute;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 1;
+  background-color: rgba(255, 148, 78, 0.60);
+}
+
+.directory .directory-list .directory-item .directory-pic a:after {
+  background-color: rgba(255, 148, 78, 0.60) !important;
+}
