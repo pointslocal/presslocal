@@ -24,7 +24,7 @@
 <SCRIPT type="text/javascript" lang="javascript" src="http://cdn.gigya.com/JS/gigya.js?apikey=3_BMFZOCwXDrSMoeTYN2uiVIBZhHski0qbm2oj7S3NL2gKLHcAjq-sx3cuKnLVg_pN"></SCRIPT>
   <script src="/includes/lib/mustache/mustache.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script src="/partners/thepress/js/thepressx.js?x=browse&t=<[timestamp]>"></script>
+<script src="/partners/thepress/js/thepressx.js?x=browse&tz=5850439377d45"></script>
 
 <script type="text/javascript"
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-gHN0lD5gfgKu4bp0h6ZPRM_jkCuIHps&libraries=drawing"></script>
@@ -90,9 +90,9 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
             <li class="dropdown login hidden">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">user</a>
               <ul class="dropdown-menu">
-                <li><a href="/my-trip">My Trip</a></li>
-                <li><a href="/my-trips">My Trips</a></li>
-                <li><a href="/logout">Log out</a></li>
+                <li><a href="/my-trip">Current Trip</a></li>
+                <li><a href="/my-trips">Saved Trips</a></li>
+                <li><a href="#" onclick="gigyaLogout();">Log out</a></li>
               </ul>
             </li>
             <li class="chronicle hidden-sm"><a href="http://www.sfchronicle.com/foodandhome/wine/"><img src="/partners/thepress/img/sfchronicle-logo-lg.png" alt="SF Chronicle"></a></li>
@@ -118,9 +118,9 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
         <li class="dropdown login hidden">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><img src="/partners/thepress/img/login-pic.png"></a>
           <ul class="dropdown-menu">
-            <li><a href="/my-trip">My Trip</a></li>
-            <li><a href="/my-trips">My Trips</a></li>
-            <li><a href="#">Log out</a></li>
+            <li><a href="/my-trip">Current Trip</a></li>
+            <li><a href="/my-trips">Saved Trips</a></li>
+            <li><a href="#" onclick="gigyaLogout();">Log out</a></li>
           </ul>
         </li>
         <li class="chronicle"><a href="#"><img src="/partners/thepress/img/sfchronicle-logo.png" alt="SF Chronicle"></a></li>
@@ -268,9 +268,10 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
 </div>
 
 
-  <link rel="stylesheet" href="css/stories.css">
+  <!-- #275_STORIES LIST -->
+<link rel="stylesheet" href="css/stories.css">
 <script>setNav('reviews');</script>
-<header class="header-sm" style="background: url('/image?method=image.icrop&context=stories&id=257&w=1000&h=-1') center center no-repeat; background-size: cover;">
+<header class="header-sm gradient-cover" style="background: url('/image?method=image.icrop&context=stories&id=262&w=1000&h=-1') center center no-repeat; background-size: cover;">
     <div class="subnav bg-red-alpha">
       <ul class="sans-bold">
         <li><a href="#">Napa</a></li>
@@ -278,9 +279,9 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
       </ul>
     </div>
     <div class="cta vert-center">
-      <h1>Rochioli Vineyards and Winery</h1>
+      <h1>Benovia: Cozy Fireside Wine Tasting</h1>
       <p></p>
-      <a href="/story/rochioli-vineyards-and-winery" class="button button-cta serif bg-red-alpha">Read Story</a>
+      <a href="/story/benovia-winery" class="button button-cta serif bg-red-alpha">Read Story</a>
     </div>
   </header>
 
@@ -297,22 +298,22 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
       <div class="row scrollable" id="scroll3">
         
         <div class="col-sm-12 block-container">
-          <a href="/story/about-napa-where-modern-american-wine-began" class="story-container" style="background: url('/image?method=image.icrop&context=stories&id=254&w=1000&h=-1') center center no-repeat; background-size: cover;">
+          <a href="/story/paul-hobbs" class="story-container gradient-cover" style="background: url('/image?method=image.icrop&context=stories&id=263&w=1000&h=-1') center center no-repeat; background-size: cover;">
             <div class="story-content vert-center">
-              <div class="story-label white">Napa</div>
-              <h1 class="white">About Napa: Where Modern American Wine Began</h1>
+              <div class="story-label white">Winery Review</div>
+              <h1 class="white">Paul Hobbs: Formal Seated Tasting</h1>
             </div>
           </a>
           <div class="story-text hidden-xs">
             <p class="sans brown"></p>
-            <span class="date darkOlive"></span>
+            <span class="date darkOlive">December 13, 2016</span>
           </div>
         </div>
         
         <!-- Additional Mobile Scrolling Items (Appear in Three Column Block Below) -->
         <div class="mobile-scroller hidden-sm hidden-md hidden-lg">
           <div class="col-sm-12 block-container">
-            <a href="/story/" class="story-container" style="background: url('img/backgrounds/wine-growers.png') center center no-repeat; background-size: cover;">
+            <a href="/story/" class="story-container gradient-cover" style="background: url('img/backgrounds/wine-growers.png') center center no-repeat; background-size: cover;">
               <div class="story-content vert-center">
                 <div class="story-label white"></div>
                 <h1 class="white">The title of a Featured Story About California Wine Growers</h1>
@@ -353,54 +354,54 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
 </main>
 
     <!-- Two Panel (Side by Side) -->
-    <section class="two-panel container bg-superLightOrange">-
+    <section class="two-panel container bg-superLightOrange">
       
       <div class="row">
         <div class="col-sm-6 no-padding panel-block hidden-xs">
-          <a href="/story/about-sonoma-county-the-land-of-endless-variety"><div class="panel-pic" style="background: url('/image?method=image.icrop&context=stories&id=253&w=1000&h=-1') center center no-repeat; background-size: cover;"></div></a>
+          <a href="/story/la-crema"><div class="panel-pic" style="background: url('/image?method=image.icrop&context=stories&id=264&w=1000&h=-1') center center no-repeat; background-size: cover;"></div></a>
         </div>
         <div class="col-sm-6 panel-padding no-padding">
           <div class="panel-content vert-center">
-            <a href="/story/about-sonoma-county-the-land-of-endless-variety"><img src="/partners/hearst/img/backgrounds/wine-glasses3.png" class="hidden-sm hidden-md hidden-lg"></a>
-            <div class="panel-label lightBrown">Sonoma</div>
-            <h1 class="serif red"><a href="#">About Sonoma County: The Land of Endless Variety</a></h1>
+            <a href="/story/la-crema"><img src="/partners/hearst/img/backgrounds/wine-glasses3.png" class="hidden-sm hidden-md hidden-lg"></a>
+            <div class="panel-label lightBrown">Winery Review</div>
+            <h1 class="serif red"><a href="#">La Crema: Scenic Saralee Vineyard</a></h1>
             <p class="sans-bold brown"></p>
-            <span class="date darkOlive"></span>
+            <span class="date darkOlive">December 13, 2016</span>
           </div>
         </div>
       </div>
       
     </section>
-
+<!-- #275_/STORIES LIST -->
 
   <div class="oldmain">
 
   
 
-  
+  <!-- #thepress-featured-stories-continued -->
 <section class="two-column two-column-divider no-padding container">
       <div class="row scrollable" id="scroll1">
         
         <div class="col-sm-6 block-container">
-          <a href="/story/top-restaurants-in-yountville" class="block-padding" style="background: url('/image?method=image.icrop&context=stories&id=256&w=600&h=-1') center center no-repeat; background-size: cover;">
+          <a href="/story/banshee-wines-cool-kids-and-fine-wine" class="block-padding gradient-cover" style="background: url('/image?method=image.icrop&context=stories&id=260&w=600&h=-1') center center no-repeat; background-size: cover;">
             <div class="block-content vert-center">
-              <h3 class="white">Top Restaurants in Yountville</h3>
+              <h3 class="white">Banshee Wines: Cool Kids and Fine Wine</h3>
             </div>
           </a>
           <div class="block-text">
-            <div class="block-label lightBrown">Food</div>
+            <div class="block-label lightBrown">Winery Review</div>
             <p class="sans brown">...</p>
           </div>
         </div>
         
         <div class="col-sm-6 block-container">
-          <a href="/story/where-to-eat-in-healdsburg" class="block-padding" style="background: url('/image?method=image.icrop&context=stories&id=252&w=600&h=-1') center center no-repeat; background-size: cover;">
+          <a href="/story/rochioli-vineyards-and-winery" class="block-padding gradient-cover" style="background: url('/image?method=image.icrop&context=stories&id=257&w=600&h=-1') center center no-repeat; background-size: cover;">
             <div class="block-content vert-center">
-              <h3 class="white">Where to Eat in Healdsburg</h3>
+              <h3 class="white">Rochioli: Family Winemaking History</h3>
             </div>
           </a>
           <div class="block-text">
-            <div class="block-label lightBrown">Food</div>
+            <div class="block-label lightBrown">Winery Review</div>
             <p class="sans brown">...</p>
           </div>
         </div>
@@ -415,56 +416,29 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
       <div class="row">
       
         <div class="col-sm-4 the-column">
-          <a href="/story/california-sparkling-wine" class="block" style="background: url('/image?method=image.icrop&context=stories&id=249&w=500&h=-1') center center no-repeat; background-size: cover;"></a>
-          <div class="block-label lightBrown">Wine Facts</div>
+          <a href="/story/about-napa-where-modern-american-wine-began" class="block gradient-cover" style="background: url('/image?method=image.icrop&context=stories&id=254&w=500&h=-1') center center no-repeat; background-size: cover;"></a>
+          <div class="block-label lightBrown">Napa</div>
           <div class="block-content">
-            <h4 class="sans-bold red"><a href="/story/california-sparkling-wine">California Sparkling Wine: What You Need to Know Before Popping the Cork</a></h4>
-            <span class="date darkOlive"></span>
+            <h4 class="sans-bold red"><a href="/story/about-napa-where-modern-american-wine-began">About Napa: Where Modern American Wine Began</a></h4>
+            <span class="date darkOlive">November 17, 2016</span>
           </div>
         </div>
         
         <div class="col-sm-4 the-column">
-          <a href="/story/zinfandel" class="block" style="background: url('/image?method=image.icrop&context=stories&id=248&w=500&h=-1') center center no-repeat; background-size: cover;"></a>
-          <div class="block-label lightBrown">Wine Facts</div>
+          <a href="/story/about-sonoma-county-the-land-of-endless-variety" class="block gradient-cover" style="background: url('/image?method=image.icrop&context=stories&id=253&w=500&h=-1') center center no-repeat; background-size: cover;"></a>
+          <div class="block-label lightBrown">Sonoma</div>
           <div class="block-content">
-            <h4 class="sans-bold red"><a href="/story/zinfandel">Zinfandel: California's Heritage Grape</a></h4>
-            <span class="date darkOlive"></span>
+            <h4 class="sans-bold red"><a href="/story/about-sonoma-county-the-land-of-endless-variety">About Sonoma County: The Land of Endless Variety</a></h4>
+            <span class="date darkOlive">November 17, 2016</span>
           </div>
         </div>
         
         <div class="col-sm-4 the-column">
-          <a href="/story/chardonnay" class="block" style="background: url('/image?method=image.icrop&context=stories&id=247&w=500&h=-1') center center no-repeat; background-size: cover;"></a>
-          <div class="block-label lightBrown">Wine Facts</div>
+          <a href="/story/downtown-napa-s-sizzling-restaurant-scene" class="block gradient-cover" style="background: url('/image?method=image.icrop&context=stories&id=255&w=500&h=-1') center center no-repeat; background-size: cover;"></a>
+          <div class="block-label lightBrown">Food</div>
           <div class="block-content">
-            <h4 class="sans-bold red"><a href="/story/chardonnay">Chardonnay: The Great White Grape</a></h4>
-            <span class="date darkOlive"></span>
-          </div>
-        </div>
-        
-        <div class="col-sm-4 the-column">
-          <a href="/story/oshaughnessy-estate-winery" class="block" style="background: url('/image?method=image.icrop&context=stories&id=246&w=500&h=-1') center center no-repeat; background-size: cover;"></a>
-          <div class="block-label lightBrown">Winery Review</div>
-          <div class="block-content">
-            <h4 class="sans-bold red"><a href="/story/oshaughnessy-estate-winery">O'Shaughnessy Estate Winery: Old World Influence, New World Wines</a></h4>
-            <span class="date darkOlive"></span>
-          </div>
-        </div>
-        
-        <div class="col-sm-4 the-column">
-          <a href="/story/about-a-grape-cabernet-sauvignon" class="block" style="background: url('/image?method=image.icrop&context=stories&id=245&w=500&h=-1') center center no-repeat; background-size: cover;"></a>
-          <div class="block-label lightBrown">Wine Facts</div>
-          <div class="block-content">
-            <h4 class="sans-bold red"><a href="/story/about-a-grape-cabernet-sauvignon">Cabernet Sauvignon: American's Most Important Grape</a></h4>
-            <span class="date darkOlive"></span>
-          </div>
-        </div>
-        
-        <div class="col-sm-4 the-column">
-          <a href="/story/about-a-grape-pinot-noir" class="block" style="background: url('/image?method=image.icrop&context=stories&id=244&w=500&h=-1') center center no-repeat; background-size: cover;"></a>
-          <div class="block-label lightBrown">Wine Facts</div>
-          <div class="block-content">
-            <h4 class="sans-bold red"><a href="/story/about-a-grape-pinot-noir">Pinot Noir: The Heartbreak Grape</a></h4>
-            <span class="date darkOlive"></span>
+            <h4 class="sans-bold red"><a href="/story/downtown-napa-s-sizzling-restaurant-scene">Downtown Napa's Sizzling Restaurant Scene</a></h4>
+            <span class="date darkOlive">November 17, 2016</span>
           </div>
         </div>
         
@@ -541,7 +515,49 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
         </div>
       </div>          
 
-  
+<!--/#thepress-featured-stories-continued-->
+
+  <section class="contributors bg-superLightOrange" style="background: url('img/backgrounds/illustration2.png') #F9F4E4 center 50px no-repeat; background-size: contain;">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <h2 class="divider divider-xs red"><span>Contributors</span></h2>
+          </div>
+        </div>
+        <div class="row avatar-wrapper">
+          <div class="col-sm-4 avatar-container">
+            <a href="contributor.php"><div class="avatar" style="background: url('/image?method=image.icrop&context=story.author&id=1&w=200&h=200') #FF5B50 center center no-repeat; background-size: cover;"></div></a>
+            <h2 class="serif brown">Esther Mobley</h2>
+            <p class="sans-bold brown">Writer</p>
+          </div>
+          <div class="col-sm-4 avatar-container">
+            <a href="contributor.php"><div class="avatar" style="background: url('/image?method=image.icrop&context=story.author&id=2&w=200&h=200') #FF5B50 center center no-repeat; background-size: cover;"></div></a>
+            <h2 class="serif brown">Stacy Briscoe</h2>
+            <p class="sans-bold brown">Content Producer &amp; Editor</p>
+          </div>
+          <div class="col-sm-4 avatar-container">
+            <a href="contributor.php"><div class="avatar" style="background: url('/image?method=image.icrop&context=story.author&id=3&w=200&h=200') #FF5B50 center center no-repeat; background-size: cover;"></div></a>
+            <h2 class="serif brown">Julie Albin</h2>
+            <p class="sans-bold brown">Writer</p>
+          </div>
+          <div class="col-sm-4 avatar-container">
+            <a href="contributor.php"><div class="avatar" style="background: url('/image?method=image.icrop&context=story.author&id=4&w=200&h=200') #FF5B50 center center no-repeat; background-size: cover;"></div></a>
+            <h2 class="serif brown">Carey Sweet</h2>
+            <p class="sans-bold brown">Writer</p>
+          </div>
+          <div class="col-sm-4 avatar-container">
+            <a href="contributor.php"><div class="avatar" style="background: url('/image?method=image.icrop&context=story.author&id=5&w=200&h=200') #FF5B50 center center no-repeat; background-size: cover;"></div></a>
+            <h2 class="serif brown">Bryce Wiatrak</h2>
+            <p class="sans-bold brown">Writer</p>
+          </div>
+          <div class="col-sm-4 avatar-container">
+            <a href="contributor.php"><div class="avatar" style="background: url('/image?method=image.icrop&context=story.author&id=6&w=200&h=200') #FF5B50 center center no-repeat; background-size: cover;"></div></a>
+            <h2 class="serif brown">Michael Bauer</h2>
+            <p class="sans-bold brown">Writer</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
   
 
@@ -638,4 +654,4 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
     <script src="/partners/thepress/js/map.js?1470683612"></script>
     <script src="/partners/thepress/js/index.js?1467835203"></script>
   </body>
-</html><!-- Cannot open <b>/mnt/pointslocal-app/partners/thepress/templates/site/media/media_stream.template</b> --><!-- --><!-- from cache -->
+</html><!-- Cannot open <b>/mnt/pointslocal-app/partners/thepress/templates/site/media/media_stream.template</b> --><!-- -->
