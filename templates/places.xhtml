@@ -25,7 +25,7 @@
 <SCRIPT type="text/javascript" lang="javascript" src="http://cdn.gigya.com/JS/gigya.js?apikey=3_BMFZOCwXDrSMoeTYN2uiVIBZhHski0qbm2oj7S3NL2gKLHcAjq-sx3cuKnLVg_pN"></SCRIPT>
   <script src="/includes/lib/mustache/mustache.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script src="/partners/thepress/js/thepressx.js?x=browse&t=<[timestamp]>"></script>
+<script src="/partners/thepress/js/thepressx.js?x=browse&tz=585041ea9245a"></script>
 
 <script type="text/javascript"
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-gHN0lD5gfgKu4bp0h6ZPRM_jkCuIHps&libraries=drawing"></script>
@@ -91,9 +91,9 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
             <li class="dropdown login hidden">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">user</a>
               <ul class="dropdown-menu">
-                <li><a href="/my-trip">My Trip</a></li>
-                <li><a href="/my-trips">My Trips</a></li>
-                <li><a href="/logout">Log out</a></li>
+                <li><a href="/my-trip">Current Trip</a></li>
+                <li><a href="/my-trips">Saved Trips</a></li>
+                <li><a href="#" onclick="gigyaLogout();">Log out</a></li>
               </ul>
             </li>
             <li class="chronicle hidden-sm"><a href="http://www.sfchronicle.com/foodandhome/wine/"><img src="/partners/thepress/img/sfchronicle-logo-lg.png" alt="SF Chronicle"></a></li>
@@ -119,9 +119,9 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
         <li class="dropdown login hidden">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><img src="/partners/thepress/img/login-pic.png"></a>
           <ul class="dropdown-menu">
-            <li><a href="/my-trip">My Trip</a></li>
-            <li><a href="/my-trips">My Trips</a></li>
-            <li><a href="#">Log out</a></li>
+            <li><a href="/my-trip">Current Trip</a></li>
+            <li><a href="/my-trips">Saved Trips</a></li>
+            <li><a href="#" onclick="gigyaLogout();">Log out</a></li>
           </ul>
         </li>
         <li class="chronicle"><a href="#"><img src="/partners/thepress/img/sfchronicle-logo.png" alt="SF Chronicle"></a></li>
@@ -269,7 +269,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
 </div>
 
 
-  <!-- WINERIES PAGE -->
+  <!-- #267_WINERIES PAGE -->
 <script>setNav('places');</script>
 
 <header class="gradient-cover header-sm" style="background: url('/image?method=image.icrop&context=venue&id=351&w=1600&h=-1') center center no-repeat; background-size: cover;">
@@ -287,7 +287,6 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
     </div>
   </header>
 
-
 <main>
 
 <section class="two-column two-column-divider container no-padding">
@@ -300,6 +299,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
 
         <div class="col-sm-6  block-container">
           <a href="/place/delectus-winery" class="block-padding gradient-cover" style="background: url('/image?method=image.icrop&context=venue&id=1302&w=1600&h=-1') center center no-repeat; background-size: cover;">
+    <div class="block-label white"></div>
             <div class="block-content vert-center">
               <h3 class="white">Delectus Winery</h3>
             </div>
@@ -313,6 +313,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
 
         <div class="col-sm-6  block-container">
           <a href="/place/dry-creek-vineyard" class="block-padding gradient-cover" style="background: url('/image?method=image.icrop&context=venue&id=650&w=1600&h=-1') center center no-repeat; background-size: cover;">
+    <div class="block-label white"></div>
             <div class="block-content vert-center">
               <h3 class="white">Dry Creek Vineyard</h3>
             </div>
@@ -347,7 +348,10 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
             </a>
             <div class="block-text">
               <h4 class="sans lightBrown"><a href="/place/ferrari-carano-vineyards-winery">Ferrari-Carano Vineyards &amp; Winery</a></h4>
-              <p class="sans brown"><p>
+              <p class="sans brown"><p>Founded in 1981, Ferrari-Carano, located in Sonoma COunty's Dry Creek Valley, is the dream and hard work of Don and Rhonda Carano. Remarkable wines, vintage after vintage.</p>
+
+<p> </p>
+</p>
             </div>
           </div>
 
@@ -381,7 +385,10 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
             </a>
             <div class="block-text">
               <h4 class="sans lightBrown"><a href="/place/inman-family-wines">Inman Family Wines</a></h4>
-              <p class="sans brown"></p>
+              <p class="sans brown"><p>At <strong>Inman Family Wines</strong> we practice "sensitive farming" and "natural winemaking", growing grapes and making wine in Sonoma County's Russian River Valley.</p>
+
+<p> </p>
+</p>
             </div>
           </div>
 
@@ -390,7 +397,8 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
             </a>
             <div class="block-text">
               <h4 class="sans lightBrown"><a href="/place/kenwood-vineyards">Kenwood Vineyards</a></h4>
-              <p class="sans brown"></p>
+              <p class="sans brown"><p>Founded in 1970, <strong>Kenwood</strong> has established itself as a producer of premium quality California <strong>wines</strong>. Three of the <strong>vineyards</strong> are certified organic.</p>
+</p>
             </div>
           </div>
 
@@ -399,12 +407,18 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
             </a>
             <div class="block-text">
               <h4 class="sans lightBrown"><a href="/place/ledson-winery-vineyards">Ledson Winery &amp; Vineyards</a></h4>
-              <p class="sans brown"></p>
+              <p class="sans brown"><p>We specialize in small varietal lots that reflect the genuine diversity of our select vineyards and appellations. Ledson wines are sold exclusively at the winery in Kenwood, in our online store, and at the Ledson Hotel in Sonoma.<br />
+ </p>
+</p>
             </div>
           </div>
 
         </div>
     </section>
+</main>
+
+
+<!-- #267_/WINERIES PAGE -->
 
   <div class="oldmain">
 
@@ -431,7 +445,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
         <div class="container">
           <div class="row">
             <div class="col-sm-4 directory-label">
-              <h3 class="sans-bold brown">Napa Wineries</h3><span class="num-label lightBrown">200 Listings</span>
+              <h3 class="sans-bold brown">Napa Wineries</h3><span class="num-label lightBrown"><span id="winery-directory-total-count"></span> Listings</span>
             </div>
             <div class="col-sm-8 directory-tools">
               <ul class="tools-container hidden-xs hidden-sm">
@@ -544,7 +558,7 @@ function updateDirectory(opt) {
     for(i=0;i<d.items.length;i++) {
       it = d.items[i];
       myLatLng = {lat: parseFloat(it.latitude), lng: parseFloat(it.longitude)};
-
+  $('#winery-directory-total-count').text(d.items.length * d.pages);
        marker = new google.maps.Marker({
         position: myLatLng,
         map: map,
@@ -688,4 +702,4 @@ $(document).ready(function() {
     <script src="/partners/thepress/js/map.js?1470683612"></script>
     <script src="/partners/thepress/js/index.js?1467835203"></script>
   </body>
-</html><!-- Cannot open <b>/mnt/pointslocal-app/partners/thepress/templates/site/media/media_stream.template</b> --><!-- -->
+</html><!-- Cannot open <b>/mnt/pointslocal-app/partners/thepress/templates/site/media/media_stream.template</b> --><!-- --><!-- from cache -->

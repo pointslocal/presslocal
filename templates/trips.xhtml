@@ -24,7 +24,7 @@
 <SCRIPT type="text/javascript" lang="javascript" src="http://cdn.gigya.com/JS/gigya.js?apikey=3_BMFZOCwXDrSMoeTYN2uiVIBZhHski0qbm2oj7S3NL2gKLHcAjq-sx3cuKnLVg_pN"></SCRIPT>
   <script src="/includes/lib/mustache/mustache.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script src="/partners/thepress/js/thepressx.js?x=browse&t=<[timestamp]>"></script>
+<script src="/partners/thepress/js/thepressx.js?x=browse&tz=584efbef0fb03"></script>
 
 <script type="text/javascript"
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-gHN0lD5gfgKu4bp0h6ZPRM_jkCuIHps&libraries=drawing"></script>
@@ -90,9 +90,9 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
             <li class="dropdown login hidden">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">user</a>
               <ul class="dropdown-menu">
-                <li><a href="/my-trip">My Trip</a></li>
-                <li><a href="/my-trips">My Trips</a></li>
-                <li><a href="/logout">Log out</a></li>
+                <li><a href="/my-trip">Current Trip</a></li>
+                <li><a href="/my-trips">Saved Trips</a></li>
+                <li><a href="#" onclick="gigyaLogout();">Log out</a></li>
               </ul>
             </li>
             <li class="chronicle hidden-sm"><a href="http://www.sfchronicle.com/foodandhome/wine/"><img src="/partners/thepress/img/sfchronicle-logo-lg.png" alt="SF Chronicle"></a></li>
@@ -118,9 +118,9 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
         <li class="dropdown login hidden">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><img src="/partners/thepress/img/login-pic.png"></a>
           <ul class="dropdown-menu">
-            <li><a href="/my-trip">My Trip</a></li>
-            <li><a href="/my-trips">My Trips</a></li>
-            <li><a href="#">Log out</a></li>
+            <li><a href="/my-trip">Current Trip</a></li>
+            <li><a href="/my-trips">Saved Trips</a></li>
+            <li><a href="#" onclick="gigyaLogout();">Log out</a></li>
           </ul>
         </li>
         <li class="chronicle"><a href="#"><img src="/partners/thepress/img/sfchronicle-logo.png" alt="SF Chronicle"></a></li>
@@ -635,13 +635,13 @@ $(document).ready(function() {
               </div>
               <div class="directory-buttons hidden-sm hidden-md hidden-lg">
                 <ul>
-                  <li><a href="#" class="button button-xs sans-bold bg-lightOrange">Add To Trip</a></li>
+                  <li><a href="#" class="button button-xs sans-bold bg-olive">Add To Trip</a></li>
                   <li><a href="#" class="sans-bold orange"><i class="fa fa-map-o"></i> Map</a></li>
                 </ul>
               </div>
             </div>
             <div class="col-xs-3 directory-button hidden-xs">
-              <a href="#" onclick="addTrip({id: {{id}}, type:'venue',name: '{{name}}', lat: {{latitude}}, lon: {{longitude}} }, this);" class="button button-xs sans-bold bg-lightOrange">Add To Trip</a>
+              <a href="#" onclick="addTrip({id: {{id}}, type:'venue',name: '{{name}}', lat: {{latitude}}, lon: {{longitude}} }, this);" class="button button-xs sans-bold bg-olive">Add To Trip</a>
               <a style="display:none;" href="#" class="sans-bold orange">Website</a>
               <a style="display:none;" href="#" class="sans-bold orange"><i class="fa fa-location-arrow"></i> Directions</a>
             </div>
@@ -823,4 +823,4 @@ $(document).ready(function() {
     <script src="/partners/thepress/js/map.js?1470683612"></script>
     <script src="/partners/thepress/js/index.js?1467835203"></script>
   </body>
-</html><!-- Cannot open <b>/mnt/pointslocal-app/partners/thepress/templates/site/media/media_stream.template</b> --><!-- --><!-- from cache -->
+</html><!-- Cannot open <b>/mnt/pointslocal-app/partners/thepress/templates/site/media/media_stream.template</b> --><!-- -->
