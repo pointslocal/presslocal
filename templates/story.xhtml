@@ -8,12 +8,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>The Press</title>
 
-  <meta property="og:type" content="<[_ogtype]>" /> 
-  <meta property="og:url" content="<[_ogurl]>" /> 
-  <meta property="og:image" content="<[_ogimage]>" /> 
-  <meta property="place:location:latitude"  content="<[_oglatitude]>" /> 
-  <meta property="place:location:longitude" content="<[_oglongitude]>" /> 
-  <meta property="og:title" content="<[_ogtitle]>" /> 
+  <meta property="og:type" content="<[_ogtype]>" />
+  <meta property="og:url" content="<[_ogurl]>" />
+  <meta property="og:image" content="<[_ogimage]>" />
+  <meta property="place:location:latitude"  content="<[_oglatitude]>" />
+  <meta property="place:location:longitude" content="<[_oglongitude]>" />
+  <meta property="og:title" content="<[_ogtitle]>" />
     <link rel="shortcut icon" href="/partners/thepress/img/thepress-logo-sm.png" />
     <meta name="description" content="">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
@@ -40,7 +40,7 @@ tripsExist = JSON.parse(localStorage.getItem('trips'));
 console.log(tripsExist);
 if (tripsExist && tripsExist.length > 0) {
   $(document).ready(function() {
-    $('.my-trip-inactive').removeClass('my-trip-inactive'); 
+    $('.my-trip-inactive').removeClass('my-trip-inactive');
   })
 
 }
@@ -71,7 +71,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
 </script>
 
   <!-- nav area -->
-  
+
 
 <!-- Mobile Dropdown Menu -->
 <nav class="mobile-dropdown hidden-sm hidden-md hidden-lg">
@@ -106,7 +106,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true sans">&times;</span></button>
         <h4 class="sans-bold brownmodal-title">Login</h4>
         <p class="sans brown">Welcome back. If you already have an account with us, please login below.</p>
-        <p class="sans error" id="login-error"></p>        
+        <p class="sans error" id="login-error"></p>
       </div>
       <div class="modal-body">
         <form class="signinForm">
@@ -140,13 +140,13 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
           <div>Passwords must be at least 8 characters, contain upper and lowercase letters and at least one number.</div>
           <div class="form-group">
             <input id="register-username" type="text" placeholder="Username">
-          </div>          
+          </div>
           <div class="form-group">
             <input id="register-password" type="password" placeholder="Password">
           </div>
           <div class="form-group">
             <input id="register-password2" type="password" placeholder="Password (Repeat)">
-          </div>          
+          </div>
         </form>
       </div>
        <div class="modal-buttons">
@@ -185,13 +185,13 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
           <div class="form-group">
             <input id="register-email" type="email" placeholder="Email Address">
           </div>
-      
 
-        
+
+
         </form>
       </div>
        <div class="modal-buttons">
-        <button onclick="showModal('login');" type="submit" class="button button-xs bg-olive sans-bold">Cancel</button>   
+        <button onclick="showModal('login');" type="submit" class="button button-xs bg-olive sans-bold">Cancel</button>
       </div>
     </div>
   </div>
@@ -276,7 +276,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
     </div>
   </header>
 
-
+<main>
 
     <!-- Single Toolbar Module -->
     <section class="single-toolbar container">
@@ -285,7 +285,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
           <span class="sponsor-label lightBrown" style="display:none;">sponsored by:</span>
         </div>
         <div class="col-sm-6 toolbar-author">
-          <div class="author-label sans-bold brown">Stacy Briscoe</div>
+          <div class="author-label sans-bold brown">by <span>Stacy Briscoe</span></div>
         </div>
         <div class="col-sm-3 toolbar-options">
           <ul>
@@ -406,11 +406,11 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
             <article class="more" style="display:none;">
               <h4 class="sans-bold brown sidebar-title">More Information</h4>
               <ul>
-                
+
               </ul>
             </article>
 
-          
+
 
           </div>
 
@@ -461,7 +461,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
           <div id="story-venue-mentions-mmap"></div>
         </div>
       </div>
- 
+
 
     </section>
 
@@ -481,7 +481,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
           console.log('item:'+item)
           var infowindow = new google.maps.InfoWindow({
             content: Mustache.render(StoryVenueEventMapTemplate,item)
-          });          
+          });
           console.log('content:'+infowindow.content);
           map.setCenter({lat: parseFloat(lat), lng: parseFloat(lon)});
           var marker = new google.maps.Marker({
@@ -549,30 +549,30 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
       </div>
     </section>
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
 
 <div style="text-align:center;">
  <!-- hearst/ads/full_banner_A728.tpl -->
     <!-- hmb:a728 full banner A728 ad -->
     <div id="ctpl-fullbanner1" class="ctpl-fullbanner fixed" data-collapse-timer="10">
     <div id="A728" class="ad_deferrable"><script type="text/javascript">/*<![CDATA[*/ hearstPlaceAd("A728"); /*]]>*/</script></div>
-    
+
     <script>
     (function() {
         var checkCount = 120;
@@ -600,13 +600,13 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
         }, 1000);
     })();
     </script>
-    
+
     </div>
 <!-- e hearst/ads/full_banner_A728.tpl -->
 </div>
 
   </div>
-
+  </main>
         <footer>
         <div class="container">
           <div class="row">

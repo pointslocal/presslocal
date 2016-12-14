@@ -1,1 +1,3 @@
 serve.go
+.DS_Store
+.sass-cache
