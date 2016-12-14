@@ -145,6 +145,12 @@ nav.solid .logo-container .tools ul li.search a:hover i {
   margin: 35px 0 25px 0;
 }
 
+.single-content .single-body h3,
+.single-content .single-body h4.
+.single-content .single-body h5 {
+  margin: 10px 0;
+}
+
 .single-content .single-body p {
   line-height: 28px;
 }
@@ -165,6 +171,27 @@ nav.solid .logo-container .tools ul li.search a:hover i {
 
 .single-content .single-body article img {
   width: auto;
+}
+
+.single-content .single-body #video-main {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  padding-top: 25px;
+  height: 0;
+}
+
+.single-content .single-body iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.single-content .single-body #video-list img {
+  width: auto;
+  margin: 0 auto;
+  display: block;
 }
 
 .quad-column .quad-block:after {
@@ -230,15 +257,15 @@ nav.solid .logo-container .tools ul li.search a:hover i {
   }
   .single-toolbar .toolbar-options ul {
     width: 100%;
-    max-width: 350px;
     float: none;
-    display: table;
-    margin: 0 auto;
+    display: inline-block;
+    margin: 10px auto 0 auto;
+    text-align: center;
   }
   .single-toolbar .toolbar-options ul li {
-    display: table-cell;
+    display: inline-block;
     float: none;
-    text-align: center;
+    margin-left: 5px;
   }
 }
 
@@ -260,10 +287,6 @@ nav.solid .logo-container .tools ul li.search a:hover i {
   }
   .single-toolbar .toolbar-container {
     padding-bottom: 15px;
-  }
-  .single-toolbar .toolbar-options ul {
-    max-width: 110px;
-    margin-top: 10px;
   }
   .single-content .related-stories .story-container {
     min-height: 50px;

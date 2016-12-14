@@ -8,18 +8,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>The Press</title>
 
-  <meta property="og:type" content="place" /> 
-  <meta property="og:url" content="/place/chimney-rock-winery" /> 
-  <meta property="og:image" content="/image?method=image.icrop&context=venue&id=351&w=2000&h=800" /> 
-  <meta property="place:location:latitude"  content="38.3825" /> 
-  <meta property="place:location:longitude" content="-122.312" /> 
-  <meta property="og:title" content="Chimney Rock Winery" /> 
+  <meta property="og:type" content="place" />
+  <meta property="og:url" content="/place/chimney-rock-winery" />
+  <meta property="og:image" content="/image?method=image.icrop&context=venue&id=351&w=2000&h=800" />
+  <meta property="place:location:latitude"  content="38.3825" />
+  <meta property="place:location:longitude" content="-122.312" />
+  <meta property="og:title" content="Chimney Rock Winery" />
     <link rel="shortcut icon" href="/partners/thepress/img/thepress-logo-sm.png" />
     <meta name="description" content="">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="/partners/thepress/css/global.css">
     <link rel="stylesheet" href="/partners/thepress/css/index.css">
+    <link rel="stylesheet" href="/partners/thepress/css/single-winery.css">
   <script type="text/javascript" id="adPositionManagerScriptTag" src="http://aps.hearstnp.com/Scripts/loadAds.js"></script>
 <SCRIPT type="text/javascript" lang="javascript" src="http://cdn.gigya.com/JS/gigya.js?apikey=3_BMFZOCwXDrSMoeTYN2uiVIBZhHski0qbm2oj7S3NL2gKLHcAjq-sx3cuKnLVg_pN"></SCRIPT>
   <script src="/includes/lib/mustache/mustache.min.js"></script>
@@ -40,7 +41,7 @@ tripsExist = JSON.parse(localStorage.getItem('trips'));
 console.log(tripsExist);
 if (tripsExist && tripsExist.length > 0) {
   $(document).ready(function() {
-    $('.my-trip-inactive').removeClass('my-trip-inactive'); 
+    $('.my-trip-inactive').removeClass('my-trip-inactive');
   })
 
 }
@@ -144,7 +145,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true sans">&times;</span></button>
         <h4 class="sans-bold brownmodal-title">Login</h4>
         <p class="sans brown">Welcome back. If you already have an account with us, please login below.</p>
-        <p class="sans error" id="login-error"></p>        
+        <p class="sans error" id="login-error"></p>
       </div>
       <div class="modal-body">
         <form class="signinForm">
@@ -178,13 +179,13 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
           <div>Passwords must be at least 8 characters, contain upper and lowercase letters and at least one number.</div>
           <div class="form-group">
             <input id="register-username" type="text" placeholder="Username">
-          </div>          
+          </div>
           <div class="form-group">
             <input id="register-password" type="password" placeholder="Password">
           </div>
           <div class="form-group">
             <input id="register-password2" type="password" placeholder="Password (Repeat)">
-          </div>          
+          </div>
         </form>
       </div>
        <div class="modal-buttons">
@@ -223,13 +224,13 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
           <div class="form-group">
             <input id="register-email" type="email" placeholder="Email Address">
           </div>
-      
 
-        
+
+
         </form>
       </div>
        <div class="modal-buttons">
-        <button onclick="showModal('login');" type="submit" class="button button-xs bg-olive sans-bold">Cancel</button>   
+        <button onclick="showModal('login');" type="submit" class="button button-xs bg-olive sans-bold">Cancel</button>
       </div>
     </div>
   </div>
@@ -249,7 +250,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
 </div>
 
 
-  
+
 
   <div class="oldmain">
 
@@ -268,7 +269,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
 </style>
 <script>$(document).ready(function() {setNav('places');});</script>
 
-<link rel="stylesheet" href="/partners/thepress/css/single-winery.css">
+
 <header class="header-single">
     <div class="container">
       <div class="row">
@@ -278,21 +279,21 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
         </div>
       </div>
     </div>
-    <div class="container-fluid " >
-      <div class="row scrollable" id="scroll1"><div class="scroller" style="width: 3948px; transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1); transition-duration: 0ms; transform: translate(0px, 0px) translateZ(0px);">
-        <div class="slide block-container" style="width: 1316px; float: left;">
+    <div class="container-fluid">
+      <div class="row scrollable" id="scroll1">
+        <div class="slide block-container">
           <div class="item" style="background: url('/image?method=image.icrop&context=venue&id=351&w=2000&h=800') center center no-repeat; background-size: cover;"></div>
         </div>
-        <div class="slide block-container" style="width: 1316px; float: left;">
-          <div class="item" style="background: url('img/headers/single-winery1.png') center center no-repeat; background-size: cover;"></div>
+        <div class="slide block-container">
+          <div class="item" style="background: url('/image?method=image.icrop&context=venue&id=351&w=2000&h=800') center center no-repeat; background-size: cover;"></div>
         </div>
-        <div class="slide block-container" style="width: 1316px; float: left;">
-          <div class="item" style="background: url('img/headers/single-winery1.png') center center no-repeat; background-size: cover;"></div>
+        <div class="slide block-container">
+          <div class="item" style="background: url('/image?method=image.icrop&context=venue&id=351&w=2000&h=800') center center no-repeat; background-size: cover;"></div>
         </div>
-      </div></div>
-      <div class="indicators" style="display:none;">
-        <div id="indicator" class=" iScrollLoneScrollbar">
-          <div id="dotty" style="transition-duration: 0ms; display: block; transform: translate(0px, 0px) translateZ(0px); transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1);"></div>
+      </div>
+      <div class="indicators">
+        <div id="indicator">
+        	<div id="dotty"></div>
         </div>
       </div>
     </div>
@@ -312,9 +313,9 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
             <li class="hidden-sm hidden-md hidden-lg"><a href="#" onclick="addTrip({type:'venue',name: '', lat: 38.3825, lon: -122.312 }, this)" class="button button-xs bg-olive">Add to Trip</a></li>
             <li><a class="sans-bold olive" href="http://www.chimneyrock.com/">Website</a></li>
             <li style="display:none;"><a class="sans-bold olive" href="#"><i class="fa fa-location-arrow"></i> Directions</a></li>
-            <li class="social-label lightBrown hidden-xs">share</li>
-            <li class="social hidden-xs"><a class="olive" href="https://twitter.com/home?status=57ea88bcb96ef:%20http://thepress.pointslocal.com/place/chimney-rock-winery"><i class="fa fa-twitter"></i></a></li>
-            <li class="social hidden-xs"><a class="olive" href="http://www.facebook.com/sharer.php?u=http://thepress.pointslocal.com/place/chimney-rock-winery"><i class="fa fa-facebook-square"></i></a></li>
+            <li class="social-label lightBrown">share</li>
+            <li class="social"><a class="olive" href="https://twitter.com/home?status=57ea88bcb96ef:%20http://thepress.pointslocal.com/place/chimney-rock-winery"><i class="fa fa-twitter"></i></a></li>
+            <li class="social"><a class="olive" href="http://www.facebook.com/sharer.php?u=http://thepress.pointslocal.com/place/chimney-rock-winery"><i class="fa fa-facebook-square"></i></a></li>
           </ul>
         </div>
       </div>
@@ -360,13 +361,13 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
               });
               </script>
               </div>
-            </article>          
+            </article>
 
 
             <div class="row">
               <div class="col-sm-12">
                 <h2 class="sans-bold brown">The Press Reviews</h2>
-              </div>    
+              </div>
               <div class="col-sm-12 block-container">
                 <a href="/story/chimney-rock-winery" class="block-padding" style="background: url('/image?method=image.icrop&context=stories&id=160&w=400&h=300') center center no-repeat; background-size: cover;"></a>
                 <div class="block-text">
@@ -384,25 +385,25 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
 
 
             <div class="row">
-  
 
-              
+
+
               <div class="col-sm-12 block-container">
 
                   <div style="text-align:center;margin-top: 10px;">
-                    <a style="margin-right:5px;" class="button button-xs sans-bold bg-olive" href="#" onclick="openModal('https://www.cellarpass.com/chimney-rock-winery-profile?ID=449&iframe=3&')">Book Now</a> 
-                    <a class="button button-xs sans-bold bg-olive" href="/book/chimney-rock-winery">Buy Tickets</a>                    
+                    <a style="margin-right:5px;" class="button button-xs sans-bold bg-olive" href="#" onclick="openModal('https://www.cellarpass.com/chimney-rock-winery-profile?ID=449&iframe=3&')">Book Now</a>
+                    <a class="button button-xs sans-bold bg-olive" href="/book/chimney-rock-winery">Buy Tickets</a>
                   </div>
               </div>
-              
+
             </div>
 
 
             <div class="row">
               <div class="col-sm-12">
                 <h2 class="sans-bold brown">Videos</h2>
-              </div>            
-              
+              </div>
+
               <div class="col-sm-9">
                   <div id="video-main"></div>
               </div>
@@ -419,7 +420,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
                 </div>
                 <script> startVideos();</script>
               </div>
-              
+
             </div>
 
           </div>
@@ -453,7 +454,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
               <div class="row">
                 <div class="col-xs-5" style="display:none;">
                   <div class="winery-logo">
-                    
+
                   </div>
                 </div>
                 <div class="col-xs-12">
@@ -483,7 +484,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
       initLon = _LON;
     } else {
       initLat = parseFloat(initLat);
-      initLon = parseFloat(initLon);      
+      initLon = parseFloat(initLon);
     }
     map = new google.maps.Map(document.getElementById('venue_map'), {
       center: {lat: initLat, lng: initLon},
@@ -563,34 +564,32 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
       </div>
     </section>
 
-  </main>
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
 
 <div style="text-align:center;">
  <!-- hearst/ads/full_banner_A728.tpl -->
     <!-- hmb:a728 full banner A728 ad -->
     <div id="ctpl-fullbanner1" class="ctpl-fullbanner fixed" data-collapse-timer="10">
     <div id="A728" class="ad_deferrable"><script type="text/javascript">/*<![CDATA[*/ hearstPlaceAd("A728"); /*]]>*/</script></div>
-    
+
     <script>
     (function() {
         var checkCount = 120;
@@ -618,12 +617,14 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
         }, 1000);
     })();
     </script>
-    
+
     </div>
 <!-- e hearst/ads/full_banner_A728.tpl -->
 </div>
 
   </div>
+
+  </main>
 
         <footer>
         <div class="container">
@@ -663,5 +664,6 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
     <script type="text/javascript" src="/partners/thepress/js/global.js?t=1"></script>
     <script src="/partners/thepress/js/map.js?1470683612"></script>
     <script src="/partners/thepress/js/index.js?1467835203"></script>
+    <script src="/partners/thepress/js/single-winery.js?1467835203"></script>
   </body>
 </html><!-- Cannot open <b>/mnt/pointslocal-app/partners/thepress/templates/site/media/media_stream.template</b> --><!-- --><!-- from cache -->

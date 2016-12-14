@@ -8,18 +8,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>The Press</title>
 
-  <meta property="og:type" content="<[_ogtype]>" /> 
-  <meta property="og:url" content="<[_ogurl]>" /> 
-  <meta property="og:image" content="<[_ogimage]>" /> 
-  <meta property="place:location:latitude"  content="<[_oglatitude]>" /> 
-  <meta property="place:location:longitude" content="<[_oglongitude]>" /> 
-  <meta property="og:title" content="<[_ogtitle]>" /> 
+  <meta property="og:type" content="<[_ogtype]>" />
+  <meta property="og:url" content="<[_ogurl]>" />
+  <meta property="og:image" content="<[_ogimage]>" />
+  <meta property="place:location:latitude"  content="<[_oglatitude]>" />
+  <meta property="place:location:longitude" content="<[_oglongitude]>" />
+  <meta property="og:title" content="<[_ogtitle]>" />
     <link rel="shortcut icon" href="/partners/thepress/img/thepress-logo-sm.png" />
     <meta name="description" content="">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="/partners/thepress/css/global.css">
     <link rel="stylesheet" href="/partners/thepress/css/index.css">
+    <link rel="stylesheet" href="/partners/thepress/css/wineries.css">
   <script type="text/javascript" id="adPositionManagerScriptTag" src="http://aps.hearstnp.com/Scripts/loadAds.js"></script>
 <SCRIPT type="text/javascript" lang="javascript" src="http://cdn.gigya.com/JS/gigya.js?apikey=3_BMFZOCwXDrSMoeTYN2uiVIBZhHski0qbm2oj7S3NL2gKLHcAjq-sx3cuKnLVg_pN"></SCRIPT>
   <script src="/includes/lib/mustache/mustache.min.js"></script>
@@ -40,7 +41,7 @@ tripsExist = JSON.parse(localStorage.getItem('trips'));
 console.log(tripsExist);
 if (tripsExist && tripsExist.length > 0) {
   $(document).ready(function() {
-    $('.my-trip-inactive').removeClass('my-trip-inactive'); 
+    $('.my-trip-inactive').removeClass('my-trip-inactive');
   })
 
 }
@@ -163,7 +164,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true sans">&times;</span></button>
         <h4 class="sans-bold brownmodal-title">Login</h4>
         <p class="sans brown">Welcome back. If you already have an account with us, please login below.</p>
-        <p class="sans error" id="login-error"></p>        
+        <p class="sans error" id="login-error"></p>
       </div>
       <div class="modal-body">
         <form class="signinForm">
@@ -197,13 +198,13 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
           <div>Passwords must be at least 8 characters, contain upper and lowercase letters and at least one number.</div>
           <div class="form-group">
             <input id="register-username" type="text" placeholder="Username">
-          </div>          
+          </div>
           <div class="form-group">
             <input id="register-password" type="password" placeholder="Password">
           </div>
           <div class="form-group">
             <input id="register-password2" type="password" placeholder="Password (Repeat)">
-          </div>          
+          </div>
         </form>
       </div>
        <div class="modal-buttons">
@@ -242,13 +243,13 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
           <div class="form-group">
             <input id="register-email" type="email" placeholder="Email Address">
           </div>
-      
 
-        
+
+
         </form>
       </div>
        <div class="modal-buttons">
-        <button onclick="showModal('login');" type="submit" class="button button-xs bg-olive sans-bold">Cancel</button>   
+        <button onclick="showModal('login');" type="submit" class="button button-xs bg-olive sans-bold">Cancel</button>
       </div>
     </div>
   </div>
@@ -287,7 +288,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
   </header>
 
 
-
+<main>
 
 <section class="two-column two-column-divider container no-padding">
       <div class="row">
@@ -296,7 +297,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
         </div>
       </div>
       <div class="row scrollable" id="scroll1">
-        
+
         <div class="col-sm-6  block-container">
           <a href="/place/delectus-winery" class="block-padding gradient-cover" style="background: url('/image?method=image.icrop&context=venue&id=1302&w=1600&h=-1') center center no-repeat; background-size: cover;">
             <div class="block-content vert-center">
@@ -309,7 +310,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
 </p>
           </div>
         </div>
-       
+
         <div class="col-sm-6  block-container">
           <a href="/place/dry-creek-vineyard" class="block-padding gradient-cover" style="background: url('/image?method=image.icrop&context=venue&id=650&w=1600&h=-1') center center no-repeat; background-size: cover;">
             <div class="block-content vert-center">
@@ -322,7 +323,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
 </p>
           </div>
         </div>
-       
+
       </div>
     </section>
 
@@ -340,16 +341,16 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
         </div>
       </div>
         <div class="row block-wrapper scrollable" id="scroll2">
-        
+
           <div class="col-sm-4 block-container">
             <a href="/place/ferrari-carano-vineyards-winery" class="block-padding" style="background: url('/image?method=image.icrop&context=venue&id=646&w=1600&h=-1') center center no-repeat; background-size: cover;">
             </a>
             <div class="block-text">
               <h4 class="sans lightBrown"><a href="/place/ferrari-carano-vineyards-winery">Ferrari-Carano Vineyards &amp; Winery</a></h4>
-              <p class="sans brown"></p>
+              <p class="sans brown"><p>
             </div>
           </div>
-          
+
           <div class="col-sm-4 block-container">
             <a href="/place/fogline-vineyards" class="block-padding" style="background: url('/image?method=image.icrop&context=venue&id=1333&w=1600&h=-1') center center no-repeat; background-size: cover;">
             </a>
@@ -359,7 +360,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
 </p>
             </div>
           </div>
-          
+
           <div class="col-sm-4 block-container">
             <a href="/place/frank-family-vineyards" class="block-padding" style="background: url('/image?method=image.icrop&context=venue&id=516&w=1600&h=-1') center center no-repeat; background-size: cover;">
             </a>
@@ -371,10 +372,10 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
 </p>
             </div>
           </div>
-          
+
         </div>
         <div class="row block-wrapper scrollable" id="scroll2">
-        
+
           <div class="col-sm-4 block-container">
             <a href="/place/inman-family-wines" class="block-padding" style="background: url('/image?method=image.icrop&context=venue&id=651&w=1600&h=-1') center center no-repeat; background-size: cover;">
             </a>
@@ -383,7 +384,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
               <p class="sans brown"></p>
             </div>
           </div>
-          
+
           <div class="col-sm-4 block-container">
             <a href="/place/kenwood-vineyards" class="block-padding" style="background: url('/image?method=image.icrop&context=venue&id=647&w=1600&h=-1') center center no-repeat; background-size: cover;">
             </a>
@@ -392,7 +393,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
               <p class="sans brown"></p>
             </div>
           </div>
-          
+
           <div class="col-sm-4 block-container">
             <a href="/place/ledson-winery-vineyards" class="block-padding" style="background: url('/image?method=image.icrop&context=venue&id=648&w=1600&h=-1') center center no-repeat; background-size: cover;">
             </a>
@@ -401,13 +402,13 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
               <p class="sans brown"></p>
             </div>
           </div>
-          
+
         </div>
     </section>
 
   <div class="oldmain">
 
-  
+
 
   <!-- Cannot open <b>/mnt/pointslocal-app/partners/thepress/templates/site/media/media_stream_html_item.template</b> -->
 
@@ -446,7 +447,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
                     <li><a onclick="javascript:resetDirectory({specialization:['Petite Sirah']});">Petite Sirah</a></li>
                     <li><a onclick="javascript:resetDirectory({specialization:['Other whites']});">Other whites</a></li>
                     <li><a onclick="javascript:resetDirectory({specialization:['Other reds']});">Other reds</a></li>
-                    <li><a onclick="javascript:resetDirectory({specialization:['Sparkling wine']});">Sparkling wine</a></li>   
+                    <li><a onclick="javascript:resetDirectory({specialization:['Sparkling wine']});">Sparkling wine</a></li>
                   </ul>
                 </li>
                 <li style="display:none;"><a class="olive" href="#"><img class="filter-icon" src="/partners/thepress/img/icons/filter-icon-olive.png" alt="Show Filters"> Filters</a></li>
@@ -469,7 +470,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
 
 
 
-        
+
         <div id="search-result" style="display:none;">
           <!-- Directory Item -->
           {{#items}}
@@ -479,24 +480,24 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
             </div>
             <div class="col-xs-5 directory-info">
               <h3 class="serif brown"><a href="/place/{{guid}}">{{name}}</a></h3><span class="partner-badge"></span>
-              <h4 class="sans-bold orange hidden-xs">{{neighborhood}}</h4>
+              <h4 class="sans-bold olive hidden-xs">{{neighborhood}}</h4>
               <div class="address hidden-xs">
-                <p>{{address}}<br> {{phone}}<br> {{custom:hours}} <span style="display:none;" class="status orange">Open</span></p>
+                <p>{{address}}<br> {{phone}}<br> {{custom:hours}} <span style="display:none;" class="status olive">Open</span></p>
               </div>
               <div class="address hidden-sm hidden-md hidden-lg">
-                <p>{{address}} <span class="hidden-xs">{{phone}}</span><br> {{hours}} <span class="status orange">Open</span></p>
+                <p>{{address}} <span class="hidden-xs">{{phone}}</span><br> {{hours}} <span class="status olive">Open</span></p>
               </div>
               <div class="directory-buttons hidden-sm hidden-md hidden-lg">
                 <ul>
-                  <li><a href="#" class="button button-xs sans-bold bg-lightOrange">Add To Trip</a></li>
-                  <li><a href="#" style="display:none;" class="sans-bold orange"><i class="fa fa-map-o"></i> Map</a></li>
+                  <li><a href="#" class="button button-xs sans-bold bg-olive">Add To Trip</a></li>
+                  <li><a href="#" style="display:none;" class="sans-bold olive"><i class="fa fa-map-o"></i> Map</a></li>
                 </ul>
               </div>
             </div>
             <div class="col-xs-3 directory-button hidden-xs">
-              <a onclick="addTrip({id: {{id}}, type:'venue',name: '{{name}}', lat: {{latitude}}, lon: {{longitude}} }, this);" class="button button-xs sans-bold bg-lightOrange">Add To Trip</a>
-              <a href="#" style="display:none;" class="sans-bold orange">Website</a>
-              <a href="#" style="display:none;" class="sans-bold orange"><i class="fa fa-location-arrow"></i> Directions</a>
+              <a onclick="addTrip({id: {{id}}, type:'venue',name: '{{name}}', lat: {{latitude}}, lon: {{longitude}} }, this);" class="button button-xs sans-bold bg-olive">Add To Trip</a>
+              <a href="#" style="display:none;" class="sans-bold olive">Website</a>
+              <a href="#" style="display:none;" class="sans-bold olive"><i class="fa fa-location-arrow"></i> Directions</a>
             </div>
           </div>
           {{/items}}
@@ -552,7 +553,7 @@ function updateDirectory(opt) {
           size: new google.maps.Size(30, 36),
           scaledSize: new google.maps.Size(30, 36),
         },
-        optimized: false,        
+        optimized: false,
         title: it.name
       });
        allMarkers.push(marker);
@@ -565,10 +566,10 @@ function updateDirectory(opt) {
             bounds.extend(allMarkers[i].getPosition());
           }
         }
-        map.fitBounds(bounds);    
+        map.fitBounds(bounds);
     $('.directory-list').html(Mustache.render(template,d));
   });
-  
+
 }
   var allMarkers = [];
   var map;
@@ -576,7 +577,7 @@ function updateDirectory(opt) {
 $(document).ready(function() {
 
 
-  
+
 
 
   function initMap() {
@@ -590,28 +591,28 @@ $(document).ready(function() {
 })
 </script>
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
 
 <div style="text-align:center;">
  <!-- hearst/ads/full_banner_A728.tpl -->
     <!-- hmb:a728 full banner A728 ad -->
     <div id="ctpl-fullbanner1" class="ctpl-fullbanner fixed" data-collapse-timer="10">
     <div id="A728" class="ad_deferrable"><script type="text/javascript">/*<![CDATA[*/ hearstPlaceAd("A728"); /*]]>*/</script></div>
-    
+
     <script>
     (function() {
         var checkCount = 120;
@@ -639,12 +640,14 @@ $(document).ready(function() {
         }, 1000);
     })();
     </script>
-    
+
     </div>
 <!-- e hearst/ads/full_banner_A728.tpl -->
 </div>
 
   </div>
+
+</main>
 
         <footer>
         <div class="container">

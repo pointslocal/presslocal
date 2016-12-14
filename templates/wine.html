@@ -36,7 +36,7 @@ tripsExist = JSON.parse(localStorage.getItem('trips'));
 console.log(tripsExist);
 if (tripsExist && tripsExist.length > 0) {
   $(document).ready(function() {
-    $('.my-trip-inactive').removeClass('my-trip-inactive'); 
+    $('.my-trip-inactive').removeClass('my-trip-inactive');
   })
 
 }
@@ -170,7 +170,7 @@ function addTrip(id,el) {
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true sans">&times;</span></button>
         <h4 class="sans-bold brownmodal-title">Login</h4>
         <p class="sans brown">Welcome back. If you already have an account with us, please login below.</p>
-        <p class="sans error" id="login-error"></p>        
+        <p class="sans error" id="login-error"></p>
       </div>
       <div class="modal-body">
         <form class="signinForm">
@@ -204,13 +204,13 @@ function addTrip(id,el) {
           <div>Passwords must be at least 8 characters, contain upper and lowercase letters and at least one number.</div>
           <div class="form-group">
             <input id="register-username" type="text" placeholder="Username">
-          </div>          
+          </div>
           <div class="form-group">
             <input id="register-password" type="password" placeholder="Password">
           </div>
           <div class="form-group">
             <input id="register-password2" type="password" placeholder="Password (Repeat)">
-          </div>          
+          </div>
         </form>
       </div>
        <div class="modal-buttons">
@@ -249,13 +249,13 @@ function addTrip(id,el) {
           <div class="form-group">
             <input id="register-email" type="email" placeholder="Email Address">
           </div>
-      
 
-        
+
+
         </form>
       </div>
        <div class="modal-buttons">
-        <button onclick="showModal('login');" type="submit" class="button button-xs bg-olive sans-bold">Cancel</button>   
+        <button onclick="showModal('login');" type="submit" class="button button-xs bg-olive sans-bold">Cancel</button>
       </div>
     </div>
   </div>
@@ -306,6 +306,8 @@ function addTrip(id,el) {
     </div>
   </header>
 
+  <main>
+
   <div class="oldmain">
 
   <!-- TRIPS TEASER -->
@@ -328,15 +330,15 @@ function addTrip(id,el) {
       </div>
     </div>
   </section>
-        
+
 <!-- 102 -->
 
     <!-- Three Column Block -->
 
-        
+
   <section class="two-column container no-padding">
       <div class="row scrollable" id="scroll1">
-        
+
         <div class="col-sm-6 block-container">
           <a href="/trip/healdsburg-winery-hopping" class="block" style="background: url('image?method=image.crop&context=package&id=48&w=370&h=240') center center no-repeat; background-size: cover;">
             <div class="block-label white"></div>
@@ -350,8 +352,8 @@ function addTrip(id,el) {
         </div>
         <div class="col-sm-6 block-container" id="trip-teaser-sponsored">
 
-        </div>        
-        
+        </div>
+
 
         <!-- Additional Mobile Scrolling Items (Appear in Three Column Block Below) -->
         <div class="mobile-scroller hidden-sm hidden-md hidden-lg">
@@ -390,11 +392,11 @@ function addTrip(id,el) {
           </div>
         </div>
       </div>
-    </section>        
-    
+    </section>
+
     <section class="three-column container no-padding hidden-xs">
       <div class="row">
-        
+
         <div class="col-sm-4 the-column">
           <a href="/trip/break-out-the-bubbly" class="block" style="background: url('image?method=image.crop&context=package&id=31&w=370&h=240') center center no-repeat; background-size: cover;"></a>
           <div class="block-label lightBrown">Sonoma</div>
@@ -402,14 +404,14 @@ function addTrip(id,el) {
             <h4 class="sans-bold orange"><a href="/trip/break-out-the-bubbly">Break out the Bubbly</a></h4>
           </div>
         </div>
-        
+
 
 
         <div class="col-sm-4 the-column trip-teaser-sponsored-small">
 
         </div>
 
-        
+
         <div class="col-sm-4 the-column">
           <a href="/trip/yao-ming-s-best-reds-around" class="block" style="background: url('image?method=image.crop&context=package&id=32&w=370&h=240') center center no-repeat; background-size: cover;"></a>
           <div class="block-label lightBrown">Sonoma</div>
@@ -417,7 +419,7 @@ function addTrip(id,el) {
             <h4 class="sans-bold orange"><a href="/trip/yao-ming-s-best-reds-around">Yao Ming's Best Reds Around</a></h4>
           </div>
         </div>
-                
+
     </section>
 
 
@@ -454,7 +456,7 @@ $(document).ready(function() {
 
 <section class="featured-story container no-padding">
       <div class="row scrollable" id="scroll3">
-        
+
         <div class="col-sm-12 block-container">
           <a href="/story/rochioli-vineyards-and-winery" class="story-container" style="background: url('/image?method=image.icrop&context=stories&id=257&w=1000&h=-1') center center no-repeat; background-size: cover;">
             <div class="story-content vert-center">
@@ -467,7 +469,7 @@ $(document).ready(function() {
             <span class="date darkOlive">November 23, 2016</span>
           </div>
         </div>
-           
+
         <!-- Additional Mobile Scrolling Items (Appear in Three Column Block Below) -->
         <div class="mobile-scroller hidden-sm hidden-md hidden-lg">
           <div class="col-sm-12 block-container">
@@ -514,7 +516,7 @@ $(document).ready(function() {
 
 <section class="three-column stories container no-padding hidden-xs">
       <div class="row">
-        
+
         <div class="col-sm-4 the-column">
           <a href="/story/about-napa-where-modern-american-wine-began" class="block" style="background: url('/image?method=image.icrop&context=stories&id=254&w=1000&h=-1') center center no-repeat; background-size: cover;"></a>
           <div class="block-label lightBrown">Napa</div>
@@ -523,14 +525,14 @@ $(document).ready(function() {
             <span class="date darkOlive">November 17, 2016</span>
           </div>
         </div>
-        
+
 
 
         <div class="col-sm-4 the-column story-teaser-sponsored-small">
 
         </div>
 
-        
+
         <div class="col-sm-4 the-column">
           <a href="/story/about-sonoma-county-the-land-of-endless-variety" class="block" style="background: url('/image?method=image.icrop&context=stories&id=253&w=1000&h=-1') center center no-repeat; background-size: cover;"></a>
           <div class="block-label lightBrown">Sonoma</div>
@@ -539,10 +541,10 @@ $(document).ready(function() {
             <span class="date darkOlive">November 17, 2016</span>
           </div>
         </div>
-        
+
 
       </div>
-    </section>    
+    </section>
 
 <script>
 $(document).ready(function() {
@@ -588,7 +590,7 @@ $(document).ready(function() {
           </div>
         </div>
 
-        
+
 
 
         <div class="col-sm-6 block-container ">
@@ -605,7 +607,7 @@ $(document).ready(function() {
             <p class="sans brown hidden-xs"><p>The Christopher Hill Gallery is the one gallery to hit in St. Helena if you're short on time.</p>
 </p>
           </div>
-        </div>        
+        </div>
 
         <!-- Additional Mobile Scrolling Items (Appear in Three Column Block Below) -->
         <div class="mobile-scroller hidden-sm hidden-md hidden-lg">
@@ -640,7 +642,7 @@ $(document).ready(function() {
     </section>
 
 
-          
+
 <!-- 108 -->
     <!-- Quad Columns Module -->
     <section class="quad-column container no-padding hidden-xs">
@@ -681,7 +683,7 @@ $(document).ready(function() {
     </section>
 
 
-  
+
 
   <!-- 109 -->
     <!-- Featured Callout -->
@@ -697,22 +699,22 @@ $(document).ready(function() {
       </div>
     </section>
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
 
 <div style="text-align:center;">
  <!-- hearst/ads/full_banner_A728.tpl -->
     <!-- hmb:a728 full banner A728 ad -->
     <div id="ctpl-fullbanner1" class="ctpl-fullbanner fixed" data-collapse-timer="10">
     <div id="A728" class="ad_deferrable"><script type="text/javascript">/*<![CDATA[*/ hearstPlaceAd("A728"); /*]]>*/</script></div>
-    
+
     <script>
     (function() {
         var checkCount = 120;
@@ -740,12 +742,14 @@ $(document).ready(function() {
         }, 1000);
     })();
     </script>
-    
+
     </div>
 <!-- e hearst/ads/full_banner_A728.tpl -->
 </div>
 
   </div>
+
+  </main>
 
         <footer>
         <div class="container">
