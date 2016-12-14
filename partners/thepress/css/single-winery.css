@@ -86,7 +86,7 @@ Single Winery - Tier I
 /* Single Content */
 
 .single-content .single-body {
-  padding: 0 40px;
+  padding: 40px 40px 0 40px;
   text-align: left;
 }
 
@@ -96,7 +96,6 @@ Single Winery - Tier I
 
 .single-content .single-body h2 {
   font-size: 28px;
-  margin: 35px 0 25px 0;
 }
 
 .single-content .single-body h3,
@@ -346,9 +345,6 @@ Single Winery - Tier I
     width: 100%;
     max-width: 350px;
     padding: 5px 0;
-  }
-  .directory .directory-list .directory-item:last-child {
-    border-bottom: 1px solid #C4C5B4 !important;
   }
   .directory .directory-list .directory-item {
     padding-left: 45px !important;

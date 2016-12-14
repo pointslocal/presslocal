@@ -3129,6 +3129,11 @@ Global Modules
 .contributors .avatar-container {
   text-align: center;
   padding: 0 0 60px 0;
+  float: none;
+  display: inline-block;
+  vertical-align: top;
+  zoom: 1;
+  width: 32%;
 }
 
 .contributors .avatar {
@@ -3156,6 +3161,13 @@ Global Modules
 
 .contributors .avatar-container p {
   font-size: 20px;
+}
+
+@media (max-width: 768px) {
+  .contributors .avatar-container {
+    width: 100%;
+    padding-bottom: 25px;
+  }
 }
 
 /* Sponsored Ads */
