@@ -30,9 +30,9 @@ nav.nav-sm .fixed-tools ul li a:hover {
   position: relative;
 }
 
-.header-single .header-map img {
+.header-single .header-map #trip-map {
   width: 100%;
-  height: auto;
+  height: 600px;
 }
 
 .header-single .header-map .button-float-top {
@@ -74,6 +74,9 @@ nav.nav-sm .fixed-tools ul li a:hover {
   .header-single {
     padding-bottom: 25px;
     border-bottom: 1px solid #C4C5B4;
+  }
+  .header-single .header-map #trip-map {
+    height: 300px;
   }
 }
 
@@ -271,7 +274,7 @@ nav.nav-sm .fixed-tools ul li a:hover {
 /* Single Featured Section */
 
 .single-featured {
-  margin: 40px auto 100px auto;
+  margin: 40px auto 40px auto;
 }
 
 .single-featured .featured-image img {
@@ -403,6 +406,10 @@ nav.nav-sm .fixed-tools ul li a:hover {
     padding-left: 30px;
     padding-right: 30px;
     border-bottom: 0;
+  }
+  .single-featured .featured-title h1 {
+    font-size: 35px;
+    float: none;
   }
   .single-featured .featured-content .featured-container {
     padding: 0 15px;

@@ -54,25 +54,38 @@
   });
 
   // Get each scrollable element not masthead scrolls
-  $('.scrollable:not(.masthead-scroll)').each(function() {
-    var children = $(this).children('.block-container').length;
-    $(this).slick({
-      dots: false,
-      arrows: false,
-      infinite: false,
-      slide: '.block-container',
-      slidesToShow: children,
-      responsive: [
-        {
-          breakpoint: 768,
-          settings: {
-            slidesToShow: 1,
-            infinite: true,
-            dots: true
+  function slickyWithIt() {
+    $('.scrollable:not(.masthead-scroll)').each(function() {
+      var children = $(this).children('.block-container').length;
+      $(this).slick({
+        dots: false,
+        arrows: false,
+        infinite: false,
+        slide: '.block-container',
+        slidesToShow: children,
+        responsive: [
+          {
+            breakpoint: 9999,
+            settings: 'unslick'
+          },
+          {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 1,
+              infinite: true,
+              dots: true
+            }
           }
-        }
-      ]
+        ]
+      });
     });
+  }
+
+  slickyWithIt();
+
+  $(window).resize(function(){
+    var $windowWidth = $(window).width();
+    $('.scrollable:not(.masthead-scroll)').slick('resize');
   });
 
   // Masthead Carousels for Single Pages
