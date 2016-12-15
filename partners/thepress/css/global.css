@@ -1786,11 +1786,15 @@ Global Modules
   display: block;
   display: -webkit-box;
   max-height: 102.2px;
-  margin: 0 auto;
+  margin: 0 auto 15px auto;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.two-column.two-column-divider .block-text p {
+  margin-bottom: 0;
 }
 
 .two-column.two-column-divider .block-text .block-label {

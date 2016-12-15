@@ -166,6 +166,8 @@ nav.nav-sm .fixed-tools ul li a:hover {
 
 .single-content .single-body article {
   padding-bottom: 30px;
+  line-height: 28px;
+  font-size: 18px;
 }
 
 .single-content h2, .single-featured h2 {

@@ -32,9 +32,9 @@ nav.solid .logo-container .tools ul li.search a:hover i {
   position: relative;
 }
 
-.header-single .header-map img {
+.header-single .header-map #my-trip-map {
   width: 100%;
-  height: auto;
+  height: 600px;
 }
 
 .header-single .header-map .button-float-top {
@@ -184,6 +184,19 @@ nav.solid .logo-container .tools ul li.search a:hover i {
   float: left;
 }
 
+.single-featured .featured-toolbar ul {
+  display: table;
+  margin: 20px auto;
+  width: 100%;
+  max-width: 330px;
+  text-align: center;
+}
+
+.single-featured .featured-toolbar ul li {
+  list-style: none;
+  display: table-cell;
+}
+
 .single-featured .featured-title .featured-button {
   margin-top: 30px;
   text-align: right;
@@ -210,9 +223,15 @@ nav.solid .logo-container .tools ul li.search a:hover i {
   vertical-align: middle;
   display: inline-block;
   text-align: left;
-  width: 23px;
+  width: 100px;
   margin-left: 8px;
   margin-top: 15px;
+  position: absolute;
+}
+
+.single-featured .featured-title .affiliate-badge:after,
+.single-featured .featured-title .partner-badge:after {
+  display: none;
 }
 
 /* Mobile Itinerary */
@@ -386,6 +405,9 @@ nav.solid .logo-container .tools ul li.search a:hover i {
   .header-single .header-title {
     margin-bottom: 0;
   }
+  .header-single .header-map #my-trip-map {
+    height: 300px;
+  }
   .header-single .edit-button {
     margin-bottom: 0;
   }
@@ -397,6 +419,10 @@ nav.solid .logo-container .tools ul li.search a:hover i {
   }
   .single-featured .featured-title {
     text-align: center;
+  }
+  .single-featured .featured-title h1 {
+    font-size: 35px;
+    float: none;
   }
   .single-featured .featured-title .featured-button {
     text-align: center;
