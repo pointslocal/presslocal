@@ -24,7 +24,7 @@
 <SCRIPT type="text/javascript" lang="javascript" src="http://cdn.gigya.com/JS/gigya.js?apikey=3_BMFZOCwXDrSMoeTYN2uiVIBZhHski0qbm2oj7S3NL2gKLHcAjq-sx3cuKnLVg_pN"></SCRIPT>
   <script src="/includes/lib/mustache/mustache.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script src="/partners/thepress/js/thepressx.js?x=browse&t=<[timestamp]>"></script>
+<script src="/partners/thepress/js/thepressx.js?x=browse&tz=5852c829c82ba"></script>
 
 <script type="text/javascript"
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-gHN0lD5gfgKu4bp0h6ZPRM_jkCuIHps&libraries=drawing"></script>
@@ -100,8 +100,8 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
         <li class="dropdown login hidden">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">user</a>
           <ul class="dropdown-menu">
-            <li><a href="/my-trip">My Trip</a></li>
-            <li><a href="/my-trips">My Trips</a></li>
+            <li><a href="/my-trip">Current Trip</a></li>
+            <li><a href="/my-trips">Saved Trips</a></li>
             <li><a onclick="gigyaLogout();">Log out</a></li>
           </ul>
         </li>
@@ -347,7 +347,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
 
       <!-- Single Featured Module -->
       
-      <section class="single-featured container no-padding" data-guid="schramsberg-vineyards" data-lat="0" data-lon="0" data-id="754" data-name="Schramsberg Vineyards">
+      <section class="single-featured container no-padding" data-guid="schramsberg-vineyards" data-lat="38.5506" data-lon="-122.538" data-id="754" data-name="Schramsberg Vineyards">
         <div class="row featured-title hidden-sm hidden-md hidden-lg">
           <div class="num-divider"><span>1</span></div>
           <div class="col-sm-12">
@@ -379,7 +379,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
             <div class="featured-address sans-bold brown">1400 Schramsberg Rd, Calistoga, CA</div>
           </div>
           <div class="col-sm-3 featured-button">
-            <a onclick="addTrip({id: 754, type:'venue',name: 'Schramsberg Vineyards', lat: 0, lon: 0 }, this);" class="button button-xs sans-bold bg-lightOrange">Add to Trip</a>
+            <a onclick="addTrip({id: 754, type:'venue',name: 'Schramsberg Vineyards', lat: 38.5506, lon: -122.538 }, this);" class="button button-xs sans-bold bg-lightOrange">Add to Trip</a>
           </div>
         </div>
         <div class="row featured-content">
