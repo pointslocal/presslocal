@@ -1,6 +1,5 @@
 ;(function($) {
 
-
     $('[data-cache="background"]').each(function() {
       var bg = ($(this).css('background-image'));
       var time = Math.floor(Date.now() / 1000);
@@ -12,18 +11,6 @@
   * Global
   * ============================================
   */
-
-/*
-  $(document).on('ready', function() {
-    var myScroll = new IScroll('.three-column', {
-      mouseWheel: true
-    });
-
-    var myScroll = new IScroll('.quad-columns', {
-      mouseWheel: true
-    });
-  });
-*/
 
   // Toggle Search
   $('.toggle-search').on('click', function(e) {
@@ -64,6 +51,40 @@
     $('nav li.login').removeClass('hidden');
     e.preventDefault();
     */
+  });
+
+  // Get each scrollable element not masthead scrolls
+  $('.scrollable:not(.masthead-scroll)').each(function() {
+    var children = $(this).children('.block-container').length;
+    $(this).slick({
+      dots: false,
+      arrows: false,
+      infinite: false,
+      slide: '.block-container',
+      slidesToShow: children,
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 1,
+            infinite: true,
+            dots: true
+          }
+        }
+      ]
+    });
+  });
+
+  // Masthead Carousels for Single Pages
+  $('.masthead-scroll').each(function() {
+    var children = $(this).children('.block-container').length;
+    $(this).slick({
+      dots: true,
+      arrows: false,
+      infinite: false,
+      slide: '.block-container',
+      slidesToShow: 1,
+    });
   });
 
 })(jQuery);
