@@ -96,6 +96,8 @@
       dots: true,
       arrows: false,
       infinite: false,
+      autoplay: true,
+      autoplaySpeed: 4000,
       slide: '.block-container',
       slidesToShow: 1,
     });
