@@ -1,6 +1,5 @@
 ;(function($) {
 
-
     $('[data-cache="background"]').each(function() {
       var bg = ($(this).css('background-image'));
       var time = Math.floor(Date.now() / 1000);
@@ -12,18 +11,6 @@
   * Global
   * ============================================
   */
-
-/*
-  $(document).on('ready', function() {
-    var myScroll = new IScroll('.three-column', {
-      mouseWheel: true
-    });
-
-    var myScroll = new IScroll('.quad-columns', {
-      mouseWheel: true
-    });
-  });
-*/
 
   // Toggle Search
   $('.toggle-search').on('click', function(e) {
@@ -64,6 +51,53 @@
     $('nav li.login').removeClass('hidden');
     e.preventDefault();
     */
+  });
+
+  // Get each scrollable element not masthead scrolls
+  function slickyWithIt() {
+    $('.scrollable:not(.masthead-scroll)').each(function() {
+      var children = $(this).children('.block-container').length;
+      $(this).slick({
+        dots: false,
+        arrows: false,
+        infinite: false,
+        slide: '.block-container',
+        slidesToShow: children,
+        responsive: [
+          {
+            breakpoint: 9999,
+            settings: 'unslick'
+          },
+          {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 1,
+              infinite: true,
+              dots: true
+            }
+          }
+        ]
+      });
+    });
+  }
+
+  slickyWithIt();
+
+  $(window).resize(function(){
+    var $windowWidth = $(window).width();
+    $('.scrollable:not(.masthead-scroll)').slick('resize');
+  });
+
+  // Masthead Carousels for Single Pages
+  $('.masthead-scroll').each(function() {
+    var children = $(this).children('.block-container').length;
+    $(this).slick({
+      dots: true,
+      arrows: false,
+      infinite: false,
+      slide: '.block-container',
+      slidesToShow: 1,
+    });
   });
 
 })(jQuery);

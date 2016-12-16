@@ -346,9 +346,6 @@ Single Winery - Tier I
     max-width: 350px;
     padding: 5px 0;
   }
-  .directory .directory-list .directory-item {
-    padding-left: 45px !important;
-  }
   .single-content .single-sidebar .directory-buttons ul li {
     display: table-cell;
     text-align: center;
