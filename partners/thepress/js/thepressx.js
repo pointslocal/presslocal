@@ -1,4 +1,4 @@
-/*	
+/*
 	gigya
 */
 var _AUTH = false;
@@ -131,16 +131,16 @@ function setSession(uid,e) {
 function showModal(type) {
 	if (type == 'register') {
 		$('.modal-dialog.register').show();
-		$('.modal-dialog.login').hide();	
-		$('.modal-dialog.lostpassword').hide();					
+		$('.modal-dialog.login').hide();
+		$('.modal-dialog.lostpassword').hide();
 	} else if (type == 'lostpassword') {
 		$('.modal-dialog.login').hide();
 		$('.modal-dialog.register').hide();
-		$('.modal-dialog.lostpassword').show();						
+		$('.modal-dialog.lostpassword').show();
 	} else {
 		$('.modal-dialog.login').show();
-		$('.modal-dialog.register').hide();		
-		$('.modal-dialog.lostpassword').hide();					
+		$('.modal-dialog.register').hide();
+		$('.modal-dialog.lostpassword').hide();
 	}
 }
 
@@ -163,17 +163,17 @@ function onLogin(response) {
 	if (response.errorCode > 0) {
 		$('#login-error').text('Email Address or Password is incorrect.');
 	} else {
-		setSession(response.UID,response.profile.email);	
-		var nickname = response.profile.nickname;	
+		setSession(response.UID,response.profile.email);
+		var nickname = response.profile.nickname;
 		if (!nickname) {
 			nickname = response.profile.email.split('@')[0];
-		}		
+		}
 	    $('.modal').modal('hide');
-	    // $('nav li.signin').addClass('hidden');	
+	    // $('nav li.signin').addClass('hidden');
 
 		$('.tools .signin, .fixed-tools .signin').hide();
 		$('.tools .login, .fixed-tools .login').removeClass('hidden').show();
-		$('.dropdown.login a.dropdown-toggle, .fixed-tools .toggle-signin, .login-name').html(nickname).removeClass('hidden');	
+		$('.dropdown.login a.dropdown-toggle, .fixed-tools .toggle-signin, .login-name').html(nickname).removeClass('hidden');
 
 	}
 }
@@ -204,9 +204,9 @@ function gigyaRegister() {
 	}
 	gigya.accounts.initRegistration({callback: function(r) {
 		token = r.regToken
-		gigya.accounts.register({email: e, password: p, regToken: token, callback: onRegister, finalizeRegistration: true });	
+		gigya.accounts.register({email: e, password: p, regToken: token, callback: onRegister, finalizeRegistration: true });
 	}});
-	
+
 }
 
 function gigyaLogin() {
@@ -229,7 +229,7 @@ function evalTripBar() {
 			$('#trip-bar-name').text(tname);
 		}
 	}
-	
+
 }
 
 
@@ -291,10 +291,10 @@ function removeTrip(id,el,reload) {
 	if (id.packageID) {
 		console.log(id.id,id.packageID);
 		$.getJSON('/api.json?method=events.delete-user-package-item&item_id='+id.id+'&package_id='+id.packageID,function(d) {
-			location.reload();	
+			location.reload();
 			return false;
 		});
-		
+
 	}
 
 	$(el).html('Add to Trip');
@@ -322,11 +322,11 @@ function removeTrip(id,el,reload) {
 	}
 	updateStore();
 	if (reload) {
-		location.reload();	
+		location.reload();
 	} else {
 		getTrip();
 	}
-	
+
 }
 
 function addToTrip(el,del) {
@@ -357,7 +357,7 @@ function saveTrip() {
     	if (!trips[k] || !trips[k].id) {
     		continue;
     	}
-    venueIDs.push(trips[k].id);	
+    venueIDs.push(trips[k].id);
     }
 
     $.ajax({
@@ -388,7 +388,7 @@ function addTripMarkers(marker, secretMessage) {
 function clearTrip() {
 	localStorage.setItem('workingTripName','')
 	localStorage.setItem('trips',JSON.stringify([]));
-	location.reload();	
+	location.reload();
 }
 
 function getTrip(tr,tripID) {
@@ -429,11 +429,11 @@ function getTrip(tr,tripID) {
 	    	return;
 	    }
 
-	    map = new google.maps.Map(document.getElementById('my-trip-map'), { options });  
+	    map = new google.maps.Map(document.getElementById('my-trip-map'), { options });
 
 	    markers = [];
 	    tripHTML = '';
-	    
+
 
 
 	    venueIDs = [];
@@ -467,7 +467,7 @@ function getTrip(tr,tripID) {
 	          '<div class="poi-title">'+
 	            '<h2 class="serif brown"><a href="/place/'+trips[k].guid+'">'+trips[k].name+'</a></h2>'+
 	          '</div>'+
-	          '<div class="poi-content bg-beige">'+
+	          '<div class="poi-content">'+
 	            '<a class="sans-bold bg-lightOrange button button-xs" onclick="removeTrip({id:\''+trips[k].id+'\''+(package ? ',packageID:\''+package+'\'' : '')+'},this)">Remove from Trip</a>'+
 	          '</div>'+
 	          '<div class="poi-button">'+
@@ -478,22 +478,22 @@ function getTrip(tr,tripID) {
 
 
 	        points.push( { lat: parseFloat(trips[k].lat), lng: parseFloat(trips[k].lon)  } );
-        	markers.push(tripMarkers[tripI]);	        
-	        addTripMarkers(tripMarkers[tripI],tripWindowData[tripI])    
+        	markers.push(tripMarkers[tripI]);
+	        addTripMarkers(tripMarkers[tripI],tripWindowData[tripI])
 	    }
 
 	    console.log(venueIDs);
 
 	    var venueReq = '/api/v1/venues?ids=' + (venueIDs.join(','));
 	    $.getJSON(venueReq,function(d) {
-	    	console.log(d);	    		    	
+	    	console.log(d);
 	    	if (package) {
 	    		d.items = d.items.map(function(ti) {
 	    			ti.package_id = package;
 	    			return ti;
 	    		});
-	    	}	    	
-	    	console.log(d);	    	
+	    	}
+	    	console.log(d);
 	    	tripHTML += Mustache.render(TripTemplate, d);
 
 	    	$('#my-trip-data').html(tripHTML);
@@ -539,7 +539,7 @@ function getTrip(tr,tripID) {
   var directionsService = new google.maps.DirectionsService;
   var directionsDisplay = new google.maps.DirectionsRenderer({suppressMarkers: true});
   directionsDisplay.setMap(map);
-  directionsService.route({ 
+  directionsService.route({
     origin: routePoints.start,
     destination: routePoints.end,
     optimizeWaypoints: true,
@@ -555,8 +555,8 @@ function getTrip(tr,tripID) {
     seconds = 0;
     for(i=0;i<response.rows.length;i++) {
       if ((i+1) < response.rows[i].elements.length) {
-        meters += response.rows[i].elements[i+1].distance.value; 
-        seconds += response.rows[i].elements[i+1].duration.value;      
+        meters += response.rows[i].elements[i+1].distance.value;
+        seconds += response.rows[i].elements[i+1].duration.value;
       }
 
     }
@@ -564,7 +564,7 @@ function getTrip(tr,tripID) {
     time = secondsToTime(seconds);
     $('#itinerary-details-distance').text(Math.round(miles));
     $('#itinerary-details-time').text(Math.round(time.value));
-  }	
+  }
 
 
 
@@ -573,7 +573,7 @@ function getTrip(tr,tripID) {
 
 
 
-	
+
 }
 
 
@@ -585,11 +585,11 @@ function secondsToTime(sec) {
 	if (sec < 60) {
 		return { 'lang': sec + ' seconds', 'fmt': 'seconds', 'value': sec }
 	} else if (sec < 3600) {
-		return { 'lang': sec/60 + ' minutes', 'fmt': 'minutes', 'value': sec/60 }	
+		return { 'lang': sec/60 + ' minutes', 'fmt': 'minutes', 'value': sec/60 }
 	} else if (sec < 86400) {
-		return { 'lang': sec/3600 + ' hours', 'fmt': 'hours', 'value': sec/3600 }	
+		return { 'lang': sec/3600 + ' hours', 'fmt': 'hours', 'value': sec/3600 }
 	} else {
-		return { 'lang': sec/86400 + ' days', 'fmt': 'hours', 'value': sec/86400 }	
+		return { 'lang': sec/86400 + ' days', 'fmt': 'hours', 'value': sec/86400 }
 	}
 }
 
@@ -648,7 +648,7 @@ function getMaxDistance(points) {
 
 
 
-/*	
+/*
 	Sponsorships
 */
 function getSponsoredTrip() {
@@ -656,13 +656,13 @@ function getSponsoredTrip() {
   	d1  = { items: d.items.slice(0,1)};
   	d2 = {items:d.items.slice(1,2)};
     $('#trip-teaser-sponsored').html(Mustache.render(SponsoredTripTemplate,d1));
-    $('.trip-teaser-sponsored-small').html(Mustache.render(SponsoredTripTemplateSmall,d2));    
-  });	
+    $('.trip-teaser-sponsored-small').html(Mustache.render(SponsoredTripTemplateSmall,d2));
+  });
 }
 
 function getSponsoredStory() {
   $.getJSON('/api/v1/stories?sponsored=1&count=1',function(d) {
-    $('.story-teaser-sponsored-small').html(Mustache.render(SponsoredStoryTemplateSmall,d));    	
+    $('.story-teaser-sponsored-small').html(Mustache.render(SponsoredStoryTemplateSmall,d));
 
   });
 }
