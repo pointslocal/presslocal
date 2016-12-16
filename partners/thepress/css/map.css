@@ -7,8 +7,7 @@ body.map {
   height: 100%;
 }
 
-body.noscroll,
-html.noscroll {
+.hud.noscroll {
   overflow-y: hidden;
 }
 
@@ -168,6 +167,10 @@ main {
   font-size: 25px;
 }
 
+.map-filters ul.map-dropdowns ul.dropdown-menu {
+  z-index: 99999;
+}
+
 .map-filters ul.map-dropdowns ul.dropdown-menu li a {
   color: #544741;
 }
@@ -278,7 +281,7 @@ main {
   top: 127px;
   padding: 20px 0;
   min-height: 300px;
-  z-index: 9999999;
+  z-index: 9999;
   overflow-y: scroll;
   opacity: 0;
   visibility: hidden;
@@ -292,15 +295,43 @@ main {
 }
 
 .filter-controls .filter-section {
-  padding: 10px 0;
-  min-height: 60px;
+  padding: 20px 0;
   border-bottom: 1px solid #C4C5B4;
   vertical-align: middle;
+  cursor: pointer;
+  position: relative;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.filter-controls .filter-section .filter-section-controls {
+  max-height: 0;
+  overflow: hidden;
+  -webkit-transition: max-height 0.3s;
+  transition: max-height 0.3s;
+}
+
+.filter-controls .filter-section .filter-section-controls li {
+  padding: 5px 0;
+}
+
+.filter-controls .filter-section .filter-section-controls a {
+  width: 100%;
+  position: relative;
+  z-index: 9999;
+}
+
+.filter-controls .filter-section .filter-section-controls.active {
+  max-height: 1000px;
 }
 
 .filter-controls .filter-section .num-label {
   margin-top: 10px;
   display: inline-block;
+}
+
+.filter-controls .mobile-filters {
+  padding-bottom: 30px;
 }
 
 .filter-controls ul.filter-tags {
@@ -318,7 +349,8 @@ main {
   border: none;
   height: 45px;
   padding: 5px;
-  width: 80%;
+  width: 87%;
+  background-color: #778647;
   float: right;
 }
 
@@ -340,8 +372,8 @@ main {
 
 .filter-controls .filter-section.filter-dropdown {
   vertical-align: middle;
-  line-height: 30px;
-  position: relative;
+  width: 100%;
+  display: inline-block;
 }
 
 .filter-controls .filter-section.filter-dropdown:after {
@@ -404,12 +436,13 @@ main {
 
 @media (max-width: 768px) {
   .filter-controls {
-    position: fixed;
+    position: absolute;
     top: 75px;
-    padding: 0 15px;
-    height: 100%;
+    padding: 0;
+    height: auto;
     margin-top: 0;
     background-color: #93A558;
+    overflow-y: scroll;
   }
 }
 
@@ -745,7 +778,7 @@ main {
     top: 125px;
   }
   #map {
-    margin-top: 140px;
+    margin-top: 127px;
   }
   .hud .module {
     margin-bottom: 0;
@@ -756,9 +789,31 @@ main {
   }
   .hud .module.tier1,
   .hud .module.tier2 {
-    padding: 40px 15px;
+    padding: 20px 15px;
     border-bottom: 1px solid #C4C5B4;
     margin-bottom: 0;
+  }
+  .hud .module.tier1 .tier-buttons {
+    padding-top: 0;
+  }
+  .hud .module.tier1 .tier-buttons ul,
+  .hud .module.tier2 .tier-buttons ul {
+    display: inline-block;
+  }
+  .hud .module.tier1 .tier-buttons ul li,
+  .hud .module.tier2 .tier-buttons ul li {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 5px;
+  }
+  .hud .module.tier1 .tier-buttons ul li.social,
+  .hud .module.tier2 .tier-buttons ul li.social {
+    float: left;
+    width: intrinsic;
+    width: fit-content;
+    width: -moz-fit-content;
+    margin-right: 5px;
+    margin-top: 5px;
   }
   .hud .module.tier1 .tier-contact .address .status,
   .hud .module.tier2 .tier-contact .address .status
@@ -774,7 +829,7 @@ main {
      margin: 0;
   }
   .hud .module .tier-pic {
-    margin: 0 20px;
+    margin: 0;
   }
   .hud .hud-container,
   .hud .hud-itinerary {

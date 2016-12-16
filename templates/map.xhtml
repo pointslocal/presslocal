@@ -260,11 +260,11 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
 <div id="search-result" style="display:none;">
     {{^items}}
 
-    <div class="module tier1 hidden-xs" data-lat="{{latitude}}" data-lon="{{longitude}}" style="text-align:center;min-height: 0px;" data-name="{{name}}">No results for this search</div>
+    <div class="module tier1" data-lat="{{latitude}}" data-lon="{{longitude}}" style="text-align:center;min-height: 0px;" data-name="{{name}}">No results for this search</div>
     {{/items}}
     {{#items}}
 <a name="venue_card_{{id}}"></a>
-<div class="module tier1 hidden-xs" data-lat="{{latitude}}" data-lon="{{longitude}}" data-name="{{name}}">
+<div class="module tier1" data-lat="{{latitude}}" data-lon="{{longitude}}" data-name="{{name}}">
           <div class="row tier-title hidden-xs">
             <div class="col-xs-9">
               <h2 class="{{#story_id}}serif{{/story_id}}{{^story_id}}sans-bold{{/story_id}} darkOlive"><a href="/place/{{guid}}">{{name}}</a></h2>
@@ -281,7 +281,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
           </div>
           {{/story_text}}
   {{#image_id}}
-          <div class="row tier-pic hidden-xs">
+          <div class="row tier-pic">
             <a href="/place/{{guid}}"><img src="/image?method=image.icrop&context=venue&id={{id}}&w=500&h=300" alt=""></a>
           </div>
   {{/image_id}}
@@ -362,7 +362,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
         </div>
       </div>
     </div>
-    <div class="map-filters-dialog dismissable">Start your own wine country adventure.  Click <span>Start Trip</span> to create your own experience tailored to your favorite varietals and regions.  <a href="#" onclick="dismissDialog(this);" style="font-weight:bold">OK, Got it</a></div>
+    <div class="map-filters-dialog dismissable hidden-xs">Start your own wine country adventure.  Click <span>Start Trip</span> to create your own experience tailored to your favorite varietals and regions.  <a href="#" onclick="dismissDialog(this);" style="font-weight:bold">OK, Got it</a></div>
   </div>
 
 
@@ -478,41 +478,92 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
           <div class="row filter-section filter-dropdown white bg-olive">
             <div class="col-xs-12">
               <span class="sans-bold white">Region</span>
+              <ul class="filter-section-controls">
+                <li><a href="#">Napa</a></li>
+                <li><a href="#">Sonoma</a></li>
+              </ul>
             </div>
           </div>
           <div class="row filter-section filter-dropdown white bg-olive">
             <div class="col-xs-12">
-              <span class="sans-bold white">Appelation</span>
+              <span class="sans-bold white">Sub Region</span>
+              <ul class="filter-section-controls">
+                <li><a href="#">Up Valley</a></li>
+                <li><a href="#">Eastern Mountains</a></li>
+                <li><a href="#">Western Mountains</a></li>
+                <li><a href="#">South Napa</a></li>
+              </ul>
             </div>
           </div>
           <div class="row filter-section filter-dropdown white bg-olive">
             <div class="col-xs-12">
-              <span class="sans-bold white">Category</span>
+              <span class="sans-bold white">Place</span>
+              <ul class="filter-section-controls">
+                <li><a href="#">Wineries</a></li>
+                <li><a href="#">Restaurants</a></li>
+                <li><a href="#">Lodging</a></li>
+                <li><a href="#">Activities</a></li>
+              </ul>
             </div>
           </div>
           <div class="row filter-section filter-dropdown bg-lightOlive">
             <div class="col-xs-12">
-              <span class="sans-bold brown">Varietals</span>
+              <span class="sans-bold brown">Specializing In</span>
+              <ul class="filter-section-controls">
+                <li><a href="#">All</a></li>
+                <li><a href="#">Cabernet Sauvignon</li>
+                <li><a href="#">Pinot Noir</li>
+                <li><a href="#">Chardonnay</li>
+                <li><a href="#">Sauvignon Blanc</li>
+                <li><a href="#">Zinfandel</li>
+                <li><a href="#">Syrah</li>
+                <li><a href="#">Petite Sirah</li>
+                <li><a href="#">Other whites</li>
+                <li><a href="#">Other reds</li>
+                <li><a href="#">Sparkling wine</li>
+              </ul>
             </div>
           </div>
           <div class="row filter-section filter-dropdown bg-lightOlive">
             <div class="col-xs-12">
-              <span class="sans-bold brown">Visit Cost</span>
+              <span class="sans-bold brown">Visit</span>
+              <ul class="filter-section-controls">
+                <li><a href="#">All</a></li>
+                <li><a href="#">Open weekends</a></li>
+                <li><a href="#">Open weekdays</a></li>
+                <li><a href="#">No appt necessary</a></li>
+                <li><a href="#">Reservation only</a></li>
+              </ul>
             </div>
           </div>
           <div class="row filter-section filter-dropdown bg-lightOlive">
             <div class="col-xs-12">
-              <span class="sans-bold brown">Format</span>
-            </div>
-          </div>
-          <div class="row filter-section filter-dropdown bg-lightOlive">
-            <div class="col-xs-12">
-              <span class="sans-bold brown">Visit Cost</span>
+              <span class="sans-bold brown">Tasting Cost</span>
+              <ul class="filter-section-controls">
+                <li><a href="#">$0 to $20</a></li>
+                <li><a href="#">$21 to $49</a></li>
+                <li><a href="#">$50 to $74</a></li>
+                <li><a href="#">$75+</a></li>
+              </ul>
             </div>
           </div>
           <div class="row filter-section filter-dropdown bg-lightOlive">
             <div class="col-xs-12">
               <span class="sans-bold brown">Features</span>
+              <ul class="filter-section-controls">
+                <li><a href="#">Tours</li>
+                <li><a href="#">Dog friendly</li>
+                <li><a href="#">Family friendly</li>
+                <li><a href="#">Good for groups</li>
+                <li><a href="#">Art exhibit</li>
+                <li><a href="#">Outdoor area/garden</li>
+                <li><a href="#">Picnic area</li>
+                <li><a href="#">No outside food/drink</li>
+                <li><a href="#">Full restaurant</li>
+                <li><a href="#">Classes/education</li>
+                <li><a href="#">Sustainability focus</li>
+                <li><a href="#">Wheelchair accessible</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -522,10 +573,15 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
 
 
 
+<div class="mobile-nav hidden-sm hidden-md hidden-lg affix">
+    <ul>
+      <li><a class="bg-olive sans-bold back-button active" href="#">List</a></li>
+      <li><a class="bg-olive sans-bold toggle-itinerary" href="#">Itinerary</a></li>
+      <li><a class="bg-olive sans-bold toggle-map" href="#">Map</a></li>
+    </ul>
+  </div>
 
-
-
-
+<main>
 
     <!-- Map -->
     <div id="map" style="position: relative; overflow: hidden; background-color: rgb(229, 227, 223);"></div>
@@ -705,25 +761,11 @@ updateMap();
 
 
   <div class="oldmain">
+  </div>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</main>
 
 
 
@@ -767,34 +809,6 @@ updateMap();
 </div>
 
   </div>
-
-        <footer>
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-12 footer-logo">
-              <a href="/wine"><img src="/partners/thepress/img/thepress-logo-green.png" alt="The Press"></a>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-12 footer-links">
-              <ul>
-                <li><a href="/map">Map</a></li>
-                <li><a href="/trips">Trips</a></li>
-                <li><a href="/stories">Reviews</a></li>
-                <li><a href="/wineries">Places</a></li>
-                <li><a href="/wine-events">Events</a></li>
-                <li><a href="/about">About</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-12 footer-copyright">
-              <a href="http://www.sfchronicle.com/foodandhome/wine/"><img src="/partners/thepress/img/sfchronicle-logo-lg.png" alt="SF Chronicle"></a>
-              <p class="sans lightBrown">&copy; 2016 Hearst Corporation</p>
-            </div>
-          </div>
-        </div>
-      </footer>
   <script src="/partners/pointslocal/js/cache.js" type="text/javascript"></script>
 <!-- Begin Hearst analytics --> <script type="text/javascript" src="//nexus.ensighten.com/hearst/news-3p/Bootstrap.js"></script> <!-- End Hearst analytics -->
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>

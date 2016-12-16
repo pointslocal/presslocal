@@ -28,6 +28,7 @@
 
   // Toggle Mobile Nav
   $('.toggle-nav').on('click', function(e) {
+    $('.hud').removeClass('noscroll');
     $('.filter-controls').removeClass('active');
     $('.mobile-dropdown').toggleClass('active');
     $('.toggle-nav .fa-bars').toggle();

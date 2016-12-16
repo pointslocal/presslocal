@@ -133,7 +133,7 @@ nav.solid .logo-container .tools ul li.search a:hover i {
 /* Single Content */
 
 .single-content .single-body {
-  padding: 0;
+  padding: 40px 40px 0 40px;
   text-align: left;
 }
 
