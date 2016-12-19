@@ -25,8 +25,8 @@ var Neighborhoods = {
     {"name": "East", "latitude": 38.281602 , "longitude": -122.403697 },
     {"name": "South", "latitude": 38.249799, "longitude": -122.458056 },
     {"name": "West County", "latitude": 38.283819, "longitude": -122.5089127 },
-    {"name": "Central", "latitude": 38.277319, "longitude": -122.461834 }    
-  ]}, 
+    {"name": "Central", "latitude": 38.277319, "longitude": -122.461834 }
+  ]},
 }
 
 $(document).ready(function() {
@@ -62,7 +62,7 @@ function searchSubRegions(reg) {
       var count = 1;
       var icon = '';
       var map;
-      var markers = [];    
+      var markers = [];
       var searchActive = false;
 
 
@@ -112,7 +112,7 @@ function searchSubRegions(reg) {
         });
         google.maps.event.addListener(infowindow,'closeclick',function(){
            searchActive = false;
-        });        
+        });
       }
 
 function setMapPos(e) {
@@ -137,16 +137,16 @@ var center = bounds.getCenter();
 var ne = bounds.getNorthEast();
 
 // r = radius of the earth in statute miles
-var r = 3963.0;  
+var r = 3963.0;
 
 // Convert lat or lng from decimal degrees into radians (divide by 57.2958)
-var lat1 = center.lat() / 57.2958; 
+var lat1 = center.lat() / 57.2958;
 var lon1 = center.lng() / 57.2958;
 var lat2 = ne.lat() / 57.2958;
 var lon2 = ne.lng() / 57.2958;
 
 // distance = circle radius from center to Northeast corner of bounds
-var dis = r * Math.acos(Math.sin(lat1) * Math.sin(lat2) + 
+var dis = r * Math.acos(Math.sin(lat1) * Math.sin(lat2) +
   Math.cos(lat1) * Math.cos(lat2) * Math.cos(lon2 - lon1));
 
   Search.latitude = center.lat();
@@ -191,7 +191,7 @@ console.log(Search);
       request = "/api/v1/venues?"+req;
       searchActive = true;
       template = $('#search-result').html();
-      results = [];  
+      results = [];
 
       var resultsTarget;
       switch(Search.category) {
@@ -199,21 +199,21 @@ console.log(Search);
           resultsTarget = 'winery';
           icon = 'winery.png';
           break;
-        case 2: 
+        case 2:
           resultsTarget = 'restaurant';
           icon = 'trip.png';
           break;
         case 3:
           resultsTarget = 'lodging';
-          icon = 'lodging.png';          
+          icon = 'lodging.png';
           break;
         case 5:
           resultsTarget = 'activities';
-          icon = 'activities.png';          
+          icon = 'activities.png';
           break;
         default:
           resultsTarget = 'winery';
-          icon = 'winery.png';          
+          icon = 'winery.png';
       }
 
       searchActive = false;
@@ -223,9 +223,9 @@ console.log(Search);
         for (var ri = 0; ri < d.items.length; ri++ ) {
           if (d.items[ri].story_text) {
               d.items[ri].story_text = d.items[ri].story_text.split(/\n/);
-              d.items[ri].story_text = d.items[ri].story_text[0].replace(/^([\s\S]{230}[^\s]*).*/mg, "$1"); 
+              d.items[ri].story_text = d.items[ri].story_text[0].replace(/^([\s\S]{230}[^\s]*).*/mg, "$1");
           }
-          
+
         }
         d.items = d.items.map(function(f) {
           f.trip_item_message = ( _Store.hasTrips ? 'Add To Trip' : 'Create A Trip');
@@ -235,7 +235,7 @@ console.log(Search);
           console.log('....??');
           $(d.items).each(function(i,v) {
 
-            results.push({ id: v.id, lat: v.latitude, lng: v.longitude, icon: '/partners/thepress/img/markers/partner.png', activeIcon: '/partners/thepress/img/markers/winery.png' });    
+            results.push({ id: v.id, lat: v.latitude, lng: v.longitude, icon: '/partners/thepress/img/markers/partner.png', activeIcon: '/partners/thepress/img/markers/winery.png' });
         var myLatLng = {
           lat: parseFloat(v.latitude),
           lng: parseFloat(v.longitude)
@@ -294,12 +294,12 @@ console.log(Search);
 
       map.addListener('bounds_changed', function() {
         //updateMap();
-      }); 
-      
+      });
+
       map.addListener('dragend', function() {
         console.log('????');
         updateMap();
-      });             
+      });
 
       var count = 1;
       for (var i = 0; i < data.length; i++) {
@@ -354,13 +354,13 @@ console.log(Search);
         // Marker Click listener
         marker.addListener('click', function() {
           console.log(marker);
-           location.hash = "#venue_card_" + marker.vid;         
+           location.hash = "#venue_card_" + marker.vid;
             // infowindow.open(map, marker);
           searchActive = true;
         });
         google.maps.event.addListener(infowindow,'closeclick',function(){
            searchActive = false;
-        });    
+        });
 
         markers.push(marker);
       }
@@ -403,7 +403,7 @@ console.log(Search);
         updateStore()
           $(d.items).each(function() {
 
-            results.push({ id: this.id, name: this.name, address: this.address, phone: this.phone, lat: this.latitude, lng: this.longitude, icon: '/partners/thepress/img/markers/partner.png', activeIcon: '/partners/thepress/img/markers/partner-active.png' });    
+            results.push({ id: this.id, name: this.name, address: this.address, phone: this.phone, lat: this.latitude, lng: this.longitude, icon: '/partners/thepress/img/markers/partner.png', activeIcon: '/partners/thepress/img/markers/partner-active.png' });
 
           });
 
@@ -507,15 +507,25 @@ console.log(Search);
       e.preventDefault();
     });
 
+    $('.mobile-filters').on('click', '.filter-section', function() {
+      $(this).find('.filter-section-controls').toggleClass('active');
+    });
+
     // Toggle Huge Filters Popup
     $('.toggle-filters').on('click', function(e) {
-      $('.mobile-nav a').removeClass('active');
       $('.mobile-dropdown').removeClass('active');
-      $('body, html').toggleClass('noscroll');
+      $('.hud').toggleClass('noscroll');
       $(this).toggleClass('active');
       $('.filter-controls').toggleClass('active');
       e.preventDefault();
     });
+
+    // Hide filter controls on dropdown toggle
+    $('.map-dropdowns').on('click', '.dropdown-toggle', function (e) {
+      $('.toggle-filters').removeClass('active');
+      $('.filter-controls').removeClass('active');
+      e.preventDefault();
+    })
 
     // Toggle Trips Module
     $('.map-dropdowns .trip-toggles ul.dropdown-menu a:not(.toggle-winery)').on('click', function(e) {
@@ -550,6 +560,7 @@ console.log(Search);
       }, 100);
       e.preventDefault();
     });
+
 
 
   }

@@ -28,6 +28,7 @@
 
   // Toggle Mobile Nav
   $('.toggle-nav').on('click', function(e) {
+    $('.hud').removeClass('noscroll');
     $('.filter-controls').removeClass('active');
     $('.mobile-dropdown').toggleClass('active');
     $('.toggle-nav .fa-bars').toggle();
@@ -95,6 +96,8 @@
       dots: true,
       arrows: false,
       infinite: false,
+      autoplay: true,
+      autoplaySpeed: 4000,
       slide: '.block-container',
       slidesToShow: 1,
     });
