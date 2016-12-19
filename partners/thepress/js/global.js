@@ -16,6 +16,9 @@
   $('.toggle-search').on('click', function(e) {
     $(this).addClass('active');
     $('.search-modal').addClass('active');
+    setTimeout(function() {
+      $('#masterSearch').focus();
+    }, 300);
     e.preventDefault();
   });
 
@@ -42,6 +45,19 @@
     $('.mobile-dropdown').removeClass('active');
     $('.toggle-nav .fa-bars').toggle();
     $('.toggle-nav .fa-close').addClass('hidden');
+  });
+
+  // Init Search Popovers
+  $(function () {
+    $('.directory-header .tools-container a.search').popover({
+      html: true,
+      content: '<div class="row search-wrapper"><form role="form" method="post" action=""><div class="col-sm-2 text-center"><button type="submit"><i class="fa fa-search"></i></button></div><div class="col-sm-10"><input type="text" name="search" id="search" placeholder="Search Wineries"></div></form></div>'
+    });
+  });
+
+  // Directory List Header Buttons
+  $('.directory-header .tools-container a').on('click', function(e) {
+    e.preventDefault();
   });
 
   // Login Mockup

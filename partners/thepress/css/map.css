@@ -564,16 +564,16 @@ main {
 }
 
 .hud .module.tier1 .tier-buttons ul {
-  width: 100%;
-  max-width: 400px;
   display: table;
   text-align: left;
+  margin-bottom: 10px;
 }
 
 .hud .module.tier1 .tier-buttons ul li {
   list-style: none;
   vertical-align: middle;
-  display: table-cell;
+  display: inline-block;
+  margin-right: 10px;
 }
 
 .hud .module.tier1 .tier-buttons ul li.social i {
@@ -799,21 +799,22 @@ main {
   .hud .module.tier1 .tier-buttons ul,
   .hud .module.tier2 .tier-buttons ul {
     display: inline-block;
+    width: 100%;
+  }
+  .hud .module.tier1 .tier-buttons ul.social li,
+  .hud .module.tier2 .tier-buttons ul.social li {
+    display: inline;
+    margin-right: 5px;
+  }
+  .hud .module.tier1 .tier-buttons ul.social li i,
+  .hud .module.tier2 .tier-buttons ul.social li i {
+    vertical-align: middle;
   }
   .hud .module.tier1 .tier-buttons ul li,
   .hud .module.tier2 .tier-buttons ul li {
     display: inline-block;
     width: 100%;
     margin-bottom: 5px;
-  }
-  .hud .module.tier1 .tier-buttons ul li.social,
-  .hud .module.tier2 .tier-buttons ul li.social {
-    float: left;
-    width: intrinsic;
-    width: fit-content;
-    width: -moz-fit-content;
-    margin-right: 5px;
-    margin-top: 5px;
   }
   .hud .module.tier1 .tier-contact .address .status,
   .hud .module.tier2 .tier-contact .address .status
