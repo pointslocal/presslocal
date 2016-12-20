@@ -2441,7 +2441,7 @@ Global Modules
 
 .quad-column .quad-block {
   min-height: 125px;
-  margin: 0 20px 13px 20px;
+  margin: 0 10px 10px 10px;
   display: block;
   position: relative;
 }
@@ -2707,6 +2707,11 @@ Global Modules
 }
 
 @media (max-width: 992px) {
+  .directory-header .directory-tools .dropdown-menu {
+    margin-top: 20px;
+    left: auto;
+    right: 0;
+  }
   .directory-header .directory-label .num-label {
     margin-left: 0;
     clear: both;
@@ -3495,4 +3500,33 @@ Slick Carousels
 
 .slick-dots li.slick-active button {
   background-color: #544741;
+}
+
+/*
+====================
+Popovers
+==================== */
+
+.popover {
+  min-width: 250px;
+}
+
+.popover .popover-content button {
+  vertical-align: middle;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: none;
+  border: none;
+}
+
+.popover .popover-content button i {
+  vertical-align: middle;
+}
+
+.popover .popover-content input {
+  width: 100%;
+  height: auto;
+  position: relative;
+  padding: 0 3px;
 }

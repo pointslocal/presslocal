@@ -19,7 +19,6 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="/partners/thepress/css/global.css">
-    <link rel="stylesheet" href="/partners/thepress/css/index.css">
   <script type="text/javascript" id="adPositionManagerScriptTag" src="http://aps.hearstnp.com/Scripts/loadAds.js"></script>
 <SCRIPT type="text/javascript" lang="javascript" src="http://cdn.gigya.com/JS/gigya.js?apikey=3_BMFZOCwXDrSMoeTYN2uiVIBZhHski0qbm2oj7S3NL2gKLHcAjq-sx3cuKnLVg_pN"></SCRIPT>
   <script src="/includes/lib/mustache/mustache.min.js"></script>
@@ -242,7 +241,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
   <div class="search-container">
     <a href="#" class="close-button white sans"><svg width="30" height="30" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1490 1322q0 40-28 68l-136 136q-28 28-68 28t-68-28l-294-294-294 294q-28 28-68 28t-68-28l-136-136q-28-28-28-68t28-68l294-294-294-294q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 294 294-294q28-28 68-28t68 28l136 136q28 28 28 68t-28 68l-294 294 294 294q28 28 28 68z"/></svg></a>
     <form class="form-inline" role="form" action="/search" method="post">
-      <input type="text" name="search" placeholder="Search">
+      <input type="text" name="search" id="masterSearch" placeholder="Search">
       <button type="submit" class="hidden"><i class="fa fa-search"></i></button>
     </form>
   </div>
@@ -301,6 +300,8 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
                 {{#story_text}}
                 <li><a href="/story/{{story_guid}}" class="button button-xs bg-olive sans-bold">Read Review</a></li>
                 {{/story_text}}
+              </ul>
+              <ul class="social">
                 {{#url}}<li><a href="{{url}}" target=_blank class="olive sans-bold">Website</a></li>{{/url}}
                 <li style="display:none;"><a href="#" class="olive sans-bold"><i class="fa fa-location-arrow"></i> Directions</a></li>
                 <li class="social"><a onclick="window.open(this.href,'targetWindow',
@@ -488,7 +489,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
             <div class="col-xs-12">
               <span class="sans-bold white">Sub Region</span>
               <ul class="filter-section-controls">
-                <li><a href="#">Up Valley</a></li>
+                <li><a href="#" >Up Valley</a></li>
                 <li><a href="#">Eastern Mountains</a></li>
                 <li><a href="#">Western Mountains</a></li>
                 <li><a href="#">South Napa</a></li>
@@ -499,10 +500,10 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
             <div class="col-xs-12">
               <span class="sans-bold white">Place</span>
               <ul class="filter-section-controls">
-                <li><a href="#">Wineries</a></li>
-                <li><a href="#">Restaurants</a></li>
-                <li><a href="#">Lodging</a></li>
-                <li><a href="#">Activities</a></li>
+                <li><a href="#" data-category="1" class="toggle-winery">Wineries</a></li>
+                <li><a href="#" data-category="2" class="toggle-restaurants">Restaurants</a></li>
+                <li><a href="#" data-category="3" class="toggle-lodging">Lodging</a></li>
+                <li><a href="#" data-category="5" class="toggle-activities">Activities</a></li>
               </ul>
             </div>
           </div>
@@ -510,17 +511,17 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
             <div class="col-xs-12">
               <span class="sans-bold brown">Specializing In</span>
               <ul class="filter-section-controls">
-                <li><a href="#">All</a></li>
-                <li><a href="#">Cabernet Sauvignon</li>
-                <li><a href="#">Pinot Noir</li>
-                <li><a href="#">Chardonnay</li>
-                <li><a href="#">Sauvignon Blanc</li>
-                <li><a href="#">Zinfandel</li>
-                <li><a href="#">Syrah</li>
-                <li><a href="#">Petite Sirah</li>
-                <li><a href="#">Other whites</li>
-                <li><a href="#">Other reds</li>
-                <li><a href="#">Sparkling wine</li>
+                <li><label><input type="checkbox"> All</label></li>
+                <li><label><input type="checkbox" class="search-option" data-type="specialization" data-value="Cabernet Sauvignon"> Cabernet Sauvignon</label></li>
+                <li><label><input type="checkbox" class="search-option" data-type="specialization" data-value="Pinot Noir"> Pinot Noir</label></li>
+                <li><label><input type="checkbox" class="search-option" data-type="specialization" data-value="Chardonnay"> Chardonnay</label></li>
+                <li><label><input type="checkbox" class="search-option" data-type="specialization" data-value="Sauvignon Blanc"> Sauvignon Blanc</label></li>
+                <li><label><input type="checkbox" class="search-option" data-type="specialization" data-value="Zinfandel"> Zinfandel</label></li>
+                <li><label><input type="checkbox" class="search-option" data-type="specialization" data-value="Syrah"> Syrah</label></li>
+                <li><label><input type="checkbox" class="search-option" data-type="specialization" data-value="Petite Sirah"> Petite Sirah</label></li>
+                <li><label><input type="checkbox" class="search-option" data-type="specialization" data-value="Other whites"> Other whites</label></li>
+                <li><label><input type="checkbox" class="search-option" data-type="specialization" data-value="Other reds"> Other reds</label></li>
+                <li><label><input type="checkbox" class="search-option" data-type="specialization" data-value="Sparkling wine"> Sparkling wine</label></li>
               </ul>
             </div>
           </div>
@@ -528,11 +529,11 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
             <div class="col-xs-12">
               <span class="sans-bold brown">Visit</span>
               <ul class="filter-section-controls">
-                <li><a href="#">All</a></li>
-                <li><a href="#">Open weekends</a></li>
-                <li><a href="#">Open weekdays</a></li>
-                <li><a href="#">No appt necessary</a></li>
-                <li><a href="#">Reservation only</a></li>
+                <li><label><input type="checkbox" class="search-option" data-type="specialization" data-value="Open weekends"> Open weekends</label></li>
+                <li><label><input type="checkbox" class="search-option" data-type="specialization" data-value="Open weekdays"> Open weekdays</label></li>
+                <li><label><input type="checkbox" class="search-option" data-type="specialization" data-value="No appt necessary"> No appt necessary</label></li>
+                <li><label><input type="checkbox" class="search-option" data-type="specialization" data-value="Reservation only"> Reservation only</label></li>
+                <li><label><input type="checkbox" class="search-option" data-type="specialization" data-value="All"> All</label></li>
               </ul>
             </div>
           </div>
@@ -540,10 +541,10 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
             <div class="col-xs-12">
               <span class="sans-bold brown">Tasting Cost</span>
               <ul class="filter-section-controls">
-                <li><a href="#">$0 to $20</a></li>
-                <li><a href="#">$21 to $49</a></li>
-                <li><a href="#">$50 to $74</a></li>
-                <li><a href="#">$75+</a></li>
+                <li><label><input type="checkbox"> &dollar;0 to &dollar;20</label></li>
+                <li><label><input type="checkbox"> &dollar;21 to &dollar;49</label></li>
+                <li><label><input type="checkbox"> &dollar;50 to &dollar;74</label></li>
+                <li><label><input type="checkbox"> &dollar;75+</label></li>
               </ul>
             </div>
           </div>
@@ -551,18 +552,18 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
             <div class="col-xs-12">
               <span class="sans-bold brown">Features</span>
               <ul class="filter-section-controls">
-                <li><a href="#">Tours</li>
-                <li><a href="#">Dog friendly</li>
-                <li><a href="#">Family friendly</li>
-                <li><a href="#">Good for groups</li>
-                <li><a href="#">Art exhibit</li>
-                <li><a href="#">Outdoor area/garden</li>
-                <li><a href="#">Picnic area</li>
-                <li><a href="#">No outside food/drink</li>
-                <li><a href="#">Full restaurant</li>
-                <li><a href="#">Classes/education</li>
-                <li><a href="#">Sustainability focus</li>
-                <li><a href="#">Wheelchair accessible</li>
+                <li><label><input type="checkbox" class="search-option" data-type="specialization" data-value="Tours"> Tours</label></li>
+                <li><label><input type="checkbox" class="search-option" data-type="specialization" data-value="og friendly"> Dog friendly</label></li>
+                <li><label><input type="checkbox" class="search-option" data-type="specialization" data-value="Family friendly"> Family friendly</label></li>
+                <li><label><input type="checkbox" class="search-option" data-type="specialization" data-value="Good for groups"> Good for groups</label></li>
+                <li><label><input type="checkbox" class="search-option" data-type="specialization" data-value="Art exhibit"> Art exhibit</label></li>
+                <li><label><input type="checkbox" class="search-option" data-type="specialization" data-value="Outdoor area/garden"> Outdoor area/garden</label></li>
+                <li><label><input type="checkbox" class="search-option" data-type="specialization" data-value="Picnic area"> Picnic area</label></li>
+                <li><label><input type="checkbox" class="search-option" data-type="specialization" data-value="No outside food/drink"> No outside food/drink</label></li>
+                <li><label><input type="checkbox" class="search-option" data-type="specialization" data-value="Full restaurant"> Full restaurant</label></li>
+                <li><label><input type="checkbox" class="search-option" data-type="specialization" data-value="Classes/education"> Classes/education</label></li>
+                <li><label><input type="checkbox" class="search-option" data-type="specialization" data-value="Sustainability focus"> Sustainability focus</label></li>
+                <li><label><input type="checkbox" class="search-option" data-type="specialization" data-value="Wheelchair accessibl"> Wheelchair accessible</label></li>
               </ul>
             </div>
           </div>

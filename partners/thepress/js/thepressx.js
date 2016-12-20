@@ -141,6 +141,9 @@ function showModal(type) {
 		$('.modal-dialog.login').show();
 		$('.modal-dialog.register').hide();
 		$('.modal-dialog.lostpassword').hide();
+		setTimeout(function() {
+  		$('#login-email').focus();
+		}, 300);
 	}
 }
 
