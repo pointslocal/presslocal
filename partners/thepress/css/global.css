@@ -1475,6 +1475,7 @@ Global Modules
 .callout-divider .callout-content {
   padding: 0 0 50px 0;
   text-align: center;
+  position: relative;
 }
 
 .callout-divider img.stamp {
