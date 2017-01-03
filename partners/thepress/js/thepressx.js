@@ -8,18 +8,26 @@ var _Store = {
 	hasTrips: false,
 	tripIDs: []
 };
+var _TripsHTML = '';
+
+
+var _Trip = function() {
+	
+}
 
 
 function share(service,message) {
 
 }
 
+/* Opens toast */
 function showToast(message) {
   	$('#toast').slideDown(100);
 	$('#toast').html(message);
 	setTimeout(function() { $('#toast').slideUp(); }, 5000);
 }
 
+/* Updates button language */
 function updateButtons() {
 	$('.trip-button').each(function() {
 		thisID = $(this).attr('data-id');
@@ -29,6 +37,45 @@ function updateButtons() {
 		}
 	});
 }
+
+/* Finds .trip-receiver elements, adds existing trip dropdowns if they exist */
+	function tripReceiverDropdowns(klass,action) {
+		hideCurrentTrip = false;
+		if (!action) {
+			action = 'addItemToTrip';
+		} else {
+			hideCurrentTrip = true;
+		}
+		console.log('Updating receivers');
+		$.getJSON('/api.json?method=events.packages-user', function(trips) {
+			outerElement = '<ul class="trip-receiver-dropdown '+klass+'">';
+			if (!hideCurrentTrip) {
+				outerElement += '<li onclick="addItemToTrip(this, {id:false});">Current Trip</li>';
+			}
+			
+			$(trips.items).each(function() {
+				// addTrip({id: {{id}}, type:'venue',name: '{{name}}', lat: {{latitude}}, lon: {{longitude}} }, this);
+				outerElement += '<li onclick="'+action+'(this,{id:'+this.package_id+'});">'+this.package_title+'</li>';
+			});
+			outerElement += '</ul>';
+			_TripsHTML = outerElement;
+			$('.trip-receiver').each(function() {
+				if ($(this).has('ul')) {
+					$(this).find('ul').remove();
+				}
+				$(this).append(outerElement);
+			});
+		});
+	}
+
+	function resetTripReceivers() {
+		$('.trip-receiver').each(function() {
+			$(this).append(_TripsHTML);
+		});
+		$('.trip-receiver').click(function() {
+			$(this).toggleClass('active');
+		});
+	}
 
 /*	Sets global vars for _Store */
 function updateStore(init) {
@@ -43,6 +90,7 @@ function updateStore(init) {
 			if (trj.length > 0) {
 				_Store.hasTrips = true;
 				trj.forEach(function(i,t) {
+					console.log('uh?',i);
 					_Store.tripIDs.push(parseInt(i.id));
 				});
 			}
@@ -52,14 +100,21 @@ function updateStore(init) {
 
 	}
 
+
+
 	$(document).ready(function() {
 		//	Shows dismissables
 		if (!_Store.messageDismissed) {
 			$('.dismissable').fadeIn();
 		}
 
-		$('#trip-bar-name').on('blur keypress',function(e) {
+		resetTripReceivers();
+		tripReceiverDropdowns();
+
+
+		$('#trip-bar-name, .editable-input input').on('blur keypress',function(e) {
 			if (e.type === 'keypress') {
+				$('#editable-title').text($(this).text());
 				if (e.keyCode != 13) {
 					return;
 				}
@@ -78,6 +133,7 @@ function updateStore(init) {
 /*	Allows dismiss-able popups */
 function dismissDialog(e) {
 	$(e).closest('.dismissable').fadeOut();
+	$(e).closest('.dismiss-container').fadeOut();	
 	localStorage.setItem('messageDismissed',true);
 }
 
@@ -154,18 +210,23 @@ function onGetAccount(response) {
 		if (!nickname) {
 			nickname = response.profile.email.split('@')[0];
 		}
+		$('.auth-required').removeClass('auth-required');
 		$('.tools .signin, .fixed-tools .signin').hide();
 		$('.tools .login, .fixed-tools .login').removeClass('hidden').show();
-		$('.dropdown.login a.dropdown-toggle, .fixed-tools .toggle-signin, .login-name').html(nickname).removeClass('hidden');
+		$('.dropdown.login a.dropdown-toggle, .fixed-tools .toggle-signin, .login-name').html(nickname+'<i class=icon-chevron></i>').removeClass('hidden');
 
 		setSession(response.UID,response.profile.email)
 	}
 }
 
 function onLogin(response) {
+
 	if (response.errorCode > 0) {
-		$('#login-error').text('Email Address or Password is incorrect.');
+		$('#login-error').text(response.errorMessage);
 	} else {
+
+		$('.auth-required').removeClass('auth-required');
+
 		setSession(response.UID,response.profile.email);
 		var nickname = response.profile.nickname;
 		if (!nickname) {
@@ -176,16 +237,17 @@ function onLogin(response) {
 
 		$('.tools .signin, .fixed-tools .signin').hide();
 		$('.tools .login, .fixed-tools .login').removeClass('hidden').show();
-		$('.dropdown.login a.dropdown-toggle, .fixed-tools .toggle-signin, .login-name').html(nickname).removeClass('hidden');
+		$('.dropdown.login a.dropdown-toggle, .fixed-tools .toggle-signin, .login-name').html(nickname+'<i class="icon-chevron"></i>').removeClass('hidden');
 
 	}
 }
 
 function onRegister(response) {
+	console.log('Resp',response)
 	if (response.errorCode == 206001) {
 		$('#register-error').text('Please verify your email in order to complete your profile. Check your email for a profile verification link. <div>You will not have access to writing comments, managing newsletters or alerts, and updating your profile until you verify your account with the link provided. The verification link in the email will expire in 24 hours.</div>');
 	} else {
-		$('#register-error').html(JSON.stringify(response));
+		$('#register-error').html(response.errorMessage);
 	}
 }
 
@@ -228,23 +290,29 @@ function evalTripBar() {
 			lang += 's';
 		}
 		$('.trip-details span').text(JSON.parse(localStorage.getItem('trips')).length+' '+lang)
+		$('.trip-details a.current i').text(JSON.parse(localStorage.getItem('trips')).length);
 		if (tname = localStorage.getItem('workingTripName')) {
-			$('#trip-bar-name').text(tname);
+			$('#trip-bar-name, #editable-title').text(tname);
 		}
+		$('.trip-receiver').each(function() {
+			console.log()
+		});
 	}
 
 }
 
 
-var TripTemplate = '{{#items}}<section class="container no-padding single-featured my-trip-container" data-lat=38.4771 data-lon=-122.401><div class="row featured-title hidden-lg hidden-md hidden-sm"><div class=num-divider><span>1</span></div><div class=col-sm-12><div class="sans-bold orange featured-label"></div><h1 class="brown serif">{{name}}</h1><div class="sans-bold brown featured-address">{{address}}</div><span style="display:none" class=partner-badge></span></div></div><div class="row featured-image"><div class=col-sm-12>{{#image_id}}<img src="http://imagecdn-sfgate.pointslocal.com/image?method=image.icrop&context=venue&id={{id}}&w=1200&h=-1">{{/image_id}}</div></div><div class="row hidden-lg hidden-md hidden-sm featured-toolbar"><div class=col-sm-12><ul><li><a class="sans-bold bg-lightOrange button button-xs"href=#>Remove from Trip</a><li><a class="sans-bold orange"href=#>Website</a><li><a class="sans-bold orange"href=#><i class="fa fa-location-arrow"></i> Directions</a></ul></div></div><div class="row featured-title hidden-xs"><div class="col-sm-9 title-container"><div class="sans-bold orange featured-label"style=display:none>Spring Mountain District</div><h1 class="brown serif">{{name}}</h1><span class=partner-badge></span><div class="sans-bold brown featured-address">{{address}}</div></div><div class="col-sm-3 featured-button"><a class="sans-bold bg-lightOrange button button-xs"onclick=removeTrip({id:\'{{id}}\'{{#package_id}},packageID:\'{{package_id}}\'{{/package_id}}},this)>Remove from Trip</a></div></div><div class="row featured-content"><div class="col-sm-8 featured-container"><p class="brown sans"><br><br></div><div class="hidden-xs col-sm-4 featured-map"><div class=venue-map></div><div class="row related-stories"style=display:none><div class=col-sm-12><div class=related-title><h3 class="serif lightBrown">Related Stories</h3></div><ul><li><a class="sans-bold orange"href=#>A Guide to Yountville Hotels & Inns</a><li><a class="sans-bold orange"href=#>...</a><li><a class="sans-bold orange"href=#>A Guide to Yountville Hotels & Inns</a></ul></div></div></div></div></section>{{/items}}';
+var TripTemplate = '<section class="hidden-xs container directory-alt">{{#items}}<div class=row><div class="col-sm-12 directory-list"><div class="row directory-item"><div class="col-sm-12 item-container"><div class=row><div class="hidden-xs col-sm-2 directory-pic"><a href="/place/{{guid}}"><img alt=""src="/image?method=image.icrop&context={{context}}&id={{id}}&w=300&h=-1"></a></div><div class="col-sm-7 directory-info"><h3 class="brown serif"><a href=#>{{{name}}}</a></h3><span style="display:none;" class=partner-badge></span><h4 class="sans-bold orange">{{neighborhood}}</h4><div class=address><p>{{street}},<br>{{city}}, {{state}} {{zip}}{{#phone}}<br>{{phone}}<br>{{/phone}}<span style="display:none;">10AM-5PM</span> <span class="orange status">Open</span></div></div><div class="hidden-xs col-sm-3 directory-button"><a onclick="removeTrip({id:\'{{id}}\'{{#package_id}},packageID:\'{{package_id}}\'{{/package_id}}},this)" class="sans-bold bg-lightOrange button button-xs">Remove From Trip</a> <a  class="trip-receiver sans-bold bg-lightOrange button button-xs" data-venue_id="{{id}}" data-package-id="{{package_id}}">Move To Trip</a> <a href=# class="sans-bold orange">Website</a> <a href=# class="sans-bold orange"><i class="fa fa-location-arrow"></i> Directions</a></div><div class="col-sm-4 directory-buttons hidden-lg hidden-md hidden-sm"><ul><li><a href=# class="sans-bold bg-lightOrange button button-xs">Remove From Trip</a><li><a href=# class="sans-bold orange"><i class="fa fa-map-o"></i> Map</a></ul></div></div></div></div></div></div>{{/items}}</section>';
 
-var TripsTemplate = "<section class='directory container'><div class='col-sm-12 directory-list'>{{#items}}<div id=\"my-trip-{{package_id}}\" class=\"directory-item row\"><div class=\"hidden-xs col-xs-2 directory-button\">{{#package_id}}<img src='/image?method=image.icrop&context=package.items&id={{package_id}}&w=600&h=-1' />{{/package_id}}</div><div class=\"col-xs-7 directory-info\"><h3 class=\"brown serif\"><a href=/my-trip/{{package_guid}}>{{package_title}}</a></h3><h4 style='text-align:left;' class=\"hidden-xs orange sans-bold\">{{date}}</h4><div class=\"hidden-xs address\"><p></div><div class=\"address hidden-lg hidden-md hidden-sm\"><p></div></div><div class=\"hidden-xs col-xs-3 directory-button\"><a href=/my-trip/{{package_guid}} class=\"sans-bold bg-lightOrange button button-xs\">View Trip</a> <a onclick=\"deleteTrip({{package_id}});\" class=\"sans-bold bg-lightOrange button button-xs\">Delete Trip</a></div></div>{{/items}}</div></section>";
+var TripsTemplate = "<section class='directory container'><div class='col-sm-12 directory-list'>{{#items}}<div id=\"my-trip-{{package_id}}\" class=\"directory-item row\"><div class=\"hidden-xs col-xs-2 directory-button\">{{#package_id}}<img src='/image?method=image.icrop&context=package.items&id={{package_id}}&w=600&h=-1' />{{/package_id}}</div><div class=\"col-xs-7 directory-info\"><h3 class=\"brown serif\"><a href='#' id='' class='editable-trip-title serif brown editable editable-click' style='display: inline-block;'>{{package_title}}</a></h3><h4 style='text-align:left;' class=\"hidden-xs orange sans-bold\">{{date}}</h4><p>{{package_text}}</p><div class=\"hidden-xs address\"><p></div><div class=\"address hidden-lg hidden-md hidden-sm\"><p></div></div><div class=\"hidden-xs col-xs-3 directory-button\"><a href=/my-trip/{{package_guid}} class=\"sans-bold bg-lightOrange button button-xs\">View Trip</a> <a onclick=\"deleteTrip({{package_id}});\" class=\"sans-bold bg-lightOrange button button-xs\">Delete Trip</a></div></div>{{/items}}</div></section>";
 
 var SponsoredTripTemplate = '{{#items}}<a href="/trip/{{guid}}" class="block sponsored" style="background: url(\'image?method=image.crop&context=package&id={{id}}&w=370&h=240\') center center no-repeat; background-size: cover;">            <div class="block-label white no-accent">Sponsored Content</div><div class="block-label white">{{&neighborhood}}</div><div class="block-content vert-center"><h3 class="white"	>{{&title}}</h3></div></a><div class="block-caption hidden-xs"><p>{{subtitle}}</p></div>{{/items}}';
 
-var SponsoredTripTemplateSmall = '{{#items}}          <a href="/trip/{{guid}}" class="block" style="background: url(\'image?method=image.crop&context=package&id={{id}}&w=370&h=240\') center center no-repeat; background-size: cover;"></a><div class="block-label lightBrown no-accent">Sponsored Content</div><div class="block-content"><h4 class="sans-bold orange"><a href="/trip/{{guid}}">{{&title}}</a></h4><span class="partner-badge"></span></div>{{/items}}';
+var SponsoredTripTemplateSmall = '{{#items}}          <a href="/trip/{{guid}}" class="block" style="background: url(\'image?method=image.crop&context=package&id={{id}}&w=370&h=240\') center center no-repeat; background-size: cover;"></a><div class="block-content"><span class="partner-badge"></span><h4 class="sans-bold orange"><a href="/trip/{{guid}}">{{&title}}</a></h4></div>{{/items}}';
 
 var SponsoredStoryTemplateSmall = '{{#items}}          <a href="/story/{{guid}}" class="block" style="background: url(\'image?method=image.icrop&context=stories&id={{id}}&w=370&h=240\') center center no-repeat; background-size: cover;"></a><div class="block-label lightBrown no-accent">Sponsored Content</div><div class="block-content"><h4 class="sans-bold orange"><a href="/story/{{guid}}">{{&title}}</a></h4><span class="partner-badge"></span></div>{{/items}}';
+
+var MapItineraryTemplate = '{{#items}}<div class="row itinerary-item ui-sortable-handle"><div class="col-xs-2"><div class="num sans-bold">{{counter}}</div></div><div class="col-xs-8 no-padding"><h4 class="sans-bold olive item-title">{{name}}</h4><p class="address sans black">{{address}}</p></div><div class="col-xs-1 no-padding"><a href="#" onclick="removeTrip({id:{{id}}});updateMapItinerary();" class="remove-item sans-bold lightBeige">×</a></div></div>{{/items}}';
 
 var StoryVenueEventMapTemplate = '{{#items}}<a href="/place/{{guid}}">{{name}}</a>{{/items}}';
 
@@ -258,23 +326,31 @@ function saveFullTrip() {
 		trips = JSON.parse(trips);
 	}
 
-	console.log(trips);
-
 
 	$('.single-featured').each(function() {
-		trips.push({ id: parseInt($(this).attr('data-id')), type: 'venue', name: $(this).attr('data-name'), lat: parseFloat($(this).attr('data-lat')), lon: parseFloat($(this).attr('data-lon'))});
+		thisID = parseInt($(this).attr('data-id'))
+		for(i=0;i<trips.length;i++) {
+			if (trips[i].id == thisID) {
+				return;
+			}
+		}
+		trips.push({ id: thisID, type: 'venue', name: $(this).attr('data-name'), lat: parseFloat($(this).attr('data-lat')), lon: parseFloat($(this).attr('data-lon'))});
 	});
 
 
 	$('#toast').html('Saved '+trips.length+' items to <a href="/my-trip">My Trip</a>');
 	showToast();
 	localStorage.setItem("trips",JSON.stringify(trips));
+	evalTripBar();
 }
 
 function getExistingTrip(p) {
 	$.getJSON('/api.json?method=events.package-user&guid='+p,function(d) {
 		$('.header-title h1').text(d.name);
+		$('#trip-description').text(d.description);
+		console.log('package data::',d);
 		getTrip(d.items);
+
 	});
 }
 
@@ -283,12 +359,21 @@ function getTrips() {
 	$.getJSON('/api.json?method=events.packages-user',function(d) {
 		console.log('saved trips:',d);
 		$('#mytrips-container').html(Mustache.render(TripsTemplate,d));
+		
+      $('.editable-trip-title').editable({
+        type: 'text',
+        title: 'Name your trip',
+        success: function(res,newval) {
+        	
+        }
+      });
+
 	});
 }
 
 
 function removeTrip(id,el,reload) {
-
+	console.log('REMOVING:',id)
 
 	//	If part of existing package
 	if (id.packageID) {
@@ -300,10 +385,14 @@ function removeTrip(id,el,reload) {
 
 	}
 
-	$(el).html('Add to Trip');
-	$(el).attr('onclick',"addTrip("+id.id+",this);");
 
+	ref = {
+		name: '',
+		lat: 0,
+		lon: 0
+	};
 	id = parseInt(id.id) || 0;
+	console.log('REMOVING',id);
 	trips = localStorage.getItem('trips');
 	if (!trips) {
 		trips = [];
@@ -315,10 +404,15 @@ function removeTrip(id,el,reload) {
 		console.log(id, trips[t]);
 		if (trips[t].id == id) {
 			console.log('remove!');
+			ref.name = trips[t].name;
+			ref.lat = trips[t].lat;
+			ref.lon = trips[t].lon;
 		} else {
 			newTrips.push(trips[t]);
 		}
 	}
+	$(el).html('Add to Trip');
+	$(el).attr('onclick',"addTrip({id:"+id.id+", type:'venue', name:'"+ref.name+"', lat:"+ref.lat+", lon:"+ref.lon+"},this);");	
 	localStorage.setItem("trips",JSON.stringify(newTrips));
 	if (el) {
 		$(el).closest('.my-trip-container').fadeOut();
@@ -329,7 +423,56 @@ function removeTrip(id,el,reload) {
 	} else {
 		getTrip();
 	}
+	evalTripBar();
+}
 
+/* Moves item from one trip to another saved trip */
+function moveItemToTrip(el,d) {
+
+	pItem = $(el).closest('.trip-receiver').attr('data-venue_id');
+	pTo = d.id;
+	pFrom = $(el).closest('.trip-receiver').attr('data-package-id');
+	$.getJSON('/api.json?method=events.user-package-move&to='+pTo+'&from='+pFrom+'&id='+pItem, function(data) {
+		$(el).closest('.item-container').fadeOut();	
+		showToast('Moved Venue')
+	});
+	// 
+}
+
+/* Adds to either an existing trip or to working trip */
+function addItemToTrip(el,tr) {
+	var tid = $(el).closest('.trip-receiver').attr('data-id');
+	var name = $(el).closest('.trip-receiver').attr('data-name');
+	var type = $(el).closest('.trip-receiver').attr('data-type');
+	var lat = $(el).closest('.trip-receiver').attr('data-latitude');
+	var lon = $(el).closest('.trip-receiver').attr('data-longitude');
+	var addr = $(el).closest('.trip-receiver').attr('data-address');
+
+	if (!tr.id) {
+		trips = localStorage.getItem('trips');
+		if (!trips) {
+			trips = [];
+		} else {
+			trips = JSON.parse(trips);
+		}
+		for(i=0;i<trips.length;i++) {
+			if (trips[i].id == tid) {
+				console.log('already added');
+				return;
+			}
+		}
+		trips.push({type: type, name: name, lat: lat, lon: lon, id:tid });
+		localStorage.setItem("trips",JSON.stringify(trips));	
+		showToast('Added to current trip');		
+		evalTripBar();
+	} else {
+		$.getJSON('/api.json?method=events.add-item-user-package&id='+tr.id+'&type='+type+'&name='+name+'&tid='+tid, function(d) {
+			console.log(d);
+		});
+		showToast('Added to saved trip');
+	}
+	
+	// update receivers
 }
 
 function addToTrip(el,del) {
@@ -353,6 +496,12 @@ function deleteTrip(id) {
 	})
 }
 
+function cloneTrip(id) {
+	$.getJSON("/api.json?method=events.clone-package&id="+id, function(d) {
+		document.location.href = "/my-trips";
+	});
+}
+
 function saveTrip() {
     trips = (JSON.parse(localStorage.trips));
     venueIDs = [];
@@ -360,13 +509,13 @@ function saveTrip() {
     	if (!trips[k] || !trips[k].id) {
     		continue;
     	}
-    venueIDs.push(trips[k].id);
+    venueIDs.push(trips[k].type+':'+trips[k].id);
     }
 
     $.ajax({
     	url: '/api.json?method=events.add-user-package',
     	method: 'post',
-    	data: { name: $('.header-title h1').text(), venues: venueIDs },
+    	data: { name: $('.header-title h1').text(), description: $('#trip-description').val(), venues: venueIDs },
     	success: function(d) {
     		clearTrip();
     		document.location.href = '/my-trips';
@@ -395,12 +544,13 @@ function clearTrip() {
 }
 
 function getTrip(tr,tripID) {
-
 	$(document).ready(function() {
 
 	  var map;
 	  var markers = [];
 	  var points = [];
+
+	  $('#my-trips-save-button').show();
 
 	  if (_AUTH && _UID) {
 	  	$('.header-title .hidden').removeClass('hidden');
@@ -408,10 +558,10 @@ function getTrip(tr,tripID) {
 	  }
 
 	  if (title = localStorage.getItem('workingTripName')) {
-	  	if (!package) {
+	  	if (typeof package !== 'undefined' && !package) {
 	  		$('.header-title h1').text(title);
 	  	}
-	  	$('#trip-bar-name').text(title);
+	  	$('#trip-bar-name, #editable-title').text(title);
 	  }
 
 	    var options = {
@@ -437,24 +587,30 @@ function getTrip(tr,tripID) {
 	    markers = [];
 	    tripHTML = '';
 
-
-
+	    eventIDs = [];
 	    venueIDs = [];
 	    var tripI = 0;
 	    var tripWindowData = [];
 	    var tripWindows = [];
 	    var tripMarkers = [];
 	    for(k in trips) {
+
 	    	if (!trips[k] || !trips[k].id) {
 	    		continue;
 	    	}
 	    tripI++;
-	    console.log('trip::>',trips[k].id);
-	    venueIDs.push(trips[k].id);
-
-	      tripMarkers[tripI] = new google.maps.Marker({
+	    console.log('trip::>',trips[k]);
+	    // venueIDs.push(trips[k].id);
+	    console.log(trips[k]);
+	    if (trips[k].type == "events" || trips[k].type == 'event') {
+	    	venueIDs.push('event:'+trips[k].id);
+	    } else if (trips[k].type == "venue") {
+	    	venueIDs.push('venue:'+trips[k].id);
+	    }
+	    	//tripMarkers[tripI]
+	      x  = new google.maps.Marker({
 	          id: count,
-	          position: { lat: parseFloat(trips[k].lat), lng: parseFloat(trips[k].lon) },
+	          
 	          map: map,
 	          icon: {
 	            url: '/partners/thepress/img/markers/partner.png',
@@ -463,6 +619,25 @@ function getTrip(tr,tripID) {
 	          },
 	          optimized: false
 	        });
+
+        tripMarkers[tripI] = new google.maps.Marker({
+          id: count,
+          position: { lat: parseFloat(trips[k].lat), lng: parseFloat(trips[k].lon) },
+          map: map,
+
+          icon: {
+            path: 'M258.5,0C144.7,0,62,79.5,62,166.1c0,52.4,21.7,80.4,50.7,131.1C170.6,398.6,258.5,507,258.5,507 s87.9-108.4,145.8-209.8c29-50.7,50.7-78.7,50.7-131.1C455,79.5,372.3,0,258.5,0',
+            scale: .1,
+            fillColor: _MARKER_FILL_COLOR,
+            fillOpacity: .9,
+            size: new google.maps.Size(60, 72),
+            scaledSize: new google.maps.Size(30, 36),
+            anchor: new google.maps.Point(0, 232),
+            origin: new google.maps.Point(0, 0)
+          },
+          optimized: false
+        });
+
 
 	        tripWindowData[tripI] = '<div id="poi-window">'+
 	          '<div class="poi-image" style="background: url(\'/partners/thepress/img/backgrounds/wine-pour.png\') center center no-repeat; background-size: cover;">'+
@@ -479,27 +654,49 @@ function getTrip(tr,tripID) {
 	        '</div>';
 
 
-
-	        points.push( { lat: parseFloat(trips[k].lat), lng: parseFloat(trips[k].lon)  } );
+	        if (trips[k].lat && trips[k].lon) {
+	        	points.push( { lat: parseFloat(trips[k].lat), lng: parseFloat(trips[k].lon)  } );
+	        }
+	        
         	markers.push(tripMarkers[tripI]);
 	        addTripMarkers(tripMarkers[tripI],tripWindowData[tripI])
 	    }
+	    console.log('events',eventIDs,'venues',venueIDs);
 
-	    console.log(venueIDs);
 
-	    var venueReq = '/api/v1/venues?ids=' + (venueIDs.join(','));
+	    var venueReq = '/api/v1/elements?ids=' + (venueIDs.join(','));
 	    $.getJSON(venueReq,function(d) {
 	    	console.log(d);
 	    	if (package) {
 	    		d.items = d.items.map(function(ti) {
 	    			ti.package_id = package;
+
+	    			if (!ti.story_abstract) {
+	    				ti.story_abstract = '???';
+	    			}
 	    			return ti;
 	    		});
 	    	}
-	    	console.log(d);
+	    		d.items = d.items.map(function(ti) {
+	    			ti.package_id = package;
+	    			if (ti.type == 'event') {
+	    				ti.context = 'event.yield';
+	    			}
+	    			if (ti.type == 'venue') {
+	    				ti.context = 'venue';
+	    			}
+	    			console.log('type-->',ti.type);
+	    			ti['is:'+ti.type] = true;
+	    			if (!ti.story_abstract) {
+	    				ti.story_abstract = '???';
+	    			}
+	    			return ti;
+	    		});
 	    	tripHTML += Mustache.render(TripTemplate, d);
 
 	    	$('#my-trip-data').html(tripHTML);
+	    	tripReceiverDropdowns('left','moveItemToTrip');
+	    	resetTripReceivers();
 	    });
 
         var bounds = new google.maps.LatLngBounds();
@@ -515,6 +712,7 @@ function getTrip(tr,tripID) {
 
 
   var service = new google.maps.DistanceMatrixService();
+  console.log('points',points);
   service.getDistanceMatrix(
     {
       origins: points,
@@ -535,6 +733,7 @@ function getTrip(tr,tripID) {
   var waypoints = [];
   for (ob in routePoints.waypoints) {
     p = routePoints.waypoints[ob]
+    console.log('-->',p.lat,p.lng)
     waypoints.push({'location': new google.maps.LatLng(p.lat,p.lng), 'stopover': true })
   }
   waypoints = waypoints.slice(0,7);
@@ -680,7 +879,7 @@ $(document).ready(function() {
 	$(".header-title h1, #trip-bar-name").keypress(function(e){ return e.which != 13; });
 
 	$('.header-title h1, #trip-bar-name').blur(function() {
-		$('.header-title h1, #trip-bar-name').text($(this).text());
+		$('.header-title h1, #trip-bar-name, #editable-title').text($(this).text());
 	});
 
 	//	Add gradients

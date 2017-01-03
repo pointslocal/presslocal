@@ -10,8 +10,16 @@ var Search = {
   search: ''
 }
 var orgSearch = Search;
+var markerRefs = {};
+var windowRefs = {};
+var mapMarkerBounds;
 
-
+function stripTags(html)
+{
+   var tmp = document.createElement("DIV");
+   tmp.innerHTML = html;
+   return tmp.textContent || tmp.innerText || "";
+}
 
 var Neighborhoods = {
   "Napa": { "items": [
@@ -29,7 +37,71 @@ var Neighborhoods = {
   ]},
 }
 
+function updateMapItinerary() {
+      tripsJSON = localStorage.trips;
+      // console.log(tripsJSON);
+      trips = (JSON.parse(tripsJSON));
+      counter = 1;
+      trips = trips.map(function(t) {
+        t.counter = counter;
+        counter++;
+        return t;
+      });
+      $('.itinerary-list').html(Mustache.render(MapItineraryTemplate,{items:trips}));
+      $('.itinerary-list').show();
+}
+
+function scrollDown() {
+          var y = $(window).scrollTop();
+          $(window).scrollTop(y-150);
+}
+
+function isScrolledIntoView(elem) {
+  var docViewTop = $(window).scrollTop();
+  var docViewBottom = docViewTop + $(window).height() + 120;
+
+  var elemTop = $(elem).offset().top;
+  var elemBottom = elemTop + $(elem).height();
+
+  return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+}
+
+function resetMapBounds() {
+    var bounds = new google.maps.LatLngBounds();
+    for (ob in markerRefs) {
+        bounds.extend(markerRefs[ob].getPosition());
+        console.log('position:',markerRefs[ob].getPosition());
+    }
+    //map.setCenter(bounds.getCenter());
+    // map.fitBounds(bounds);
+}
+
 $(document).ready(function() {
+
+  /*
+    Detects scrolls at anchor points, highlights corresponding map points
+  */
+  console.log('Setup');
+  $(window).scroll(function(e) {
+    var anchors = $('.venue-anchor');
+    for (var i = 0; i < anchors.length; ++i) {
+      id = ($(anchors[i]).attr('data-id'));
+      if (isScrolledIntoView(anchors[i])){
+          //markerRefs[id].setAnimation(google.maps.Animation.BOUNCE);
+          m = markerRefs[id].getIcon()
+          m.fillColor = _MARKER_HIGHLIGHT_FILL_COLOR;
+          m.strokeColor = _MARKER_HIGHLIGHT_BORDER_COLOR;
+          m.strokeWeight = 4;
+          markerRefs[id].setIcon(m)
+      } else {
+          m = markerRefs[id].getIcon()        
+          m.fillColor = _MARKER_FILL_COLOR;
+          markerRefs[id].setIcon(m)          
+      }
+    }
+  });
+
+
   $('#mapSearch').on('keypress',function(e) {
     if (e.keyCode == 13) {
       Search.search = $(this).val();
@@ -65,18 +137,23 @@ function searchSubRegions(reg) {
       var markers = [];
       var searchActive = false;
 
-
-
       function addMarker(myLatLng, icon, data) {
-        var marker = new google.maps.Marker({
+        var marker = new MarkerWithLabel({
           id: count,
           position: myLatLng,
           map: map,
           title: name,
+          labelContent: data.counter,
+          labelClass: "dynamicMapMarker",
+          labelAnchor: new google.maps.Point(0, -5),
           icon: {
-            url: '/partners/thepress/img/markers/partner.png',
+            path: _MAP_PATH,
+            scale: .1,
+            fillColor: _MARKER_FILL_COLOR,
+            fillOpacity: .9,
             size: new google.maps.Size(60, 72),
             scaledSize: new google.maps.Size(30, 36),
+
           },
           optimized: false
         });
@@ -85,14 +162,14 @@ function searchSubRegions(reg) {
           '<div style="display:none;" class="poi-image" style="background: url(\'/partners/thepress/img/backgrounds/wine-pour.png\') center center no-repeat; background-size: cover;">'+
           '</div>'+
           '<div class="poi-title">'+
-            '<h2 class="serif brown">'+data.name+'</h2>'+
+            '<h2 class="serif brown"><a href="/place/"'+data.guid+'">'+data.name+'</a></h2>'+
           '</div>'+
           '<div class="poi-content bg-beige">'+
             '<h4 class="sans-bold olive" style="display:none;">Napa</h4>'+
             '<p>'+data.address+'<br> '+data.phone+'<br> </p>'+
           '</div>'+
           '<div class="poi-button">'+
-            '<a class="button button-xs sans-bold bg-olive" onclick="addTrip({id:'+data.id+', type:\'venue\',name: \''+data.name+'\', lat: '+data.latitude+', lon: '+data.longitude+' }, this)">Create Trip</a>'+
+            '<a class="button button-xs sans-bold bg-olive trip-receiver trip-receiver-'+data.id+'" onclick="addTrip({id:'+data.id+', type:\'venue\',name: \''+data.name+'\', lat: '+data.lat+', lon: '+data.lng+' }, this)">'+(_Store.hasTrips ? 'Add To Trip' : 'Create A Trip')+'</a>'+
           '</div>'+
         '</div>';
 
@@ -102,17 +179,23 @@ function searchSubRegions(reg) {
         });
 
 
-
+        markerRefs[data.id] = marker;
+        windowRefs[data.id] = infowindow;
         markers.push(marker);
         marker.addListener('click', function() {
-          // infowindow.open(map, marker);
+          for (ob in windowRefs) {
+            windowRefs[ob].close();
+          }
+          //infowindow.open(map, marker);
           console.log('eh?');
           location.hash = "#venue_card_" + data.id;
+          scrollDown();
           searchActive = true;
         });
         google.maps.event.addListener(infowindow,'closeclick',function(){
            searchActive = false;
         });
+        
       }
 
 function setMapPos(e) {
@@ -167,13 +250,13 @@ console.log(Search);
 Search.filters = JSON.stringify(Search.filterData);
 console.log(Search);
 
-
+      markerRefs = {};
       if (searchActive) {
         return;
       }
 
       req = [];
-      req.push('count=30');
+      req.push('count=50');
       for (k in Search) {
         if (k == 'filterData') {
           continue;
@@ -182,6 +265,7 @@ console.log(Search);
           req.push(k+'='+Search[k]);
         }
       }
+      req.push('sort=tier')
       req.push('references=1');
       req = req.join('&');
       if (req){
@@ -222,20 +306,33 @@ console.log(Search);
       // console.log('#map-search-results-'+resultsTarget);
         for (var ri = 0; ri < d.items.length; ri++ ) {
           if (d.items[ri].story_text) {
+              d.itemClass = 'venue-anchor';
+              d.items[ri].counter = d.items[ri].counter + 1;
+              d.items[ri].story_text = stripTags(d.items[ri].story_text);
               d.items[ri].story_text = d.items[ri].story_text.split(/\n/);
               d.items[ri].story_text = d.items[ri].story_text[0].replace(/^([\s\S]{230}[^\s]*).*/mg, "$1");
           }
 
         }
+        mD = localStorage.getItem('messageDismissed')
+        d.quicktip = (mD != null && mD ? false : true );
         d.items = d.items.map(function(f) {
+          console.log('F===',f);
+          f['tier:1-2'] = ( (f.feature_level == 1 || f.feature_level) == 2 ? true : false);
+          f['tier:3'] = (f.feature_level == 3 ? true : false);
+          if (!f['tier:1-2'] && !f['tier:3']) {
+            f['tier:none'] = true;
+          }
           f.trip_item_message = ( _Store.hasTrips ? 'Add To Trip' : 'Create A Trip');
+          f.addclass = 'venue-anchor';
+
           return f;
         });
         $('#map-search-results-'+resultsTarget).html(Mustache.render(template,d));
           console.log('....??');
           $(d.items).each(function(i,v) {
 
-            results.push({ id: v.id, lat: v.latitude, lng: v.longitude, icon: '/partners/thepress/img/markers/partner.png', activeIcon: '/partners/thepress/img/markers/winery.png' });
+            results.push({ id: v.id, guid: v.guid, lat: v.latitude, lng: v.longitude, icon: '/partners/thepress/img/markers/partner.png', activeIcon: '/partners/thepress/img/markers/winery.png' });
         var myLatLng = {
           lat: parseFloat(v.latitude),
           lng: parseFloat(v.longitude)
@@ -243,8 +340,8 @@ console.log(Search);
 
         addMarker(myLatLng, icon, v);
       });
-      console.log('ok can search again');
-
+      resetTripReceivers();
+      resetMapBounds();
       });
 
 }
@@ -272,8 +369,8 @@ console.log(Search);
 
     var options = {
       center: {lat: 38.4404, lng: -122.7141},
-      zoom: 7,
-      maxZoom: 15,
+
+
       scrollwheel: false,
       mapTypeControl: false,
       draggable: true,
@@ -316,6 +413,7 @@ console.log(Search);
 
       // Make the marker
       function addMarker(myLatLng, icon) {
+        /*
         var marker = new google.maps.Marker({
           id: count,
           position: myLatLng,
@@ -327,35 +425,56 @@ console.log(Search);
           },
           optimized: false,
           vid: data[i].id
-        });
+        }); */
+        var marker = new MarkerWithLabel({
+          id: count,
+          position: myLatLng,
+          map: map,
+          title: name,
+          labelContent: data[i].counter,
+          labelClass: "dynamicMapMarker",
+          labelAnchor: new google.maps.Point(0, -5),
+          icon: {
+            path: 'M258.5,0C144.7,0,62,79.5,62,166.1c0,52.4,21.7,80.4,50.7,131.1C170.6,398.6,258.5,507,258.5,507 s87.9-108.4,145.8-209.8c29-50.7,50.7-78.7,50.7-131.1C455,79.5,372.3,0,258.5,0',
+            scale: .1,
+            fillColor: _MARKER_FILL_COLOR,
+            fillOpacity: .9,
+            size: new google.maps.Size(60, 72),
+            scaledSize: new google.maps.Size(30, 36),
 
-        console.log("DATA-->",data[i]);
+          },
+          optimized: false,
+          vid: data[i].id
+        });
 
         var contentString = '<div id="poi-window">'+
           '<div style="display:none;" class="poi-image" style="background: url(\'/partners/thepress/img/backgrounds/wine-pour.png\') center center no-repeat; background-size: cover;">'+
           '</div>'+
           '<div class="poi-title">'+
-            '<h2 class="serif brown">'+data[i].name+'</h2>'+
+            '<h2 class="serif brown"><a href="/place/'+data[i].guid+'">'+data[i].name+'</a></h2>'+
           '</div>'+
           '<div class="poi-content bg-beige">'+
             '<h4 class="sans-bold olive" style="display:none;">Napa</h4>'+
             '<p>'+data[i].address+'<br> '+data[i].phone+'<br> </p>'+
           '</div>'+
           '<div class="poi-button">'+
-            '<a class="button button-xs sans-bold bg-olive" onclick="addTrip({id:'+data[i].id+', type:\'venue\',name: \''+data[i].name+'\', lat: '+data[i].latitude+', lon: '+data[i].longitude+' }, this)">'+(_Store.hasTrips ? 'Add To Trip' : 'Create a Trip')+'</a>'+
+            '<a class="button button-xs sans-bold bg-olive" onclick="addTrip({id:'+data[i].id+', type:\'venue\',name: \''+data[i].name+'\', lat: '+data[i].lat+', lon: '+data[i].lng+' }, this)">'+(_Store.hasTrips ? 'Add To Trip' : 'Create A Trip')+'</a>'+
           '</div>'+
         '</div>';
-
+        markerRefs[data[i].id] = marker;
         var infowindow = new google.maps.InfoWindow({
           content: contentString,
           pixelOffset: new google.maps.Size(-15, -10)
         });
-
+        windowRefs[data[i].id] = infowindow;
         // Marker Click listener
         marker.addListener('click', function() {
-          console.log(marker);
+          for (ob in windowRefs) {
+            windowRefs[ob].close();
+          }
            location.hash = "#venue_card_" + marker.vid;
-            // infowindow.open(map, marker);
+           scrollDown();
+          //infowindow.open(map, marker);
           searchActive = true;
         });
         google.maps.event.addListener(infowindow,'closeclick',function(){
@@ -395,15 +514,40 @@ console.log(Search);
 
 
       template = $('#search-result').html();
-      $.getJSON("/api/v1/venues?category=1&count=30&references=1",function(d) {
+      $.getJSON("/api/v1/venues?category=1&count=50&references=1&sort=tier",function(d) {
+        mD = localStorage.getItem('messageDismissed')
+
+        mD = localStorage.getItem('messageDismissed')
+        d.quicktip = (mD != null && mD ? false : true );
+
         for(ti=0;ti<d.items.length;ti++) {
           d.items[ti].trip_item_message = ( _Store.hasTrips ? 'Add To Trip' : 'Create a Trip');
+          d.items[ti].addclass = 'venue-anchor';
+          d.items[ti].counter = d.items[ti].counter + 1;        
+          d.items[ti].quicktip = true;
+
+
+          d.items[ti].story_text = stripTags(d.items[ti].story_text);
+          d.items[ti].story_text = d.items[ti].story_text.split(/\n/);
+          d.items[ti].story_text = d.items[ti].story_text[0].replace(/^([\s\S]{180}[^\s]*).*/mg, "$1") + ' ... '; 
+          if (d.items[ti].story_abstract) {
+            d.items[ti].story_text = d.items[ti].story_abstract;
+          }         
+          d.items[ti]['tier:1-2'] = ( (d.items[ti].feature_level == 1 || d.items[ti].feature_level) == 2 ? true : false);
+          d.items[ti]['tier:3'] = (d.items[ti].feature_level == 3 ? true : false);       
+          if (!d.items[ti]['tier:1-2'] && !d.items[ti]['tier:3']) {
+            d.items[ti]['tier:none'] = true;
+          }
+          if (d.items[ti].story_guid && !d.items[ti]['tier:3']) {
+            d.items[ti]['tier:1-2'] = false;
+            d.items[ti]['tier:story'] = true;
+          }
         }
         $('#map-search-results-winery').html(Mustache.render(template,d));
         updateStore()
           $(d.items).each(function() {
 
-            results.push({ id: this.id, name: this.name, address: this.address, phone: this.phone, lat: this.latitude, lng: this.longitude, icon: '/partners/thepress/img/markers/partner.png', activeIcon: '/partners/thepress/img/markers/partner-active.png' });
+            results.push({ id: this.id, counter: this.counter, guid: this.guid, name: this.name, address: this.address, phone: this.phone, lat: this.latitude, lng: this.longitude, icon: '/partners/thepress/img/markers/partner.png', activeIcon: '/partners/thepress/img/markers/partner-active.png' });
 
           });
 
@@ -418,7 +562,11 @@ console.log(Search);
       $.fn.editable.defaults.mode = 'inline';
       $('#editable-title').editable({
         type: 'text',
-        title: 'Name your trip'
+        title: 'Name your trip',
+        success: function(res,newval) {
+          $('#trip-bar-name').text(newval);
+          localStorage.setItem('workingTripName',newval);
+        }
       });
 
       // Rename Text Button
@@ -455,13 +603,14 @@ console.log(Search);
 
     // Toggle Itinerary and hide HUD
     $('.toggle-itinerary').on('click', function(e) {
-      $('.map-dropdowns .trip-toggles a.dropdown-toggle').html('Wineries' + ' <i class="fa fa-angle-down"></i>');
-      $('.mobile-nav a').removeClass('active');
+      // $('.map-dropdowns .trip-toggles a.dropdown-toggle').html('Wineries' + ' <i class="fa fa-angle-down"></i>');
+      //$('.mobile-nav a').removeClass('active');
       $('.hud-winery').addClass('inactive');
       $('.hud-trips').addClass('inactive');
       $('.hud-itinerary').addClass('active');
-      $('.map-filters').addClass('inactive');
-      $('.filter-controls').removeClass('active');
+      updateMapItinerary();
+      //$('.map-filters').addClass('inactive');
+      // $('.filter-controls').removeClass('active');
       scrollUp();
       e.preventDefault();
     });
