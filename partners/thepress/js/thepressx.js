@@ -48,7 +48,7 @@ function updateButtons() {
 		}
 		console.log('Updating receivers');
 		$.getJSON('/api.json?method=events.packages-user', function(trips) {
-			outerElement = '<ul class="trip-receiver-dropdown '+klass+'">';
+			outerElement = '<ul class="dropdown-menu trip-receiver-dropdown --innerclass-- '+klass+'">';
 			if (!hideCurrentTrip) {
 				outerElement += '<li onclick="addItemToTrip(this, {id:false});">Current Trip</li>';
 			}
@@ -60,8 +60,14 @@ function updateButtons() {
 			outerElement += '</ul>';
 			_TripsHTML = outerElement;
 			$('.trip-receiver').each(function() {
+				console.log('trip rec')
 				if ($(this).has('ul')) {
 					$(this).find('ul').remove();
+				}
+				innerClass = $(this).attr('data-dir');
+				element = outerElement;
+				if (innerClass) {
+					outerElement = outerElement.replace(/--innerclass--/,innerClass)
 				}
 				$(this).append(outerElement);
 			});
@@ -70,9 +76,11 @@ function updateButtons() {
 
 	function resetTripReceivers() {
 		$('.trip-receiver').each(function() {
+			console.log('resetting trip rec')
 			$(this).append(_TripsHTML);
 		});
 		$('.trip-receiver').click(function() {
+			console.log('clicked trip rec')
 			$(this).toggleClass('active');
 		});
 	}
@@ -302,9 +310,9 @@ function evalTripBar() {
 }
 
 
-var TripTemplate = '<section class="hidden-xs container directory-alt">{{#items}}<div class=row><div class="col-sm-12 directory-list"><div class="row directory-item"><div class="col-sm-12 item-container"><div class=row><div class="hidden-xs col-sm-2 directory-pic"><a href="/place/{{guid}}"><img alt=""src="/image?method=image.icrop&context={{context}}&id={{id}}&w=300&h=-1"></a></div><div class="col-sm-7 directory-info"><h3 class="brown serif"><a href=#>{{{name}}}</a></h3><span style="display:none;" class=partner-badge></span><h4 class="sans-bold orange">{{neighborhood}}</h4><div class=address><p>{{street}},<br>{{city}}, {{state}} {{zip}}{{#phone}}<br>{{phone}}<br>{{/phone}}<span style="display:none;">10AM-5PM</span> <span class="orange status">Open</span></div></div><div class="hidden-xs col-sm-3 directory-button"><a onclick="removeTrip({id:\'{{id}}\'{{#package_id}},packageID:\'{{package_id}}\'{{/package_id}}},this)" class="sans-bold bg-lightOrange button button-xs">Remove From Trip</a> <a  class="trip-receiver sans-bold bg-lightOrange button button-xs" data-venue_id="{{id}}" data-package-id="{{package_id}}">Move To Trip</a> <a href=# class="sans-bold orange">Website</a> <a href=# class="sans-bold orange"><i class="fa fa-location-arrow"></i> Directions</a></div><div class="col-sm-4 directory-buttons hidden-lg hidden-md hidden-sm"><ul><li><a href=# class="sans-bold bg-lightOrange button button-xs">Remove From Trip</a><li><a href=# class="sans-bold orange"><i class="fa fa-map-o"></i> Map</a></ul></div></div></div></div></div></div>{{/items}}</section>';
+var TripTemplate = '<section class="container directory-alt">{{#items}}<div class=row><div class="col-sm-12 directory-list"><div class="row directory-item"><div class="col-sm-12 item-container"><div class=row><div class="hidden-xs col-sm-2 directory-pic"><a href="/place/{{guid}}"><img alt=""src="/image?method=image.icrop&context={{context}}&id={{id}}&w=300&h=-1"></a></div><div class="col-sm-7 directory-info"><h3 class="brown serif"><a href=#>{{{name}}}</a></h3><span style="display:none;" class=partner-badge></span><h4 class="sans-bold orange">{{neighborhood}}</h4><div class=address><p>{{#street}}{{street}},<br>{{/street}}{{#city}}{{city}},{{/city}} {{#state}}{{state}}{{/state}} {{#zip}}{{zip}}{{/zip}}{{#phone}}<br>{{phone}}<br>{{/phone}}<span style="display:none;">10AM-5PM</span> <span class="orange status">Open</span></div></div><div class="hidden-xs col-sm-3 directory-button"><a onclick="removeTrip({id:\'{{id}}\'{{#package_id}},packageID:\'{{package_id}}\'{{/package_id}}},this)" class="sans-bold bg-lightOrange button button-xs">Remove From Trip</a> <a  class="trip-receiver sans-bold bg-lightOrange button button-xs" data-venue_id="{{id}}" data-package-id="{{package_id}}">Move To Trip</a> <a href=# class="sans-bold orange">Website</a> <a href=# class="sans-bold orange"><i class="fa fa-location-arrow"></i> Directions</a></div><div class="col-sm-4 directory-buttons hidden-lg hidden-md hidden-sm"><ul><li><a onclick="removeTrip({id:\'{{id}}\'{{#package_id}},packageID:\'{{package_id}}\'{{/package_id}}},this)" class="sans-bold bg-lightOrange button button-xs">Remove From Trip</a><li><a href=# class="sans-bold orange"><i class="fa fa-map-o"></i> Map</a></ul></div></div></div></div></div></div>{{/items}}</section>';
 
-var TripsTemplate = "<section class='directory container'><div class='col-sm-12 directory-list'>{{#items}}<div id=\"my-trip-{{package_id}}\" class=\"directory-item row\"><div class=\"hidden-xs col-xs-2 directory-button\">{{#package_id}}<img src='/image?method=image.icrop&context=package.items&id={{package_id}}&w=600&h=-1' />{{/package_id}}</div><div class=\"col-xs-7 directory-info\"><h3 class=\"brown serif\"><a href='#' id='' class='editable-trip-title serif brown editable editable-click' style='display: inline-block;'>{{package_title}}</a></h3><h4 style='text-align:left;' class=\"hidden-xs orange sans-bold\">{{date}}</h4><p>{{package_text}}</p><div class=\"hidden-xs address\"><p></div><div class=\"address hidden-lg hidden-md hidden-sm\"><p></div></div><div class=\"hidden-xs col-xs-3 directory-button\"><a href=/my-trip/{{package_guid}} class=\"sans-bold bg-lightOrange button button-xs\">View Trip</a> <a onclick=\"deleteTrip({{package_id}});\" class=\"sans-bold bg-lightOrange button button-xs\">Delete Trip</a></div></div>{{/items}}</div></section>";
+var TripsTemplate = "<section class='directory container'><div class='col-sm-12 directory-list'>{{#items}}<div id=\"my-trip-{{package_id}}\" class=\"directory-item row\"><div class=\"hidden-xs col-xs-2 directory-button\">{{#package_id}}<img src='/image?method=image.icrop&context=package.items&id={{package_id}}&w=600&h=-1' />{{/package_id}}</div><div class=\"col-xs-6 directory-info\"><h3 class=\"brown serif\"><a href='#' id='' class='editable-trip-title serif brown editable editable-click' style='display: inline-block;'>{{package_title}}</a></h3><h4 style='text-align:left;' class=\"hidden-xs orange sans-bold\">{{date}}</h4><p>{{package_text}}</p><div class=\"hidden-xs address\"><p></div><div class=\"address hidden-lg hidden-md hidden-sm\"><p></div></div><div class=\" col-xs-4 directory-button\"><a href=/my-trip/{{package_guid}} class=\"sans-bold bg-lightOrange button button-xs\">View Trip</a> <a onclick=\"deleteTrip({{package_id}});\" class=\"sans-bold bg-lightOrange button button-xs\">Delete Trip</a></div></div>{{/items}}</div></section>";
 
 var SponsoredTripTemplate = '{{#items}}<a href="/trip/{{guid}}" class="block sponsored" style="background: url(\'image?method=image.crop&context=package&id={{id}}&w=370&h=240\') center center no-repeat; background-size: cover;">            <div class="block-label white no-accent">Sponsored Content</div><div class="block-label white">{{&neighborhood}}</div><div class="block-content vert-center"><h3 class="white"	>{{&title}}</h3></div></a><div class="block-caption hidden-xs"><p>{{subtitle}}</p></div>{{/items}}';
 
@@ -511,11 +519,14 @@ function saveTrip() {
     	}
     venueIDs.push(trips[k].type+':'+trips[k].id);
     }
-
+    var tripName = $('.header-title h1').text();
+    if (!tripName) {
+    	tripName = localStorage.workingTripName;
+    }
     $.ajax({
     	url: '/api.json?method=events.add-user-package',
     	method: 'post',
-    	data: { name: $('.header-title h1').text(), description: $('#trip-description').val(), venues: venueIDs },
+    	data: { name: tripName, description: $('#trip-description').val(), venues: venueIDs },
     	success: function(d) {
     		clearTrip();
     		document.location.href = '/my-trips';
@@ -626,13 +637,14 @@ function getTrip(tr,tripID) {
           map: map,
 
           icon: {
+          	anchor: new google.maps.Point(250, 480),
             path: 'M258.5,0C144.7,0,62,79.5,62,166.1c0,52.4,21.7,80.4,50.7,131.1C170.6,398.6,258.5,507,258.5,507 s87.9-108.4,145.8-209.8c29-50.7,50.7-78.7,50.7-131.1C455,79.5,372.3,0,258.5,0',
             scale: .1,
             fillColor: _MARKER_FILL_COLOR,
             fillOpacity: .9,
             size: new google.maps.Size(60, 72),
             scaledSize: new google.maps.Size(30, 36),
-            anchor: new google.maps.Point(0, 232),
+            
             origin: new google.maps.Point(0, 0)
           },
           optimized: false

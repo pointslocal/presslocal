@@ -56,6 +56,27 @@ function scrollDown() {
           $(window).scrollTop(y-150);
 }
 
+function isScrollListener() {
+  $(window).scroll(function(e) {
+    var anchors = $('.venue-anchor');
+    for (var i = 0; i < anchors.length; ++i) {
+      id = ($(anchors[i]).attr('data-id'));
+      if (isScrolledIntoView(anchors[i])){
+          //markerRefs[id].setAnimation(google.maps.Animation.BOUNCE);
+          m = markerRefs[id].getIcon()
+          m.fillColor = _MARKER_HIGHLIGHT_FILL_COLOR;
+          m.strokeColor = _MARKER_HIGHLIGHT_BORDER_COLOR;
+          m.strokeWeight = 4;
+          markerRefs[id].setIcon(m)
+      } else {
+          m = markerRefs[id].getIcon()        
+          m.fillColor = _MARKER_FILL_COLOR;
+          markerRefs[id].setIcon(m)          
+      }
+    }
+  });
+}
+
 function isScrolledIntoView(elem) {
   var docViewTop = $(window).scrollTop();
   var docViewBottom = docViewTop + $(window).height() + 120;
@@ -82,24 +103,7 @@ $(document).ready(function() {
     Detects scrolls at anchor points, highlights corresponding map points
   */
   console.log('Setup');
-  $(window).scroll(function(e) {
-    var anchors = $('.venue-anchor');
-    for (var i = 0; i < anchors.length; ++i) {
-      id = ($(anchors[i]).attr('data-id'));
-      if (isScrolledIntoView(anchors[i])){
-          //markerRefs[id].setAnimation(google.maps.Animation.BOUNCE);
-          m = markerRefs[id].getIcon()
-          m.fillColor = _MARKER_HIGHLIGHT_FILL_COLOR;
-          m.strokeColor = _MARKER_HIGHLIGHT_BORDER_COLOR;
-          m.strokeWeight = 4;
-          markerRefs[id].setIcon(m)
-      } else {
-          m = markerRefs[id].getIcon()        
-          m.fillColor = _MARKER_FILL_COLOR;
-          markerRefs[id].setIcon(m)          
-      }
-    }
-  });
+  isScrollListener();
 
 
   $('#mapSearch').on('keypress',function(e) {
@@ -169,7 +173,7 @@ function searchSubRegions(reg) {
             '<p>'+data.address+'<br> '+data.phone+'<br> </p>'+
           '</div>'+
           '<div class="poi-button">'+
-            '<a class="button button-xs sans-bold bg-olive trip-receiver trip-receiver-'+data.id+'" onclick="addTrip({id:'+data.id+', type:\'venue\',name: \''+data.name+'\', lat: '+data.lat+', lon: '+data.lng+' }, this)">'+(_Store.hasTrips ? 'Add To Trip' : 'Create A Trip')+'</a>'+
+            '<a data-type="venue" data-name="Frank Family Vineyards" data-latitude="'+data.lat+'" data-longitude="'+data.lng+'" data-id="'+data.id+'" data-address="" class="button button-xs sans-bold bg-olive trip-receiver trip-receiver-'+data.id+'" xnclick="addTrip({id:'+data.id+', type:\'venue\',name: \''+data.name+'\', lat: '+data.lat+', lon: '+data.lng+' }, this)">'+(_Store.hasTrips ? 'Add To Trip' : 'Create A Trip')+'</a>'+
           '</div>'+
         '</div>';
 
@@ -186,7 +190,10 @@ function searchSubRegions(reg) {
           for (ob in windowRefs) {
             windowRefs[ob].close();
           }
-          //infowindow.open(map, marker);
+          if (screen.width < 500) {
+            infowindow.open(map, marker);
+          }
+          //
           console.log('eh?');
           location.hash = "#venue_card_" + data.id;
           scrollDown();
@@ -340,6 +347,7 @@ console.log(Search);
 
         addMarker(myLatLng, icon, v);
       });
+      isScrollListener();
       resetTripReceivers();
       resetMapBounds();
       });
@@ -474,7 +482,10 @@ console.log(Search);
           }
            location.hash = "#venue_card_" + marker.vid;
            scrollDown();
-          //infowindow.open(map, marker);
+           if (screen.width < 500) {
+              infowindow.open(map, marker);
+           }
+          //
           searchActive = true;
         });
         google.maps.event.addListener(infowindow,'closeclick',function(){
@@ -512,6 +523,10 @@ console.log(Search);
 
       var results = [];
 
+      $('.filter-dropdown').click(function() {
+        $(this).toggleClass('active');
+      })
+
 
       template = $('#search-result').html();
       $.getJSON("/api/v1/venues?category=1&count=50&references=1&sort=tier",function(d) {
@@ -538,8 +553,9 @@ console.log(Search);
           if (!d.items[ti]['tier:1-2'] && !d.items[ti]['tier:3']) {
             d.items[ti]['tier:none'] = true;
           }
-          if (d.items[ti].story_guid && !d.items[ti]['tier:3']) {
+          if (d.items[ti].story_guid && !d.items[ti]['tier:3'] && (d.items[ti]['tier:1-2'])) {
             d.items[ti]['tier:1-2'] = false;
+
             d.items[ti]['tier:story'] = true;
           }
         }
@@ -552,7 +568,7 @@ console.log(Search);
           });
 
         initMap(results);
-
+        isScrollListener();
       });
 
 

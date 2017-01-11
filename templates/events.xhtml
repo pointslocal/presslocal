@@ -7,31 +7,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>The Press</title>
-
-  <meta property="og:type" content="<[_ogtype]>" />
-  <meta property="og:url" content="<[_ogurl]>" />
-  <meta property="og:image" content="<[_ogimage]>" />
-  <meta property="place:location:latitude"  content="<[_oglatitude]>" />
-  <meta property="place:location:longitude" content="<[_oglongitude]>" />
-  <meta property="og:title" content="<[_ogtitle]>" />
+  <script type="text/javascript" src="http://treg-staging.hearstnp.com/treg.js"></script>
+  <meta property="og:type" content="<[_ogtype]>" /> 
+  <meta property="og:url" content="<[_ogurl]>" /> 
+  <meta property="og:image" content="<[_ogimage]>" /> 
+  <meta property="place:location:latitude"  content="<[_oglatitude]>" /> 
+  <meta property="place:location:longitude" content="<[_oglongitude]>" /> 
+  <meta property="og:title" content="<[_ogtitle]>" /> 
     <link rel="shortcut icon" href="/partners/thepress/img/thepress-logo-sm.png" />
     <meta name="description" content="">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/partners/thepress/css/global.css">
+    <link rel="stylesheet" href="/partners/thepress/css/global.css?x=5875ac0bab5cd">
+    <link rel="stylesheet" href="/partners/thepress/css/index.css">
   <script type="text/javascript" id="adPositionManagerScriptTag" src="http://aps.hearstnp.com/Scripts/loadAds.js"></script>
 <SCRIPT type="text/javascript" lang="javascript" src="http://cdn.gigya.com/JS/gigya.js?apikey=3_BMFZOCwXDrSMoeTYN2uiVIBZhHski0qbm2oj7S3NL2gKLHcAjq-sx3cuKnLVg_pN"></SCRIPT>
   <script src="/includes/lib/mustache/mustache.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script src="/partners/thepress/js/thepressx.js?x=browse&tz=5851b5c62fd07"></script>
+<script src="/partners/thepress/js/thepressx.js?x=browse&tz=5875ac0bab5cd&xyz=z"></script>
 
 <script type="text/javascript"
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-gHN0lD5gfgKu4bp0h6ZPRM_jkCuIHps&libraries=drawing"></script>
     <script type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js'></script>
+<script src="http://23hfij34r8a3i36ce2tnh9ii.wpengine.netdna-cdn.com/wp-content/themes/wordplate/js/markerwithlabel.js"></script>
     <script src="//use.typekit.net/wuq4anx.js"></script>
 <script>
 var _LAT = 38.334997;
 var _LON =  -122.298203;
+var _MARKER_FILL_COLOR = '#FF5B50';
+var _MARKER_HIGHLIGHT_FILL_COLOR = '#ffb8b2';
+var _MARKER_HIGHLIGHT_BORDER_COLOR = '#FF5B50';
+var _MAP_PATH = 'M258.5,0C144.7,0,62,79.5,62,166.1c0,52.4,21.7,80.4,50.7,131.1C170.6,398.6,258.5,507,258.5,507 s87.9-108.4,145.8-209.8c29-50.7,50.7-78.7,50.7-131.1C455,79.5,372.3,0,258.5,0';
+if ('<[publication]>' == 'alt') {
+  _MARKER_FILL_COLOR = '#cc435a';
+  _MARKER_HIGHLIGHT_FILL_COLOR = '#f299a8';
+  _MARKER_HIGHLIGHT_BORDER_COLOR = '#cc435a';
+
+}
 </script>
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
 <script>
@@ -39,7 +51,7 @@ tripsExist = JSON.parse(localStorage.getItem('trips'));
 console.log(tripsExist);
 if (tripsExist && tripsExist.length > 0) {
   $(document).ready(function() {
-    $('.my-trip-inactive').removeClass('my-trip-inactive');
+    $('.my-trip-inactive').removeClass('my-trip-inactive'); 
   })
 
 }
@@ -54,8 +66,8 @@ display: none;
 
 </style>
 <div id="modal-background" style="display:none;"></div><div id="modal" style="display:none;"></div>
-<div id="trip-bar" style="display:none"><div class="trip-details"><a href="/my-trip">My Trip</a> <span>0 items </span> </div><div class="trip-meta"><span id="trip-bar-name" contenteditable=true>My Trip</span></div></div>
-<div style="display:none" id="toast">Added To <a href="/my-trip">My Trip</a></div>
+
+<div style="display:none" id="toast">Added To <a href="/my-trip">Current Trip</a></div>
 <script>
 function addTrip(id,el) {
   $('#toast').slideDown(100);
@@ -72,11 +84,12 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
   <!-- nav area -->
   <nav class="solid affix-top" data-spy="affix" data-offset-top="90">
   <a href="#" class="toggle-nav hidden-lg hidden-md hidden-sm"><i class="fa fa-bars"></i><i class="fa fa-close hidden"></i></a>
-  <a href="/partners/thepress/map.php" class="map-button hidden-lg hidden-md hidden-sm"><img class="map-icon" src="/partners/thepress/img/icons/map-icon.png" alt="Go to Map"></a>
+  <a href="/map" class="map-button hidden-lg hidden-md hidden-sm"><img class="map-icon" src="/partners/thepress/img/icons/map-icon.png" alt="Go to Map"></a>
+
   <div class="container nav-wrapper">
     <div class="row logo-container">
       <div class="col-sm-12">
-        <a href="/">
+        <a href="/wine">
           <img class="logo hidden-xs" src="/partners/thepress/img/thepress-logo-brown.png" alt="The Press">
           <img class="logo-mobile hidden-sm hidden-md hidden-lg" src="/partners/thepress/img/thepress-logo-mobile.png" alt="The Press">
           <img class="logo-fixed" src="/partners/thepress/img/thepress-logo-sm.png" alt="The Press">
@@ -143,8 +156,9 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
       <li><a href="/trips" >Trips</a></li>
       <li><a href="/stories" >Stories</a></li>
       <li><a href="/wineries" >Wineries</a></li>
-      <li><a href="/events" >Events</a></li>
-      <li><a href="/mytrip" >My Trip</a></li>
+      <li><a href="/wine-events" >Events</a></li>
+      <li><a href="/my-trip" >Current Trip</a></li>
+      <li><a href="/my-trips" >Saved Trips</a></li>
     </ul>
   </div>
   <div class="login-state">
@@ -162,7 +176,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true sans">&times;</span></button>
         <h4 class="sans-bold brownmodal-title">Login</h4>
         <p class="sans brown">Welcome back. If you already have an account with us, please login below.</p>
-        <p class="sans error" id="login-error"></p>
+        <p class="sans error" id="login-error"></p>        
       </div>
       <div class="modal-body">
         <form class="signinForm">
@@ -196,13 +210,13 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
           <div>Passwords must be at least 8 characters, contain upper and lowercase letters and at least one number.</div>
           <div class="form-group">
             <input id="register-username" type="text" placeholder="Username">
-          </div>
+          </div>          
           <div class="form-group">
             <input id="register-password" type="password" placeholder="Password">
           </div>
           <div class="form-group">
             <input id="register-password2" type="password" placeholder="Password (Repeat)">
-          </div>
+          </div>          
         </form>
       </div>
        <div class="modal-buttons">
@@ -241,13 +255,13 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
           <div class="form-group">
             <input id="register-email" type="email" placeholder="Email Address">
           </div>
+      
 
-
-
+        
         </form>
       </div>
        <div class="modal-buttons">
-        <button onclick="showModal('login');" type="submit" class="button button-xs bg-olive sans-bold">Cancel</button>
+        <button onclick="showModal('login');" type="submit" class="button button-xs bg-olive sans-bold">Cancel</button>   
       </div>
     </div>
   </div>
@@ -260,17 +274,18 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
   <div class="search-container">
     <a href="#" class="close-button white sans"><svg width="30" height="30" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1490 1322q0 40-28 68l-136 136q-28 28-68 28t-68-28l-294-294-294 294q-28 28-68 28t-68-28l-136-136q-28-28-28-68t28-68l294-294-294-294q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 294 294-294q28-28 68-28t68 28l136 136q28 28 28 68t-28 68l-294 294 294 294q28 28 28 68z"/></svg></a>
     <form class="form-inline" role="form" action="/search" method="post">
-      <input type="text" name="search" id="masterSearch" placeholder="Search">
+      <input type="text" name="search" placeholder="Search">
       <button type="submit" class="hidden"><i class="fa fa-search"></i></button>
     </form>
   </div>
 </div>
 
 
-  <link rel="stylesheet" href="/partners/thepress/css/events.css">
+  <!-- EVENTS PAGE -->
+<link rel="stylesheet" href="/partners/thepress/css/events.css">
 <script>setNav('events');</script>
-
-<header class="header-sm" style="background: url('/image?method=image.icrop&context=event.yield&w=1200&h=800&id=8077') center center no-repeat; background-size: cover;">
+    
+<header class="header-sm gradient-cover" style="background: url('/image?method=image.icrop&context=event.yield&w=2000&h=800&id=10621') center center no-repeat; background-size: cover;">
     <div class="subnav bg-brown-alpha">
       <ul class="sans-bold">
         <li><a href="#">Napa</a></li>
@@ -279,14 +294,16 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
     </div>
 
     <div class="cta vert-center">
-      <div class="date sans-bold white">December 16, 2016</div>
-      <h1>Ode to Crab Winery Dinner at St. Francis</h1>
-      <p></p>
-      <a href="/wine-event/ode-to-crab-winery-dinner-at-st-francis5820f886dc515" class="button button-cta serif bg-brown-alpha">View Event</a>
+      <div class="date sans-bold white">January 12, 2017</div>
+      <h1>Great Grape Study - Sangiovese</h1>
+      <p>Our "Great Grape Study" series is BACK for 2017.
+These Thursday evening tastings study the same grape made from different parts of the world and in different styles.
+This is a very ...</p>
+      <a href="/wine-event/great-grape-study-sangiovesejanuary-12-20175871fae4abfe1" class="button button-cta serif bg-brown-alpha">View Event</a>
     </div>
 
   </header>
-
+  
 
 <main>
 <section class="two-column container no-padding">
@@ -296,36 +313,37 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
         </div>
       </div>
       <div class="row scrollable" id="scroll1">
-
+        
         <div class="col-sm-6 block-container">
-          <a href="/wine-event/how-to-taste-wine-in-90-seconds581a6d3a7d6cc" class="block" style="background: url('/image?method=image.icrop&context=event.yield&w=1200&h=800&id=7849') center center no-repeat; background-size: cover;">
+          <a href="/wine-event/old-world-new-world-tasting-comparisonjanuary-13-20175871fae34c2a9" class="block  gradient-cover" style="background: url('/image?method=image.icrop&context=event.yield&w=1200&h=800&id=10620') center center no-repeat; background-size: cover;">
             <div class="block-label white">Wine</div>
             <div class="block-content vert-center">
-              <div class="date sans-bold white">December 17, 2016</div>
-              <h3 class="white">How To: Taste Wine in 90 Seconds</h3>
+              <div class="date sans-bold white">January 13, 2017</div>
+              <h3 class="white">Old World-New World Tasting Comparison</h3>
+            </div>
+          </a>
+          <div class="block-caption">
+            <h4 class="sans-bold brown">Back Room Wines</h4>
+            <p>This Friday we present a comparative tasting of Old World and New World wines.
+
+Ever wonder what the difference in taste is between "Old World" (European) and "New World" (Americas and ...</p>
+          </div>
+        </div>
+        
+        <div class="col-sm-6 block-container">
+          <a href="/wine-event/bubbles-for-every-occasion5852f76b5a2aa" class="block  gradient-cover" style="background: url('/image?method=image.icrop&context=event.yield&w=1200&h=800&id=9768') center center no-repeat; background-size: cover;">
+            <div class="block-label white">Wine</div>
+            <div class="block-content vert-center">
+              <div class="date sans-bold white">January 13, 2017</div>
+              <h3 class="white">Bubbles for Every Occasion</h3>
             </div>
           </a>
           <div class="block-caption">
             <h4 class="sans-bold brown">CIA at Copia</h4>
-            <p>In this class, you'll taste six wines, learn the lingo, understand what you prefer, and how to enjoy it with food, family, and friends. You'll leave with a practical, fun, and commonsense way to appreciate, taste, record, and remember the wines you've tasted.</p>
+            <p><p>Learn about buying, serving and creating fun pairings for sparkling wine. In this blind tasting class, you'll also get the chance to compare bubbly from many price points and styles ...</p>
           </div>
         </div>
-
-        <div class="col-sm-6 block-container">
-          <a href="/wine-event/ode-to-crab-winery-dinner-at-st-francis5820f886deeb3" class="block" style="background: url('/image?method=image.icrop&context=event.yield&w=1200&h=800&id=8077') center center no-repeat; background-size: cover;">
-            <div class="block-label white">Wine</div>
-            <div class="block-content vert-center">
-              <div class="date sans-bold white">December 17, 2016</div>
-              <h3 class="white">Ode to Crab Winery Dinner at St. Francis</h3>
-            </div>
-          </a>
-          <div class="block-caption">
-            <h4 class="sans-bold brown">St. Francis Winery &amp; Vineyards</h4>
-            <p>Celebrate the beginning of crab season with multi-course crustacean centric dinner. Executive Chef Bryan Jones has paired each mouth-watering course with a St. Francis wine creating an unforgettable evening that you won't want to miss!
-</p>
-          </div>
-        </div>
-
+        
 
       </div>
     </section>
@@ -334,7 +352,37 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
 
 <section class="three-column container no-padding">
       <div class="row scrollable" id="scroll2">
-
+        
+        <div class="col-sm-4 the-column block-container">
+          <a href="/wine-event/nailed-it-cabernet-sauvignon5852f48c92950" class="block  gradient-cover" style="background: url('/image?method=image.icrop&context=event.yield&w=1200&h=800&id=9766&trim=1') center center no-repeat; background-size: cover;"></a>
+          <div class="block-label lightBrown">Wine</div>
+          <div class="block-content">
+            <div class="date sans-bold lightBrown"></div>
+            <h4 class="sans-bold brown"><a href="#">Nailed It!: Cabernet Sauvignon</a></h4>
+            <h4 class="sans-bold lightBrown"></h4>
+          </div>
+        </div>
+        
+        <div class="col-sm-4 the-column block-container">
+          <a href="/wine-event/nailed-it-pinot-noir5852f5c3b6906" class="block  gradient-cover" style="background: url('/image?method=image.icrop&context=event.yield&w=1200&h=800&id=9765&trim=1') center center no-repeat; background-size: cover;"></a>
+          <div class="block-label lightBrown">Wine</div>
+          <div class="block-content">
+            <div class="date sans-bold lightBrown"></div>
+            <h4 class="sans-bold brown"><a href="#">Nailed It! Pinot Noir Series</a></h4>
+            <h4 class="sans-bold lightBrown"></h4>
+          </div>
+        </div>
+        
+        <div class="col-sm-4 the-column block-container">
+          <a href="/wine-event/the-history-of-napa-valley-in-8-glasses5852f4eaf126d" class="block  gradient-cover" style="background: url('/image?method=image.icrop&context=event.yield&w=1200&h=800&id=9763&trim=1') center center no-repeat; background-size: cover;"></a>
+          <div class="block-label lightBrown">Wine</div>
+          <div class="block-content">
+            <div class="date sans-bold lightBrown"></div>
+            <h4 class="sans-bold brown"><a href="#">The History of Napa Valley in 8 Glasses</a></h4>
+            <h4 class="sans-bold lightBrown"></h4>
+          </div>
+        </div>
+        
 
       </div>
     </section>
@@ -348,7 +396,29 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
         </div>
       </div>
       <div class="row scrollable" id="scroll3">
-
+        
+        <div class="col-sm-3 block-container">
+          <a href="/wine-event/lobster-feast-2017-at-markham-vineyards581ca750769e8" class="quad-block  gradient-cover" style="background: url('/image?method=image.icrop&context=event.yield&w=300&h=200&id=7967&trim=1') center center no-repeat; background-size: cover;">
+            <div class="event-date sans-bold white vert-center">February 4, 2017</div>
+          </a>
+          <div class="block-text">
+            <h4 class="sans-bold brown"><a href="#"></a></h4>
+            <h4 class="sans-bold lightBrown"></h4>
+            <span class="affiliate-badge"></span>
+          </div>
+        </div>
+        
+        <div class="col-sm-3 block-container">
+          <a href="/wine-event/nailed-it-chardonnay5852f70cb7182" class="quad-block  gradient-cover" style="background: url('/image?method=image.icrop&context=event.yield&w=300&h=200&id=9767&trim=1') center center no-repeat; background-size: cover;">
+            <div class="event-date sans-bold white vert-center">February 11, 2017</div>
+          </a>
+          <div class="block-text">
+            <h4 class="sans-bold brown"><a href="#"></a></h4>
+            <h4 class="sans-bold lightBrown"></h4>
+            <span class="affiliate-badge"></span>
+          </div>
+        </div>
+        
 
       </div>
     </section>
@@ -357,21 +427,21 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
 
   <div class="oldmain">
 
-
+  
 
   <!-- Cannot open <b>/mnt/pointslocal-app/partners/thepress/templates/site/media/media_stream_html_item.template</b> -->
 
-
-
+  <!-- #283 EVENTS DIRECTORY -->
+<script src="/partners/thepress/js/events.js"></script>
 <div id="search-result" style="display:none;">
           {{#items}}
           <div class="row directory-item">
             <div class="col-xs-4 directory-pic">
               <div class="event-date sans-bold white vert-center">{{date}}</div>
-              <a href="/wine-event/{{guid}}"><img src="/image?method=image.icrop&context=event.yield&w=300&h=200&id={{id}}&trim=1" alt=""></a>
+              <a href="/wine-event/{{guid}}"><img src="/image?method=image.icrop&context=event.yield&w=300&h=200&id={{parent_id}}&trim=1" alt=""></a>
             </div>
             <div class="col-xs-5 directory-info">
-              <h3 class="sans-bold brown"><a href="/wine-event/{{guid}}">{{title}}</a></h3><span class="partner-badge"></span>
+              <h3 class="sans-bold brown"><span>{{counter}}</span><a href="/wine-event/{{guid}}">{{title}}</a></h3><span class="partner-badge"></span>
               <h4 class="sans-bold brown">{{start_time}}</h4>
               <div class="address hidden-xs">
                 <h4 class="sans-bold brown">{{venue_name}}</h4>
@@ -396,15 +466,15 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
                 </ul>
               </div>
             </div>
-            <div class="col-xs-3 directory-button hidden-xs" style="display:none'">
-
+            <div class="col-xs-3 directory-button hidden-xs" >
+                <a data-type="events" data-name="{{name}}" data-latitude="{{latitude}}" data-longitude="{{longitude}}" data-id="{{id}}" data-address="{{venue_address}}" class="trip-receiver button button-xs sans-bold bg-brown">Add To Trip</a>
 
             </div>
           </div>
           {{/items}}
 </div>
 
-<div class="container">
+<div class="container directory-header">
         <div class="row">
           <div class="col-sm-12">
             <h2 class="divider divider-sm brown"><span>Event Directory</span></h2>
@@ -417,10 +487,46 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
         </div>
       </div>
 
+<section class="directory-header">
+<div class="container-fluid  bg-lightGray">
+        <div class="container directory-container">
+          <div class="row">
+            <div class="col-sm-4 directory-label">
+              <h3 class="sans-bold brown">Events</h3><span class="num-label lightBrown">200 Listings</span>
+            </div>
+            <div class="col-sm-8 directory-tools">
+              <ul class="tools-container hidden-xs hidden-sm">
+                <li class="dropdown" style="display:none;">
+                  <a class="brown dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Category <i class="fa fa-chevron-down"></i></a>
+                  <ul class="dropdown-menu">
+                    
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a class="brown dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Month <i class="fa fa-chevron-down"></i></a>
+                  <ul class="dropdown-menu">
 
+                  </ul>
+                </li>
 
+                <li><a class="search brown" data-description="Search Events" href="#"><i class="fa fa-search"></i></a></li>
+                <li><a class="brown" onclick="updateDirectory({});">Clear</a></li>
+              </ul>
+              <div class="dropdown">
+                <a href="#" class="toggle-filters brown hidden-md hidden-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><img class="filter-icon" src="img/icons/filter-icon.png" alt="Show Filters"></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</section>
 
-<section class="directory container">
+<section class="directory container ">
       <div class="row">
         <div class="col-sm-9 directory-list">
 
@@ -442,12 +548,26 @@ function resetDirectory(j) {
 }
 
 function updateDirectory(opt) {
+
+  // Sets search state
+  if (opt) {
+    _EventOptions = opt;
+  } else {
+    opt = _EventOptions;
+  }
+
+
   opts = [];
   opts.push('categories=23')
   opts.push('date_format=M j');
   if (opt) {
     opts.push('filters='+encodeURI( JSON.stringify(opt)) );
   }
+  if (opt && opt.search) {
+    opts.push('search='+opt.search);
+  }  
+  opts.push('recurrences','1');
+
 
   data = opts.join('&');
   template = $('#search-result').html();
@@ -458,11 +578,15 @@ function updateDirectory(opt) {
     for(i=0;i<d.items.length;i++) {
       it = d.items[i];
       myLatLng = {lat: parseFloat(it.latitude), lng: parseFloat(it.longitude)};
-
+      if (!d.items[i].counter) {
+        d.items[i].counter = 0;
+      }
+      d.items[i].counter = parseInt(d.items[i].counter) + 1;
       if (!it.latitude || !it.longitude) {
         continue;
       }
 
+      /*
        marker = new google.maps.Marker({
         position: myLatLng,
         map: map,
@@ -471,9 +595,32 @@ function updateDirectory(opt) {
           size: new google.maps.Size(30, 36),
           scaledSize: new google.maps.Size(30, 36),
         },
-        optimized: false,
+        optimized: false,        
         title: it.name
       });
+      */
+
+        marker = new MarkerWithLabel({
+          id: count,
+          position: myLatLng,
+          map: map,
+          title: name,
+          labelContent: d.items[i].counter,
+          labelClass: "dynamicMapMarker",
+          labelAnchor: new google.maps.Point(0, -5),
+          icon: {
+            path: _MAP_PATH,
+            scale: .1,
+            fillColor: _MARKER_FILL_COLOR,
+            fillOpacity: .9,
+            size: new google.maps.Size(60, 72),
+            scaledSize: new google.maps.Size(30, 36),
+
+          },
+          optimized: false
+        });
+
+
        allMarkers.push(marker);
 
     }
@@ -484,12 +631,14 @@ function updateDirectory(opt) {
           bounds.extend(allMarkers[i].getPosition());
         }
       }
-      map.fitBounds(bounds);
+      map.fitBounds(bounds);    
     $('.directory-list').html(Mustache.render(template,d));
+    resetTripReceivers();
+    tripReceiverDropdowns('left');    
   });
-
+  
 }
-
+  
 
   var allMarkers = [];
   var map;
@@ -503,32 +652,35 @@ function updateDirectory(opt) {
 $(document).ready(function() {
   console.log('starting');
   initMap();
+   $("#events-map").sticky({topSpacing:62, zIndex: 10, bottomSpacing: 20});
   updateDirectory();
 })
 </script>
 
+<!-- #283 /EVENTS DIRECTORY -->
 
+  
 
+  
 
+  
 
+  
 
+  
 
+  
 
+  
 
-
-
-
-
-
-
-
+  
 
 <div style="text-align:center;">
  <!-- hearst/ads/full_banner_A728.tpl -->
     <!-- hmb:a728 full banner A728 ad -->
     <div id="ctpl-fullbanner1" class="ctpl-fullbanner fixed" data-collapse-timer="10">
     <div id="A728" class="ad_deferrable"><script type="text/javascript">/*<![CDATA[*/ hearstPlaceAd("A728"); /*]]>*/</script></div>
-
+    
     <script>
     (function() {
         var checkCount = 120;
@@ -556,7 +708,7 @@ $(document).ready(function() {
         }, 1000);
     })();
     </script>
-
+    
     </div>
 <!-- e hearst/ads/full_banner_A728.tpl -->
 </div>
@@ -581,6 +733,7 @@ $(document).ready(function() {
                 <li><a href="/about">About</a></li>
               </ul>
             </div>
+    <div id="treg_container"></div>
           </div>
           <div class="row">
             <div class="col-sm-12 footer-copyright">
@@ -590,15 +743,18 @@ $(document).ready(function() {
           </div>
         </div>
       </footer>
-  <script src="/partners/pointslocal/js/cache.js" type="text/javascript"></script>
+
+
 <!-- Begin Hearst analytics --> <script type="text/javascript" src="//nexus.ensighten.com/hearst/news-3p/Bootstrap.js"></script> <!-- End Hearst analytics -->
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script type="text/javascript" src="/partners/thepress/js/libs/jquery-touch-punch.js"></script>
     <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
 <script type="text/javascript" src="/partners/thepress/js/libs/markerwithlabel.js"></script><script type="text/javascript" src="/partners/thepress/js/libs/jquery-editable-poshytip.min.js"></script>
-    <script type="text/javascript" src="/partners/thepress/js/libs/slick.js?t=<[timestamp]>"></script>
+    <script type="text/javascript" src="/partners/thepress/js/libs/iscroll.js?t=5875ac0bab5cd"></script>
+<script type="text/javascript" src="/partners/thepress/js/libs/slick.js?t=5875ac0bab5cd"></script>
     <script type="text/javascript" src="/partners/thepress/js/global.js?t=1"></script>
+<script type="text/javascript" src="/partners/thepress/js/libs/jquery.sticky.js"></script>
     <script src="/partners/thepress/js/map.js?1470683612"></script>
     <script src="/partners/thepress/js/index.js?1467835203"></script>
   </body>

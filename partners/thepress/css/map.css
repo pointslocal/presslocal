@@ -3,33 +3,9 @@
 Map
 ======================= */
 
-.dynamicMapMarker {
-  color: #fff;
-  text-align: center;
-  font-weight: bold;
-  text-shadow: 0px 0px 1px #000;
-  font-size: 18px;
-  width: 50px;
-}
 
-.module h2 span {
 
-    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgNTEyIDUxMiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTEyIDUxMjsiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+LnN0MHtmaWxsOiNGRjVCNTA7fTwvc3R5bGU+PHBhdGggY2xhc3M9InN0MCIgZD0iTTI1OC41LDBDMTQ0LjcsMCw2Miw3OS41LDYyLDE2Ni4xYzAsNTIuNCwyMS43LDgwLjQsNTAuNywxMzEuMUMxNzAuNiwzOTguNiwyNTguNSw1MDcsMjU4LjUsNTA3czg3LjktMTA4LjQsMTQ1LjgtMjA5LjhjMjktNTAuNyw1MC43LTc4LjcsNTAuNy0xMzEuMUM0NTUsNzkuNSwzNzIuMywwLDI1OC41LDAiLz48L3N2Zz4=);
-    width: 28px;
-    height: 28px;
-    margin-top: -3px;
-    text-align: center;
-    display: inline-block;
-    color: #fff;
-    vertical-align: middle;
-    font-family: europa, Helvetica, arial;
-    font-weight: bold;
-    font-size: 13px;
-    line-height: 24px;
 
-    background-repeat: no-repeat;
-    background-size: 28px 28px;
-}
 
 body.map {
   height: 100%;
@@ -589,28 +565,28 @@ main {
   margin-left: 10px;
 }
 
-.hud .module.tier1 .tier-buttons {
+.hud .module.tier1 .tier-buttons, .hud .module.featured .tier-buttons {
   padding: 15px 0 0 0;
 }
 
-.hud .module.tier1 .tier-buttons ul {
+.hud .module.tier1 .tier-buttons ul, .hud .module.featured .tier-buttons ul {
   display: table;
   text-align: left;
   margin-bottom: 10px;
 }
 
-.hud .module.tier1 .tier-buttons ul li {
+.hud .module.tier1 .tier-buttons ul li, .hud .module.featured .tier-buttons ul li {
   list-style: none;
   vertical-align: middle;
   display: inline-block;
   margin-right: 10px;
 }
 
-.hud .module.tier1 .tier-buttons ul li.social i {
+.hud .module.tier1 .tier-buttons ul li.social i, .hud .module.featured .tier-buttons ul li.social i {
   font-size: 25px;
 }
 
-.hud .module.tier1 .tier-buttons ul li a {
+.hud .module.tier1 .tier-buttons ul li a, .hud .module.featured .tier-buttons ul li a {
   text-transform: uppercase;
   font-size: 14px;
   vertical-align: middle;

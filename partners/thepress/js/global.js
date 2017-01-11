@@ -51,7 +51,8 @@
   $(function () {
     $('.directory-header .tools-container a.search').popover({
       html: true,
-      content: '<div class="row search-wrapper"><form role="form" method="post" action=""><div class="col-sm-2 text-center"><button type="submit"><i class="fa fa-search"></i></button></div><div class="col-sm-10"><input type="text" name="search" id="search" placeholder="Search Wineries"></div></form></div>'
+      placement: 'left',
+      content: '<div class="row search-wrapper"><form role="form" onsubmit="updateDirectory({search:$(this).find(\'input\').val()}); return false;" method="post" action=""><div class="col-sm-2 text-center"><button type="submit"><i class="fa fa-search"></i></button></div><div class="col-sm-10"><input type="text" name="search" id="search" placeholder="'+$('a.search').attr('data-description')+'"></div></form></div>'
     });
   });
 
