@@ -7,32 +7,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>The Press</title>
-
-  <meta property="og:type" content="<[_ogtype]>" />
-  <meta property="og:url" content="<[_ogurl]>" />
-  <meta property="og:image" content="<[_ogimage]>" />
-  <meta property="place:location:latitude"  content="<[_oglatitude]>" />
-  <meta property="place:location:longitude" content="<[_oglongitude]>" />
-  <meta property="og:title" content="<[_ogtitle]>" />
+  <script type="text/javascript" src="http://treg-staging.hearstnp.com/treg.js"></script>
+  <meta property="og:type" content="<[_ogtype]>" /> 
+  <meta property="og:url" content="<[_ogurl]>" /> 
+  <meta property="og:image" content="<[_ogimage]>" /> 
+  <meta property="place:location:latitude"  content="<[_oglatitude]>" /> 
+  <meta property="place:location:longitude" content="<[_oglongitude]>" /> 
+  <meta property="og:title" content="<[_ogtitle]>" /> 
     <link rel="shortcut icon" href="/partners/thepress/img/thepress-logo-sm.png" />
     <meta name="description" content="">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/partners/thepress/css/global.css">
-    <link rel="stylesheet" href="/partners/thepress/css/wineries.css">
+    <link rel="stylesheet" href="/partners/thepress/css/global.css?x=587647446fe9a">
+    <link rel="stylesheet" href="/partners/thepress/css/index.css">
   <script type="text/javascript" id="adPositionManagerScriptTag" src="http://aps.hearstnp.com/Scripts/loadAds.js"></script>
 <SCRIPT type="text/javascript" lang="javascript" src="http://cdn.gigya.com/JS/gigya.js?apikey=3_BMFZOCwXDrSMoeTYN2uiVIBZhHski0qbm2oj7S3NL2gKLHcAjq-sx3cuKnLVg_pN"></SCRIPT>
   <script src="/includes/lib/mustache/mustache.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script src="/partners/thepress/js/thepressx.js?x=browse&tz=585041ea9245a"></script>
+<script src="/partners/thepress/js/thepressx.js?x=browse&tz=587647446fe9a&xyz=z"></script>
 
 <script type="text/javascript"
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-gHN0lD5gfgKu4bp0h6ZPRM_jkCuIHps&libraries=drawing"></script>
     <script type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js'></script>
+<script src="http://23hfij34r8a3i36ce2tnh9ii.wpengine.netdna-cdn.com/wp-content/themes/wordplate/js/markerwithlabel.js"></script>
     <script src="//use.typekit.net/wuq4anx.js"></script>
 <script>
 var _LAT = 38.334997;
 var _LON =  -122.298203;
+var _MARKER_FILL_COLOR = '#FF5B50';
+var _MARKER_HIGHLIGHT_FILL_COLOR = '#ffb8b2';
+var _MARKER_HIGHLIGHT_BORDER_COLOR = '#FF5B50';
+var _MAP_PATH = 'M258.5,0C144.7,0,62,79.5,62,166.1c0,52.4,21.7,80.4,50.7,131.1C170.6,398.6,258.5,507,258.5,507 s87.9-108.4,145.8-209.8c29-50.7,50.7-78.7,50.7-131.1C455,79.5,372.3,0,258.5,0';
+if ('<[publication]>' == 'alt') {
+  _MARKER_FILL_COLOR = '#cc435a';
+  _MARKER_HIGHLIGHT_FILL_COLOR = '#f299a8';
+  _MARKER_HIGHLIGHT_BORDER_COLOR = '#cc435a';
+
+}
 </script>
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
 <script>
@@ -40,7 +51,7 @@ tripsExist = JSON.parse(localStorage.getItem('trips'));
 console.log(tripsExist);
 if (tripsExist && tripsExist.length > 0) {
   $(document).ready(function() {
-    $('.my-trip-inactive').removeClass('my-trip-inactive');
+    $('.my-trip-inactive').removeClass('my-trip-inactive'); 
   })
 
 }
@@ -55,8 +66,8 @@ display: none;
 
 </style>
 <div id="modal-background" style="display:none;"></div><div id="modal" style="display:none;"></div>
-<div id="trip-bar" style="display:none"><div class="trip-details"><a href="/my-trip">My Trip</a> <span>0 items </span> </div><div class="trip-meta"><span id="trip-bar-name" contenteditable=true>My Trip</span></div></div>
-<div style="display:none" id="toast">Added To <a href="/my-trip">My Trip</a></div>
+
+<div style="display:none" id="toast">Added To <a href="/my-trip">Current Trip</a></div>
 <script>
 function addTrip(id,el) {
   $('#toast').slideDown(100);
@@ -73,11 +84,12 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
   <!-- nav area -->
   <nav class="solid affix-top" data-spy="affix" data-offset-top="90">
   <a href="#" class="toggle-nav hidden-lg hidden-md hidden-sm"><i class="fa fa-bars"></i><i class="fa fa-close hidden"></i></a>
-  <a href="/partners/thepress/map.php" class="map-button hidden-lg hidden-md hidden-sm"><img class="map-icon" src="/partners/thepress/img/icons/map-icon.png" alt="Go to Map"></a>
+  <a href="/map" class="map-button hidden-lg hidden-md hidden-sm"><img class="map-icon" src="/partners/thepress/img/icons/map-icon.png" alt="Go to Map"></a>
+
   <div class="container nav-wrapper">
     <div class="row logo-container">
       <div class="col-sm-12">
-        <a href="/">
+        <a href="/wine">
           <img class="logo hidden-xs" src="/partners/thepress/img/thepress-logo-brown.png" alt="The Press">
           <img class="logo-mobile hidden-sm hidden-md hidden-lg" src="/partners/thepress/img/thepress-logo-mobile.png" alt="The Press">
           <img class="logo-fixed" src="/partners/thepress/img/thepress-logo-sm.png" alt="The Press">
@@ -144,8 +156,9 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
       <li><a href="/trips" >Trips</a></li>
       <li><a href="/stories" >Stories</a></li>
       <li><a href="/wineries" >Wineries</a></li>
-      <li><a href="/events" >Events</a></li>
-      <li><a href="/mytrip" >My Trip</a></li>
+      <li><a href="/wine-events" >Events</a></li>
+      <li><a href="/my-trip" >Current Trip</a></li>
+      <li><a href="/my-trips" >Saved Trips</a></li>
     </ul>
   </div>
   <div class="login-state">
@@ -163,7 +176,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true sans">&times;</span></button>
         <h4 class="sans-bold brownmodal-title">Login</h4>
         <p class="sans brown">Welcome back. If you already have an account with us, please login below.</p>
-        <p class="sans error" id="login-error"></p>
+        <p class="sans error" id="login-error"></p>        
       </div>
       <div class="modal-body">
         <form class="signinForm">
@@ -197,13 +210,13 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
           <div>Passwords must be at least 8 characters, contain upper and lowercase letters and at least one number.</div>
           <div class="form-group">
             <input id="register-username" type="text" placeholder="Username">
-          </div>
+          </div>          
           <div class="form-group">
             <input id="register-password" type="password" placeholder="Password">
           </div>
           <div class="form-group">
             <input id="register-password2" type="password" placeholder="Password (Repeat)">
-          </div>
+          </div>          
         </form>
       </div>
        <div class="modal-buttons">
@@ -242,13 +255,13 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
           <div class="form-group">
             <input id="register-email" type="email" placeholder="Email Address">
           </div>
+      
 
-
-
+        
         </form>
       </div>
        <div class="modal-buttons">
-        <button onclick="showModal('login');" type="submit" class="button button-xs bg-olive sans-bold">Cancel</button>
+        <button onclick="showModal('login');" type="submit" class="button button-xs bg-olive sans-bold">Cancel</button>   
       </div>
     </div>
   </div>
@@ -261,17 +274,17 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
   <div class="search-container">
     <a href="#" class="close-button white sans"><svg width="30" height="30" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1490 1322q0 40-28 68l-136 136q-28 28-68 28t-68-28l-294-294-294 294q-28 28-68 28t-68-28l-136-136q-28-28-28-68t28-68l294-294-294-294q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 294 294-294q28-28 68-28t68 28l136 136q28 28 28 68t-28 68l-294 294 294 294q28 28 28 68z"/></svg></a>
     <form class="form-inline" role="form" action="/search" method="post">
-      <input type="text" name="search" id="masterSearch" placeholder="Search">
+      <input type="text" name="search" placeholder="Search">
       <button type="submit" class="hidden"><i class="fa fa-search"></i></button>
     </form>
   </div>
 </div>
 
 
-  <!-- #267_WINERIES PAGE -->
+  <!-- #267 WINERIES PAGE -->
 <script>setNav('places');</script>
 
-<header class="gradient-cover header-sm" style="background: url('/image?method=image.icrop&context=venue&id=351&w=1600&h=-1') center center no-repeat; background-size: cover;">
+<header class="gradient-cover header-sm" style="background: url('/image?method=image.icrop&context=venue&id=1285&w=1600&h=-1') center center no-repeat; background-size: cover;">
     <div class="subnav bg-olive-alpha">
       <ul class="sans-bold">
         <li><a href="#">Napa</a></li>
@@ -279,16 +292,15 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
       </ul>
     </div>
     <div class="cta vert-center">
-      <h1>Chimney Rock Winery</h1>
-      <p><p>Located on the fabled Silverado Trail in the world-renowned Stags Leap District of California's Napa Valley, our beautiful Cape Dutch-inspired estate winery is recognized as one of the world's premier fine wine producers. </p>
-</p>
-      <a href="/place/chimney-rock-winery" class="button button-cta serif bg-olive-alpha">View Profile</a>
+      <h1>Alpha Omega Winery</h1>
+      <p></p>
+      <a href="/place/alpha-omega-winery" class="button button-cta serif bg-olive-alpha">View Profile</a>
     </div>
   </header>
 
 
-<main>
 
+<main>
 <section class="two-column two-column-divider container no-padding">
       <div class="row">
         <div class="col-sm-12">
@@ -296,35 +308,34 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
         </div>
       </div>
       <div class="row scrollable" id="scroll1">
-
+        
         <div class="col-sm-6  block-container">
-          <a href="/place/delectus-winery" class="block-padding gradient-cover" style="background: url('/image?method=image.icrop&context=venue&id=1302&w=1600&h=-1') center center no-repeat; background-size: cover;">
+          <a href="/place/chimney-rock-winery" class="block-padding gradient-cover" style="background: url('/image?method=image.icrop&context=venue&id=351&w=1600&h=-1') center center no-repeat; background-size: cover;">
     <div class="block-label white"></div>
             <div class="block-content vert-center">
-              <h3 class="white">Delectus Winery</h3>
+              <h3 class="white">Chimney Rock Winery</h3>
             </div>
           </a>
           <div class="block-text">
-            <div class="block-label lightBrown"><a href="/place/delectus-winery">Delectus Winery</a></div>
-            <p class="sans brown"><p>Delectus is a small family-owned winery that handcrafts luxury red wines from select vineyards throughout Napa Valley and Knights Valley.</p>
+            <div class="block-label lightBrown"><a href="/place/chimney-rock-winery">Chimney Rock Winery</a></div>
+            <p class="sans brown"><p>Located on the fabled Silverado Trail in the world-renowned Stags Leap District of California's Napa Valley, our beautiful Cape Dutch-inspired estate winery is recognized as one of the world's premier fine wine producers. </p>
 </p>
           </div>
         </div>
-
+       
         <div class="col-sm-6  block-container">
-          <a href="/place/dry-creek-vineyard" class="block-padding gradient-cover" style="background: url('/image?method=image.icrop&context=venue&id=650&w=1600&h=-1') center center no-repeat; background-size: cover;">
+          <a href="/place/cobb-wines" class="block-padding gradient-cover" style="background: url('/image?method=image.icrop&context=venue&id=1342&w=1600&h=-1') center center no-repeat; background-size: cover;">
     <div class="block-label white"></div>
             <div class="block-content vert-center">
-              <h3 class="white">Dry Creek Vineyard</h3>
+              <h3 class="white">Cobb Wines</h3>
             </div>
           </a>
           <div class="block-text">
-            <div class="block-label lightBrown"><a href="/place/dry-creek-vineyard">Dry Creek Vineyard</a></div>
-            <p class="sans brown"><p>Award winning wines in the heart of Sonoma County's <strong>Dry Creek</strong> Valley. Family owned winery since 1972, celebrating over 40 years of family winemaking.</p>
-</p>
+            <div class="block-label lightBrown"><a href="/place/cobb-wines">Cobb Wines</a></div>
+            <p class="sans brown"></p>
           </div>
         </div>
-
+       
       </div>
     </section>
 
@@ -342,7 +353,27 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
         </div>
       </div>
         <div class="row block-wrapper scrollable" id="scroll2">
-
+        
+          <div class="col-sm-4 block-container">
+            <a href="/place/delectus-winery" class="block-padding" style="background: url('/image?method=image.icrop&context=venue&id=1302&w=1600&h=-1') center center no-repeat; background-size: cover;">
+            </a>
+            <div class="block-text">
+              <h4 class="sans lightBrown"><a href="/place/delectus-winery">Delectus Winery</a></h4>
+              <p class="sans brown"><p>Delectus is a small family-owned winery that handcrafts luxury red wines from select vineyards throughout Napa Valley and Knights Valley.</p>
+</p>
+            </div>
+          </div>
+          
+          <div class="col-sm-4 block-container">
+            <a href="/place/dry-creek-vineyard" class="block-padding" style="background: url('/image?method=image.icrop&context=venue&id=650&w=1600&h=-1') center center no-repeat; background-size: cover;">
+            </a>
+            <div class="block-text">
+              <h4 class="sans lightBrown"><a href="/place/dry-creek-vineyard">Dry Creek Vineyard</a></h4>
+              <p class="sans brown"><p>Award winning wines in the heart of Sonoma County's <strong>Dry Creek</strong> Valley. Family owned winery since 1972, celebrating over 40 years of family winemaking.</p>
+</p>
+            </div>
+          </div>
+          
           <div class="col-sm-4 block-container">
             <a href="/place/ferrari-carano-vineyards-winery" class="block-padding" style="background: url('/image?method=image.icrop&context=venue&id=646&w=1600&h=-1') center center no-repeat; background-size: cover;">
             </a>
@@ -354,7 +385,10 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
 </p>
             </div>
           </div>
-
+          
+        </div>
+        <div class="row block-wrapper scrollable" id="scroll2">
+        
           <div class="col-sm-4 block-container">
             <a href="/place/fogline-vineyards" class="block-padding" style="background: url('/image?method=image.icrop&context=venue&id=1333&w=1600&h=-1') center center no-repeat; background-size: cover;">
             </a>
@@ -364,7 +398,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
 </p>
             </div>
           </div>
-
+          
           <div class="col-sm-4 block-container">
             <a href="/place/frank-family-vineyards" class="block-padding" style="background: url('/image?method=image.icrop&context=venue&id=516&w=1600&h=-1') center center no-repeat; background-size: cover;">
             </a>
@@ -376,10 +410,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
 </p>
             </div>
           </div>
-
-        </div>
-        <div class="row block-wrapper scrollable" id="scroll2">
-
+          
           <div class="col-sm-4 block-container">
             <a href="/place/inman-family-wines" class="block-padding" style="background: url('/image?method=image.icrop&context=venue&id=651&w=1600&h=-1') center center no-repeat; background-size: cover;">
             </a>
@@ -391,42 +422,21 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
 </p>
             </div>
           </div>
-
-          <div class="col-sm-4 block-container">
-            <a href="/place/kenwood-vineyards" class="block-padding" style="background: url('/image?method=image.icrop&context=venue&id=647&w=1600&h=-1') center center no-repeat; background-size: cover;">
-            </a>
-            <div class="block-text">
-              <h4 class="sans lightBrown"><a href="/place/kenwood-vineyards">Kenwood Vineyards</a></h4>
-              <p class="sans brown"><p>Founded in 1970, <strong>Kenwood</strong> has established itself as a producer of premium quality California <strong>wines</strong>. Three of the <strong>vineyards</strong> are certified organic.</p>
-</p>
-            </div>
-          </div>
-
-          <div class="col-sm-4 block-container">
-            <a href="/place/ledson-winery-vineyards" class="block-padding" style="background: url('/image?method=image.icrop&context=venue&id=648&w=1600&h=-1') center center no-repeat; background-size: cover;">
-            </a>
-            <div class="block-text">
-              <h4 class="sans lightBrown"><a href="/place/ledson-winery-vineyards">Ledson Winery &amp; Vineyards</a></h4>
-              <p class="sans brown"><p>We specialize in small varietal lots that reflect the genuine diversity of our select vineyards and appellations. Ledson wines are sold exclusively at the winery in Kenwood, in our online store, and at the Ledson Hotel in Sonoma.<br />
- </p>
-</p>
-            </div>
-          </div>
-
+          
         </div>
     </section>
 </main>
 
 
-<!-- #267_/WINERIES PAGE -->
+<!-- #267 /WINERIES PAGE -->
 
   <div class="oldmain">
 
-
+  
 
   <!-- Cannot open <b>/mnt/pointslocal-app/partners/thepress/templates/site/media/media_stream_html_item.template</b> -->
 
-  <!-- PLACES DIRECTORY -->
+  <!-- #284 WINERY DIRECTORY -->
 
 <section class="directory-header">
       <div class="container">
@@ -461,15 +471,15 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
                     <li><a onclick="javascript:resetDirectory({specialization:['Petite Sirah']});">Petite Sirah</a></li>
                     <li><a onclick="javascript:resetDirectory({specialization:['Other whites']});">Other whites</a></li>
                     <li><a onclick="javascript:resetDirectory({specialization:['Other reds']});">Other reds</a></li>
-                    <li><a onclick="javascript:resetDirectory({specialization:['Sparkling wine']});">Sparkling wine</a></li>
+                    <li><a onclick="javascript:resetDirectory({specialization:['Sparkling wine']});">Sparkling wine</a></li>   
                   </ul>
                 </li>
                 <li style="display:none;"><a class="olive" href="#"><img class="filter-icon" src="/partners/thepress/img/icons/filter-icon-olive.png" alt="Show Filters"> Filters</a></li>
-                <li><a class="search olive" href="#" data-toggle="popover" data-placement="top"><i class="fa fa-search"></i></a></li>
-                <li><a class="olive" href="#">Clear</a></li>
+                <li><a class="search olive" data-description="Search Wineries" href="#"><i class="fa fa-search"></i></a></li>
+                <li><a class="olive" onclick="updateDirectory();">Clear</a></li>
               </ul>
-              <div class="dropdown">
-                <a href="#" class="toggle-filters olive hidden-md hidden-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><img class="filter-icon" src="partners/thepress/img/icons/filter-icon-olive.png" alt="Show Filters"></a>
+              <div class="dropdown" style="display:none;">
+                <a href="#" class="toggle-filters olive hidden-md hidden-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><img class="filter-icon" src="img/icons/filter-icon-olive.png" alt="Show Filters"></a>
                 <ul class="dropdown-menu">
                   <li><a href="#">Action</a></li>
                   <li><a href="#">Another action</a></li>
@@ -484,40 +494,41 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
 
 
 
-
+        
         <div id="search-result" style="display:none;">
           <!-- Directory Item -->
           {{#items}}
+          <a name="venue_card_516" data-id="{{id}}" class="venue-anchor"></a>
           <div class="row directory-item">
             <div class="col-xs-4 directory-pic">
               {{#image_id}}<a href="/place/{{guid}}"><img src="/image?method=image.icrop&context=venue&id={{id}}&w=400&h=200" alt=""></a>{{/image_id}}
             </div>
             <div class="col-xs-5 directory-info">
-              <h3 class="serif brown"><a href="/place/{{guid}}">{{name}}</a></h3><span class="partner-badge"></span>
-              <h4 class="sans-bold olive hidden-xs">{{neighborhood}}</h4>
+              <h3 class="serif brown"><span>{{counter}}</span> <a href="/place/{{guid}}">{{name}}</a></h3><span class="partner-badge"></span>
+              <h4 class="sans-bold orange hidden-xs">{{neighborhood}}</h4>
               <div class="address hidden-xs">
-                <p>{{address}}<br> {{phone}}<br> {{custom:hours}} <span style="display:none;" class="status olive">Open</span></p>
+                <p>{{address}}<br> {{phone}}<br> {{custom:hours}} <span style="display:none;" class="status orange">Open</span></p>
               </div>
               <div class="address hidden-sm hidden-md hidden-lg">
-                <p>{{address}} <span class="hidden-xs">{{phone}}</span><br> {{hours}} <span class="status olive">Open</span></p>
+                <p>{{address}} <span class="hidden-xs">{{phone}}</span><br> {{hours}} <span class="status orange">Open</span></p>
               </div>
               <div class="directory-buttons hidden-sm hidden-md hidden-lg">
                 <ul>
-                  <li><a href="#" class="button button-xs sans-bold bg-olive">Add To Trip</a></li>
-                  <li><a href="#" style="display:none;" class="sans-bold olive"><i class="fa fa-map-o"></i> Map</a></li>
+                  <li><a data-dir="left" data-type="venue" data-name="{{name}}" data-latitude="{{latitude}}" data-longitude="{{longitude}}" data-id="{{id}}" data-address="{{address}}" class="trip-receiver button button-xs sans-bold bg-olive">Add To Trip</a></li>
+                  <li><a href="#" style="display:none;" class="sans-bold orange"><i class="fa fa-map-o"></i> Map</a></li>
                 </ul>
               </div>
             </div>
             <div class="col-xs-3 directory-button hidden-xs">
-              <a onclick="addTrip({id: {{id}}, type:'venue',name: '{{name}}', lat: {{latitude}}, lon: {{longitude}} }, this);" class="button button-xs sans-bold bg-olive">Add To Trip</a>
-
-
+              <a data-dir="left" data-type="venue" data-name="{{name}}" data-latitude="{{latitude}}" data-longitude="{{longitude}}" data-id="{{id}}" data-address="{{address}}" class="trip-receiver button button-xs sans-bold bg-olive">Add To Trip</a>
               <a href="#" style="display:none;" class="sans-bold orange">Website</a>
               <a href="#" style="display:none;" class="sans-bold orange"><i class="fa fa-location-arrow"></i> Directions</a>
-
             </div>
           </div>
           {{/items}}
+          <div class="pagination">
+          <a class="button button-xs bg-olive" onclick="_VenuesPage++;updateDirectory();">Next Page</a>
+          </div>
         </div>
 
 
@@ -539,7 +550,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
 
 
 <script>
-
+var _VenuesPage = 1;
 function resetDirectory(j) {
   updateDirectory(j);
 }
@@ -548,9 +559,17 @@ function updateDirectory(opt) {
   opts = [];
   opts.push('category=1')
 
+  if (opt && opt.search) {
+    opts.push('search='+opt.search);
+  }
+
   if (opt) {
     opts.push('filters='+encodeURI( JSON.stringify(opt)) );
   }
+
+
+    opts.push('page='+_VenuesPage);
+
 
   data = opts.join('&');
   template = $('#search-result').html();
@@ -560,21 +579,52 @@ function updateDirectory(opt) {
   $.getJSON("/api/v1/venues?"+data,function(d) {
     for(i=0;i<d.items.length;i++) {
       it = d.items[i];
+      d.items[i].counter = parseInt(d.items[i].counter) + 1;
       myLatLng = {lat: parseFloat(it.latitude), lng: parseFloat(it.longitude)};
   $('#winery-directory-total-count').text(d.items.length * d.pages);
-       marker = new google.maps.Marker({
+      /*
+       xmarker = new google.maps.Marker({
         position: myLatLng,
         map: map,
-        icon: {
-          url: '/partners/thepress/img/markers/partner.png',
-          size: new google.maps.Size(30, 36),
-          scaledSize: new google.maps.Size(30, 36),
-        },
-        optimized: false,
+          icon: {
+            anchor: new google.maps.Point(250, 480),
+            path: 'M258.5,0C144.7,0,62,79.5,62,166.1c0,52.4,21.7,80.4,50.7,131.1C170.6,398.6,258.5,507,258.5,507 s87.9-108.4,145.8-209.8c29-50.7,50.7-78.7,50.7-131.1C455,79.5,372.3,0,258.5,0',
+            scale: .1,
+            fillColor: _MARKER_FILL_COLOR,
+            fillOpacity: .9,
+            size: new google.maps.Size(60, 72),
+            scaledSize: new google.maps.Size(30, 36),
+            
+            origin: new google.maps.Point(0, 0)
+          },
+        optimized: false,        
         title: it.name
       });
-       allMarkers.push(marker);
-       console.log(parseFloat(it.latitude), parseFloat(it.longitude))
+      */
+
+        marker = new MarkerWithLabel({
+          id: count,
+          position: myLatLng,
+          map: map,
+          title: name,
+          labelContent: d.items[i].counter,
+          labelClass: "dynamicMapMarker",
+          labelAnchor: new google.maps.Point(0, -5),
+          icon: {
+            path: _MAP_PATH,
+            scale: .1,
+            fillColor: _MARKER_FILL_COLOR,
+            fillOpacity: .9,
+            size: new google.maps.Size(60, 72),
+            scaledSize: new google.maps.Size(30, 36),
+
+          },
+          optimized: false
+        });
+
+        markerRefs[d.items[i].id] = marker;
+        allMarkers.push(marker);
+
     }
         var bounds = new google.maps.LatLngBounds();
         for (var i = 0; i < allMarkers.length; i++) {
@@ -583,10 +633,13 @@ function updateDirectory(opt) {
             bounds.extend(allMarkers[i].getPosition());
           }
         }
-        map.fitBounds(bounds);
-    $('.directory-list').html(Mustache.render(template,d));
+        map.fitBounds(bounds);    
+      $('.directory-list').html(Mustache.render(template,d));
+      isScrollListener()
+      tripReceiverDropdowns();
+      resetTripReceivers();
   });
-
+  
 }
   var allMarkers = [];
   var map;
@@ -594,7 +647,7 @@ function updateDirectory(opt) {
 $(document).ready(function() {
 
 
-
+  
 
 
   function initMap() {
@@ -605,31 +658,35 @@ $(document).ready(function() {
   }
   initMap();
   updateDirectory();
+  setFooterActive();
+$("#winery-map").sticky({topSpacing:0});
 })
 </script>
 
+<!-- #284 /WINERY DIRECTORY -->
 
+  
 
+  
 
+  
 
+  
 
+  
 
+  
 
+  
 
-
-
-
-
-
-
-
+  
 
 <div style="text-align:center;">
  <!-- hearst/ads/full_banner_A728.tpl -->
     <!-- hmb:a728 full banner A728 ad -->
     <div id="ctpl-fullbanner1" class="ctpl-fullbanner fixed" data-collapse-timer="10">
     <div id="A728" class="ad_deferrable"><script type="text/javascript">/*<![CDATA[*/ hearstPlaceAd("A728"); /*]]>*/</script></div>
-
+    
     <script>
     (function() {
         var checkCount = 120;
@@ -657,14 +714,12 @@ $(document).ready(function() {
         }, 1000);
     })();
     </script>
-
+    
     </div>
 <!-- e hearst/ads/full_banner_A728.tpl -->
 </div>
 
   </div>
-
-</main>
 
         <footer>
         <div class="container">
@@ -684,6 +739,7 @@ $(document).ready(function() {
                 <li><a href="/about">About</a></li>
               </ul>
             </div>
+    <div id="treg_container"></div>
           </div>
           <div class="row">
             <div class="col-sm-12 footer-copyright">
@@ -693,16 +749,19 @@ $(document).ready(function() {
           </div>
         </div>
       </footer>
-  <script src="/partners/pointslocal/js/cache.js" type="text/javascript"></script>
+
+
 <!-- Begin Hearst analytics --> <script type="text/javascript" src="//nexus.ensighten.com/hearst/news-3p/Bootstrap.js"></script> <!-- End Hearst analytics -->
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script type="text/javascript" src="/partners/thepress/js/libs/jquery-touch-punch.js"></script>
     <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
 <script type="text/javascript" src="/partners/thepress/js/libs/markerwithlabel.js"></script><script type="text/javascript" src="/partners/thepress/js/libs/jquery-editable-poshytip.min.js"></script>
-    <script type="text/javascript" src="/partners/thepress/js/libs/slick.js?t=<[timestamp]>"></script>
+    <script type="text/javascript" src="/partners/thepress/js/libs/iscroll.js?t=587647446fe9a"></script>
+<script type="text/javascript" src="/partners/thepress/js/libs/slick.js?t=587647446fe9a"></script>
     <script type="text/javascript" src="/partners/thepress/js/global.js?t=1"></script>
+<script type="text/javascript" src="/partners/thepress/js/libs/jquery.sticky.js"></script>
     <script src="/partners/thepress/js/map.js?1470683612"></script>
     <script src="/partners/thepress/js/index.js?1467835203"></script>
   </body>
-</html><!-- Cannot open <b>/mnt/pointslocal-app/partners/thepress/templates/site/media/media_stream.template</b> --><!-- --><!-- from cache -->
+</html><!-- Cannot open <b>/mnt/pointslocal-app/partners/thepress/templates/site/media/media_stream.template</b> --><!-- -->

@@ -9,10 +9,46 @@ var _Store = {
 	tripIDs: []
 };
 var _TripsHTML = '';
-
+var markerRefs = {};
 
 var _Trip = function() {
 	
+}
+
+//	Scroll Listener for maps
+function isScrollListener() {
+  $(window).scroll(function(e) {
+    var anchors = $('.venue-anchor');
+    for (var i = 0; i < anchors.length; ++i) {
+      id = parseInt($(anchors[i]).attr('data-id'));
+      if (id < 1 || isNaN(id) || !markerRefs[id]) {
+      	continue;
+      }
+      console.log(id);
+      if (isScrolledIntoView(anchors[i])){
+          //markerRefs[id].setAnimation(google.maps.Animation.BOUNCE);
+          m = markerRefs[id].getIcon()
+          m.fillColor = _MARKER_HIGHLIGHT_FILL_COLOR;
+          m.strokeColor = _MARKER_HIGHLIGHT_BORDER_COLOR;
+          m.strokeWeight = 4;
+          markerRefs[id].setIcon(m)
+      } else {
+          m = markerRefs[id].getIcon()        
+          m.fillColor = _MARKER_FILL_COLOR;
+          markerRefs[id].setIcon(m)          
+      }
+    }
+  });
+}
+
+function isScrolledIntoView(elem) {
+  var docViewTop = $(window).scrollTop();
+  var docViewBottom = docViewTop + $(window).height() + 120;
+
+  var elemTop = $(elem).offset().top;
+  var elemBottom = elemTop + $(elem).height();
+
+  return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
 }
 
 
@@ -145,11 +181,12 @@ function dismissDialog(e) {
 	localStorage.setItem('messageDismissed',true);
 }
 
-
+//	Manually sets nav
 function setNav(type) {
 	$('.nav-'+type).addClass('active');
 }
 
+//	Available video display
 var videos = [];
 function addVideo(u) {
 	videos.push(u);
@@ -168,6 +205,24 @@ function startVideos() {
 	}
 }
 
+
+function gallerySelect(e) {
+  $('#gallery-image').html('<img style="max-width:100%;" src="'+$(e).find('img').attr('src').replace(/w=\d+/,'w=700').replace(/h=\d+/,'h=300')+'" />');
+}
+
+gigya.accounts.getAccountInfo({callback:onGetAccount});
+
+//	Resolves session from API
+function setSession(uid,e) {
+	$.getJSON('/api.json?method=auth.gigya-resolve&uid='+uid+'&email='+e, function(d) {
+		if (d.uid) {
+			_AUTH = true;
+			_UID = d.uid;
+		}
+	});
+}
+
+//	Opens modal
 function openModal(url) {
 	$('#modal-background').show();
 	$('#modal').html('<iframe src="'+url+'" width=100% height="200"></iframe>');
@@ -178,20 +233,7 @@ function openModal(url) {
 	})
 }
 
-
-function gallerySelect(e) {
-  $('#gallery-image').html('<img style="max-width:100%;" src="'+$(e).find('img').attr('src').replace(/w=\d+/,'w=700').replace(/h=\d+/,'h=300')+'" />');
-}
-
-gigya.accounts.getAccountInfo({callback:onGetAccount});
-function setSession(uid,e) {
-	$.getJSON('/api.json?method=auth.gigya-resolve&uid='+uid+'&email='+e, function(d) {
-		if (d.uid) {
-			_AUTH = true;
-			_UID = d.uid;
-		}
-	});
-}
+//	General modal init
 function showModal(type) {
 	if (type == 'register') {
 		$('.modal-dialog.register').show();
@@ -211,6 +253,7 @@ function showModal(type) {
 	}
 }
 
+//	Sets Gigya data ::> login area
 function onGetAccount(response) {
 	console.log(response);
 	if (response.isRegistered && response.isVerified) {
@@ -227,8 +270,8 @@ function onGetAccount(response) {
 	}
 }
 
+//	Gigya login callback
 function onLogin(response) {
-
 	if (response.errorCode > 0) {
 		$('#login-error').text(response.errorMessage);
 	} else {
@@ -246,10 +289,10 @@ function onLogin(response) {
 		$('.tools .signin, .fixed-tools .signin').hide();
 		$('.tools .login, .fixed-tools .login').removeClass('hidden').show();
 		$('.dropdown.login a.dropdown-toggle, .fixed-tools .toggle-signin, .login-name').html(nickname+'<i class="icon-chevron"></i>').removeClass('hidden');
-
 	}
 }
 
+//	Gigya register callback
 function onRegister(response) {
 	console.log('Resp',response)
 	if (response.errorCode == 206001) {
@@ -259,14 +302,17 @@ function onRegister(response) {
 	}
 }
 
+//	Gigya logout callback
 function onLogout(response) {
 	location.reload();
 }
 
+//	Gigya logout init
 function gigyaLogout() {
 	gigya.accounts.logout({callback: onLogout});
 }
 
+//	Gigya register init
 function gigyaRegister() {
 	e = $('#register-email').val();
 	p = $('#register-password').val();
@@ -279,16 +325,16 @@ function gigyaRegister() {
 		token = r.regToken
 		gigya.accounts.register({email: e, password: p, regToken: token, callback: onRegister, finalizeRegistration: true });
 	}});
-
 }
 
+//	Gigya login init
 function gigyaLogin() {
 	e = $('#login-email').val();
 	p = $('#login-password').val();
 	gigya.accounts.login({loginID: e, password: p, callback: onLogin});
 }
 
-
+//	Determines if trip bar should show based on current/saved items
 function evalTripBar() {
 	console.log('items:',_Store.tripIDs.length,_Store);
 	if (JSON.parse(localStorage.getItem('trips')) && JSON.parse(localStorage.getItem('trips')).length > 0) {
@@ -860,7 +906,9 @@ function getMaxDistance(points) {
 	return { start: start, end: end, waypoints: waypoints }
 }
 
-
+function setFooterActive() {
+	$('footer').addClass('cover');
+}
 
 /*
 	Sponsorships

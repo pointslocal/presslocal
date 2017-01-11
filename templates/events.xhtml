@@ -18,13 +18,13 @@
     <meta name="description" content="">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/partners/thepress/css/global.css?x=5875ac0bab5cd">
+    <link rel="stylesheet" href="/partners/thepress/css/global.css?x=58764c9b7af22">
     <link rel="stylesheet" href="/partners/thepress/css/index.css">
   <script type="text/javascript" id="adPositionManagerScriptTag" src="http://aps.hearstnp.com/Scripts/loadAds.js"></script>
 <SCRIPT type="text/javascript" lang="javascript" src="http://cdn.gigya.com/JS/gigya.js?apikey=3_BMFZOCwXDrSMoeTYN2uiVIBZhHski0qbm2oj7S3NL2gKLHcAjq-sx3cuKnLVg_pN"></SCRIPT>
   <script src="/includes/lib/mustache/mustache.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script src="/partners/thepress/js/thepressx.js?x=browse&tz=5875ac0bab5cd&xyz=z"></script>
+<script src="/partners/thepress/js/thepressx.js?x=browse&tz=58764c9b7af22&xyz=z"></script>
 
 <script type="text/javascript"
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-gHN0lD5gfgKu4bp0h6ZPRM_jkCuIHps&libraries=drawing"></script>
@@ -433,8 +433,10 @@ Ever wonder what the difference in taste is between "Old World" (European) and "
 
   <!-- #283 EVENTS DIRECTORY -->
 <script src="/partners/thepress/js/events.js"></script>
+
 <div id="search-result" style="display:none;">
           {{#items}}
+          <a name="venue_card_516" data-id="{{id}}" class="venue-anchor"></a>
           <div class="row directory-item">
             <div class="col-xs-4 directory-pic">
               <div class="event-date sans-bold white vert-center">{{date}}</div>
@@ -620,7 +622,7 @@ function updateDirectory(opt) {
           optimized: false
         });
 
-
+        markerRefs[d.items[i].id] = marker;
        allMarkers.push(marker);
 
     }
@@ -654,6 +656,7 @@ $(document).ready(function() {
   initMap();
    $("#events-map").sticky({topSpacing:62, zIndex: 10, bottomSpacing: 20});
   updateDirectory();
+  setFooterActive();  
 })
 </script>
 
@@ -751,11 +754,11 @@ $(document).ready(function() {
     <script type="text/javascript" src="/partners/thepress/js/libs/jquery-touch-punch.js"></script>
     <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
 <script type="text/javascript" src="/partners/thepress/js/libs/markerwithlabel.js"></script><script type="text/javascript" src="/partners/thepress/js/libs/jquery-editable-poshytip.min.js"></script>
-    <script type="text/javascript" src="/partners/thepress/js/libs/iscroll.js?t=5875ac0bab5cd"></script>
-<script type="text/javascript" src="/partners/thepress/js/libs/slick.js?t=5875ac0bab5cd"></script>
+    <script type="text/javascript" src="/partners/thepress/js/libs/iscroll.js?t=58764c9b7af22"></script>
+<script type="text/javascript" src="/partners/thepress/js/libs/slick.js?t=58764c9b7af22"></script>
     <script type="text/javascript" src="/partners/thepress/js/global.js?t=1"></script>
 <script type="text/javascript" src="/partners/thepress/js/libs/jquery.sticky.js"></script>
     <script src="/partners/thepress/js/map.js?1470683612"></script>
     <script src="/partners/thepress/js/index.js?1467835203"></script>
   </body>
-</html><!-- Cannot open <b>/mnt/pointslocal-app/partners/thepress/templates/site/media/media_stream.template</b> --><!-- -->
+</html><!-- Cannot open <b>/mnt/pointslocal-app/partners/thepress/templates/site/media/media_stream.template</b> --><!-- --><!-- from cache -->

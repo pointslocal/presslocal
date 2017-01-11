@@ -3500,6 +3500,10 @@ footer {
   background-color: #544741;
   text-align: center;
   padding: 40px 0;
+}
+
+/* If footer should cover sticky elements */
+footer.cover {
   position: relative;
   z-index: 99;
 }
