@@ -7,31 +7,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>The Press</title>
-
-  <meta property="og:type" content="article" />
-  <meta property="og:url" content="/story/break-out-the-bubbly" />
-  <meta property="og:image" content="/image?method=image.crop&context=package&id=31&w=370&h=240" />
-  <meta property="place:location:latitude"  content="" />
-  <meta property="place:location:longitude" content="" />
-  <meta property="og:title" content="Break out the Bubbly" />
+  <script type="text/javascript" src="http://treg-staging.hearstnp.com/treg.js"></script>
+  <meta property="og:type" content="article" /> 
+  <meta property="og:url" content="/story/healdsburg-winery-hopping" /> 
+  <meta property="og:image" content="/image?method=image.crop&context=package&id=48&w=370&h=240" /> 
+  <meta property="place:location:latitude"  content="" /> 
+  <meta property="place:location:longitude" content="" /> 
+  <meta property="og:title" content="Winery Hopping in Healdsburg" /> 
     <link rel="shortcut icon" href="/partners/thepress/img/thepress-logo-sm.png" />
     <meta name="description" content="">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/partners/thepress/css/global.css">
+    <link rel="stylesheet" href="/partners/thepress/css/global.css?x=5876992c6b735">
+    <link rel="stylesheet" href="/partners/thepress/css/index.css">
   <script type="text/javascript" id="adPositionManagerScriptTag" src="http://aps.hearstnp.com/Scripts/loadAds.js"></script>
 <SCRIPT type="text/javascript" lang="javascript" src="http://cdn.gigya.com/JS/gigya.js?apikey=3_BMFZOCwXDrSMoeTYN2uiVIBZhHski0qbm2oj7S3NL2gKLHcAjq-sx3cuKnLVg_pN"></SCRIPT>
   <script src="/includes/lib/mustache/mustache.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script src="/partners/thepress/js/thepressx.js?x=browse&tz=5852c829c82ba"></script>
+<script src="/partners/thepress/js/thepressx.js?x=browse&tz=5876992c6b735&xyz=z"></script>
 
 <script type="text/javascript"
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-gHN0lD5gfgKu4bp0h6ZPRM_jkCuIHps&libraries=drawing"></script>
     <script type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js'></script>
+<script src="http://23hfij34r8a3i36ce2tnh9ii.wpengine.netdna-cdn.com/wp-content/themes/wordplate/js/markerwithlabel.js"></script>
     <script src="//use.typekit.net/wuq4anx.js"></script>
 <script>
 var _LAT = 38.334997;
 var _LON =  -122.298203;
+var _MARKER_FILL_COLOR = '#FF5B50';
+var _MARKER_HIGHLIGHT_FILL_COLOR = '#ffb8b2';
+var _MARKER_HIGHLIGHT_BORDER_COLOR = '#FF5B50';
+var _MAP_PATH = 'M258.5,0C144.7,0,62,79.5,62,166.1c0,52.4,21.7,80.4,50.7,131.1C170.6,398.6,258.5,507,258.5,507 s87.9-108.4,145.8-209.8c29-50.7,50.7-78.7,50.7-131.1C455,79.5,372.3,0,258.5,0';
+if ('<[publication]>' == 'alt') {
+  _MARKER_FILL_COLOR = '#cc435a';
+  _MARKER_HIGHLIGHT_FILL_COLOR = '#f299a8';
+  _MARKER_HIGHLIGHT_BORDER_COLOR = '#cc435a';
+
+}
 </script>
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
 <script>
@@ -39,7 +51,7 @@ tripsExist = JSON.parse(localStorage.getItem('trips'));
 console.log(tripsExist);
 if (tripsExist && tripsExist.length > 0) {
   $(document).ready(function() {
-    $('.my-trip-inactive').removeClass('my-trip-inactive');
+    $('.my-trip-inactive').removeClass('my-trip-inactive'); 
   })
 
 }
@@ -54,8 +66,8 @@ display: none;
 
 </style>
 <div id="modal-background" style="display:none;"></div><div id="modal" style="display:none;"></div>
-<div id="trip-bar" style="display:none"><div class="trip-details"><a href="/my-trip">My Trip</a> <span>0 items </span> </div><div class="trip-meta"><span id="trip-bar-name" contenteditable=true>My Trip</span></div></div>
-<div style="display:none" id="toast">Added To <a href="/my-trip">My Trip</a></div>
+
+<div style="display:none" id="toast">Added To <a href="/my-trip">Current Trip</a></div>
 <script>
 function addTrip(id,el) {
   $('#toast').slideDown(100);
@@ -75,7 +87,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
   <div class="container nav-wrapper">
     <div class="row logo-container">
       <div class="col-sm-12">
-        <a href="/">
+        <a href="/wine">
           <img class="logo hidden-xs" src="/partners/thepress/img/thepress-logo.png" alt="The Press">
           <img class="logo-mobile hidden-sm hidden-md hidden-lg" src="/partners/thepress/img/thepress-logo-mobile.png" alt="The Press">
           <img class="logo-fixed" src="/partners/thepress/img/thepress-logo-sm.png" alt="The Press">
@@ -124,8 +136,9 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
       <li><a href="/trips" >Trips</a></li>
       <li><a href="/stories" >Stories</a></li>
       <li><a href="/wineries" >Wineries</a></li>
-      <li><a href="/events" >Events</a></li>
-      <li><a href="/mytrip" >My Trip</a></li>
+      <li><a href="/wine-events" >Events</a></li>
+      <li><a href="/my-trip" >Current Trip</a></li>
+      <li><a href="/my-trips" >Saved Trips</a></li>
     </ul>
   </div>
   <div class="login-state">
@@ -143,7 +156,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true sans">&times;</span></button>
         <h4 class="sans-bold brownmodal-title">Login</h4>
         <p class="sans brown">Welcome back. If you already have an account with us, please login below.</p>
-        <p class="sans error" id="login-error"></p>
+        <p class="sans error" id="login-error"></p>        
       </div>
       <div class="modal-body">
         <form class="signinForm">
@@ -177,13 +190,13 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
           <div>Passwords must be at least 8 characters, contain upper and lowercase letters and at least one number.</div>
           <div class="form-group">
             <input id="register-username" type="text" placeholder="Username">
-          </div>
+          </div>          
           <div class="form-group">
             <input id="register-password" type="password" placeholder="Password">
           </div>
           <div class="form-group">
             <input id="register-password2" type="password" placeholder="Password (Repeat)">
-          </div>
+          </div>          
         </form>
       </div>
        <div class="modal-buttons">
@@ -222,13 +235,13 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
           <div class="form-group">
             <input id="register-email" type="email" placeholder="Email Address">
           </div>
+      
 
-
-
+        
         </form>
       </div>
        <div class="modal-buttons">
-        <button onclick="showModal('login');" type="submit" class="button button-xs bg-olive sans-bold">Cancel</button>
+        <button onclick="showModal('login');" type="submit" class="button button-xs bg-olive sans-bold">Cancel</button>   
       </div>
     </div>
   </div>
@@ -241,14 +254,14 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
   <div class="search-container">
     <a href="#" class="close-button white sans"><svg width="30" height="30" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1490 1322q0 40-28 68l-136 136q-28 28-68 28t-68-28l-294-294-294 294q-28 28-68 28t-68-28l-136-136q-28-28-28-68t28-68l294-294-294-294q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 294 294-294q28-28 68-28t68 28l136 136q28 28 28 68t-28 68l-294 294 294 294q28 28 28 68z"/></svg></a>
     <form class="form-inline" role="form" action="/search" method="post">
-      <input type="text" name="search" id="masterSearch" placeholder="Search">
+      <input type="text" name="search" placeholder="Search">
       <button type="submit" class="hidden"><i class="fa fa-search"></i></button>
     </form>
   </div>
 </div>
 
 
-  <!-- TRIP DETAILS -->
+  <!-- #274 TRIP DETAILS -->
 
 <link rel="stylesheet" href="/partners/thepress/css/single-trip.css">
 <script src="/partners/thepress/js/single-trip.js"></script>
@@ -259,12 +272,18 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
 
 
   <header class="header-single">
+      <div class="container-fluid header-map no-padding hidden-sm hidden-md hidden-lg">
+        <div class="button-float-top">
+          <a href="saveFullTrip();" class="button button-xs bg-lightOrange sans-bold tooltip-container tooltip-left" data-tooltip="Add all wineries in this trip to your current trip">Add All</a> <a href="cloneTrip(48);" style="display: none" class="button button-xs bg-lightOrange sans-bold">Save Trip</a>
+        </div>
+        
+      </div>
       <div class="container">
         <div class="row">
           <div class="col-sm-12 header-title">
-            <div class="header-label lightBrown">Napa</div>
-            <h1 class="serif brown"><a href="/place/break-out-the-bubbly">Break out the Bubbly</a></h1>
-            <p class="sans brown">There's something special about California sparkling wine. Here are our top stops for bubbles in Napa &amp; Sonoma</p>
+            <div class="header-label lightBrown">Featured Itinerary</div>
+            <h1 class="serif brown"><a href="/place/healdsburg-winery-hopping">Winery Hopping in Healdsburg</a></h1>
+            <p class="sans brown">Where to sip on the way to, and in the heart of, downtown Healdsburg</p>
             <div class="date sans lightBrown"></div>
           </div>
         </div>
@@ -280,15 +299,15 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
       </div>
       <div class="container-fluid header-map no-padding">
         <div class="button-float-top">
-          <a onclick="saveFullTrip();" class="button button-xs bg-lightOrange sans-bold tooltip-container" data-tooltip="Add These Places To Your Own Trip">Save Trip</a>
+          <a onclick="saveFullTrip();" class="button button-xs bg-lightOrange sans-bold tooltip-container tooltip-left" data-tooltip="Add These Places To Your Own Trip">Add All</a> <a onclick="cloneTrip(48);" class="button button-xs bg-lightOrange sans-bold tooltip-container auth-required" data-tooltip="Save This Trip">Save Trip</a>
         </div>
-        <div id="trip-map"></div>
+        <div id="trip-map" style="background-color:#eee;width:100%;height:600px;"></div>
       </div>
     </header>
-
-
-
-
+        
+        
+        
+        
         <main>
 
       <!-- Single Toolbar Module -->
@@ -309,7 +328,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
           <div class="col-md-7 single-body">
             <article>
               <h2 class="serif brown">Overview</h2>
-              The roster of Northern California bubbly houses with open tasting rooms is small enough that you could easily visit them all. There are many others -- Ram’s Gate, Artesa and Inman Family, for example -- who contract for small amounts of sparkling wine to be made at other facilities. They’re great wines, but visiting those wineries doesn’t offer the full experience of a working sparkling-wine production facility. One of the joys of visiting these dedicated Champagne-method sparkling producers is getting to glimpse the fascinating production process. This is an instance where you’d be wise to opt for a tour.
+              On the way to Healdsburg you may&nbsp;become overwhelmed with the wealth of wineries&nbsp;lined up along the 101 -- not to mention the abundance of tasting rooms that take up the majority real estate in the small city's downtown. Unfortunately time and tastebuds won't allow you to stop&nbsp;<i>everywhere</i>, so we've lined up just a few of our top stops in the area. This 30 mile&nbsp;trip will take you from the edge of Sebastapool, through the scenic Westside Road, and right&nbsp;to the epicenter of downtown Healdsburg. Once you're there and done with your wine tasting, don't forget to grab a bit to eat at one of <a target="_blank" rel="nofollow" href="http://thepress.pointslocal.com/story/where-to-eat-in-healdsburg?clearcache=1">Michael Bauer's&nbsp;recommended restaurants</a> as well.&nbsp;<i>-January 2017</i>
             </article>
           </div>
           <div class="col-md-5 single-sidebar hidden-xs">
@@ -319,8 +338,8 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
                   <li style="display:none"><a href="#" class="orange sans-bold"><i class="fa fa-car"></i> Transportation</a></li>
                   <li style="display:none"><a href="#" class="orange sans-bold"><i class="fa fa-location-arrow"></i> Directions</a></li>
                   <li class="social-label lightBrown hidden-xs">share</li>
-                  <li class="social"><a href="https://twitter.com/home?status=57ea88bcb96ef:%20http://thepress.pointslocal.com/trip/break-out-the-bubbly" class="orange sans-bold"><i class="fa fa-twitter"></i></a></li>
-                  <li class="social"><a href="http://www.facebook.com/sharer.php?u=http://thepress.pointslocal.com/trip/break-out-the-bubbly" class="orange sans-bold"><i class="fa fa-facebook-square"></i></a></li>
+                  <li class="social"><a href="https://twitter.com/home?status=57ea88bcb96ef:%20http://thepress.pointslocal.com/trip/healdsburg-winery-hopping" class="orange sans-bold"><i class="fa fa-twitter"></i></a></li>
+                  <li class="social"><a href="http://www.facebook.com/sharer.php?u=http://thepress.pointslocal.com/trip/healdsburg-winery-hopping" class="orange sans-bold"><i class="fa fa-facebook-square"></i></a></li>
                 </ul>
               </div>
             </div>
@@ -339,28 +358,28 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
       </section>
 
       <!-- Single Featured Module -->
-
-      <section class="single-featured container no-padding" data-guid="schramsberg-vineyards" data-lat="38.5506" data-lon="-122.538" data-id="754" data-name="Schramsberg Vineyards">
+      
+      <section class="single-featured container no-padding" data-guid="benovia-winery" data-lat="38.4771" data-lon="-122.798" data-id="1980" data-name="Benovia Winery">
         <div class="row featured-title hidden-sm hidden-md hidden-lg">
           <div class="num-divider"><span>1</span></div>
           <div class="col-sm-12">
             <div class="featured-label sans-bold orange">Napa</div>
-            <h1 class="serif brown"><a href="/place/schramsberg-vineyards">Schramsberg Vineyards</a></h1>
-            <div class="featured-address sans-bold brown">1400 Schramsberg Rd, Calistoga, CA Schramsberg Vineyards</div>
+            <h1 class="serif brown"><a href="/place/benovia-winery">Benovia Winery</a></h1>
+            <div class="featured-address sans-bold brown">3339 Hartman Rd, Santa Rosa, CA 95401 Benovia Winery</div>
             <span class="partner-badge"></span>
 
           </div>
         </div>
         <div class="row featured-image">
           <div class="col-sm-12">
-            <a href="/place/schramsberg-vineyards"><img data-cache="recache" src="http://imagecdn-sfgate.pointslocal.com/image?method=image.icrop&context=venue&id=754&w=800&h=-1"></a>
+            <a href="/place/benovia-winery"><img data-cache="recache" src="http://imagecdn-sfgate.pointslocal.com/image?method=image.icrop&context=venue&id=1980&w=1000&h=500"></a>
           </div>
         </div>
         <div class="row featured-toolbar hidden-sm hidden-md hidden-lg">
           <div class="col-sm-12">
             <ul>
-              <li><a href="#" class="button button-xs sans-bold bg-lightOrange">Add to Trip</a></li>
-              <li><a href="#" class="sans-bold orange">Website</a></li>
+              <li><a data-type="venue" data-name="Benovia Winery" data-latitude="38.4771" data-longitude="-122.798" data-id="1980" data-address="3339 Hartman Rd, Santa Rosa, CA 95401" data-dir="left" class="trip-receiver left button button-xs sans-bold bg-lightOrange">Add to Trip</a></li>
+              <li><a href="/place/benovia-winery" class="sans-bold orange">Directory</a></li>
               <li><a href="#" class="sans-bold orange"><i class="fa fa-location-arrow"></i> Directions</a></li>
             </ul>
           </div>
@@ -368,16 +387,16 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
         <div class="row featured-title hidden-xs">
           <div class="col-sm-9 title-container">
             <div class="featured-label sans-bold orange" style="display:none;">Spring Mountain District</div>
-            <h1 class="serif brown"><a href="/place/schramsberg-vineyards">Schramsberg Vineyards</a></h1><span class="partner-badge"></span>
-            <div class="featured-address sans-bold brown">1400 Schramsberg Rd, Calistoga, CA</div>
+            <h1 class="serif brown"><a href="/place/benovia-winery">Benovia Winery</a></h1><span class="partner-badge"></span>
+            <div class="featured-address sans-bold brown">3339 Hartman Rd, Santa Rosa, CA 95401</div>
           </div>
           <div class="col-sm-3 featured-button">
-            <a onclick="addTrip({id: 754, type:'venue',name: 'Schramsberg Vineyards', lat: 38.5506, lon: -122.538 }, this);" class="button button-xs sans-bold bg-lightOrange">Add to Trip</a>
+            <a xnclick="addTrip({id: 1980, type:'venue',name: 'Benovia Winery', lat: 38.4771, lon: -122.798 }, this);" data-type="venue" data-name="Benovia Winery" data-latitude="38.4771" data-longitude="-122.798" data-id="1980" data-address="3339 Hartman Rd, Santa Rosa, CA 95401" data-dir="left"  class="trip-receiver left button button-xs sans-bold bg-lightOrange">Add to Trip</a>
           </div>
         </div>
         <div class="row featured-content">
           <div class="col-sm-8 featured-container">
-            <p class="sans brown"><span>The historic property in Calistoga — which first became a winery in the 1860s, under the stewardship of German barber Jacob Schram — has been owned since 1965 by the Davies family, who established themselves as a premier producer of Champagne-method sparkling wine. They remain among very few major California bubbly producers that is not owned by a French Champagne company. <a target="_blank" rel="nofollow" href="http://thepress.pointslocal.com/story/schramsberg-vineyards">Read the full review</a>.</span></p>
+            <p class="sans brown"><span>Driving through the entrance gates and down a vineyard-lined gravel path, you can't help but think "I've arrived" -- arrived in Sonoma County, arrived in California wine country. Even the short walk from the parking lot to the cabin-like tasting room will take you past rows of vines so close you can reach out and touch them from the footpath. <a target="_blank" rel="nofollow" href="http://thepress.pointslocal.com/story//benovia-winery?clearcache=1">Read the full review</a>.</span></p>
           </div>
           <div class="col-sm-4 featured-map hidden-xs">
             <div class="venue-map"></div>
@@ -396,27 +415,28 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
           </div>
         </div>
       </section>
-      <section class="single-featured container no-padding" data-guid="domaine-chandon" data-lat="38.3981" data-lon="-122.364" data-id="1361" data-name="Domaine Chandon">
+  <div style="width:720px;height:90px;color:#fff;background-color:#ccc;line-height:90px;text-align:center;margin:auto;margin-top:25px;">720x90</div>
+      <section class="single-featured container no-padding" data-guid="paul-hobbs-winery" data-lat="38.4471" data-lon="-122.858" data-id="2031" data-name="Paul Hobbs Winery">
         <div class="row featured-title hidden-sm hidden-md hidden-lg">
           <div class="num-divider"><span>1</span></div>
           <div class="col-sm-12">
             <div class="featured-label sans-bold orange">Napa</div>
-            <h1 class="serif brown"><a href="/place/domaine-chandon">Domaine Chandon</a></h1>
-            <div class="featured-address sans-bold brown">Presidents Cir, California 94599, United States Domaine Chandon</div>
+            <h1 class="serif brown"><a href="/place/paul-hobbs-winery">Paul Hobbs Winery</a></h1>
+            <div class="featured-address sans-bold brown">3355 Gravenstein Hwy N, Sebastopol, CA 95472 Paul Hobbs Winery</div>
             <span class="partner-badge"></span>
 
           </div>
         </div>
         <div class="row featured-image">
           <div class="col-sm-12">
-            <a href="/place/domaine-chandon"><img data-cache="recache" src="http://imagecdn-sfgate.pointslocal.com/image?method=image.icrop&context=venue&id=1361&w=800&h=-1"></a>
+            <a href="/place/paul-hobbs-winery"><img data-cache="recache" src="http://imagecdn-sfgate.pointslocal.com/image?method=image.icrop&context=venue&id=2031&w=1000&h=500"></a>
           </div>
         </div>
         <div class="row featured-toolbar hidden-sm hidden-md hidden-lg">
           <div class="col-sm-12">
             <ul>
-              <li><a href="#" class="button button-xs sans-bold bg-lightOrange">Add to Trip</a></li>
-              <li><a href="#" class="sans-bold orange">Website</a></li>
+              <li><a data-type="venue" data-name="Paul Hobbs Winery" data-latitude="38.4471" data-longitude="-122.858" data-id="2031" data-address="3355 Gravenstein Hwy N, Sebastopol, CA 95472" data-dir="left" class="trip-receiver left button button-xs sans-bold bg-lightOrange">Add to Trip</a></li>
+              <li><a href="/place/paul-hobbs-winery" class="sans-bold orange">Directory</a></li>
               <li><a href="#" class="sans-bold orange"><i class="fa fa-location-arrow"></i> Directions</a></li>
             </ul>
           </div>
@@ -424,16 +444,16 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
         <div class="row featured-title hidden-xs">
           <div class="col-sm-9 title-container">
             <div class="featured-label sans-bold orange" style="display:none;">Spring Mountain District</div>
-            <h1 class="serif brown"><a href="/place/domaine-chandon">Domaine Chandon</a></h1><span class="partner-badge"></span>
-            <div class="featured-address sans-bold brown">Presidents Cir, California 94599, United States</div>
+            <h1 class="serif brown"><a href="/place/paul-hobbs-winery">Paul Hobbs Winery</a></h1><span class="partner-badge"></span>
+            <div class="featured-address sans-bold brown">3355 Gravenstein Hwy N, Sebastopol, CA 95472</div>
           </div>
           <div class="col-sm-3 featured-button">
-            <a onclick="addTrip({id: 1361, type:'venue',name: 'Domaine Chandon', lat: 38.3981, lon: -122.364 }, this);" class="button button-xs sans-bold bg-lightOrange">Add to Trip</a>
+            <a xnclick="addTrip({id: 2031, type:'venue',name: 'Paul Hobbs Winery', lat: 38.4471, lon: -122.858 }, this);" data-type="venue" data-name="Paul Hobbs Winery" data-latitude="38.4471" data-longitude="-122.858" data-id="2031" data-address="3355 Gravenstein Hwy N, Sebastopol, CA 95472" data-dir="left"  class="trip-receiver left button button-xs sans-bold bg-lightOrange">Add to Trip</a>
           </div>
         </div>
         <div class="row featured-content">
           <div class="col-sm-8 featured-container">
-            <p class="sans brown">Domain Chandon offers a wide array of tasting experiences.&nbsp;<span>Options range from a quick 15-minute sampling of two sparklings in the  Prestige, to a one-and-a-half-hour  full tour that gives great insight into the fascinating, highly complicated process of making bubbles. <a target="_blank" rel="nofollow" href="http://thepress.pointslocal.com/story/domaine-chandon">Read&nbsp;</a></span><a target="_blank" rel="nofollow" href="http://thepress.pointslocal.com/story/domaine-chandon">the full review</a>.</p>
+            <p class="sans brown"><span>Wine tasting at Paul Hobbs is more than a tasting, it's an event. And it should be, since the least expensive option is a  reserved appointment. Worth it. <a target="_blank" rel="nofollow" href="http://thepress.pointslocal.com/story//paul-hobbs?clearcache=1">Read the full review.</a></span></p>
           </div>
           <div class="col-sm-4 featured-map hidden-xs">
             <div class="venue-map"></div>
@@ -452,27 +472,28 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
           </div>
         </div>
       </section>
-      <section class="single-featured container no-padding" data-guid="mumm-napa" data-lat="38.4788" data-lon="-122.394" data-id="1999" data-name="Mumm Napa">
+  
+      <section class="single-featured container no-padding" data-guid="la-crema-at-saralee-vineyards" data-lat="38.5049" data-lon="-122.833" data-id="2030" data-name="La Crema at Saralee Vineyards">
         <div class="row featured-title hidden-sm hidden-md hidden-lg">
           <div class="num-divider"><span>1</span></div>
           <div class="col-sm-12">
             <div class="featured-label sans-bold orange">Napa</div>
-            <h1 class="serif brown"><a href="/place/mumm-napa">Mumm Napa</a></h1>
-            <div class="featured-address sans-bold brown">8445 SILVERADO TRAIL, RUTHERFORD, CA, 94573 Mumm Napa</div>
+            <h1 class="serif brown"><a href="/place/la-crema-at-saralee-vineyards">La Crema at Saralee Vineyards</a></h1>
+            <div class="featured-address sans-bold brown">3575 Slusser Rd, Windsor, CA 95492 La Crema at Saralee Vineyards</div>
             <span class="partner-badge"></span>
 
           </div>
         </div>
         <div class="row featured-image">
           <div class="col-sm-12">
-            <a href="/place/mumm-napa"><img data-cache="recache" src="http://imagecdn-sfgate.pointslocal.com/image?method=image.icrop&context=venue&id=1999&w=800&h=-1"></a>
+            <a href="/place/la-crema-at-saralee-vineyards"><img data-cache="recache" src="http://imagecdn-sfgate.pointslocal.com/image?method=image.icrop&context=venue&id=2030&w=1000&h=500"></a>
           </div>
         </div>
         <div class="row featured-toolbar hidden-sm hidden-md hidden-lg">
           <div class="col-sm-12">
             <ul>
-              <li><a href="#" class="button button-xs sans-bold bg-lightOrange">Add to Trip</a></li>
-              <li><a href="#" class="sans-bold orange">Website</a></li>
+              <li><a data-type="venue" data-name="La Crema at Saralee Vineyards" data-latitude="38.5049" data-longitude="-122.833" data-id="2030" data-address="3575 Slusser Rd, Windsor, CA 95492" data-dir="left" class="trip-receiver left button button-xs sans-bold bg-lightOrange">Add to Trip</a></li>
+              <li><a href="/place/la-crema-at-saralee-vineyards" class="sans-bold orange">Directory</a></li>
               <li><a href="#" class="sans-bold orange"><i class="fa fa-location-arrow"></i> Directions</a></li>
             </ul>
           </div>
@@ -480,16 +501,16 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
         <div class="row featured-title hidden-xs">
           <div class="col-sm-9 title-container">
             <div class="featured-label sans-bold orange" style="display:none;">Spring Mountain District</div>
-            <h1 class="serif brown"><a href="/place/mumm-napa">Mumm Napa</a></h1><span class="partner-badge"></span>
-            <div class="featured-address sans-bold brown">8445 SILVERADO TRAIL, RUTHERFORD, CA, 94573</div>
+            <h1 class="serif brown"><a href="/place/la-crema-at-saralee-vineyards">La Crema at Saralee Vineyards</a></h1><span class="partner-badge"></span>
+            <div class="featured-address sans-bold brown">3575 Slusser Rd, Windsor, CA 95492</div>
           </div>
           <div class="col-sm-3 featured-button">
-            <a onclick="addTrip({id: 1999, type:'venue',name: 'Mumm Napa', lat: 38.4788, lon: -122.394 }, this);" class="button button-xs sans-bold bg-lightOrange">Add to Trip</a>
+            <a xnclick="addTrip({id: 2030, type:'venue',name: 'La Crema at Saralee Vineyards', lat: 38.5049, lon: -122.833 }, this);" data-type="venue" data-name="La Crema at Saralee Vineyards" data-latitude="38.5049" data-longitude="-122.833" data-id="2030" data-address="3575 Slusser Rd, Windsor, CA 95492" data-dir="left"  class="trip-receiver left button button-xs sans-bold bg-lightOrange">Add to Trip</a>
           </div>
         </div>
         <div class="row featured-content">
           <div class="col-sm-8 featured-container">
-            <p class="sans brown"></p>
+            <p class="sans brown"><span>For years La Crema tastings have been limited to their downtown Healdsburg tasting room location, squashed between the seemingly never ending choices of the quaint town's urbanized version of wine country. But the La Crema name has now staked its claim on a piece of actual wine country history with their new Saralee Vineyard location. <a target="_blank" rel="nofollow" href="http://thepress.pointslocal.com/story//la-crema?clearcache=1">Read the full review</a>.</span></p>
           </div>
           <div class="col-sm-4 featured-map hidden-xs">
             <div class="venue-map"></div>
@@ -508,27 +529,28 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
           </div>
         </div>
       </section>
-      <section class="single-featured container no-padding" data-guid="gloria-ferrer-caves-vineyards" data-lat="38.2236" data-lon="-122.472" data-id="1376" data-name="Gloria Ferrer Caves &amp; Vineyards">
+  
+      <section class="single-featured container no-padding" data-guid="rochioli-vineyards-and-winery" data-lat="38.5335" data-lon="-122.867" data-id="1335" data-name="Rochioli Vineyards and Winery">
         <div class="row featured-title hidden-sm hidden-md hidden-lg">
           <div class="num-divider"><span>1</span></div>
           <div class="col-sm-12">
             <div class="featured-label sans-bold orange">Napa</div>
-            <h1 class="serif brown"><a href="/place/gloria-ferrer-caves-vineyards">Gloria Ferrer Caves &amp; Vineyards</a></h1>
-            <div class="featured-address sans-bold brown">23555 Arnold Drive, Sonoma, CA 95476, United States Gloria Ferrer Caves &amp; Vineyards</div>
+            <h1 class="serif brown"><a href="/place/rochioli-vineyards-and-winery">Rochioli Vineyards and Winery</a></h1>
+            <div class="featured-address sans-bold brown">6192 Westside Rd, Healdsburg, CA 95448, United States Rochioli Vineyards and Winery</div>
             <span class="partner-badge"></span>
 
           </div>
         </div>
         <div class="row featured-image">
           <div class="col-sm-12">
-            <a href="/place/gloria-ferrer-caves-vineyards"><img data-cache="recache" src="http://imagecdn-sfgate.pointslocal.com/image?method=image.icrop&context=venue&id=1376&w=800&h=-1"></a>
+            <a href="/place/rochioli-vineyards-and-winery"><img data-cache="recache" src="http://imagecdn-sfgate.pointslocal.com/image?method=image.icrop&context=venue&id=1335&w=1000&h=500"></a>
           </div>
         </div>
         <div class="row featured-toolbar hidden-sm hidden-md hidden-lg">
           <div class="col-sm-12">
             <ul>
-              <li><a href="#" class="button button-xs sans-bold bg-lightOrange">Add to Trip</a></li>
-              <li><a href="#" class="sans-bold orange">Website</a></li>
+              <li><a data-type="venue" data-name="Rochioli Vineyards and Winery" data-latitude="38.5335" data-longitude="-122.867" data-id="1335" data-address="6192 Westside Rd, Healdsburg, CA 95448, United States" data-dir="left" class="trip-receiver left button button-xs sans-bold bg-lightOrange">Add to Trip</a></li>
+              <li><a href="/place/rochioli-vineyards-and-winery" class="sans-bold orange">Directory</a></li>
               <li><a href="#" class="sans-bold orange"><i class="fa fa-location-arrow"></i> Directions</a></li>
             </ul>
           </div>
@@ -536,16 +558,16 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
         <div class="row featured-title hidden-xs">
           <div class="col-sm-9 title-container">
             <div class="featured-label sans-bold orange" style="display:none;">Spring Mountain District</div>
-            <h1 class="serif brown"><a href="/place/gloria-ferrer-caves-vineyards">Gloria Ferrer Caves &amp; Vineyards</a></h1><span class="partner-badge"></span>
-            <div class="featured-address sans-bold brown">23555 Arnold Drive, Sonoma, CA 95476, United States</div>
+            <h1 class="serif brown"><a href="/place/rochioli-vineyards-and-winery">Rochioli Vineyards and Winery</a></h1><span class="partner-badge"></span>
+            <div class="featured-address sans-bold brown">6192 Westside Rd, Healdsburg, CA 95448, United States</div>
           </div>
           <div class="col-sm-3 featured-button">
-            <a onclick="addTrip({id: 1376, type:'venue',name: 'Gloria Ferrer Caves &amp; Vineyards', lat: 38.2236, lon: -122.472 }, this);" class="button button-xs sans-bold bg-lightOrange">Add to Trip</a>
+            <a xnclick="addTrip({id: 1335, type:'venue',name: 'Rochioli Vineyards and Winery', lat: 38.5335, lon: -122.867 }, this);" data-type="venue" data-name="Rochioli Vineyards and Winery" data-latitude="38.5335" data-longitude="-122.867" data-id="1335" data-address="6192 Westside Rd, Healdsburg, CA 95448, United States" data-dir="left"  class="trip-receiver left button button-xs sans-bold bg-lightOrange">Add to Trip</a>
           </div>
         </div>
         <div class="row featured-content">
           <div class="col-sm-8 featured-container">
-            <p class="sans brown">Luxuries include table service for the flight tastings, ranging from  to , either inside or on the Vista Terrace overlooking the vineyards.&nbsp;<span>Either way, it's interesting to learn about the intricate&nbsp;méthode champenoise&nbsp;process using estate Chardonnay and Pinot Noir grapes. This, after all, is the first sparkling wine house in Carneros, built in 1986, with an overall history dating back 600 years to the Ferrer family’s Spanish roots. No wonder it’s one of Sonoma Valley’s grandest experiences. <a target="_blank" rel="nofollow" href="http://thepress.pointslocal.com/story/gloria-ferrer-caves-vineyards">Read the full review</a>.</span></p>
+            <p class="sans brown"><span>Before you step through the doors of the Rochioli tasting room, walk past them onto the patio and take a look at the sprawling vineyards. This is the same location the Rochioli family has farmed since the 1930s. Granted, at the time, the main crops were hops, string beans and prunes, with few actual vineyard plantings. But the family found their vine-planting niche, and the property now includes 162 acres dedicated to Sauvignon Blanc, Chardonnay and Pinot Noir. So when you look out into that field, you're looking at a bit of family and wine country history. And when you step inside the winery doors, you'll be able to taste it. <a target="_blank" rel="nofollow" href="http://thepress.pointslocal.com/story//rochioli-vineyards-and-winery?clearcache=1">Read the full review.</a></span></p>
           </div>
           <div class="col-sm-4 featured-map hidden-xs">
             <div class="venue-map"></div>
@@ -564,27 +586,28 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
           </div>
         </div>
       </section>
-      <section class="single-featured container no-padding" data-guid="iron-horse-vineyards" data-lat="38.4554" data-lon="-122.894" data-id="1392" data-name="Iron Horse Vineyards">
+  
+      <section class="single-featured container no-padding" data-guid="banshee-wines" data-lat="38.6116" data-lon="-122.87" data-id="1840" data-name="Banshee Wines">
         <div class="row featured-title hidden-sm hidden-md hidden-lg">
           <div class="num-divider"><span>1</span></div>
           <div class="col-sm-12">
             <div class="featured-label sans-bold orange">Napa</div>
-            <h1 class="serif brown"><a href="/place/iron-horse-vineyards">Iron Horse Vineyards</a></h1>
-            <div class="featured-address sans-bold brown">9786 Ross Station Rd, Sebastopol, CA 95472, United States Iron Horse Vineyards</div>
+            <h1 class="serif brown"><a href="/place/banshee-wines">Banshee Wines</a></h1>
+            <div class="featured-address sans-bold brown">325 Center St, Healdsburg, CA 95448 Banshee Wines</div>
             <span class="partner-badge"></span>
 
           </div>
         </div>
         <div class="row featured-image">
           <div class="col-sm-12">
-            <a href="/place/iron-horse-vineyards"><img data-cache="recache" src="http://imagecdn-sfgate.pointslocal.com/image?method=image.icrop&context=venue&id=1392&w=800&h=-1"></a>
+            <a href="/place/banshee-wines"><img data-cache="recache" src="http://imagecdn-sfgate.pointslocal.com/image?method=image.icrop&context=venue&id=1840&w=1000&h=500"></a>
           </div>
         </div>
         <div class="row featured-toolbar hidden-sm hidden-md hidden-lg">
           <div class="col-sm-12">
             <ul>
-              <li><a href="#" class="button button-xs sans-bold bg-lightOrange">Add to Trip</a></li>
-              <li><a href="#" class="sans-bold orange">Website</a></li>
+              <li><a data-type="venue" data-name="Banshee Wines" data-latitude="38.6116" data-longitude="-122.87" data-id="1840" data-address="325 Center St, Healdsburg, CA 95448" data-dir="left" class="trip-receiver left button button-xs sans-bold bg-lightOrange">Add to Trip</a></li>
+              <li><a href="/place/banshee-wines" class="sans-bold orange">Directory</a></li>
               <li><a href="#" class="sans-bold orange"><i class="fa fa-location-arrow"></i> Directions</a></li>
             </ul>
           </div>
@@ -592,16 +615,16 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
         <div class="row featured-title hidden-xs">
           <div class="col-sm-9 title-container">
             <div class="featured-label sans-bold orange" style="display:none;">Spring Mountain District</div>
-            <h1 class="serif brown"><a href="/place/iron-horse-vineyards">Iron Horse Vineyards</a></h1><span class="partner-badge"></span>
-            <div class="featured-address sans-bold brown">9786 Ross Station Rd, Sebastopol, CA 95472, United States</div>
+            <h1 class="serif brown"><a href="/place/banshee-wines">Banshee Wines</a></h1><span class="partner-badge"></span>
+            <div class="featured-address sans-bold brown">325 Center St, Healdsburg, CA 95448</div>
           </div>
           <div class="col-sm-3 featured-button">
-            <a onclick="addTrip({id: 1392, type:'venue',name: 'Iron Horse Vineyards', lat: 38.4554, lon: -122.894 }, this);" class="button button-xs sans-bold bg-lightOrange">Add to Trip</a>
+            <a xnclick="addTrip({id: 1840, type:'venue',name: 'Banshee Wines', lat: 38.6116, lon: -122.87 }, this);" data-type="venue" data-name="Banshee Wines" data-latitude="38.6116" data-longitude="-122.87" data-id="1840" data-address="325 Center St, Healdsburg, CA 95448" data-dir="left"  class="trip-receiver left button button-xs sans-bold bg-lightOrange">Add to Trip</a>
           </div>
         </div>
         <div class="row featured-content">
           <div class="col-sm-8 featured-container">
-            <p class="sans brown">Best known as a Champagne-method sparkling wine house, Iron Horse Vineyards produces a total of about 20,000 cases of wine a year, all of them based on Chardonnay and/or Pinot Noir, some sparkling and some still. <a target="_blank" rel="nofollow" href="http://thepress.pointslocal.com/story/iron-horse">Read the full review</a>.</p>
+            <p class="sans brown">If I lived down the street, this is where I'd hang out. And that seems to be the general consensus at this quirky, casual, albeit a bit hipster, tasting room and lounge in downtown Healdsburg. Whether you come in when the doors open at 11am or join the cocktail hour crowd just before it closes at 7pm, you're sure to see every couch cushion and barstool filled with customers so relaxed,<span>&nbsp;it's hard to tell the tourists from the locals. <a target="_blank" rel="nofollow" href="http://thepress.pointslocal.com/story//banshee-wines-cool-kids-and-fine-wine?clearcache=1">Read the full review.</a></span></p>
           </div>
           <div class="col-sm-4 featured-map hidden-xs">
             <div class="venue-map"></div>
@@ -620,62 +643,10 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
           </div>
         </div>
       </section>
-      <section class="single-featured container no-padding" data-guid="domaine-carneros" data-lat="38.2552" data-lon="-122.352" data-id="1303" data-name="Domaine Carneros">
-        <div class="row featured-title hidden-sm hidden-md hidden-lg">
-          <div class="num-divider"><span>1</span></div>
-          <div class="col-sm-12">
-            <div class="featured-label sans-bold orange">Napa</div>
-            <h1 class="serif brown"><a href="/place/domaine-carneros">Domaine Carneros</a></h1>
-            <div class="featured-address sans-bold brown">1240 Duhig Rd, Napa, CA 94559, United States Domaine Carneros</div>
-            <span class="partner-badge"></span>
+  
 
-          </div>
-        </div>
-        <div class="row featured-image">
-          <div class="col-sm-12">
-            <a href="/place/domaine-carneros"><img data-cache="recache" src="http://imagecdn-sfgate.pointslocal.com/image?method=image.icrop&context=venue&id=1303&w=800&h=-1"></a>
-          </div>
-        </div>
-        <div class="row featured-toolbar hidden-sm hidden-md hidden-lg">
-          <div class="col-sm-12">
-            <ul>
-              <li><a href="#" class="button button-xs sans-bold bg-lightOrange">Add to Trip</a></li>
-              <li><a href="#" class="sans-bold orange">Website</a></li>
-              <li><a href="#" class="sans-bold orange"><i class="fa fa-location-arrow"></i> Directions</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="row featured-title hidden-xs">
-          <div class="col-sm-9 title-container">
-            <div class="featured-label sans-bold orange" style="display:none;">Spring Mountain District</div>
-            <h1 class="serif brown"><a href="/place/domaine-carneros">Domaine Carneros</a></h1><span class="partner-badge"></span>
-            <div class="featured-address sans-bold brown">1240 Duhig Rd, Napa, CA 94559, United States</div>
-          </div>
-          <div class="col-sm-3 featured-button">
-            <a onclick="addTrip({id: 1303, type:'venue',name: 'Domaine Carneros', lat: 38.2552, lon: -122.352 }, this);" class="button button-xs sans-bold bg-lightOrange">Add to Trip</a>
-          </div>
-        </div>
-        <div class="row featured-content">
-          <div class="col-sm-8 featured-container">
-            <p class="sans brown"><span>Modeled after the home of their parent company, the Champagne house Taittinger, this eye-catching 18th century-inspired chateau will lure you in with its grandiose architecture. And if you love bubbles and you don’t mind them not being Champagne, well then this is the place for you. <a target="_blank" rel="nofollow" href="http://thepress.pointslocal.com/story/domaine-carneros">Read the full review</a>.</span></p>
-          </div>
-          <div class="col-sm-4 featured-map hidden-xs">
-            <div class="venue-map"></div>
-            <div class="row related-stories" style="display:none;">
-              <div class="col-sm-12">
-                <div class="related-title">
-                  <h3 class="serif lightBrown">Related Stories</h3>
-                </div>
-                <ul>
-                  <li><a href="#" class="sans-bold orange">A Guide to Yountville Hotels & Inns</a></li>
-                  <li><a href="#" class="sans-bold orange">California's new generation of sought-after wines</a></li>
-                  <li><a href="#" class="sans-bold orange">A Guide to Yountville Hotels & Inns</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+
+    </main>
 
 <script>
 $(document).ready(function() {
@@ -691,7 +662,7 @@ $(document).ready(function() {
       draggable: true,
       streetViewControl: false,
     }
-    map = new google.maps.Map(document.getElementById('trip-map'), { options });
+    map = new google.maps.Map(document.getElementById('trip-map'), { options });  
 
     i = 0;
   $('.single-featured').each(function() {
@@ -716,7 +687,7 @@ $(document).ready(function() {
           scaledSize: new google.maps.Size(30, 36),
         },
         optimized: false
-      });
+      });  
 
 
         var contentString = '<div id="poi-window">'+
@@ -745,7 +716,7 @@ $(document).ready(function() {
         marker.addListener('click', function() {
           infowindow.open(map, marker);
           searchActive = true;
-        });
+        });      
       i++;
   })
 
@@ -757,9 +728,9 @@ $(document).ready(function() {
           }
         }
         if (markers.length > 0) {
-          map.fitBounds(bounds);
+          map.fitBounds(bounds);  
         }
-
+        
         if (!Modernizr.mq('only screen and (max-width: 768px)')) {
           map.panBy(-250, -50);
         }
@@ -794,7 +765,7 @@ $(document).ready(function() {
   var directionsService = new google.maps.DirectionsService;
   var directionsDisplay = new google.maps.DirectionsRenderer({suppressMarkers: true});
   directionsDisplay.setMap(map);
-  directionsService.route({
+  directionsService.route({ 
     origin: routePoints.start,
     destination: routePoints.end,
     optimizeWaypoints: true,
@@ -810,8 +781,8 @@ $(document).ready(function() {
     seconds = 0;
     for(i=0;i<response.rows.length;i++) {
       if ((i+1) < response.rows[i].elements.length) {
-        meters += response.rows[i].elements[i+1].distance.value;
-        seconds += response.rows[i].elements[i+1].duration.value;
+        meters += response.rows[i].elements[i+1].distance.value; 
+        seconds += response.rows[i].elements[i+1].duration.value;      
       }
 
     }
@@ -826,37 +797,38 @@ $(document).ready(function() {
 
 });
 </script>
+<!-- #274 /TRIP DETAILS -->
 
   <div class="oldmain">
 
+  
 
+  
 
+  
 
+  
 
+  
 
+  
 
+  
 
+  
 
+  
 
+  
 
-
-
-
-
-
-
-
-
-
-
-
+  
 
 <div style="text-align:center;">
  <!-- hearst/ads/full_banner_A728.tpl -->
     <!-- hmb:a728 full banner A728 ad -->
     <div id="ctpl-fullbanner1" class="ctpl-fullbanner fixed" data-collapse-timer="10">
     <div id="A728" class="ad_deferrable"><script type="text/javascript">/*<![CDATA[*/ hearstPlaceAd("A728"); /*]]>*/</script></div>
-
+    
     <script>
     (function() {
         var checkCount = 120;
@@ -884,14 +856,12 @@ $(document).ready(function() {
         }, 1000);
     })();
     </script>
-
+    
     </div>
 <!-- e hearst/ads/full_banner_A728.tpl -->
 </div>
 
   </div>
-
-  </main>
 
         <footer>
         <div class="container">
@@ -911,6 +881,7 @@ $(document).ready(function() {
                 <li><a href="/about">About</a></li>
               </ul>
             </div>
+    <div id="treg_container"></div>
           </div>
           <div class="row">
             <div class="col-sm-12 footer-copyright">
@@ -920,16 +891,19 @@ $(document).ready(function() {
           </div>
         </div>
       </footer>
-  <script src="/partners/pointslocal/js/cache.js" type="text/javascript"></script>
+
+
 <!-- Begin Hearst analytics --> <script type="text/javascript" src="//nexus.ensighten.com/hearst/news-3p/Bootstrap.js"></script> <!-- End Hearst analytics -->
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script type="text/javascript" src="/partners/thepress/js/libs/jquery-touch-punch.js"></script>
     <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
 <script type="text/javascript" src="/partners/thepress/js/libs/markerwithlabel.js"></script><script type="text/javascript" src="/partners/thepress/js/libs/jquery-editable-poshytip.min.js"></script>
-    <script type="text/javascript" src="/partners/thepress/js/libs/slick.js?t=<[timestamp]>"></script>
+    <script type="text/javascript" src="/partners/thepress/js/libs/iscroll.js?t=5876992c6b735"></script>
+<script type="text/javascript" src="/partners/thepress/js/libs/slick.js?t=5876992c6b735"></script>
     <script type="text/javascript" src="/partners/thepress/js/global.js?t=1"></script>
+<script type="text/javascript" src="/partners/thepress/js/libs/jquery.sticky.js"></script>
     <script src="/partners/thepress/js/map.js?1470683612"></script>
     <script src="/partners/thepress/js/index.js?1467835203"></script>
   </body>
-</html><!-- Cannot open <b>/mnt/pointslocal-app/partners/thepress/templates/site/media/media_stream.template</b> --><!-- --><!-- from cache -->
+</html><!-- Cannot open <b>/mnt/pointslocal-app/partners/thepress/templates/site/media/media_stream.template</b> --><!-- -->

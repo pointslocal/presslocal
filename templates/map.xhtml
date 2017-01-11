@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>The Press</title>
-
+  <script type="text/javascript" src="http://treg-staging.hearstnp.com/treg.js"></script>
   <meta property="og:type" content="<[_ogtype]>" /> 
   <meta property="og:url" content="<[_ogurl]>" /> 
   <meta property="og:image" content="<[_ogimage]>" /> 
@@ -18,13 +18,13 @@
     <meta name="description" content="">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/partners/thepress/css/global.css?x=586c0f3e45047">
+    <link rel="stylesheet" href="/partners/thepress/css/global.css?x=587698e3e8a7d">
     <link rel="stylesheet" href="/partners/thepress/css/index.css">
   <script type="text/javascript" id="adPositionManagerScriptTag" src="http://aps.hearstnp.com/Scripts/loadAds.js"></script>
 <SCRIPT type="text/javascript" lang="javascript" src="http://cdn.gigya.com/JS/gigya.js?apikey=3_BMFZOCwXDrSMoeTYN2uiVIBZhHski0qbm2oj7S3NL2gKLHcAjq-sx3cuKnLVg_pN"></SCRIPT>
   <script src="/includes/lib/mustache/mustache.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script src="/partners/thepress/js/thepressx.js?x=browse&tz=586c0f3e45047&xyz=z"></script>
+<script src="/partners/thepress/js/thepressx.js?x=browse&tz=587698e3e8a7d&xyz=z"></script>
 
 <script type="text/javascript"
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-gHN0lD5gfgKu4bp0h6ZPRM_jkCuIHps&libraries=drawing"></script>
@@ -86,11 +86,11 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
 <nav class="nav-sm affix-top">
 
   <a href="#" class="toggle-nav hidden-lg hidden-md hidden-sm"><i class="fa fa-bars"></i><i class="fa fa-close hidden"></i></a><a href="#" class="map-button toggle-filters hidden-lg hidden-md hidden-sm"><img class="filter-icon" src="/partners/thepress/img/icons/filter-icon.png" alt="Map Filters"></a>
-<div id="trip-bar" style="display:none"><div class="trip-details"><a href="/my-trip" class="current">Current Trip<i></i></a> <a href="/my-trips">My Trips</a> </div><span style="display: none;" id="trip-bar-name" contenteditable=true >Current Trip</span></div></div>
+<div id="trip-bar" style="display:none"><div class="trip-details"><a href="/my-trip" class="current">Current Trip<i></i></a> <a href="/my-trips">Saved Trips</a> </div><span style="display: none;" id="trip-bar-name" contenteditable=true >Current Trip</span></div></div>
   <div class="container nav-wrapper">
     <div class="row logo-container">
       <div class="col-sm-12">
-        <a href="/">
+        <a href="/wine">
           <img class="logo hidden-xs" src="/partners/thepress/img/thepress-logo.png" alt="The Press">
           <img class="logo-mobile hidden-sm hidden-md hidden-lg" src="/partners/thepress/img/thepress-logo-mobile.png" alt="The Press">
           <img class="logo-fixed" src="/partners/thepress/img/thepress-logo-sm.png" alt="The Press">
@@ -140,7 +140,8 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
       <li><a href="/stories" >Stories</a></li>
       <li><a href="/wineries" >Wineries</a></li>
       <li><a href="/wine-events" >Events</a></li>
-      <li><a href="/mytrip" >My Trip</a></li>
+      <li><a href="/my-trip" >Current Trip</a></li>
+      <li><a href="/my-trips" >Saved Trips</a></li>
     </ul>
   </div>
   <div class="login-state">
@@ -263,7 +264,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
 </div>
 
 
-  <!-- MAP Functionality -->
+  <!-- #273 MAPFUNCTIONALITY -->
 <style>
 .filter-options label {
   display: block;
@@ -277,23 +278,36 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
 
 <div class="dismiss-container module quick-tip bg-lightYellow">
 <a onclick="dismissDialog(this);" class="close">x</a>
-        <h5 class="stronger orange">To visit wineries, you have several options!</h5>
-        <p>1. Take one of the suggested driving tours of various regions listed below (scroll all the way to the bottom of the list on the left).<br>
+        <h5 class="stronger orange">To visit wineries, you have several options</h5>
+        <p>Scroll through the venues below and click 'Add to Trip' to begin your first wine country itinerary. Use the filters in the menu bar to help you sort through the database and create a more personalized trip. Once you've saved your first winery, you can view, edit, and customize your itinerary by clicking 'Current Trip' in the top right of your screen. Make sure you log in or create an account to access all the customizable features The Press Trip Planner has to offer. Cheers!<br>
 <br>
-...
+
       </div>
 
 {{/quicktip}}
 {{#items}}
 <a name="venue_card_{{id}}" data-id="{{id}}" class="{{itemClass}}"></a>
 {{#tier:3}}
-<div class="module featured" style="background: url('/image?method=image.icrop&context=venue&id={{id}}&w=450&h=250') center center no-repeat; background-size: cover;">
+<div class="module featured gradient-cover" style="margin-bottom:100px; background: url('/image?method=image.icrop&context=venue&id={{id}}&w=450&h=250') center center no-repeat; background-size: cover;">
           <div class="featured-content vert-center">
             <p class="sans-bold white featured-label">Featured Winery</p>
-            <h2 class="serif white">{{name}}</h2>
+            <h2 class="serif white"><span>{{counter}}</span> {{name}}</h2>
             <a href="/place/{{guid}}" class="button button-lg sans-bold bg-olive-alpha">View Profile</a>
           </div>
+
+          <div class="row tier-buttons" style="position:absolute;top:100%;width:100%;background-color:#fff;">
+            <div class="col-xs-12">
+              <ul>
+                <li><a xclick="addTrip({id: {{id}}, type:'venue',name: '{{name}}', lat: {{latitude}}, lon: {{longitude}} }, this);" data-type="venue" data-name="{{name}}" data-latitude="{{latitude}}" data-longitude="{{longitude}}" data-id="{{id}}" data-address="{{address}}" class="trip-receiver button button-xs bg-olive sans-bold">Add to Trip</a></li>
+                <li><a href="{{url}}" class="olive sans-bold">Directory</a></li>
+                <li><a target=_blank href="https://www.google.com/maps/dir/{{address}}/" class="olive sans-bold"><i class="fa fa-location-arrow"></i> Directions</a></li>
+                <li class="social"><a href="https://twitter.com/home?status={{name}}:%20http://thepress.pointslocal.com/place/{{guid}}" class="olive sans"><i class="fa fa-twitter"></i></a></li>
+                <li class="social"><a href="http://www.facebook.com/sharer.php?u=http://thepress.pointslocal.com/place/{{guid}}" class="olive sans"><i class="fa fa-facebook-square"></i></a></li>
+              </ul>
+            </div>
+          </div>          
         </div>
+
 {{/tier:3}}
 {{#tier:story}}
 <div class="module tier1 hidden-xs">
@@ -318,8 +332,42 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
             <div class="col-xs-12">
               <ul>
                 <li><a xclick="addTrip({id: {{id}}, type:'venue',name: '{{name}}', lat: {{latitude}}, lon: {{longitude}} }, this);" data-type="venue" data-name="{{name}}" data-latitude="{{latitude}}" data-longitude="{{longitude}}" data-id="{{id}}" data-address="{{address}}" class="trip-receiver button button-xs bg-olive sans-bold">Add to Trip</a></li>
-                <li><a href="{{url}}" class="olive sans-bold">Website</a></li>
+                <li><a href="{{url}}" class="olive sans-bold">Directory</a></li>
                 <li><a target=_blank href="https://www.google.com/maps/dir/{{address}}/" class="olive sans-bold"><i class="fa fa-location-arrow"></i> Directions</a></li>
+                <li class="social"><a href="https://twitter.com/home?status={{name}}:%20http://thepress.pointslocal.com/place/{{guid}}" class="olive sans"><i class="fa fa-twitter"></i></a></li>
+                <li class="social"><a href="http://www.facebook.com/sharer.php?u=http://thepress.pointslocal.com/place/{{guid}}" class="olive sans"><i class="fa fa-facebook-square"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+<div class="module tier2 hidden-sm hidden-md hidden-lg">
+          <div class="row tier-title hidden-xs">
+            <div class="col-xs-9">
+              <h2 class="serif darkOlive"><a href="single-winery-2.php">{{name}}</a></h2>
+            </div>
+            <div class="col-xs-3 tier-badge">
+              <span class="partner-badge"></span>
+            </div>
+          </div>
+          <div class="row tier-contact">
+            <div class="col-xs-5 no-padding">
+              <div class="tier-pic" style="background: url('/image?method=image.icrop&context=stories&id={{story_id}}&w=200&h=250') center center no-repeat; background-size: cover;"></div>
+            </div>
+            <div class="col-xs-7">
+              <h3 class="serif darkOlive hidden-sm hidden-md hidden-lg"><a href="single-winery-2.php">{{name}} <span class="featured-badge-lg"></span></a></h3>
+              <h4 class="sans-bold olive location-label">{{neighborhood}}</h4>
+              <div class="address">
+                <p class="sans brown">{{street}},<br> {{city}}, {{state}} {{zip}}<br> {{phone}}{{venue_phone}}</p>
+                <a data-type="venue" data-name="{{name}}" data-latitude="{{latitude}}" data-longitude="{{longitude}}" data-id="{{id}}" data-address="{{address}}" class="trip-receiver button button-xs bg-olive sans-bold hidden-sm hidden-md hidden-lg">Add to Trip</a>
+              </div>
+            </div>
+          </div>
+          <div class="row tier-buttons hidden-xs">
+            <div class="col-xs-12">
+              <ul>
+                <li><a href="#" xclick="addTrip({id: {{id}}, type:'venue',name: '{{name}}', lat: {{latitude}}, lon: {{longitude}} }, this);" data-type="venue" data-name="{{name}}" data-latitude="{{latitude}}" data-longitude="{{longitude}}" data-id="{{id}}" data-address="{{address}}" class="trip-receiver button button-xs bg-olive sans-bold">Add to Trip</a></li>
+                <li><a href="#" class="olive sans-bold">Directory</a></li>
+                <li><a target=_blank href="https://www.google.com/maps/dir/{{address}}" class="olive sans-bold"><i class="fa fa-location-arrow"></i> Directions</a></li>
                 <li class="social"><a href="https://twitter.com/home?status={{name}}:%20http://thepress.pointslocal.com/place/{{guid}}" class="olive sans"><i class="fa fa-twitter"></i></a></li>
                 <li class="social"><a href="http://www.facebook.com/sharer.php?u=http://thepress.pointslocal.com/place/{{guid}}" class="olive sans"><i class="fa fa-facebook-square"></i></a></li>
               </ul>
@@ -328,8 +376,8 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
         </div>
 {{/tier:story}}
 {{#tier:1-2}}
-<div class="module tier2" data-lat="{{latitude}}" data-lon="{{longitude}}" style="min-height: 0px;" data-name="{{name}}">
-<div class="row tier-title hidden-xs">
+<div class="module tier2" data-type="tier-1-2" data-lat="{{latitude}}" data-lon="{{longitude}}" style="min-height: 0px;" data-name="{{name}}">
+        <div class="row tier-title hidden-xs">
             <div class="col-xs-9">
               <h2 class="serif darkOlive"><a href="/place/{{guid}}"><span>{{counter}}</span> {{name}}</a></h2>
             </div>
@@ -342,7 +390,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
               <div class="tier-pic" style="background: url('/image?method=image.icrop&context=venue&id={{id}}&w=200&h=200') center center no-repeat; background-size: cover;"></div>
             </div>
             <div class="col-xs-7">
-              <h3 class="serif darkOlive hidden-sm hidden-md hidden-lg"><a href="/place/{{guid}}"> <span class="partner-badge"></span></a></h3>
+              <h3 class="serif darkOlive hidden-sm hidden-md hidden-lg"><a href="/place/{{guid}}">{{{name}}} ~<span class="partner-badge"></span></a></h3>
               <h4 class="sans-bold olive location-label">{{neighborhood}}</h4>
               <div class="address">
                 <p class="sans brown">{{street}},<br> {{city}}, {{state}} {{zip}}<br> {{phone}}{{venue_phone}}<br><span class="status sans-bold olive">Open</span></p>
@@ -357,7 +405,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
             <div class="col-xs-12">
               <ul>
                 <li><a xclick="addTrip({id: {{id}}, type:'venue',name: '{{name}}', lat: {{latitude}}, lon: {{longitude}} }, this);" data-type="venue" data-name="{{name}}" data-latitude="{{latitude}}" data-longitude="{{longitude}}" data-id="{{id}}" data-address="{{address}}" class="trip-receiver button button-xs bg-olive sans-bold">Add to Trip</a></li>
-                <li><a href="{{url}}" class="olive sans-bold">Website</a></li>
+                <li><a href="{{url}}" class="olive sans-bold">Directory</a></li>
                 <li><a target=_blank href="https://www.google.com/maps/dir/{{address}}" class="olive sans-bold"><i class="fa fa-location-arrow"></i> Directions</a></li>
                 <li class="social"><a href="https://twitter.com/home?status={{name}}:%20http://thepress.pointslocal.com/place/{{guid}}" class="olive sans"><i class="fa fa-twitter"></i></a></li>
                 <li class="social"><a href="http://www.facebook.com/sharer.php?u=http://thepress.pointslocal.com/place/{{guid}}" class="olive sans"><i class="fa fa-facebook-square"></i></a></li>
@@ -367,7 +415,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
         </div>
 {{/tier:1-2}}
 {{#tier:none}}
-<div class="module tier2" data-lat="{{latitude}}" data-lon="{{longitude}}" style="min-height: 0px;" data-name="{{name}}">
+<div class="module tier2" data-type="tier:none" data-lat="{{latitude}}" data-lon="{{longitude}}" style="min-height: 0px;" data-name="{{name}}">
           <div class="row tier-title hidden-xs">
             <div class="col-xs-12">
               <h2 class="serif darkOlive"><a href="/place/{{guid}}"><span>{{counter}}</span> {{{name}}}</a></h2>
@@ -378,11 +426,11 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
           <div class="row tier-contact">
 
             <div class="col-xs-12">
-              <h3 class="serif darkOlive hidden-sm hidden-md hidden-lg"><a href="/place/{{guid}}"> <span class="partner-badge"></span></a></h3>
+              <h3 class="serif darkOlive hidden-sm hidden-md hidden-lg"><a href="/place/{{guid}}">{{{name}}} </a></h3>
               <h4 class="sans-bold olive location-label">{{neighborhood}}</h4>
               <div class="address">
                 <p class="sans brown">{{street}},<br> {{city}}, {{state}} {{zip}}<br> {{phone}}{{venue_phone}}<br><span class="status sans-bold olive">Open</span></p>
-
+                <a xclick="addTrip({id: {{id}}, type:'venue',name: '{{name}}', lat: {{latitude}}, lon: {{longitude}} }, this);" data-type="venue" data-name="{{name}}" data-latitude="{{latitude}}" data-longitude="{{longitude}}" data-id="{{id}}" data-address="{{address}}" class="trip-receiver button button-xs bg-olive sans-bold hidden-md hidden-lg">Add to Trip</a>
               </div>
             </div>
           </div>
@@ -603,15 +651,15 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
         <div class="mobile-filters hidden-sm hidden-md hidden-lg">
           <div class="row filter-section bg-beige">
             <div class="col-xs-6">
-              <span class="sans brown num-label">200 Matches</span>
+              <span class="sans brown num-label"></span>
             </div>
             <div class="col-xs-6 text-right">
-              <a class="button button-xs bg-olive sans-bold" href="#">Apply</a>
+              <a class="button button-xs bg-olive sans-bold" onclick="updateMap();">Apply</a>
             </div>
           </div>
           <div class="row filter-section bg-beige">
             <div class="col-xs-12">
-              <ul class="filter-tags">
+              <ul class="filter-tags" style="display:none;">
                 <li><a href="#" class="button button-tag bg-olive sans-bold"><i class="fa fa-close"></i> Clear</a></li>
                 <li><a href="#" class="button button-tag bg-olive sans-bold"><i class="fa fa-close"></i> Napa</a></li>
                 <li><a href="#" class="button button-tag bg-olive sans-bold"><i class="fa fa-close"></i> Wineries</a></li>
@@ -628,44 +676,64 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
           </div>
           <div class="row filter-section filter-dropdown white bg-olive">
             <div class="col-xs-12">
-              <span class="sans-bold white">Region</span>
+              <span class="sans-bold white">Specializing In</span>
+              <div class="filter-dropdown-options">
+                <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Cabernet Sauvignon"> Cabernet Sauvignon</label>
+                <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Pinot Noir"> Pinot Noir</label>
+                <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Chardonnay"> Chardonnay</label>
+                <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Sauvignon Blanc"> Sauvignon Blanc</label>
+                <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Zinfandel"> Zinfandel</label>
+                <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Syrah"> Syrah</label>   
+                <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Petite Sirah"> Petite Sirah</label>
+                <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Other whites"> Other whites</label>
+                <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Other reds"> Other reds</label>
+                <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Sparkling wine"> Sparkling wine</label>                
+              </div>           
             </div>
           </div>
           <div class="row filter-section filter-dropdown white bg-olive">
             <div class="col-xs-12">
-              <span class="sans-bold white">Appelation</span>
+              <span class="sans-bold white">Visit</span>
+              <div class="filter-dropdown-options">              
+                <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Open weekends"> Open weekends</label>
+                <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Open weekdays"> Open weekdays</label>
+                <label><input type="checkbox" class="search-option" data-type="specialization" data-value="No appt necessary"> No appt necessary</label>
+                <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Reservation only"> Reservation only</label>
+                <label><input type="checkbox" class="search-option" data-type="specialization" data-value="All"> All</label>      
+              </div>        
             </div>
           </div>
           <div class="row filter-section filter-dropdown white bg-olive">
             <div class="col-xs-12">
-              <span class="sans-bold white">Category</span>
-            </div>
-          </div>
-          <div class="row filter-section filter-dropdown bg-lightOlive">
-            <div class="col-xs-12">
-              <span class="sans-bold brown">Varietals</span>
-            </div>
-          </div>
-          <div class="row filter-section filter-dropdown bg-lightOlive">
-            <div class="col-xs-12">
-              <span class="sans-bold brown">Visit Cost</span>
-            </div>
-          </div>
-          <div class="row filter-section filter-dropdown bg-lightOlive">
-            <div class="col-xs-12">
-              <span class="sans-bold brown">Format</span>
-            </div>
-          </div>
-          <div class="row filter-section filter-dropdown bg-lightOlive">
-            <div class="col-xs-12">
-              <span class="sans-bold brown">Visit Cost</span>
+              <span class="sans-bold white">Tasting Cost</span>
+              <div class="filter-dropdown-options">              
+                <label><input type="checkbox"> &dollar;0 to &dollar;20</label>
+                <label><input type="checkbox"> &dollar;21 to &dollar;49</label>
+                <label><input type="checkbox"> &dollar;50 to &dollar;74</label>
+                <label><input type="checkbox"> &dollar;75+</label>     
+              </div>         
             </div>
           </div>
           <div class="row filter-section filter-dropdown bg-lightOlive">
             <div class="col-xs-12">
               <span class="sans-bold brown">Features</span>
+              <div class="filter-dropdown-options">              
+                <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Tours"> Tours</label>
+                <label><input type="checkbox" class="search-option" data-type="specialization" data-value="og friendly"> Dog friendly</label>
+                <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Family friendly"> Family friendly</label>
+                <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Good for groups"> Good for groups</label>
+                <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Art exhibit"> Art exhibit</label>
+                <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Outdoor area/garden"> Outdoor area/garden</label>
+                <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Picnic area"> Picnic area</label>
+                <label><input type="checkbox" class="search-option" data-type="specialization" data-value="No outside food/drink"> No outside food/drink</label>
+                <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Full restaurant"> Full restaurant</label>
+                <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Classes/education"> Classes/education</label>
+                <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Sustainability focus"> Sustainability focus</label>
+                <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Wheelchair accessibl"> Wheelchair accessible</label>   
+              </div>           
             </div>
           </div>
+
         </div>
       </div>
     </div>
@@ -678,9 +746,9 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
 
 <div class="mobile-nav hidden-sm hidden-md hidden-lg affix">
     <ul>
-      <li><a class="bg-olive sans-bold back-button active" href="#">List</a></li>
+      <li><a class="bg-olive sans-bold back-button " href="#">List</a></li>
       <li><a class="bg-olive sans-bold toggle-itinerary" href="#">Itinerary</a></li>
-      <li><a class="bg-olive sans-bold toggle-map" href="#">Map</a></li>
+      <li><a class="bg-olive sans-bold toggle-map active" href="#">Map</a></li>
     </ul>
   </div>
 
@@ -756,7 +824,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
       <!-- Itinerary -->
       <div class="hud-itinerary">
         <div class="itinerary-map hidden-sm hidden-md hidden-lg">
-          <img src="/partners/thepress/img/itinerary-map.jpg">
+          <img src="/partners/thepress/img/itinerary-map.jpg" style="display:none;">
         </div>
         <a href="#" class="back-button sans-bold brown hidden-xs"><i class="fa fa-arrow-left"></i> Back to Map</a>
         <div class="module itinerary">
@@ -840,7 +908,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
           <div class="row itinerary-buttons">
             <div class="col-xs-12">
               <ul>
-                <li><a href="#" class="button button-xs bg-olive toggle-save sans-bold"><i class="fa fa-map-marker"></i> Save My Trip</a></li>
+                <li><a onclick="saveTrip();" class="button button-xs bg-olive toggle-save sans-bold"><i class="fa fa-map-marker"></i> Save My Trip</a></li>
          <li><a href="#" class="button button-xs bg-olive toggle-save sans-bold" onclick="mapDirections">Directions</a></li>
               </ul>
             </div>
@@ -860,6 +928,8 @@ updateMap();
 
 })
 </script>
+
+<!-- #273 /MAPFUNCTIONALITY -->
 
 
   <div class="oldmain">
@@ -944,6 +1014,7 @@ updateMap();
                 <li><a href="/about">About</a></li>
               </ul>
             </div>
+    <div id="treg_container"></div>
           </div>
           <div class="row">
             <div class="col-sm-12 footer-copyright">
@@ -953,21 +1024,18 @@ updateMap();
           </div>
         </div>
       </footer>
-  <link rel="stylesheet" href="/partners/thepress/css/<[publication]>.css"> 
-  <script src="/partners/pointslocal/js/cache.js" type="text/javascript"></script>
+
+
 <!-- Begin Hearst analytics --> <script type="text/javascript" src="//nexus.ensighten.com/hearst/news-3p/Bootstrap.js"></script> <!-- End Hearst analytics -->
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script type="text/javascript" src="/partners/thepress/js/libs/jquery-touch-punch.js"></script>
     <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
 <script type="text/javascript" src="/partners/thepress/js/libs/markerwithlabel.js"></script><script type="text/javascript" src="/partners/thepress/js/libs/jquery-editable-poshytip.min.js"></script>
-    <script type="text/javascript" src="/partners/thepress/js/libs/iscroll.js?t=586c0f3e45047"></script>
-<script type="text/javascript" src="/partners/thepress/js/libs/slick.js?t=586c0f3e45047"></script>
+    <script type="text/javascript" src="/partners/thepress/js/libs/iscroll.js?t=587698e3e8a7d"></script>
+<script type="text/javascript" src="/partners/thepress/js/libs/slick.js?t=587698e3e8a7d"></script>
     <script type="text/javascript" src="/partners/thepress/js/global.js?t=1"></script>
-<link rel="stylesheet" href="/partners/thepress/css/single-story.css" type="text/css">
-<link rel="stylesheet" href="/partners/thepress/css/single-winery.css" type="text/css">
-<link rel="stylesheet" href="/partners/thepress/css/single-event.css">
-<link rel="stylesheet" href="/partners/thepress/css/events.css">
+<script type="text/javascript" src="/partners/thepress/js/libs/jquery.sticky.js"></script>
     <script src="/partners/thepress/js/map.js?1470683612"></script>
     <script src="/partners/thepress/js/index.js?1467835203"></script>
   </body>

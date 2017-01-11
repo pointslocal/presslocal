@@ -7,31 +7,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>The Press</title>
-
-  <meta property="og:type" content="<[_ogtype]>" />
-  <meta property="og:url" content="<[_ogurl]>" />
-  <meta property="og:image" content="<[_ogimage]>" />
-  <meta property="place:location:latitude"  content="<[_oglatitude]>" />
-  <meta property="place:location:longitude" content="<[_oglongitude]>" />
-  <meta property="og:title" content="<[_ogtitle]>" />
+  <script type="text/javascript" src="http://treg-staging.hearstnp.com/treg.js"></script>
+  <meta property="og:type" content="<[_ogtype]>" /> 
+  <meta property="og:url" content="<[_ogurl]>" /> 
+  <meta property="og:image" content="<[_ogimage]>" /> 
+  <meta property="place:location:latitude"  content="<[_oglatitude]>" /> 
+  <meta property="place:location:longitude" content="<[_oglongitude]>" /> 
+  <meta property="og:title" content="<[_ogtitle]>" /> 
     <link rel="shortcut icon" href="/partners/thepress/img/thepress-logo-sm.png" />
     <meta name="description" content="">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/partners/thepress/css/global.css">
+    <link rel="stylesheet" href="/partners/thepress/css/global.css?x=58769690b2cb1">
+    <link rel="stylesheet" href="/partners/thepress/css/index.css">
   <script type="text/javascript" id="adPositionManagerScriptTag" src="http://aps.hearstnp.com/Scripts/loadAds.js"></script>
 <SCRIPT type="text/javascript" lang="javascript" src="http://cdn.gigya.com/JS/gigya.js?apikey=3_BMFZOCwXDrSMoeTYN2uiVIBZhHski0qbm2oj7S3NL2gKLHcAjq-sx3cuKnLVg_pN"></SCRIPT>
   <script src="/includes/lib/mustache/mustache.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script src="/partners/thepress/js/thepressx.js?x=browse&tz=5852c7e5a37a2"></script>
+<script src="/partners/thepress/js/thepressx.js?x=browse&tz=58769690b2cb1&xyz=z"></script>
 
 <script type="text/javascript"
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-gHN0lD5gfgKu4bp0h6ZPRM_jkCuIHps&libraries=drawing"></script>
     <script type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js'></script>
+<script src="http://23hfij34r8a3i36ce2tnh9ii.wpengine.netdna-cdn.com/wp-content/themes/wordplate/js/markerwithlabel.js"></script>
     <script src="//use.typekit.net/wuq4anx.js"></script>
 <script>
 var _LAT = 38.334997;
 var _LON =  -122.298203;
+var _MARKER_FILL_COLOR = '#FF5B50';
+var _MARKER_HIGHLIGHT_FILL_COLOR = '#ffb8b2';
+var _MARKER_HIGHLIGHT_BORDER_COLOR = '#FF5B50';
+var _MAP_PATH = 'M258.5,0C144.7,0,62,79.5,62,166.1c0,52.4,21.7,80.4,50.7,131.1C170.6,398.6,258.5,507,258.5,507 s87.9-108.4,145.8-209.8c29-50.7,50.7-78.7,50.7-131.1C455,79.5,372.3,0,258.5,0';
+if ('<[publication]>' == 'alt') {
+  _MARKER_FILL_COLOR = '#cc435a';
+  _MARKER_HIGHLIGHT_FILL_COLOR = '#f299a8';
+  _MARKER_HIGHLIGHT_BORDER_COLOR = '#cc435a';
+
+}
 </script>
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
 <script>
@@ -39,7 +51,7 @@ tripsExist = JSON.parse(localStorage.getItem('trips'));
 console.log(tripsExist);
 if (tripsExist && tripsExist.length > 0) {
   $(document).ready(function() {
-    $('.my-trip-inactive').removeClass('my-trip-inactive');
+    $('.my-trip-inactive').removeClass('my-trip-inactive'); 
   })
 
 }
@@ -54,8 +66,8 @@ display: none;
 
 </style>
 <div id="modal-background" style="display:none;"></div><div id="modal" style="display:none;"></div>
-<div id="trip-bar" style="display:none"><div class="trip-details"><a href="/my-trip">My Trip</a> <span>0 items </span> </div><div class="trip-meta"><span id="trip-bar-name" contenteditable=true>My Trip</span></div></div>
-<div style="display:none" id="toast">Added To <a href="/my-trip">My Trip</a></div>
+
+<div style="display:none" id="toast">Added To <a href="/my-trip">Current Trip</a></div>
 <script>
 function addTrip(id,el) {
   $('#toast').slideDown(100);
@@ -75,7 +87,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
   <div class="container nav-wrapper">
     <div class="row logo-container">
       <div class="col-sm-12">
-        <a href="/">
+        <a href="/wine">
           <img class="logo hidden-xs" src="/partners/thepress/img/thepress-logo.png" alt="The Press">
           <img class="logo-mobile hidden-sm hidden-md hidden-lg" src="/partners/thepress/img/thepress-logo-mobile.png" alt="The Press">
           <img class="logo-fixed" src="/partners/thepress/img/thepress-logo-sm.png" alt="The Press">
@@ -124,8 +136,9 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
       <li><a href="/trips" >Trips</a></li>
       <li><a href="/stories" >Stories</a></li>
       <li><a href="/wineries" >Wineries</a></li>
-      <li><a href="/events" >Events</a></li>
-      <li><a href="/mytrip" >My Trip</a></li>
+      <li><a href="/wine-events" >Events</a></li>
+      <li><a href="/my-trip" >Current Trip</a></li>
+      <li><a href="/my-trips" >Saved Trips</a></li>
     </ul>
   </div>
   <div class="login-state">
@@ -143,7 +156,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true sans">&times;</span></button>
         <h4 class="sans-bold brownmodal-title">Login</h4>
         <p class="sans brown">Welcome back. If you already have an account with us, please login below.</p>
-        <p class="sans error" id="login-error"></p>
+        <p class="sans error" id="login-error"></p>        
       </div>
       <div class="modal-body">
         <form class="signinForm">
@@ -177,13 +190,13 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
           <div>Passwords must be at least 8 characters, contain upper and lowercase letters and at least one number.</div>
           <div class="form-group">
             <input id="register-username" type="text" placeholder="Username">
-          </div>
+          </div>          
           <div class="form-group">
             <input id="register-password" type="password" placeholder="Password">
           </div>
           <div class="form-group">
             <input id="register-password2" type="password" placeholder="Password (Repeat)">
-          </div>
+          </div>          
         </form>
       </div>
        <div class="modal-buttons">
@@ -222,13 +235,13 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
           <div class="form-group">
             <input id="register-email" type="email" placeholder="Email Address">
           </div>
+      
 
-
-
+        
         </form>
       </div>
        <div class="modal-buttons">
-        <button onclick="showModal('login');" type="submit" class="button button-xs bg-olive sans-bold">Cancel</button>
+        <button onclick="showModal('login');" type="submit" class="button button-xs bg-olive sans-bold">Cancel</button>   
       </div>
     </div>
   </div>
@@ -241,7 +254,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
   <div class="search-container">
     <a href="#" class="close-button white sans"><svg width="30" height="30" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1490 1322q0 40-28 68l-136 136q-28 28-68 28t-68-28l-294-294-294 294q-28 28-68 28t-68-28l-136-136q-28-28-28-68t28-68l294-294-294-294q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 294 294-294q28-28 68-28t68 28l136 136q28 28 28 68t-28 68l-294 294 294 294q28 28 28 68z"/></svg></a>
     <form class="form-inline" role="form" action="/search" method="post">
-      <input type="text" name="search" id="masterSearch" placeholder="Search">
+      <input type="text" name="search" placeholder="Search">
       <button type="submit" class="hidden"><i class="fa fa-search"></i></button>
     </form>
   </div>
@@ -252,17 +265,22 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
 <script>
 var package = '';
 </script>
-<link rel="stylesheet" href="/partners/thepress/css/my-trip.css">
-<script src="/partners/thepress/js/my-trip.js"></script>
+<link rel="stylesheet" href="/partners/thepress/css/single-trip.css">
+<script src="/partners/thepress/js/single-trip.js"></script>
 
 
 
 <header class="header-single">
+    <div class="container-fluid header-map no-padding hidden-sm hidden-md hidden-lg">
+
+
+    </div>
     <div class="container">
       <div class="row">
         <div class="col-sm-12 header-title">
-          <h1 class="serif brown editable" contenteditable="true" >My Trip</h1>
-          <div><a id="my-trips-save-button" href="#" onclick="saveTrip();" style="display:none;" class="button button-xs bg-lightOrange sans-bold tooltip-container tooltip-left" data-tooltip="Save This Trip to Your Trips">Save Trip</a>  <a id="my-trips-my-button" style="display:none;" href="/my-trips" class="button button-xs bg-lightOrange sans-bold tooltip-container tooltip-top" data-tooltip="View Previously Saved Trips">My Trips</a>  <a href="#" onclick="clearTrip();" class="button button-xs bg-lightOrange sans-bold tooltip-container" data-tooltip="Remove all items from this trip">Remove All</a></div>
+          <h1 class="serif brown editable" contenteditable="true" >Current Trip</h1>
+  <textarea rows="5" id="trip-description" style="width:100%;background-color:transparent;" placeholder="Describe this trip"></textarea>
+          <div><a id="my-trips-save-button" href="#" onclick="saveTrip();" style="display:none;" class="button button-xs bg-lightOrange sans-bold tooltip-container tooltip-left" data-tooltip="Save This Trip to Your Trips">Save Trip</a>  <a id="my-trips-my-button" style="display:none;" href="/my-trips" class="button button-xs bg-lightOrange sans-bold tooltip-container tooltip-top" data-tooltip="View Previously Saved Trips">Saved Trips</a>  <a href="#" onclick="clearTrip();" class="button button-xs bg-lightOrange sans-bold tooltip-container" data-tooltip="Remove all items from this trip">Remove All</a></div>
 
         </div>
       </div>
@@ -270,7 +288,7 @@ var package = '';
     <div class="container-fluid header-map no-padding">
 
 
-      <div id="my-trip-map"></div>
+      <div id="my-trip-map" style="width:100%;height:500px;"></div>
     </div>
   </header>
 
@@ -278,11 +296,12 @@ var package = '';
 <div id="my-trip-data">
 
 </div>
+</main>
 <script>
 if (package == '') {
-
+  
 setTimeout(getTrip, 500);
-
+  
  }else {
  getExistingTrip(package);
  }
@@ -290,34 +309,34 @@ setTimeout(getTrip, 500);
 
   <div class="oldmain">
 
+  
 
+  
 
+  
 
+  
 
+  
 
+  
 
+  
 
+  
 
+  
 
+  
 
-
-
-
-
-
-
-
-
-
-
-
+  
 
 <div style="text-align:center;">
  <!-- hearst/ads/full_banner_A728.tpl -->
     <!-- hmb:a728 full banner A728 ad -->
     <div id="ctpl-fullbanner1" class="ctpl-fullbanner fixed" data-collapse-timer="10">
     <div id="A728" class="ad_deferrable"><script type="text/javascript">/*<![CDATA[*/ hearstPlaceAd("A728"); /*]]>*/</script></div>
-
+    
     <script>
     (function() {
         var checkCount = 120;
@@ -345,14 +364,12 @@ setTimeout(getTrip, 500);
         }, 1000);
     })();
     </script>
-
+    
     </div>
 <!-- e hearst/ads/full_banner_A728.tpl -->
 </div>
 
   </div>
-
-  </main>
 
         <footer>
         <div class="container">
@@ -372,6 +389,7 @@ setTimeout(getTrip, 500);
                 <li><a href="/about">About</a></li>
               </ul>
             </div>
+    <div id="treg_container"></div>
           </div>
           <div class="row">
             <div class="col-sm-12 footer-copyright">
@@ -381,15 +399,18 @@ setTimeout(getTrip, 500);
           </div>
         </div>
       </footer>
-  <script src="/partners/pointslocal/js/cache.js" type="text/javascript"></script>
+
+
 <!-- Begin Hearst analytics --> <script type="text/javascript" src="//nexus.ensighten.com/hearst/news-3p/Bootstrap.js"></script> <!-- End Hearst analytics -->
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script type="text/javascript" src="/partners/thepress/js/libs/jquery-touch-punch.js"></script>
     <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
 <script type="text/javascript" src="/partners/thepress/js/libs/markerwithlabel.js"></script><script type="text/javascript" src="/partners/thepress/js/libs/jquery-editable-poshytip.min.js"></script>
-    <script type="text/javascript" src="/partners/thepress/js/libs/slick.js?t=<[timestamp]>"></script>
+    <script type="text/javascript" src="/partners/thepress/js/libs/iscroll.js?t=58769690b2cb1"></script>
+<script type="text/javascript" src="/partners/thepress/js/libs/slick.js?t=58769690b2cb1"></script>
     <script type="text/javascript" src="/partners/thepress/js/global.js?t=1"></script>
+<script type="text/javascript" src="/partners/thepress/js/libs/jquery.sticky.js"></script>
     <script src="/partners/thepress/js/map.js?1470683612"></script>
     <script src="/partners/thepress/js/index.js?1467835203"></script>
   </body>

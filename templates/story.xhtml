@@ -7,31 +7,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>The Press</title>
-
-  <meta property="og:type" content="<[_ogtype]>" />
-  <meta property="og:url" content="<[_ogurl]>" />
-  <meta property="og:image" content="<[_ogimage]>" />
-  <meta property="place:location:latitude"  content="<[_oglatitude]>" />
-  <meta property="place:location:longitude" content="<[_oglongitude]>" />
-  <meta property="og:title" content="<[_ogtitle]>" />
+  <script type="text/javascript" src="http://treg-staging.hearstnp.com/treg.js"></script>
+  <meta property="og:type" content="<[_ogtype]>" /> 
+  <meta property="og:url" content="<[_ogurl]>" /> 
+  <meta property="og:image" content="<[_ogimage]>" /> 
+  <meta property="place:location:latitude"  content="<[_oglatitude]>" /> 
+  <meta property="place:location:longitude" content="<[_oglongitude]>" /> 
+  <meta property="og:title" content="<[_ogtitle]>" /> 
     <link rel="shortcut icon" href="/partners/thepress/img/thepress-logo-sm.png" />
     <meta name="description" content="">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/partners/thepress/css/global.css">
+    <link rel="stylesheet" href="/partners/thepress/css/global.css?x=5876993591ef0">
+    <link rel="stylesheet" href="/partners/thepress/css/index.css">
   <script type="text/javascript" id="adPositionManagerScriptTag" src="http://aps.hearstnp.com/Scripts/loadAds.js"></script>
 <SCRIPT type="text/javascript" lang="javascript" src="http://cdn.gigya.com/JS/gigya.js?apikey=3_BMFZOCwXDrSMoeTYN2uiVIBZhHski0qbm2oj7S3NL2gKLHcAjq-sx3cuKnLVg_pN"></SCRIPT>
   <script src="/includes/lib/mustache/mustache.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script src="/partners/thepress/js/thepressx.js?x=browse&tz=585043c551085"></script>
+<script src="/partners/thepress/js/thepressx.js?x=browse&tz=5876993591ef0&xyz=z"></script>
 
 <script type="text/javascript"
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-gHN0lD5gfgKu4bp0h6ZPRM_jkCuIHps&libraries=drawing"></script>
     <script type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js'></script>
+<script src="http://23hfij34r8a3i36ce2tnh9ii.wpengine.netdna-cdn.com/wp-content/themes/wordplate/js/markerwithlabel.js"></script>
     <script src="//use.typekit.net/wuq4anx.js"></script>
 <script>
 var _LAT = 38.334997;
 var _LON =  -122.298203;
+var _MARKER_FILL_COLOR = '#FF5B50';
+var _MARKER_HIGHLIGHT_FILL_COLOR = '#ffb8b2';
+var _MARKER_HIGHLIGHT_BORDER_COLOR = '#FF5B50';
+var _MAP_PATH = 'M258.5,0C144.7,0,62,79.5,62,166.1c0,52.4,21.7,80.4,50.7,131.1C170.6,398.6,258.5,507,258.5,507 s87.9-108.4,145.8-209.8c29-50.7,50.7-78.7,50.7-131.1C455,79.5,372.3,0,258.5,0';
+if ('<[publication]>' == 'alt') {
+  _MARKER_FILL_COLOR = '#cc435a';
+  _MARKER_HIGHLIGHT_FILL_COLOR = '#f299a8';
+  _MARKER_HIGHLIGHT_BORDER_COLOR = '#cc435a';
+
+}
 </script>
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
 <script>
@@ -39,7 +51,7 @@ tripsExist = JSON.parse(localStorage.getItem('trips'));
 console.log(tripsExist);
 if (tripsExist && tripsExist.length > 0) {
   $(document).ready(function() {
-    $('.my-trip-inactive').removeClass('my-trip-inactive');
+    $('.my-trip-inactive').removeClass('my-trip-inactive'); 
   })
 
 }
@@ -54,8 +66,8 @@ display: none;
 
 </style>
 <div id="modal-background" style="display:none;"></div><div id="modal" style="display:none;"></div>
-<div id="trip-bar" style="display:none"><div class="trip-details"><a href="/my-trip">My Trip</a> <span>0 items </span> </div><div class="trip-meta"><span id="trip-bar-name" contenteditable=true>My Trip</span></div></div>
-<div style="display:none" id="toast">Added To <a href="/my-trip">My Trip</a></div>
+
+<div style="display:none" id="toast">Added To <a href="/my-trip">Current Trip</a></div>
 <script>
 function addTrip(id,el) {
   $('#toast').slideDown(100);
@@ -70,7 +82,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
 </script>
 
   <!-- nav area -->
-
+  
 
 <!-- Mobile Dropdown Menu -->
 <nav class="mobile-dropdown hidden-sm hidden-md hidden-lg">
@@ -86,8 +98,9 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
       <li><a href="/trips" >Trips</a></li>
       <li><a href="/stories" >Stories</a></li>
       <li><a href="/wineries" >Wineries</a></li>
-      <li><a href="/events" >Events</a></li>
-      <li><a href="/mytrip" >My Trip</a></li>
+      <li><a href="/wine-events" >Events</a></li>
+      <li><a href="/my-trip" >Current Trip</a></li>
+      <li><a href="/my-trips" >Saved Trips</a></li>
     </ul>
   </div>
   <div class="login-state">
@@ -105,7 +118,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true sans">&times;</span></button>
         <h4 class="sans-bold brownmodal-title">Login</h4>
         <p class="sans brown">Welcome back. If you already have an account with us, please login below.</p>
-        <p class="sans error" id="login-error"></p>
+        <p class="sans error" id="login-error"></p>        
       </div>
       <div class="modal-body">
         <form class="signinForm">
@@ -139,13 +152,13 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
           <div>Passwords must be at least 8 characters, contain upper and lowercase letters and at least one number.</div>
           <div class="form-group">
             <input id="register-username" type="text" placeholder="Username">
-          </div>
+          </div>          
           <div class="form-group">
             <input id="register-password" type="password" placeholder="Password">
           </div>
           <div class="form-group">
             <input id="register-password2" type="password" placeholder="Password (Repeat)">
-          </div>
+          </div>          
         </form>
       </div>
        <div class="modal-buttons">
@@ -184,13 +197,13 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
           <div class="form-group">
             <input id="register-email" type="email" placeholder="Email Address">
           </div>
+      
 
-
-
+        
         </form>
       </div>
        <div class="modal-buttons">
-        <button onclick="showModal('login');" type="submit" class="button button-xs bg-olive sans-bold">Cancel</button>
+        <button onclick="showModal('login');" type="submit" class="button button-xs bg-olive sans-bold">Cancel</button>   
       </div>
     </div>
   </div>
@@ -203,19 +216,22 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
   <div class="search-container">
     <a href="#" class="close-button white sans"><svg width="30" height="30" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1490 1322q0 40-28 68l-136 136q-28 28-68 28t-68-28l-294-294-294 294q-28 28-68 28t-68-28l-136-136q-28-28-28-68t28-68l294-294-294-294q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 294 294-294q28-28 68-28t68 28l136 136q28 28 28 68t-28 68l-294 294 294 294q28 28 28 68z"/></svg></a>
     <form class="form-inline" role="form" action="/search" method="post">
-      <input type="text" name="search" id="masterSearch" placeholder="Search">
+      <input type="text" name="search" placeholder="Search">
       <button type="submit" class="hidden"><i class="fa fa-search"></i></button>
     </form>
   </div>
 </div>
 
 
-  <nav class="nav-sm affix-top">
+  <!-- MAP NAV -->
+<nav class="nav-sm affix-top">
+
   <a href="#" class="toggle-nav hidden-lg hidden-md hidden-sm"><i class="fa fa-bars"></i><i class="fa fa-close hidden"></i></a><a href="#" class="map-button toggle-filters hidden-lg hidden-md hidden-sm"><img class="filter-icon" src="/partners/thepress/img/icons/filter-icon.png" alt="Map Filters"></a>
+<div id="trip-bar" style="display:none"><div class="trip-details"><a href="/my-trip" class="current">Current Trip<i></i></a> <a href="/my-trips">Saved Trips</a> </div><span style="display: none;" id="trip-bar-name" contenteditable=true >Current Trip</span></div></div>
   <div class="container nav-wrapper">
     <div class="row logo-container">
       <div class="col-sm-12">
-        <a href="/">
+        <a href="/wine">
           <img class="logo hidden-xs" src="/partners/thepress/img/thepress-logo.png" alt="The Press">
           <img class="logo-mobile hidden-sm hidden-md hidden-lg" src="/partners/thepress/img/thepress-logo-mobile.png" alt="The Press">
           <img class="logo-fixed" src="/partners/thepress/img/thepress-logo-sm.png" alt="The Press">
@@ -252,16 +268,17 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
 
   <div class="oldmain">
 
-  <!-- Story Details -->
+  <!-- #365 STORY DETAILS -->
 <script>setNav('reviews');</script>
 <link rel="stylesheet" href="/partners/thepress/css/single-story.css" type="text/css">
+
 
 <header class="header-single">
     <div class="container">
       <div class="row">
         <div class="col-sm-12 header-title">
           <div class="header-label lightBrown">Winery Review</div>
-          <h1 class="serif brown">Paul Hobbs: Formal Seated Tasting</h1>
+          <h1 class="serif brown">Benovia: Cozy Fireside Wine Tasting</h1>
   <h3 class="serif brown"></h3>
           <div class="date sans-bold brown">December 13, 2016</div>
         </div>
@@ -269,12 +286,12 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
     </div>
     <div class="container">
       <div class="featured-image">
-        <img data-cache="recache" src="/image?method=image.icrop&context=stories&id=263&w=900&h=-1" alt="585043c5541c9">
+        <img data-cache="recache" src="/image?method=image.icrop&context=stories&id=262&w=900&h=-1" alt="5876993596cda">
       </div>
     </div>
   </header>
 
-<main>
+
 
     <!-- Single Toolbar Module -->
     <section class="single-toolbar container">
@@ -283,15 +300,16 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
           <span class="sponsor-label lightBrown" style="display:none;">sponsored by:</span>
         </div>
         <div class="col-sm-6 toolbar-author">
-          <div class="author-label sans-bold brown">by <span>Stacy Briscoe</span></div>
+          <div class="author-label sans-bold brown">Stacy Briscoe</div>
         </div>
         <div class="col-sm-3 toolbar-options">
           <ul>
             <li class="social-label lightBrown hidden-xs">share</li>
-            <li class="social"><a class="red" href="https://twitter.com/home?status=585043c5541c9:%20http://thepress.pointslocal.com/story/paul-hobbs-winery"><i class="fa fa-twitter"></i></a></li>
-            <li class="social"><a class="red" href="http://www.facebook.com/sharer.php?u=http://thepress.pointslocal.com/story/paul-hobbs-winery"><i class="fa fa-facebook-square"></i></a></li>
-            <li class="social"><a class="red" href="mailto:&subject=Paul Hobbs: Formal Seated Tasting"><i class="fa fa-envelope"></i></a></li>
+            <li class="social"><a class="red" href="https://twitter.com/home?status=5876993596cda:%20http://thepress.pointslocal.com/story/benovia-winery"><i class="fa fa-twitter"></i></a></li>
+            <li class="social"><a class="red" href="http://www.facebook.com/sharer.php?u=http://thepress.pointslocal.com/story/benovia-winery"><i class="fa fa-facebook-square"></i></a></li>
+            <li class="social"><a class="red" href="mailto:&subject=Benovia: Cozy Fireside Wine Tasting"><i class="fa fa-envelope"></i></a></li>
           </ul>
+  
         </div>
       </div>
     </section>
@@ -302,24 +320,12 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
       <!-- Left Content -->
         <div class="col-sm-8">
           <div class="single-body">
-            <article>
-              <h2>Formal Seated Tasting</h2>
 
-<p>Wine tasting at Paul Hobbs is more than a tasting, it&#39;s an event. And it should be, since the least expensive option is a &#36;65 reserved appointment -- worth every penny. The moment you arrive you&#39;ll be greeted by name by a host who will hand you a glass of chilled Chardonnay harvested from the vines just outside the door. The winery only conducts a handful of small-group appointments Monday through Friday, so not only will your host be full of enthusiasm and energy, you can rest assured that any fellow tour-goers are more than just curious wine country wanderers.</p>
 
-<p>After everyone in the group has arrived, you&#39;ll be led on a tour of the estate, which includes the immediate surrounding vineyards, the fermentation cellar and the barrel warehouse. Each stop will include a detailed overview of owner and winemaker Paul Hobbs&#39; winemaking process, which you can tangibly appreciate, sipping that first glass of Chardonnay as you walk along. Questions are encouraged, and there&#39;s no shortage of knowledge from the hospitality crew, as the winery staff is a small one and works directly with Hobbs himself. Once the tour has concluded, you&#39;ll be led into a dining area, elegantly decorated and filled with amazing aromas from the neighboring kitchen.</p>
+    
+            <article >
 
-<p>The sit-down Signature Tasting includes a flight of four current releases as well as bite-sized snacks of local cheeses, estate-grown fruit and a freshly baked pastry, all of which help put the wine into culinary context. Though the setting and surrounding may conjure up feelings of fine-dining, the tasting is a laid-back, casual affair. You&#39;re encouraged to take your time with each wine, discuss tasting notes with fellow tour-goers and experiment with the suggested food and wine pairings. And because the tasting appointments are so spaced out throughout the day, you&#39;re welcome to linger a bit longer after your allotted 75 minutes end.</p>
-
-<ul>
-  <li>
-  <p><strong>INSIDE INFO:</strong> Buying Paul Hobbs wines is limited to those who visit the winery in person or join the mailing list. At the end of your tasting you can fill out an order form that includes a lot more than what was poured at the table. If interested, it&#39;s worth asking your host if there are any &quot;off the menu&quot; items you can try before you buy (especially since you&#39;ll be paying between &#36;55 to &#36;425 per bottle).</p>
-  </li>
-  <li>
-  <p><strong>WHAT TO TRY:</strong> Paul Hobbs is a proud producer of age-worthy Chardonnays, full-bodied Pinot Noirs and chewably tannic Cabernet Sauvignons -- but he also has a small vineyard lot dedicated to Syrah, mostly for blending purposes. Apparently when a vintage is particularly fruitful or, according to the hostess, &quot;when Paul feels like it,&quot; he&#39;ll produce a few bottles of Syrah to sell. If this anomaly is available during your visit, try it.</p>
-  </li>
-</ul>
-
+              <h2>Cozy Fireside Wine Tasting</h2><p>Driving through the entrance gates and down a vineyard-lined gravel path, you can't help but think "I've arrived" -- arrived in Sonoma County, arrived in California wine country. Even the short walk from the parking lot to the cabin-like tasting room will take you past rows of vines so close you can reach out and touch them from the footpath.</p><p>Once inside, you'll see that Benovia is, indeed, just as cozy as a cabin, complete with a roaring fire. The by-appointment tastings take place in a living room with guests and host seated casually and comfortably on over-stuffed couches with the wine flights displayed on the center coffee table. And because the winery only conducts one group at a time, you're sure to receive one-on-one attention from an employee who works directly with the winemaker, thus both knowledgeable and happy enough to answer any questions you may have.</p><p>As Benovia is a small lot winery, producing just about 6000 cases a year, the tasting will be limited to current releases. For &#36;20 per guest, the host will provide a full line up of both red and white wines, which, on a recent visit, included single vineyard Chardonnays and Pinot Noirs from both Benovia estate vineyards as well as long-standing growing partner, Martinelli Vineyards. What you can expect from Benovia winemaker Mike Sullivan is a diverse portfolio of California wines that truly speak of each specific vineyard from which the grapes were harvested. Like the 2013 La Pommeraie Chardonnay, with its funky, floral aroma and its almost piquant palate of fruit and baking spices, it seems to pay homage to the once thriving apple orchard for which the wine is named; or the 2014 Tilton Hill Pinot Noir, with its bold rusticity and almost lack of structure, you can visualize, as you taste, the small, purposefully dense vineyard with grapes and vines overlapping as they fight for the Sonoma Coast sun.</p><ul><li><p><strong>WHAT TO TRY:&nbsp;</strong></p></li><li><p>If available, try a side-by-side comparison of the Pinot Noir from Tilton Vineyards, the estate’s youngest Pinot Noir vineyard planted in 2007, and Cohn Vineyard, Benovia's oldest Pinot Noir vineyard planted in 1970. While each wine is beautiful in its own right, it's interesting to taste the difference in maturity between the two lots.</p></li><li><p>Example of secondary "What to Try"</p></li><li><p><strong>INSIDE INFO:&nbsp;</strong></p></li><li><p>Winemaker Mike Sullivan is usually walking around the estate. It's worth asking if he's available to pop in for a chat and answer some of your more specific winemaking questions.</p></li><li><p>Example of another piece of interesting Info</p></li></ul>
             </article>
             <!-- Related Stories -->
             <div class="related-stories" style="display:none;">
@@ -353,6 +359,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
         </div>
         <!-- Right Content -->
         <div class="col-sm-4 hidden-xs single-content">
+  <div style="width:300px;height:250px;color:#fff;background-color:#ccc;line-height:250px;text-align:center;margin:auto;margin-top:25px;">300x250</div>
           <div class="single-sidebar ">
 
             <div id="story-venue-mentions-map" style="width:100%;height:300px;"></div>
@@ -365,50 +372,51 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
                 <div class="col-xs-12">
                   <h4 class="sans-bold olive location-label"></h4>
                   <div class="address">
-                    <p class="sans brown">3355 Gravenstein Hwy N, Sebastopol, CA 95472<br></p>
+                    <p class="sans brown">3339 Hartman Rd, Santa Rosa, CA 95401<br>(707) 921-1040</p>
                   </div>
                 </div>
               </div>
             </article>
             <article class="hours">
               <h4 class="sans-bold brown sidebar-title">Hours</h4>
-                <div>10am - 11:30am, 1:30pm - 3:30pm</div>
+                <p class="sans brown">10am - 3:30pm, Daily</p>
               <div class="status" style="display:none;"><span class="sans-bold olive">Open</span> <span class="sans-bold olive">No Reservation Required</span></div>
             </article>
             <article class="special">
               <h4 class="sans-bold brown sidebar-title">Specializing In</h4>
               <ul>
-                <div>Cabernet Sauvignon</div>
-                <div>Pinot Noir</div>
-                <div>Chardonnay</div>
+                <p class="sans brown">Pinot Noir</p>
+                <p class="sans brown">Chardonnay</p>
 
               </ul>
             </article>
             <article class="cost">
-              <h4 class="sans-bold brown sidebar-title">Visit Cost</h4>
-              <p class="sans-bold red">&dollar;65 - &dollar;95</p>
+              <h4 class="sans-bold brown sidebar-title">Tasting Cost</h4>
+              <p class="sans-bold olive">&dollar;20</p>
             </article>
             <article class="format">
-              <h4 class="sans-bold brown sidebar-title">Format</h4>
+              <h4 class="sans-bold brown sidebar-title">More Information</h4>
               <p class="sans brown">
-                  <div>Tours</div>
-                  <div>No Outside Food/Drink</div>
-                  <div>Sustainability Focus</div>
-                  <div>Wheelchair Accessible</div>
+                  <p class="sans brown">Good for Groups</p>
+                  <p class="sans brown">Sustainability Focus</p>
+                  <p class="sans brown">Wheelchair Accessible</p>
+                  <p class="sans brown">No Outside Food/Drink</p>
               </p>
             </article>
             <article class="prices">
-              <h4 class="sans-bold brown sidebar-title">Wine Prices</h4>
-              <p class="sans brown">&dollar;65 - &dollar;95</p>
+              <h4 class="sans-bold brown sidebar-title">Visit</h4>
+              <p class="sans brown">Open Weekdays</p>
+              <p class="sans brown">Reservation Only</p>
+              <p class="sans brown">Open Weekends</p>
             </article>
             <article class="more" style="display:none;">
               <h4 class="sans-bold brown sidebar-title">More Information</h4>
               <ul>
-
+                
               </ul>
             </article>
 
-
+          
 
           </div>
 
@@ -429,28 +437,28 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
       <div class="row">
         <div class="col-sm-9 directory-list">
 
-          <div class="row directory-item" data-latitude="38.4471" data-longitude="-122.858" data-name="Paul Hobbs Winery" data-guid="paul-hobbs-winery">
+          <div class="row directory-item" data-latitude="38.4771" data-longitude="-122.798" data-name="Benovia Winery" data-guid="benovia-winery">
             <div class="col-xs-4 directory-pic">
-              <a href="#"><img src="/image?method=image.icrop&context=venue&id=2031&w=400&h=200" alt=""></a>
+              <a href="/place/benovia-winery"><img src="/image?method=image.icrop&context=venue&id=1980&w=400&h=200" alt=""></a>
             </div>
             <div class="col-xs-5 directory-info">
-              <h3 class="serif brown"><a href="/place/paul-hobbs-winery">Paul Hobbs Winery</a></h3><span class="partner-badge"></span>
+              <h3 class="serif brown"><a href="/place/benovia-winery">Benovia Winery</a></h3><span class="partner-badge"></span>
               <h4 class="sans-bold olive hidden-xs"><!-- neighborhood --></h4>
               <div class="address hidden-xs">
-                <p>3355 Gravenstein Hwy N, Sebastopol, CA 95472<br> <br> 10am - 11:30am, 1:30pm - 3:30pm <span class="status olive">Open</span></p>
+                <p>3339 Hartman Rd, Santa Rosa, CA 95401<br> (707) 921-1040<br> 10am - 3:30pm, Daily <span class="status olive">Open</span></p>
               </div>
               <div class="address hidden-sm hidden-md hidden-lg">
-                <p>3355 Gravenstein Hwy N, Sebastopol, CA 95472 <span class="hidden-xs"></span><br> 10am - 11:30am, 1:30pm - 3:30pm <span style="display:none;" class="status olive">Open</span></p>
+                <p>3339 Hartman Rd, Santa Rosa, CA 95401 <span class="hidden-xs">(707) 921-1040</span><br> 10am - 3:30pm, Daily <span style="display:none;" class="status olive">Open</span></p>
               </div>
               <div class="directory-buttons hidden-sm hidden-md hidden-lg">
                 <ul>
-                  <li><a href="#" onclick="addTrip({type:'venue',name: 'Paul Hobbs Winery', lat: 38.4471, lon: -122.858 }, this)" class="button button-xs sans-bold bg-olive">Add To Trip</a></li>
+                  <li><a data-type="venue" data-name="Benovia Winery" data-latitude="38.4771" data-dir="left" data-longitude="-122.798" data-id="1980" data-address="3339 Hartman Rd, Santa Rosa, CA 95401"  xnclick="addTrip({type:'venue',name: 'Benovia Winery', lat: 38.4771, lon: -122.798 }, this)" class="trip-receiver button button-xs sans-bold bg-olive">Add To Trip</a></li>
                   <li class="sub-map-button"><a href="#" class="sans-bold olive"><i class="fa fa-map-o"></i> Map</a></li>
                 </ul>
               </div>
             </div>
             <div class="col-xs-3 directory-button hidden-xs">
-              <a href="#" onclick="addTrip({type:'venue', id: 2031, name: 'Paul Hobbs Winery', lat: 38.4471, lon: -122.858 }, this)" class="button button-xs sans-bold bg-olive">Add To Trip</a>
+              <a data-type="venue" data-name="Benovia Winery" data-latitude="38.4771" data-dir="left" data-longitude="-122.798" data-id="1980" data-address="3339 Hartman Rd, Santa Rosa, CA 95401"  xnclick="addTrip({type:'venue',name: 'Benovia Winery', lat: 38.4771, lon: -122.798 }, this)" class="trip-receiver button button-xs sans-bold bg-olive">Add To Trip</a>
             </div>
           </div>
 
@@ -459,11 +467,12 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
           <div id="story-venue-mentions-mmap"></div>
         </div>
       </div>
-
+ 
 
     </section>
 
     <script>
+tripReceiverDropdowns();
       var map;
       function initMap() {
         map = new google.maps.Map(document.getElementById('story-venue-mentions-map'), {
@@ -479,7 +488,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
           console.log('item:'+item)
           var infowindow = new google.maps.InfoWindow({
             content: Mustache.render(StoryVenueEventMapTemplate,item)
-          });
+          });          
           console.log('content:'+infowindow.content);
           map.setCenter({lat: parseFloat(lat), lng: parseFloat(lon)});
           var marker = new google.maps.Marker({
@@ -499,9 +508,21 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
       }
   initMap();
 
+    // Splits article by p tags, inserts related before last one
+    $(document).ready(function() {
+      $('.single-body article > p').each(function(i,el) {
+        html = '<b>Rec.</b>';
+        total = $('.single-body article > p').length;
+        if ((i+1) == total) {
+          $(html).insertBefore($(this));
+        }
+//        console.log('text',el,i, ;
+      });
+    });
+
 
     </script>
-
+<!-- #365 /STORY DETAILS -->
 
 
               <!-- Quad Columns Divider Module -->
@@ -513,7 +534,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
       </div>
       <div class="row scrollable" id="scroll2">
         <div class="col-sm-3 block-container">
-          <a href="#" class="quad-block" style="background: url('/image?method=image.icrop&context=stories&id=262&w=1000&h=-1') center center no-repeat; background-size: cover;"></a>
+          <a href="/story/benovia-winery" class="quad-block" style="background: url('http://imagecdn-sfgate.pointslocal.com//image?method=image.icrop&context=stories&id=262&w=1000&h=-1') center center no-repeat; background-size: cover;"></a>
           <div class="block-text">
             <div class="block-label lightBrown no-accent">Sponsored Content</div>
             <h4 class="sans-bold red"><a href="/story/benovia-winery">Benovia: Cozy Fireside Wine Tasting</a></h4>
@@ -521,7 +542,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
           </div>
         </div>
         <div class="col-sm-3 block-container">
-          <a href="#" class="quad-block" style="background: url('/image?method=image.icrop&context=stories&id=263&w=1000&h=-1') center center no-repeat; background-size: cover;"></a>
+          <a href="/story/paul-hobbs" class="quad-block" style="background: url('http://imagecdn-sfgate.pointslocal.com//image?method=image.icrop&context=stories&id=263&w=1000&h=-1') center center no-repeat; background-size: cover;"></a>
           <div class="block-text">
             <div class="block-label lightBrown no-accent">Sponsored Content</div>
             <h4 class="sans-bold red"><a href="/story/paul-hobbs">Paul Hobbs: Formal Seated Tasting</a></h4>
@@ -529,7 +550,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
           </div>
         </div>
         <div class="col-sm-3 block-container">
-          <a href="#" class="quad-block" style="background: url('/image?method=image.icrop&context=stories&id=264&w=1000&h=-1') center center no-repeat; background-size: cover;"></a>
+          <a href="/story/la-crema" class="quad-block" style="background: url('http://imagecdn-sfgate.pointslocal.com//image?method=image.icrop&context=stories&id=264&w=1000&h=-1') center center no-repeat; background-size: cover;"></a>
           <div class="block-text">
             <div class="block-label lightBrown no-accent">Sponsored Content</div>
             <h4 class="sans-bold red"><a href="/story/la-crema">La Crema: Scenic Saralee Vineyard</a></h4>
@@ -537,7 +558,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
           </div>
         </div>
         <div class="col-sm-3 block-container">
-          <a href="#" class="quad-block" style="background: url('/image?method=image.icrop&context=stories&id=265&w=1000&h=-1') center center no-repeat; background-size: cover;"></a>
+          <a href="/story/lauterbach-cellars" class="quad-block" style="background: url('http://imagecdn-sfgate.pointslocal.com//image?method=image.icrop&context=stories&id=265&w=1000&h=-1') center center no-repeat; background-size: cover;"></a>
           <div class="block-text">
             <div class="block-label lightBrown no-accent">Sponsored Content</div>
             <h4 class="sans-bold red"><a href="/story/lauterbach-cellars">Lauterbach Cellars: Nitty-Gritty Winemaking</a></h4>
@@ -547,30 +568,30 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
       </div>
     </section>
 
+  
 
+  
 
+  
 
+  
 
+  
 
+  
 
+  
 
+  
 
-
-
-
-
-
-
-
-
-
+  
 
 <div style="text-align:center;">
  <!-- hearst/ads/full_banner_A728.tpl -->
     <!-- hmb:a728 full banner A728 ad -->
     <div id="ctpl-fullbanner1" class="ctpl-fullbanner fixed" data-collapse-timer="10">
     <div id="A728" class="ad_deferrable"><script type="text/javascript">/*<![CDATA[*/ hearstPlaceAd("A728"); /*]]>*/</script></div>
-
+    
     <script>
     (function() {
         var checkCount = 120;
@@ -598,13 +619,13 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
         }, 1000);
     })();
     </script>
-
+    
     </div>
 <!-- e hearst/ads/full_banner_A728.tpl -->
 </div>
 
   </div>
-  </main>
+
         <footer>
         <div class="container">
           <div class="row">
@@ -623,6 +644,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
                 <li><a href="/about">About</a></li>
               </ul>
             </div>
+    <div id="treg_container"></div>
           </div>
           <div class="row">
             <div class="col-sm-12 footer-copyright">
@@ -632,16 +654,19 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
           </div>
         </div>
       </footer>
-  <script src="/partners/pointslocal/js/cache.js" type="text/javascript"></script>
+
+
 <!-- Begin Hearst analytics --> <script type="text/javascript" src="//nexus.ensighten.com/hearst/news-3p/Bootstrap.js"></script> <!-- End Hearst analytics -->
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script type="text/javascript" src="/partners/thepress/js/libs/jquery-touch-punch.js"></script>
     <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
 <script type="text/javascript" src="/partners/thepress/js/libs/markerwithlabel.js"></script><script type="text/javascript" src="/partners/thepress/js/libs/jquery-editable-poshytip.min.js"></script>
-    <script type="text/javascript" src="/partners/thepress/js/libs/slick.js?t=<[timestamp]>"></script>
+    <script type="text/javascript" src="/partners/thepress/js/libs/iscroll.js?t=5876993591ef0"></script>
+<script type="text/javascript" src="/partners/thepress/js/libs/slick.js?t=5876993591ef0"></script>
     <script type="text/javascript" src="/partners/thepress/js/global.js?t=1"></script>
+<script type="text/javascript" src="/partners/thepress/js/libs/jquery.sticky.js"></script>
     <script src="/partners/thepress/js/map.js?1470683612"></script>
     <script src="/partners/thepress/js/index.js?1467835203"></script>
   </body>
-</html><!-- Cannot open <b>/mnt/pointslocal-app/partners/thepress/templates/site/media/media_stream.template</b> --><!-- -->
+</html><!-- Cannot open <b>/mnt/pointslocal-app/partners/thepress/templates/site/media/media_stream.template</b> --><!-- --><!-- from cache -->
