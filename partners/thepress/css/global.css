@@ -3100,7 +3100,7 @@ Global Modules
 
 @media (max-width: 992px) {
   .directory .directory-list .directory-item .directory-pic .event-date {
-    font-size: 16px;
+    font-size: 25px;
   }
   .directory .directory-list .directory-item .directory-info .partner-badge,
   .directory .directory-list .directory-item .directory-info .affiliate-badge {
