@@ -8,12 +8,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>The Press</title>
   <script type="text/javascript" src="http://treg-staging.hearstnp.com/treg.js"></script>
-  <meta property="og:type" content="<[_ogtype]>" /> 
-  <meta property="og:url" content="<[_ogurl]>" /> 
-  <meta property="og:image" content="<[_ogimage]>" /> 
-  <meta property="place:location:latitude"  content="<[_oglatitude]>" /> 
-  <meta property="place:location:longitude" content="<[_oglongitude]>" /> 
-  <meta property="og:title" content="<[_ogtitle]>" /> 
+  <meta property="og:type" content="<[_ogtype]>" />
+  <meta property="og:url" content="<[_ogurl]>" />
+  <meta property="og:image" content="<[_ogimage]>" />
+  <meta property="place:location:latitude"  content="<[_oglatitude]>" />
+  <meta property="place:location:longitude" content="<[_oglongitude]>" />
+  <meta property="og:title" content="<[_ogtitle]>" />
     <link rel="shortcut icon" href="/partners/thepress/img/thepress-logo-sm.png" />
     <meta name="description" content="">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
@@ -51,7 +51,7 @@ tripsExist = JSON.parse(localStorage.getItem('trips'));
 console.log(tripsExist);
 if (tripsExist && tripsExist.length > 0) {
   $(document).ready(function() {
-    $('.my-trip-inactive').removeClass('my-trip-inactive'); 
+    $('.my-trip-inactive').removeClass('my-trip-inactive');
   })
 
 }
@@ -159,7 +159,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true sans">&times;</span></button>
         <h4 class="sans-bold brownmodal-title">Login</h4>
         <p class="sans brown">Welcome back. If you already have an account with us, please login below.</p>
-        <p class="sans error" id="login-error"></p>        
+        <p class="sans error" id="login-error"></p>
       </div>
       <div class="modal-body">
         <form class="signinForm">
@@ -193,13 +193,13 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
           <div>Passwords must be at least 8 characters, contain upper and lowercase letters and at least one number.</div>
           <div class="form-group">
             <input id="register-username" type="text" placeholder="Username">
-          </div>          
+          </div>
           <div class="form-group">
             <input id="register-password" type="password" placeholder="Password">
           </div>
           <div class="form-group">
             <input id="register-password2" type="password" placeholder="Password (Repeat)">
-          </div>          
+          </div>
         </form>
       </div>
        <div class="modal-buttons">
@@ -238,13 +238,13 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
           <div class="form-group">
             <input id="register-email" type="email" placeholder="Email Address">
           </div>
-      
 
-        
+
+
         </form>
       </div>
        <div class="modal-buttons">
-        <button onclick="showModal('login');" type="submit" class="button button-xs bg-olive sans-bold">Cancel</button>   
+        <button onclick="showModal('login');" type="submit" class="button button-xs bg-olive sans-bold">Cancel</button>
       </div>
     </div>
   </div>
@@ -305,7 +305,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
                 <li class="social"><a href="http://www.facebook.com/sharer.php?u=http://thepress.pointslocal.com/place/{{guid}}" class="olive sans"><i class="fa fa-facebook-square"></i></a></li>
               </ul>
             </div>
-          </div>          
+          </div>
         </div>
 
 {{/tier:3}}
@@ -394,7 +394,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
               <h4 class="sans-bold olive location-label">{{neighborhood}}</h4>
               <div class="address">
                 <p class="sans brown">{{street}},<br> {{city}}, {{state}} {{zip}}<br> {{phone}}{{venue_phone}}<br><span class="status sans-bold olive">Open</span></p>
-                
+
               </div>
               <div>
                   {{#story_guid}}<a href="/story/{{story_guid}}" class="button button-xs bg-olive sans-bold">Read Review</a>{{/story_guid}}
@@ -453,7 +453,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
 
 <div id="search-resultx" style="display:none;">
     {{^items}}
-  
+
     <div class="module tier1 hidden-xs" data-lat="{{latitude}}" data-lon="{{longitude}}" style="min-height: 0px;" data-name="{{name}}">No results for this search</div>
     {{/items}}
     {{#items}}
@@ -507,9 +507,9 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
     </ul>
             </div>
           </div>
-        </div>    
+        </div>
 
-  
+
       {{/items}}
 </div>
 
@@ -683,41 +683,41 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
                 <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Chardonnay"> Chardonnay</label>
                 <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Sauvignon Blanc"> Sauvignon Blanc</label>
                 <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Zinfandel"> Zinfandel</label>
-                <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Syrah"> Syrah</label>   
+                <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Syrah"> Syrah</label>
                 <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Petite Sirah"> Petite Sirah</label>
                 <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Other whites"> Other whites</label>
                 <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Other reds"> Other reds</label>
-                <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Sparkling wine"> Sparkling wine</label>                
-              </div>           
+                <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Sparkling wine"> Sparkling wine</label>
+              </div>
             </div>
           </div>
           <div class="row filter-section filter-dropdown white bg-olive">
             <div class="col-xs-12">
               <span class="sans-bold white">Visit</span>
-              <div class="filter-dropdown-options">              
+              <div class="filter-dropdown-options">
                 <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Open weekends"> Open weekends</label>
                 <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Open weekdays"> Open weekdays</label>
                 <label><input type="checkbox" class="search-option" data-type="specialization" data-value="No appt necessary"> No appt necessary</label>
                 <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Reservation only"> Reservation only</label>
-                <label><input type="checkbox" class="search-option" data-type="specialization" data-value="All"> All</label>      
-              </div>        
+                <label><input type="checkbox" class="search-option" data-type="specialization" data-value="All"> All</label>
+              </div>
             </div>
           </div>
           <div class="row filter-section filter-dropdown white bg-olive">
             <div class="col-xs-12">
               <span class="sans-bold white">Tasting Cost</span>
-              <div class="filter-dropdown-options">              
+              <div class="filter-dropdown-options">
                 <label><input type="checkbox"> &dollar;0 to &dollar;20</label>
                 <label><input type="checkbox"> &dollar;21 to &dollar;49</label>
                 <label><input type="checkbox"> &dollar;50 to &dollar;74</label>
-                <label><input type="checkbox"> &dollar;75+</label>     
-              </div>         
+                <label><input type="checkbox"> &dollar;75+</label>
+              </div>
             </div>
           </div>
           <div class="row filter-section filter-dropdown bg-lightOlive">
             <div class="col-xs-12">
               <span class="sans-bold brown">Features</span>
-              <div class="filter-dropdown-options">              
+              <div class="filter-dropdown-options">
                 <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Tours"> Tours</label>
                 <label><input type="checkbox" class="search-option" data-type="specialization" data-value="og friendly"> Dog friendly</label>
                 <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Family friendly"> Family friendly</label>
@@ -729,8 +729,8 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
                 <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Full restaurant"> Full restaurant</label>
                 <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Classes/education"> Classes/education</label>
                 <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Sustainability focus"> Sustainability focus</label>
-                <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Wheelchair accessibl"> Wheelchair accessible</label>   
-              </div>           
+                <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Wheelchair accessibl"> Wheelchair accessible</label>
+              </div>
             </div>
           </div>
 
@@ -819,7 +819,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
             </div>
           </div>
         </div>
-        
+
       </div>
       <!-- Itinerary -->
       <div class="hud-itinerary">
@@ -922,7 +922,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
 <script>
 $(document).ready(function() {
 setSubRegions('Napa');
-updateMap();  
+updateMap();
 
 
 
@@ -934,34 +934,34 @@ updateMap();
 
   <div class="oldmain">
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
+
+
 
 <div style="text-align:center;">
  <!-- hearst/ads/full_banner_A728.tpl -->
     <!-- hmb:a728 full banner A728 ad -->
     <div id="ctpl-fullbanner1" class="ctpl-fullbanner fixed" data-collapse-timer="10">
     <div id="A728" class="ad_deferrable"><script type="text/javascript">/*<![CDATA[*/ hearstPlaceAd("A728"); /*]]>*/</script></div>
-    
+
     <script>
     (function() {
         var checkCount = 120;
@@ -989,7 +989,7 @@ updateMap();
         }, 1000);
     })();
     </script>
-    
+
     </div>
 <!-- e hearst/ads/full_banner_A728.tpl -->
 </div>
