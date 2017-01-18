@@ -12,13 +12,13 @@
     <meta http-equiv="Expires" content="0" />
 
     <title>The Press</title>
-  
-    <meta property="og:type" content="<[_ogtype]>" /> 
-    <meta property="og:url" content="<[_ogurl]>" /> 
-    <meta property="og:image" content="<[_ogimage]>" /> 
-    <meta property="place:location:latitude"  content="<[_oglatitude]>" /> 
-    <meta property="place:location:longitude" content="<[_oglongitude]>" /> 
-    <meta property="og:title" content="<[_ogtitle]>" /> 
+
+    <meta property="og:type" content="<[_ogtype]>" />
+    <meta property="og:url" content="<[_ogurl]>" />
+    <meta property="og:image" content="<[_ogimage]>" />
+    <meta property="place:location:latitude"  content="<[_oglatitude]>" />
+    <meta property="place:location:longitude" content="<[_oglongitude]>" />
+    <meta property="og:title" content="<[_ogtitle]>" />
     <link rel="shortcut icon" href="/partners/thepress/img/thepress-logo-sm.png" />
     <meta name="description" content="">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
@@ -61,7 +61,7 @@ tripsExist = JSON.parse(localStorage.getItem('trips'));
 console.log(tripsExist);
 if (tripsExist && tripsExist.length > 0) {
   $(document).ready(function() {
-    $('.my-trip-inactive').removeClass('my-trip-inactive'); 
+    $('.my-trip-inactive').removeClass('my-trip-inactive');
   })
 
 }
@@ -119,20 +119,20 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
     </div>
     <div class="fixed-tools">
       <ul class="hidden-xs">
-        
+
         <li class="signin" style="display:none;"><a href="#" class="button button-sm clear sans toggle-signin" data-toggle="modal" data-target="#signinModal">Sign In</a></li>
         <li class="dropdown tripselect ">
-          <a href="#" onclick="initNewTrip();" style="display:none" id="tripselect-noauth"><span class="">+</span> <span class="">Create New Trip</span></a>        
+          <a href="#" onclick="initNewTrip();" style="display:none" id="tripselect-noauth"><span class="">+</span> <span class="">Create New Trip</span></a>
           <a href="#" style="display:none" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span class="tripcount"></span> <span class="tripname"></span></a>
           <ul class="dropdown-menu" id="dropdown-trip-selector">
 
-                       
+
           </ul>
-        </li>        
+        </li>
 
         <li class="mytrips">
           <a href="/my-trips">My Trips</a>
-        </li>        
+        </li>
         <li class="dropdown login ">
           <a href="#" class="button button-sm clear sans toggle-signin" data-toggle="modal" data-target="#signinModal">Sign In</a>
           <a href="#" onclick="gigyaLogout();" class="dropdown-toggle toggle-signout " data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></a>
@@ -149,7 +149,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
     <form class="form-inline" action="/search" role="form" method="post">
       <button type="submit"><i class="fa fa-search"></i></button>
       <input name="search" type="text" placeholder="Search">
-      
+
     </form>
   </div>
   <div class="dropdown-nav">
@@ -177,7 +177,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true sans">&times;</span></button>
         <h4 class="sans-bold brownmodal-title">Login</h4>
         <p class="sans brown">Welcome back. If you already have an account with us, please login below.</p>
-        <p class="sans error" id="login-error"></p>        
+        <p class="sans error" id="login-error"></p>
       </div>
       <div class="modal-body">
         <form class="signinForm">
@@ -211,14 +211,14 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
 
           <div class="form-group">
             <input id="register-username" type="text" placeholder="Username">
-          </div>   
-          <div>Passwords must be at least 8 characters, contain upper and lowercase letters and at least one number.</div>                 
+          </div>
+          <div>Passwords must be at least 8 characters, contain upper and lowercase letters and at least one number.</div>
           <div class="form-group">
             <input id="register-password" type="password" placeholder="Password">
           </div>
           <div class="form-group">
             <input id="register-password2" type="password" placeholder="Password (Repeat)">
-          </div>          
+          </div>
         </form>
       </div>
        <div class="modal-buttons">
@@ -257,13 +257,13 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
           <div class="form-group">
             <input id="register-email" type="email" placeholder="Email Address">
           </div>
-      
 
-        
+
+
         </form>
       </div>
        <div class="modal-buttons">
-        <button onclick="showModal('login');" type="submit" class="button button-xs bg-olive sans-bold">Cancel</button>   
+        <button onclick="showModal('login');" type="submit" class="button button-xs bg-olive sans-bold">Cancel</button>
       </div>
     </div>
   </div>
@@ -281,7 +281,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
 
   <div class="modal-dialog trips-login" style="display:none;">
     <div class="modal-content">
-      <div class="modal-header"> 
+      <div class="modal-header">
 
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true sans">&times;</span></button>
         <ul class="trip-modal-status">
@@ -296,11 +296,11 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
             <li class="trip-modal-status-step ">
               <div>Trip Saved!</div>
               <span class="trip-modal-status-step-notch "></span>
-            </li>                  
-        </ul>        
+            </li>
+        </ul>
         <h4 class="sans-bold brownmodal-title">Sign up to start your trip</h4>
         <p class="sans brown">By signing up for an account, you can create your own wine country trips on The Press: Name and save your trip, add places and events to your trip, and access your trips, map and driving directions right from your mobile device.</p>
-        <p class="sans error" id="login-error"></p>        
+        <p class="sans error" id="login-error"></p>
       </div>
       <div class="modal-body">
         <form class="signinForm">
@@ -334,8 +334,8 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
             <li class="trip-modal-status-step ">
               <div>Trip Saved!</div>
               <span class="trip-modal-status-step-notch "></span>
-            </li>                  
-        </ul>               
+            </li>
+        </ul>
         <h4 class="sans-bold brownmodal-title">Register</h4>
         <p class="sans brown">By signing up for an account, you can create your own wine country trips on The Press: Name and save your trip, add places and events to your trip, and access your trips, map and driving directions right from your mobile device.</p>
         <p class="sans error" id="trip-register-error"></p>
@@ -348,13 +348,13 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
           <div>Passwords must be at least 8 characters, contain upper and lowercase letters and at least one number.</div>
           <div class="form-group">
             <input id="trip-register-username" type="text" placeholder="Username">
-          </div>          
+          </div>
           <div class="form-group">
             <input id="trip-register-password" type="password" placeholder="Password">
           </div>
           <div class="form-group">
             <input id="trip-register-password2" type="password" placeholder="Password (Repeat)">
-          </div>          
+          </div>
         </form>
       </div>
        <div class="modal-buttons">
@@ -365,7 +365,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
   </div>
   <div class="modal-dialog trips-name" style="display:none;">
     <div class="modal-content">
-      <div class="modal-header"> 
+      <div class="modal-header">
 
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true sans">&times;</span></button>
         <ul class="trip-modal-status">
@@ -380,11 +380,11 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
             <li class="trip-modal-status-step ">
               <div>Trip Saved!</div>
               <span class="trip-modal-status-step-notch "></span>
-            </li>                  
-        </ul>           
+            </li>
+        </ul>
         <h4 class="sans-bold brownmodal-title">Give it a name</h4>
         <p class="sans brown">Give your trip a name and hit save.  We'll add it to your list of trips!</p>
-        <p class="sans error" id="login-error"></p>        
+        <p class="sans error" id="login-error"></p>
       </div>
       <div class="modal-body">
         <form class="signinForm">
@@ -396,7 +396,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
       </div>
        <div class="modal-buttons">
         <button onclick="createNewTrip();" type="submit" class="button button-xs bg-olive sans-bold">Save</button> <br>
-        
+
       </div>
     </div>
   </div>
@@ -429,13 +429,13 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
           <div class="form-group">
             <input id="register-email" type="email" placeholder="Email Address">
           </div>
-      
 
-        
+
+
         </form>
       </div>
        <div class="modal-buttons">
-        <button onclick="showModal('login');" type="submit" class="button button-xs bg-olive sans-bold">Cancel</button>   
+        <button onclick="showModal('login');" type="submit" class="button button-xs bg-olive sans-bold">Cancel</button>
       </div>
     </div>
   </div>
@@ -500,15 +500,15 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
           <div class="row tier-buttons bg-brown" style="position:absolute;top:100%;width:100%;">
             <div class="col-xs-12">
               <ul style="width:100%;">
-                <li><a xclick="addTrip({id: {{id}}, type:'venues',name: '{{name}}', lat: {{latitude}}, lon: {{longitude}} }, this);" data-type="venues" data-name="{{name}}" data-latitude="{{latitude}}" data-longitude="{{longitude}}" data-id="{{id}}" data-address="{{address}}" class="trip-item-trigger button button-xs bg-olive sans-bold">Add to Trip</a></li>              
+                <li><a xclick="addTrip({id: {{id}}, type:'venues',name: '{{name}}', lat: {{latitude}}, lon: {{longitude}} }, this);" data-type="venues" data-name="{{name}}" data-latitude="{{latitude}}" data-longitude="{{longitude}}" data-id="{{id}}" data-address="{{address}}" class="trip-item-trigger button button-xs bg-olive sans-bold">Add to Trip</a></li>
                 {{#customfield}}<li><a href="/place/{{guid}}?action=opencellarpass" class="olive sans-bold">Book Trip</a></li>{{/customfield}}
               <li class="social">Share <a href="https://twitter.com/home?status={{name}}:%20http://thepress.pointslocal.com/place/{{guid}}" class="bg-olive"><i class="fa fa-twitter"></i></a> <a href="http://www.facebook.com/sharer.php?u=http://thepress.pointslocal.com/place/{{guid}}" class="bg-olive"><i class="fa fa-facebook"></i></a></li>
-                <li class="social" style="display:none;"></li>                  
+                <li class="social" style="display:none;"></li>
                 <li style="display:none;"><a target=_blank href="https://www.google.com/maps/dir//{{address}}/" class="olive sans-bold"><i class="fa fa-location-arrow"></i> Book Trip</a></li>
 
               </ul>
             </div>
-          </div>          
+          </div>
         </div>
 
 {{/tier:3}}
@@ -526,7 +526,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
           </div>
           <div class="row tier-pic hidden-xs">
             <img src="/image?method=image.icrop&context=stories&id={{story_id}}&w=450&h=150" alt="">
-          </div>          
+          </div>
           <div class="row tier-text hidden-xs">
             <div class="col-xs-12">
               <p class="sans brown">{{story_text}} <a class="module-story-link" href="/story/{{story_guid}}">Read Review</a></p>
@@ -607,7 +607,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
               <h4 class="sans-bold olive location-label">{{neighborhood}}</h4>
               <div class="address">
                 <p class="sans brown">{{street}},<br> {{city}}, {{state}} {{zip}}<br> {{phone}}{{venue_phone}}<br><span class="status sans-bold olive">Open</span></p>
-                
+
               </div>
               <div>
                   {{#story_guid}}<a href="/story/{{story_guid}}" class="button button-xs bg-olive sans-bold">Read Review</a>{{/story_guid}}
@@ -664,7 +664,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
 
 <div id="search-resultx" style="display:none;">
     {{^items}}
-  
+
     <div class="module tier1 hidden-xs" data-lat="{{latitude}}" data-lon="{{longitude}}" style="min-height: 0px;" data-name="{{name}}">No results for this search</div>
     {{/items}}
     {{#items}}
@@ -718,9 +718,9 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
     </ul>
             </div>
           </div>
-        </div>    
+        </div>
 
-  
+
       {{/items}}
 </div>
 
@@ -736,7 +736,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
               <label>Region</label>
               <a href="#" class="dropdown-toggle" id="toggle-map-region-label" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span>All Regions</span> <i class="fa fa-angle-down"></i></a>
               <ul class="dropdown-menu">
-                <li><a onclick="setMapPos(this);setSubRegions('All Regions');" data-zoom="3" data-latitude="38.4222243" data-longitude="-122.4600043" href="#">All Regions</a></li>              
+                <li><a onclick="setMapPos(this);setSubRegions('All Regions');" data-zoom="3" data-latitude="38.4222243" data-longitude="-122.4600043" href="#">All Regions</a></li>
                 <li><a onclick="setMapPos(this);setSubRegions('Napa');" data-latitude="38.4222243" data-longitude="-122.4600043" href="#">Napa</a></li>
                 <li><a onclick="setMapPos(this);setSubRegions('Sonoma');" data-latitude="38.2919" data-longitude="-122.4580" href="#">Sonoma</a></li>
 
@@ -895,41 +895,41 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
                 <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Chardonnay"> Chardonnay</label>
                 <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Sauvignon Blanc"> Sauvignon Blanc</label>
                 <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Zinfandel"> Zinfandel</label>
-                <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Syrah"> Syrah</label>   
+                <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Syrah"> Syrah</label>
                 <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Petite Sirah"> Petite Sirah</label>
                 <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Other whites"> Other whites</label>
                 <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Other reds"> Other reds</label>
-                <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Sparkling wine"> Sparkling wine</label>                
-              </div>           
+                <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Sparkling wine"> Sparkling wine</label>
+              </div>
             </div>
           </div>
           <div class="row filter-section filter-dropdown white bg-olive">
             <div class="col-xs-12">
               <span class="sans-bold white">Visit</span>
-              <div class="filter-dropdown-options">              
+              <div class="filter-dropdown-options">
                 <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Open weekends"> Open weekends</label>
                 <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Open weekdays"> Open weekdays</label>
                 <label><input type="checkbox" class="search-option" data-type="specialization" data-value="No appt necessary"> No appt necessary</label>
                 <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Reservation only"> Reservation only</label>
-                <label><input type="checkbox" class="search-option" data-type="specialization" data-value="All"> All</label>      
-              </div>        
+                <label><input type="checkbox" class="search-option" data-type="specialization" data-value="All"> All</label>
+              </div>
             </div>
           </div>
           <div class="row filter-section filter-dropdown white bg-olive">
             <div class="col-xs-12">
               <span class="sans-bold white">Tasting Cost</span>
-              <div class="filter-dropdown-options">              
+              <div class="filter-dropdown-options">
                 <label><input type="checkbox"> &dollar;0 to &dollar;20</label>
                 <label><input type="checkbox"> &dollar;21 to &dollar;49</label>
                 <label><input type="checkbox"> &dollar;50 to &dollar;74</label>
-                <label><input type="checkbox"> &dollar;75+</label>     
-              </div>         
+                <label><input type="checkbox"> &dollar;75+</label>
+              </div>
             </div>
           </div>
           <div class="row filter-section filter-dropdown bg-lightOlive">
             <div class="col-xs-12">
               <span class="sans-bold brown">Features</span>
-              <div class="filter-dropdown-options">              
+              <div class="filter-dropdown-options">
                 <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Tours"> Tours</label>
                 <label><input type="checkbox" class="search-option" data-type="specialization" data-value="og friendly"> Dog friendly</label>
                 <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Family friendly"> Family friendly</label>
@@ -941,8 +941,8 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
                 <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Full restaurant"> Full restaurant</label>
                 <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Classes/education"> Classes/education</label>
                 <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Sustainability focus"> Sustainability focus</label>
-                <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Wheelchair accessibl"> Wheelchair accessible</label>   
-              </div>           
+                <label><input type="checkbox" class="search-option" data-type="specialization" data-value="Wheelchair accessibl"> Wheelchair accessible</label>
+              </div>
             </div>
           </div>
 
@@ -1031,7 +1031,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
             </div>
           </div>
         </div>
-        
+
       </div>
       <!-- Itinerary -->
       <div class="hud-itinerary">
@@ -1135,7 +1135,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
 <script>
 $(document).ready(function() {
   setSubRegions('All Regions');
-  updateMap();  
+  updateMap();
 });
 </script>
 
@@ -1144,34 +1144,34 @@ $(document).ready(function() {
 
   <div class="oldmain">
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
+
+
+
 
 <div style="text-align:center;">
  <!-- hearst/ads/full_banner_A728.tpl -->
     <!-- hmb:a728 full banner A728 ad -->
     <div id="ctpl-fullbanner1" class="ctpl-fullbanner fixed" data-collapse-timer="10">
     <div id="A728" class="ad_deferrable"><script type="text/javascript">/*<![CDATA[*/ hearstPlaceAd("A728"); /*]]>*/</script></div>
-    
+
     <script>
     (function() {
         var checkCount = 120;
@@ -1199,7 +1199,7 @@ $(document).ready(function() {
         }, 1000);
     })();
     </script>
-    
+
     </div>
 <!-- e hearst/ads/full_banner_A728.tpl -->
 </div>

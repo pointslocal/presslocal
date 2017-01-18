@@ -539,6 +539,11 @@ background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNv
   padding-bottom: 10px;
 }
 
+.hud .module.tier1 .tier-title .col-xs-9,
+.hud .module.tier2 .tier-title .col-xs-9 {
+  padding-right: 0;
+}
+
 .hud .module.tier1 .tier-title .tier-badge .partner-badge,
 .hud .module.tier1 .tier-title .tier-badge .affiliate-badge,
 .hud .module.tier2 .tier-title .tier-badge .partner-badge,
@@ -591,7 +596,7 @@ background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNv
 
 .hud .module.tier1 .tier-contact .status {
   text-transform: uppercase;
-  margin-left: 10px;
+  margin-left: 0;
 }
 
 .hud .module.tier1 .tier-buttons, .hud .module.featured .tier-buttons {
@@ -676,7 +681,7 @@ background-color: #82924e;
 
 .hud .module.tier2 .tier-contact .status {
   text-transform: uppercase;
-  margin-left: 10px;
+  margin-left: 0;
 }
 
 .hud .module.tier2 .tier-buttons {
@@ -726,10 +731,12 @@ background-color: #82924e;
 
 .hud .hud-itinerary .back-button {
   display: block;
-  position: absolute;
+  position: relative;
   z-index: 999;
-  top: -40px;
+  top: 0;
   left: 0;
+  margin-top: -10px;
+  margin-bottom: 20px;
   font-size: 18px;
 }
 
