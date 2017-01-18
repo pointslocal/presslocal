@@ -2933,6 +2933,19 @@ Global Modules
   margin: 30px auto;
 }
 
+.directory #directory-map {
+  overflow: hidden !important;
+}
+
+.directory .sticky-wrapper {
+  position: relative;
+  margin-left: 5px;
+}
+
+.directory .sticky-wrapper.is-sticky {
+  position: absolute;
+}
+
 .directory img {
   width: 100%;
   height: auto;
