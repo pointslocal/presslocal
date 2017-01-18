@@ -2855,7 +2855,7 @@ Global Modules
 }
 
 .quad-column .quad-block .event-date {
-  font-size: 34px;
+  font-size: 25px;
   color: #fff;
   z-index: 9999;
   pointer-events: none;
@@ -3163,7 +3163,8 @@ Global Modules
 }
 
 .directory .directory-list .directory-item .directory-info h3 {
-  font-size: 30px;
+  font-size: 25px;
+  line-height: 1.1em;
   margin-top: 0;
   margin-bottom: 0;
   display: inline-block;
@@ -3204,7 +3205,7 @@ Global Modules
   font-family: 'europa', Helvetica, Arial, sans-serif;
   font-style: normal;
   font-weight: 700;
-  font-size: 34px;
+  font-size: 25px;
   color: #fff;
   text-transform: uppercase;
   z-index: 9999;
