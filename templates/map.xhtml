@@ -515,14 +515,13 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
 {{#tier:story}}
 <div class="module tier1 hidden-xs">
           <div class="row tier-title hidden-xs">
-            <div class="col-xs-12">
-              <h2 class="serif darkOlive"><a href="/place/{{guid}}"><span>{{counter}}</span> {{name}}</a></h2>
+            <div class="col-xs-10">
+              <span>{{counter}}</span>
+              <h2 class="serif darkOlive"><a href="/place/{{guid}}"> {{name}}</a></h2>
             </div>
-            <!--
             <div class="col-xs-2 tier-badge">
               <span class="featured-badge-lg"></span>
             </div>
-            -->
           </div>
           <div class="row tier-pic hidden-xs">
             <img src="/image?method=image.icrop&context=stories&id={{story_id}}&w=450&h=150" alt="">
@@ -589,11 +588,11 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
 {{#tier:1-2}}
 <div class="module tier2" data-type="tier-1-2" data-lat="{{latitude}}" data-lon="{{longitude}}" style="min-height: 0px;" data-name="{{name}}">
         <div class="row tier-title hidden-xs">
-            <div class="col-xs-12">
-              <h2 class="serif darkOlive"><a href="/place/{{guid}}"><span>{{counter}}</span> {{name}}</a></h2>
+            <div class="col-xs-10">
+              <span>{{counter}}</span>
+              <h2 class="serif darkOlive"><a href="/place/{{guid}}"> {{name}}</a></h2>
             </div>
-            <!--
-            <div class="col-xs-3 tier-badge">
+            <div class="col-xs-2 tier-badge">
               <span class="partner-badge"></span>
             </div>
             -->
@@ -630,8 +629,8 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
 <div class="module tier2" data-type="tier:none" data-lat="{{latitude}}" data-lon="{{longitude}}" style="min-height: 0px;" data-name="{{name}}">
           <div class="row tier-title hidden-xs">
             <div class="col-xs-12">
-              <h2 class="serif darkOlive"><a href="/place/{{guid}}"><span>{{counter}}</span> {{{name}}}</a></h2>
-
+              <span>{{counter}}</span>
+              <h2 class="serif darkOlive"><a href="/place/{{guid}}"> {{{name}}}</a></h2>
             </div>
 
           </div>
@@ -671,10 +670,10 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
 <a name="venue_card_{{id}}" class=""></a>
 <div class="module tier1 hidden-xs {{addclass}} " data-lat="{{latitude}}" data-lon="{{longitude}}" data-id="{{id}}" data-name="{{name}}">
           <div class="row tier-title hidden-xs">
-            <div class="col-xs-9">
+            <div class="col-xs-10">
               <h2 class="{{#story_id}}serif{{/story_id}}{{^story_id}}sans-bold{{/story_id}} darkOlive"><a href="/place/{{guid}}">{{name}}</a></h2>
             </div>
-            <div class="col-xs-3 tier-badge">
+            <div class="col-xs-2 tier-badge">
               {{#story_id}}<span class="partner-badge"></span>{{/story_id}}
             </div>
           </div>
