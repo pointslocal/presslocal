@@ -639,6 +639,11 @@ Typography
   z-index: 1;
 }
 
+img.trans-icon {
+  max-width: 48px;
+  height: auto;
+}
+
 .divider.divider-lg {
   font-size: 28px;
 }
@@ -3627,6 +3632,10 @@ Sign In Modal
   text-align: center;
 }
 
+.modal-dialog .modal-header .error {
+  color: #FF5B50 !important;
+}
+
 .modal-dialog .modal-header .close {
   font-size: 50px;
   font-weight: 300 !important;
@@ -3661,9 +3670,10 @@ Sign In Modal
   border: none;
 }
 
-.modal-dialog .modal-content .modal-buttons .forgot-pass {
+.modal-dialog .modal-content .modal-buttons a {
   margin-top: 15px;
   display: inline-block;
+  color: #93a45c;
 }
 
 .modal-dialog .modal-content .modal-buttons a:hover {
