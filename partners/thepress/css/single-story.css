@@ -50,6 +50,7 @@ font-family: 'Gza', Georgia, 'Times New Roman', Times, serif;
 .single-content .single-body ul li:before {
     content: counter(step-counter);
     margin-right: 10px;
+    margin-top: -3px;
     float: left;
     color: #FF5B50;
     font-weight: 700;
