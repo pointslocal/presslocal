@@ -3142,6 +3142,7 @@ Global Modules
 .directory .sticky-wrapper {
   position: relative;
   margin-left: 5px;
+  overflow: hidden;
 }
 
 .directory .sticky-wrapper.is-sticky {
