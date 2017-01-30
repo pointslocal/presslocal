@@ -9,10 +9,24 @@ var _Store = {
 	tripIDs: []
 };
 var _TripsHTML = '';
+var _WORKING_TRIP;
+var _TRIPS = {};
 var markerRefs = {};
 
 var _Trip = function() {
 	
+}
+
+function getParameterByName(name, url) {
+    if (!url) {
+      url = window.location.href;
+    }
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
 //	Scroll Listener for maps
@@ -24,7 +38,6 @@ function isScrollListener() {
       if (id < 1 || isNaN(id) || !markerRefs[id]) {
       	continue;
       }
-      console.log(id);
       if (isScrolledIntoView(anchors[i])){
           //markerRefs[id].setAnimation(google.maps.Animation.BOUNCE);
           m = markerRefs[id].getIcon()
@@ -74,28 +87,96 @@ function updateButtons() {
 	});
 }
 
+	function getCurrentWorkingTrip() {
+		if (localStorage.workingTrip) {
+			_WORKING_TRIP = JSON.parse(localStorage.workingTrip);
+
+			$('.dropdown-toggle .tripcount').attr('data-id',_WORKING_TRIP.id);
+			$('.dropdown-toggle .tripname').html(_WORKING_TRIP.name);		
+			console.log(_TRIPS, _WORKING_TRIP);
+			TripRefs = {};
+			if (_WORKING_TRIP && _WORKING_TRIP != null) {
+				console.log('Master:',_TRIPS[_WORKING_TRIP.id]);
+				_WORKING_TRIP.items = (_TRIPS != null && _TRIPS[_WORKING_TRIP.id] != null && _TRIPS[_WORKING_TRIP.id].items != null ? _TRIPS[_WORKING_TRIP.id].items : []);
+				_WORKING_TRIP.count = _WORKING_TRIP.items.length;
+			}
+			$('.dropdown-toggle .tripcount').html(_WORKING_TRIP.count);			
+			if (_WORKING_TRIP && _WORKING_TRIP != null && _WORKING_TRIP.items != null) {
+				for(i=0;i<_WORKING_TRIP.items.length;i++) {
+					key = _WORKING_TRIP.items[i].package_item_element_type+':'+_WORKING_TRIP.items[i].package_item_element_id;
+					console.log(key);
+					TripRefs[key] = true;
+				}				
+			}
+
+			$('.trip-item-trigger').each(function(t) {
+
+				itemType = $(this).attr('data-type');
+				itemID = $(this).attr('data-id');
+				key = itemType+':'+itemID;
+
+				if (TripRefs[key]) {
+					$(this).html('Remove From Trip').removeClass('bg-olive').addClass('bg-brown').attr('data-trip-item-type','remove');
+				} else {
+					$(this).html('Add To Trip').removeClass('bg-brown').addClass('bg-olive').attr('data-trip-item-type','');
+				}
+
+			});
+		}
+	}
+
+	function SetWorkingTrip(id,el) {
+		console.log('~~~->',_TRIPS[id]);
+		tripCount = ($(el).find('.tripcount').text());
+		tripName = $(el).find('.tripname').text();
+		$('.dropdown-toggle .tripcount').html(tripCount);
+		$('.dropdown-toggle .tripcount').attr('data-id',$(el).attr('data-id'));
+		$('.dropdown-toggle .tripname').html(tripName);	
+
+		_WORKING_TRIP = { name: tripName, id: $(el).attr('data-id'), count: tripCount, items: _TRIPS[id].items }	
+		localStorage.setItem('workingTrip', JSON.stringify(_WORKING_TRIP));
+		getCurrentWorkingTrip();
+	}
+
 /* Finds .trip-receiver elements, adds existing trip dropdowns if they exist */
 	function tripReceiverDropdowns(klass,action) {
+		console.log('tripReceiverDropdowns()');
 		hideCurrentTrip = false;
 		if (!action) {
 			action = 'addItemToTrip';
 		} else {
 			hideCurrentTrip = true;
 		}
-		console.log('Updating receivers');
+			tripLength = 0;
 		$.getJSON('/api.json?method=events.packages-user', function(trips) {
+
+			dropdownElement = '';
 			outerElement = '<ul class="dropdown-menu trip-receiver-dropdown --innerclass-- '+klass+'">';
 			if (!hideCurrentTrip) {
 				outerElement += '<li onclick="addItemToTrip(this, {id:false});">Current Trip</li>';
 			}
 			
+			tripLength = trips.length;
+
 			$(trips.items).each(function() {
-				// addTrip({id: {{id}}, type:'venue',name: '{{name}}', lat: {{latitude}}, lon: {{longitude}} }, this);
+				dropdownElement += '<li><a href="#" data-id="'+this.package_id+'" onclick="SetWorkingTrip('+this.package_id+',this)"><span class="tripcount">'+this.package_length+'</span> <span class="tripname">'+this.package_title+'</span></a></li>';
 				outerElement += '<li onclick="'+action+'(this,{id:'+this.package_id+'});">'+this.package_title+'</li>';
+				$('.tripcount[data-id="'+this.package_id+'"]').text(this.package_length);
+				_TRIPS[this.package_id] = this;
+
+
+
 			});
+			if (trips.items != null && trips.items.length > 0) {
+				dropdownElement += '<li role="separator" class="divider"></li>';
+			}			
+			dropdownElement += '<li><a href="#" onclick="initNewTrip();"> Create New Trip</a></li> ';
 			outerElement += '</ul>';
 			_TripsHTML = outerElement;
+
+			$('#dropdown-trip-selector').html(dropdownElement);
 			$('.trip-receiver').each(function() {
+				/*
 				console.log('trip rec')
 				if ($(this).has('ul')) {
 					$(this).find('ul').remove();
@@ -106,11 +187,55 @@ function updateButtons() {
 					outerElement = outerElement.replace(/--innerclass--/,innerClass)
 				}
 				$(this).append(outerElement);
+				*/
 			});
+			getCurrentWorkingTrip();
+			if (!_AUTH || tripLength < 1) {
+				$('#tripselect-noauth').show();
+				$('.tripselect .dropdown-toggle').hide();
+			} else {
+				$('#tripselect-noauth').hide();
+				$('.tripselect .dropdown-toggle').show();				
+			}
+
 		});
+
+
 	}
 
 	function resetTripReceivers() {
+		console.log('resetTripReceivers()');
+		$('.trip-item-trigger').click(function() {
+			if (!_AUTH) {
+				initNewTrip();
+				return;
+			}
+			var triggerType = $(this).attr('trigger-type');
+			tid = $(this).attr('data-id');
+			type = $(this).attr('data-type');
+				if (type == 'venue') {
+					type = 'venues';
+				}
+			action = $(this).attr('data-trip-item-type');
+
+			url = '/api.json?method=events.add-item-user-package&id='+_WORKING_TRIP.id+'&tid='+tid+'&type='+type;
+			rurl = '/api.json?method=events.delete-user-package-item&package_id='+_WORKING_TRIP.id+'&item_id='+tid;
+			$('.dropdown-toggle > .tripname, .dropdown-toggle > .tripcount').addClass('highlighted');
+			setTimeout(function() {
+				$('.dropdown-toggle > .tripname, .dropdown-toggle > .tripcount').removeClass('highlighted');
+			},1000);
+			if (action == 'remove') {
+				$.getJSON(rurl, function(d) {
+					tripReceiverDropdowns();
+				});
+			} else {
+				$.getJSON(url, function(d) {
+					tripReceiverDropdowns();
+				});				
+			}
+
+		})
+
 		$('.trip-receiver').each(function() {
 			console.log('resetting trip rec')
 			$(this).append(_TripsHTML);
@@ -152,8 +277,11 @@ function updateStore(init) {
 			$('.dismissable').fadeIn();
 		}
 
-		resetTripReceivers();
-		tripReceiverDropdowns();
+		setTimeout(function() {
+			resetTripReceivers();
+			tripReceiverDropdowns();
+			getCurrentWorkingTrip();
+		},500);
 
 
 		$('#trip-bar-name, .editable-input input').on('blur keypress',function(e) {
@@ -222,31 +350,55 @@ function setSession(uid,e) {
 	});
 }
 
+function endSession() {
+	$.getJSON('/api.json?method=auth.gigya-logout',function(d) {
+
+	});
+}
+
 //	Opens modal
-function openModal(url) {
+function openModal(url,title) {
 	$('#modal-background').show();
-	$('#modal').html('<iframe src="'+url+'" width=100% height="200"></iframe>');
+	$('#modal').html('<div id="modal-title"><svg id="modal-close" onclick="$(\'#modal\').hide();$(\'#modal-background\').hide();$(\'body\').removeClass(\'openmodal\');" width="24" height="24" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1490 1322q0 40-28 68l-136 136q-28 28-68 28t-68-28l-294-294-294 294q-28 28-68 28t-68-28l-136-136q-28-28-28-68t28-68l294-294-294-294q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 294 294-294q28-28 68-28t68 28l136 136q28 28 28 68t-28 68l-294 294 294 294q28 28 28 68z"></path></svg><h3>'+title+'</h3></div><iframe frameborder=0 src="'+url+'" width=100% height="100%"></iframe>');
 	$('#modal').show();
+	$('body').addClass('openmodal');
 	$('#modal-background').click(function() {
 		$('#modal').hide();
 		$('#modal-background').hide();
+		$('body').removeClass('openmodal');
 	})
+}
+
+function openCellarPass(url) {
+
 }
 
 //	General modal init
 function showModal(type) {
 	if (type == 'register') {
-		$('.modal-dialog.register').show();
-		$('.modal-dialog.login').hide();
-		$('.modal-dialog.lostpassword').hide();
+		$('.modal-dialog.trips-register').show();
+		$('.modal-dialog.trips-login').hide();
+		$('.modal-dialog.trips-lostpassword').hide();
+	} else if (type == 'stdlogin') {
+		$('.modal-dialog.stdregister').hide();
+		$('.modal-dialog.stdlogin').show();
+		$('.modal-dialog.stdlostpassword').hide();
+	} else if (type == 'stdregister') {
+		$('.modal-dialog.stdregister').show();
+		$('.modal-dialog.stdlogin').hide();
+		$('.modal-dialog.stdlostpassword').hide();		
 	} else if (type == 'lostpassword') {
-		$('.modal-dialog.login').hide();
-		$('.modal-dialog.register').hide();
+		$('.modal-dialog.trips-login').hide();
+		$('.modal-dialog.trips-register').hide();
 		$('.modal-dialog.lostpassword').show();
-	} else {
-		$('.modal-dialog.login').show();
-		$('.modal-dialog.register').hide();
-		$('.modal-dialog.lostpassword').hide();
+	} else if (type == 'nametrip') {
+		$('.modal-dialog.trips-register').hide();
+		$('.modal-dialog.trips-login').hide();
+		$('.modal-dialog.trips-name').show();		
+	}else {
+		$('.modal-dialog.trips-login').show();
+		$('.modal-dialog.trips-register').hide();
+		$('.modal-dialog.trips-lostpassword').hide();
 		setTimeout(function() {
   		$('#login-email').focus();
 		}, 300);
@@ -255,28 +407,39 @@ function showModal(type) {
 
 //	Sets Gigya data ::> login area
 function onGetAccount(response) {
-	console.log(response);
+	console.log('Gigya:',response);
 	if (response.isRegistered && response.isVerified) {
 		var nickname = response.profile.nickname;
 		if (!nickname) {
 			nickname = response.profile.email.split('@')[0];
 		}
 		$('.auth-required').removeClass('auth-required');
+		$('.login-status').show();
+		$('.login-name').show();
 		$('.tools .signin, .fixed-tools .signin').hide();
 		$('.tools .login, .fixed-tools .login').removeClass('hidden').show();
-		$('.dropdown.login a.dropdown-toggle, .fixed-tools .toggle-signin, .login-name').html(nickname+'<i class=icon-chevron></i>').removeClass('hidden');
+		$('.toggle-signin').hide();
+		$('.toggle-signout').show();
+		$('.dropdown.login a.dropdown-toggle, .fixed-tools .toggle-signout').html('Log Out').removeClass('hidden');
 
 		setSession(response.UID,response.profile.email)
+	} else {
+		$('.login-status').hide();
+		$('.login-name .toggle-signin').text('Log In');	
+		$('.toggle-signout').hide(); // ('hidden');
+		$('.nonauth-required').show();
 	}
 }
 
 //	Gigya login callback
 function onLogin(response) {
 	if (response.errorCode > 0) {
-		$('#login-error').text(response.errorMessage);
+		$('#login-error').text(response.errorMessage + response.errorCode);
+		$('.nonauth-required').show();		
 	} else {
 
 		$('.auth-required').removeClass('auth-required');
+		$('.nonauth-required').hide();
 
 		setSession(response.UID,response.profile.email);
 		var nickname = response.profile.nickname;
@@ -294,16 +457,25 @@ function onLogin(response) {
 
 //	Gigya register callback
 function onRegister(response) {
-	console.log('Resp',response)
-	if (response.errorCode == 206001) {
-		$('#register-error').text('Please verify your email in order to complete your profile. Check your email for a profile verification link. <div>You will not have access to writing comments, managing newsletters or alerts, and updating your profile until you verify your account with the link provided. The verification link in the email will expire in 24 hours.</div>');
+	if (response.errorCode > 0) {
+		$('#trip-register-error, #register-error').show();
 	} else {
-		$('#register-error').html(response.errorMessage);
+		$('#trip-register-error, #register-error').hide();
+	}
+	if (response.errorCode == 206001) {
+		$('#trip-register-error, #register-error').text('A verification email was sent to the email address used to sign up. Please confirm the pending verification to log in to your account.');
+	} else if (response.errorCode == 400002) {
+		$('#trip-register-error, #register-error').text('Either username or email should be provided');
+	} else {
+		$('#trip-register-error, #register-error').html(response.errorMessage);
 	}
 }
 
 //	Gigya logout callback
 function onLogout(response) {
+	endSession();
+	_WORKING_TRIP = {};
+	localStorage.setItem('workingTrip',false);
 	location.reload();
 }
 
@@ -318,7 +490,21 @@ function gigyaRegister() {
 	p = $('#register-password').val();
 	p2 = $('#register-password2').val();
 	if (p !== p2) {
-		$('#register-error').text('Passwords do not match!');
+		$('#trip-register-error').text('Passwords do not match!');
+		return false;
+	}
+	gigya.accounts.initRegistration({callback: function(r) {
+		token = r.regToken
+		gigya.accounts.register({email: e, password: p, regToken: token, callback: onRegister, finalizeRegistration: true });
+	}});
+}
+
+function gigyaTripsRegister() {
+	e = $('#trip-register-email').val();
+	p = $('#trip-register-password').val();
+	p2 = $('#trip-register-password2').val();
+	if (p !== p2) {
+		$('#trip-register-error').text('Passwords do not match!');
 		return false;
 	}
 	gigya.accounts.initRegistration({callback: function(r) {
@@ -332,6 +518,35 @@ function gigyaLogin() {
 	e = $('#login-email').val();
 	p = $('#login-password').val();
 	gigya.accounts.login({loginID: e, password: p, callback: onLogin});
+}
+
+function gigyaTripsLogin() {
+	e = $('#trip-login-email').val();
+	p = $('#trip-login-password').val();	
+	gigya.accounts.login({loginID: e, password: p, callback: onTripsLogin});
+}
+
+function onTripsLogin(response) {
+	if (response.errorCode > 0) {
+		if (response.errorCode == 403042) {
+			// incorrect pw
+		}
+	} else {
+		setSession(response.UID,response.profile.email);
+		var nickname = response.profile.nickname;
+		if (!nickname) {
+			nickname = response.profile.email.split('@')[0];
+		}
+	    //$('.modal').modal('hide');
+	    // $('nav li.signin').addClass('hidden');
+
+		//$('.tools .signin, .fixed-tools .signin').hide();
+		//$('.tools .login, .fixed-tools .login').removeClass('hidden').show();
+		$('.toggle-signout').html('Log Out');
+		$('.toggle-signout').show();
+		$('.toggle-signin').hide();		
+		showModal('nametrip')
+	}
 }
 
 //	Determines if trip bar should show based on current/saved items
@@ -355,10 +570,12 @@ function evalTripBar() {
 
 }
 
+''
 
-var TripTemplate = '<section class="container directory-alt">{{#items}}<div class=row><div class="col-sm-12 directory-list"><div class="row directory-item"><div class="col-sm-12 item-container"><div class=row><div class="hidden-xs col-sm-2 directory-pic"><a href="/place/{{guid}}"><img alt=""src="/image?method=image.icrop&context={{context}}&id={{id}}&w=300&h=-1"></a></div><div class="col-sm-7 directory-info"><h3 class="brown serif"><a href=#>{{{name}}}</a></h3><span style="display:none;" class=partner-badge></span><h4 class="sans-bold orange">{{neighborhood}}</h4><div class=address><p>{{#street}}{{street}},<br>{{/street}}{{#city}}{{city}},{{/city}} {{#state}}{{state}}{{/state}} {{#zip}}{{zip}}{{/zip}}{{#phone}}<br>{{phone}}<br>{{/phone}}<span style="display:none;">10AM-5PM</span> <span class="orange status">Open</span></div></div><div class="hidden-xs col-sm-3 directory-button"><a onclick="removeTrip({id:\'{{id}}\'{{#package_id}},packageID:\'{{package_id}}\'{{/package_id}}},this)" class="sans-bold bg-lightOrange button button-xs">Remove From Trip</a> <a  class="trip-receiver sans-bold bg-lightOrange button button-xs" data-venue_id="{{id}}" data-package-id="{{package_id}}">Move To Trip</a> <a href=# class="sans-bold orange">Website</a> <a href=# class="sans-bold orange"><i class="fa fa-location-arrow"></i> Directions</a></div><div class="col-sm-4 directory-buttons hidden-lg hidden-md hidden-sm"><ul><li><a onclick="removeTrip({id:\'{{id}}\'{{#package_id}},packageID:\'{{package_id}}\'{{/package_id}}},this)" class="sans-bold bg-lightOrange button button-xs">Remove From Trip</a><li><a href=# class="sans-bold orange"><i class="fa fa-map-o"></i> Map</a></ul></div></div></div></div></div></div>{{/items}}</section>';
 
-var TripsTemplate = "<section class='directory container'><div class='col-sm-12 directory-list'>{{#items}}<div id=\"my-trip-{{package_id}}\" class=\"directory-item row\"><div class=\"hidden-xs col-xs-2 directory-button\">{{#package_id}}<img src='/image?method=image.icrop&context=package.items&id={{package_id}}&w=600&h=-1' />{{/package_id}}</div><div class=\"col-xs-6 directory-info\"><h3 class=\"brown serif\"><a href='#' id='' class='editable-trip-title serif brown editable editable-click' style='display: inline-block;'>{{package_title}}</a></h3><h4 style='text-align:left;' class=\"hidden-xs orange sans-bold\">{{date}}</h4><p>{{package_text}}</p><div class=\"hidden-xs address\"><p></div><div class=\"address hidden-lg hidden-md hidden-sm\"><p></div></div><div class=\" col-xs-4 directory-button\"><a href=/my-trip/{{package_guid}} class=\"sans-bold bg-lightOrange button button-xs\">View Trip</a> <a onclick=\"deleteTrip({{package_id}});\" class=\"sans-bold bg-lightOrange button button-xs\">Delete Trip</a></div></div>{{/items}}</div></section>";
+var TripTemplate = '<section class="container directory-alt"><div class="row"><div class="col-sm-12 single-toolbar"><ul><li class="social-label lightBrown hidden-xs">share</li><li class="social"><a href="https://twitter.com/home?status=57ea88bcb96ef:%20http://events.sfgate.com/trip/{{guid}}" class="orange sans-bold"><i class="fa fa-twitter"></i></a></li><li class="social"><a href="http://www.facebook.com/sharer.php?u=http://events.sfgate.com.com/trip/{{guid}}" class="orange sans-bold"><i class="fa fa-facebook-square"></i></a></li></ul></div></div>{{#items}}<div class=row><div class="col-sm-12 directory-list"><div class="row directory-item"><div class="col-sm-12 item-container"><div class=row><div class="hidden-xs col-sm-2 directory-pic"><a href="/place/{{guid}}"><img alt=""src="/image?method=image.icrop&context={{context}}&id={{id}}&w=300&h=-1"></a></div><div class="col-sm-7 directory-info"><h3 class="brown serif"><a href=#>{{{name}}}</a></h3><span style="display:none;" class=partner-badge></span><h4 class="sans-bold orange">{{neighborhood}}</h4><div class=address><p>{{#street}}{{street}},<br>{{/street}}{{#city}}{{city}},{{/city}} {{#state}}{{state}}{{/state}} {{#zip}}{{zip}}{{/zip}}{{#phone}}<br>{{phone}}<br>{{/phone}}<span style="display:none;">10AM-5PM</span> <span class="orange status" style="display:none;">Open</span></div></div><div class="hidden-xs col-sm-3 directory-button"><a onclick="removeTrip({id:\'{{id}}\'{{#package_id}},packageID:\'{{package_id}}\'{{/package_id}}},this)" class="sans-bold bg-lightOrange button button-xs">Remove From Trip</a> <a  class="trip-receiver sans-bold bg-lightOrange button button-xs" data-venue_id="{{id}}" data-package-id="{{package_id}}" style="display:none;">Move To Trip</a> <a href=# class="sans-bold orange" style="display:none;">Website</a> <a href=# class="sans-bold orange" style="display:none;"><i class="fa fa-location-arrow"></i> Directions</a></div><div class="col-sm-4 directory-buttons hidden-lg hidden-md hidden-sm"><ul><li><a onclick="removeTrip({id:\'{{id}}\'{{#package_id}},packageID:\'{{package_id}}\'{{/package_id}}},this)" class="sans-bold bg-lightOrange button button-xs">Remove From Trip</a><li><a href=# class="sans-bold orange"><i class="fa fa-map-o"></i> Map</a></ul></div></div></div></div></div></div>{{/items}}</section>';
+
+var TripsTemplate = "<section class='directory container'><div class='col-sm-12 directory-list'>{{^items}} <h3 style='text-align:center;'>You haven’t created anything yet!</h3> <p>Create your first Trip. Visit the map page and use the filters to sort through over 200 Napa and Sonoma wineries. <p> <p>Make sure you log in or create an account to access and customize The Press Trip Planner: Name and save your trip, add places and events, and access your trip map and driving directions right from your mobile device.</p> {{/items}}{{#items}}<div id=\"my-trip-{{package_id}}\" class=\"directory-item row\"><div class=\"hidden-xs col-xs-2 directory-button\">{{#package_id}}<img src='/image?method=image.icrop&context=package.items&id={{package_id}}&w=600&h=-1' />{{/package_id}}</div><div class=\"col-xs-6 directory-info\"><h3 class=\"brown serif\"><a href='#' id='' class='editable-trip-title serif brown editable editable-click' style='display: inline-block;'>{{package_title}}</a></h3><h4 style='text-align:left;' class=\"hidden-xs orange sans-bold\">{{date}}</h4><p>{{package_text}}</p><div class=\"hidden-xs address\"><p></div><div class=\"address hidden-lg hidden-md hidden-sm\"><p></div></div><div class=\" col-xs-4 directory-button\"><a href=/my-trip/{{package_guid}} class=\"sans-bold bg-lightOrange button button-xs\">View Trip</a> <a onclick=\"deleteTrip({{package_id}});\" class=\"sans-bold bg-lightOrange button button-xs\">Delete Trip</a></div></div>{{/items}}</div></section>";
 
 var SponsoredTripTemplate = '{{#items}}<a href="/trip/{{guid}}" class="block sponsored" style="background: url(\'image?method=image.crop&context=package&id={{id}}&w=370&h=240\') center center no-repeat; background-size: cover;">            <div class="block-label white no-accent">Sponsored Content</div><div class="block-label white">{{&neighborhood}}</div><div class="block-content vert-center"><h3 class="white"	>{{&title}}</h3></div></a><div class="block-caption hidden-xs"><p>{{subtitle}}</p></div>{{/items}}';
 
@@ -369,6 +586,27 @@ var SponsoredStoryTemplateSmall = '{{#items}}          <a href="/story/{{guid}}"
 var MapItineraryTemplate = '{{#items}}<div class="row itinerary-item ui-sortable-handle"><div class="col-xs-2"><div class="num sans-bold">{{counter}}</div></div><div class="col-xs-8 no-padding"><h4 class="sans-bold olive item-title">{{name}}</h4><p class="address sans black">{{address}}</p></div><div class="col-xs-1 no-padding"><a href="#" onclick="removeTrip({id:{{id}}});updateMapItinerary();" class="remove-item sans-bold lightBeige">×</a></div></div>{{/items}}';
 
 var StoryVenueEventMapTemplate = '{{#items}}<a href="/place/{{guid}}">{{name}}</a>{{/items}}';
+
+
+function initNewTrip() {
+	$("#tripBuildModal").modal();
+	if (_AUTH) {
+		showModal('nametrip');
+	}
+}
+
+function createNewTrip() {
+	var tripName = $('#new-trip-name').val();
+	$.getJSON('/api.json?method=events.packages-create&name='+tripName, function(d) {
+		tripReceiverDropdowns();
+		_WORKING_TRIP = { name: d.name, id: d.id, count: 0, items: [] };
+		localStorage.setItem('workingTrip', JSON.stringify(_WORKING_TRIP));
+		$('#tripBuildModal').modal('hide');
+				$('#tripselect-noauth').hide();
+				$('.tripselect .dropdown-toggle').show();		
+		getCurrentWorkingTrip();
+	});
+}
 
 function saveFullTrip() {
 
@@ -400,6 +638,7 @@ function saveFullTrip() {
 
 function getExistingTrip(p) {
 	$.getJSON('/api.json?method=events.package-user&guid='+p,function(d) {
+				d.guid = 'foooo';
 		$('.header-title h1').text(d.name);
 		$('#trip-description').text(d.description);
 		console.log('package data::',d);
@@ -412,6 +651,7 @@ function getTrips() {
 
 	$.getJSON('/api.json?method=events.packages-user',function(d) {
 		console.log('saved trips:',d);
+
 		$('#mytrips-container').html(Mustache.render(TripsTemplate,d));
 		
       $('.editable-trip-title').editable({
@@ -570,9 +810,9 @@ function saveTrip() {
     	tripName = localStorage.workingTripName;
     }
     $.ajax({
-    	url: '/api.json?method=events.add-user-package',
+    	url: '/api.json?method=events.update-user-package',
     	method: 'post',
-    	data: { name: tripName, description: $('#trip-description').val(), venues: venueIDs },
+    	data: { name: tripName, description: $('#trip-description').val(), id: package },
     	success: function(d) {
     		clearTrip();
     		document.location.href = '/my-trips';
@@ -750,11 +990,14 @@ function getTrip(tr,tripID) {
 	    			}
 	    			return ti;
 	    		});
+	    	if (package && package != null) {
+	    		d.guid = package;
+	    	}
 	    	tripHTML += Mustache.render(TripTemplate, d);
 
 	    	$('#my-trip-data').html(tripHTML);
-	    	tripReceiverDropdowns('left','moveItemToTrip');
-	    	resetTripReceivers();
+	    	// tripReceiverDropdowns('left','moveItemToTrip');
+	    	//resetTripReceivers();
 	    });
 
         var bounds = new google.maps.LatLngBounds();
@@ -795,7 +1038,7 @@ function getTrip(tr,tripID) {
     waypoints.push({'location': new google.maps.LatLng(p.lat,p.lng), 'stopover': true })
   }
   waypoints = waypoints.slice(0,7);
-  console.log('start',routePoints.start, 'end', routePoints.end, 'way', routePoints.waypoints, 'waypoints',waypoints);
+  console.log('start...',routePoints.start, 'end', routePoints.end, 'way', routePoints.waypoints, 'waypoints',waypoints);
   var directionsService = new google.maps.DirectionsService;
   var directionsDisplay = new google.maps.DirectionsRenderer({suppressMarkers: true});
   directionsDisplay.setMap(map);
@@ -806,7 +1049,7 @@ function getTrip(tr,tripID) {
     waypoints: waypoints,
     travelMode: 'DRIVING'
   }, function(response, status) {
-    console.log(response);
+    console.log('res::',response);
     directionsDisplay.setDirections(response);
   });
 
@@ -822,6 +1065,7 @@ function getTrip(tr,tripID) {
     }
     miles = meters / 1609.34;
     time = secondsToTime(seconds);
+    console.log('UGH',time);
     $('#itinerary-details-distance').text(Math.round(miles));
     $('#itinerary-details-time').text(Math.round(time.value));
   }
@@ -842,10 +1086,12 @@ function getTrip(tr,tripID) {
 
 //	Date/time functions
 function secondsToTime(sec) {
+	console.log('seconds ...',sec)
 	if (sec < 60) {
 		return { 'lang': sec + ' seconds', 'fmt': 'seconds', 'value': sec }
 	} else if (sec < 3600) {
-		return { 'lang': sec/60 + ' minutes', 'fmt': 'minutes', 'value': sec/60 }
+
+		return { 'lang': sec/60 + ' minutes', 'fmt': 'min', 'value': sec/60 }
 	} else if (sec < 86400) {
 		return { 'lang': sec/3600 + ' hours', 'fmt': 'hours', 'value': sec/3600 }
 	} else {

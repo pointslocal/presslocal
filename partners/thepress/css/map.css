@@ -485,12 +485,29 @@ main {
 
 .hud .module {
   width: 100%;
-  min-height: 250px;
+  min-height: 240px;
   background-color: #fff;
   margin-bottom: 40px;
   position: relative;
   padding: 15px;
   padding-bottom: 5px; /* nk, tightens cards */
+}
+
+.module-tier3-counter {
+background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiP…w1MC43LTc4LjcsNTAuNy0xMzEuMUM0NTUsNzkuNSwzNzIuMywwLDI1OC41LDAiLz48L3N2Zz4=);
+    width: 28px;
+    height: 28px;
+    margin-top: -3px;
+    text-align: center;
+    display: inline-block;
+    color: #fff;
+    vertical-align: middle;
+    font-family: europa, Helvetica, arial;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 24px;
+    background-repeat: no-repeat;
+    background-size: 28px 28px;
 }
 
 /* HUD Featured Module */
@@ -501,6 +518,14 @@ main {
   text-align: center;
 }
 
+.hud .module.featured .tier-buttons ul li a.olive:hover, .hud .module.featured .tier-buttons ul li a.olive:active {
+  color: #fff !important;
+}
+
+.hud .module.featured {
+  margin-bottom: 100px;
+}
+
 .hud .module.featured .featured-content h2 {
   text-transform: uppercase;
   margin: 0;
@@ -509,7 +534,7 @@ main {
 /* HUD Tier 1 Module */
 
 .hud .module.tier1 .tier-title h2 {
-  font-size: 30px;
+  font-size: 24px;
   margin: 0;
   padding-bottom: 10px;
 }
@@ -538,6 +563,10 @@ main {
 .hud .module.tier1 .tier-text {
   padding: 10px 0;
   background-color: #F9F9F2;
+}
+
+.hud .module .tier-buttons ul {
+  width: 100%;
 }
 
 .hud .module.tier1 .tier-pic img {
@@ -582,9 +611,33 @@ main {
   margin-right: 10px;
 }
 
-.hud .module.tier1 .tier-buttons ul li.social i, .hud .module.featured .tier-buttons ul li.social i {
-  font-size: 25px;
+.hud .module.tier1 .tier-buttons ul li.social i, .hud .module.tier2 .tier-buttons ul li.social i, .hud .module.tier2 .tier-buttons ul li.social i, .hud .module.featured .tier-buttons ul li.social i {
+  font-size: 16px !important;
 }
+
+.hud .module ul li.social {
+  float: right;
+    color: #fff;
+    font-weight: bold;
+    font-size: 11px;
+    line-height: 40px;
+    text-transform: uppercase;
+}
+
+.hud .module ul li.social a {
+  width: 26px;
+  height: 26px;
+  line-height: 25px;
+  display: inline-block;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 28px;
+  text-align: center;
+}
+
+.hud .module ul li.social a:hover {
+background-color: #82924e;
+ }
 
 .hud .module.tier1 .tier-buttons ul li a, .hud .module.featured .tier-buttons ul li a {
   text-transform: uppercase;

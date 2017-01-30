@@ -10,9 +10,49 @@ var Search = {
   search: ''
 }
 var orgSearch = Search;
-var markerRefs = {};
+
 var windowRefs = {};
 var mapMarkerBounds;
+
+
+function offsetCenter(latlng, offsetx, offsety) {
+  console.log('yayayay');
+    // latlng is the apparent centre-point
+    // offsetx is the distance you want that point to move to the right, in pixels
+    // offsety is the distance you want that point to move upwards, in pixels
+    // offset can be negative
+    // offsetx and offsety are both optional
+
+    var scale = Math.pow(2, map.getZoom());
+
+    var worldCoordinateCenter = map.getProjection().fromLatLngToPoint(latlng);
+    var pixelOffset = new google.maps.Point((offsetx/scale) || 0,(offsety/scale) ||0);
+
+    var worldCoordinateNewCenter = new google.maps.Point(
+        worldCoordinateCenter.x - pixelOffset.x,
+        worldCoordinateCenter.y + pixelOffset.y
+    );
+
+    var newCenter = map.getProjection().fromPointToLatLng(worldCoordinateNewCenter);
+
+   return newCenter;
+}
+
+function mapDirections() {
+  var trips = localStorage.trips;
+  if (!trips) {
+    return;
+  }
+  var points = [];
+  trips = JSON.parse(trips);
+  trips.forEach(function(t) {
+    if (t.lat && t.lon) {
+      points.push(t.lat+','+t.lon);
+    }
+  });
+  var url = 'https://www.google.com/maps/dir/'+points.join('/');
+  window.open(url, '_blank');
+}
 
 function stripTags(html)
 {
@@ -20,14 +60,28 @@ function stripTags(html)
    tmp.innerHTML = html;
    return tmp.textContent || tmp.innerText || "";
 }
+/*
+Napa should be: 
+UP VALLEY 
+NORTHERN BORDER - as far North as Calistoga/the Napa County Border 
+SOUTHERN BORDER - as far South as the Northern border of Rutherford 
+EAST/WEST BORDER - as far as the Napa County line in each direction 
+  
+DOWN VALLEY 
+NORTHERN BORDER - as far North as Rutherford 
+SOUTHERN BORDER - as far South as the Northern tip of Napa City 
+EAST/WEST BORDER - as far as the Napa County line in each direction
+*/
 
 var Neighborhoods = {
+  "keys": {"napa": { lat: 38.344705, lon: -122.271676}, "All Regions": {}, "sonoma": {lat: 38.488978, lon: -122.690361 } },
   "Napa": { "items": [
-    {"name": "Up Valley", "latitude": 38.492931, "longitude": -122.429105},
-    {"name": "Eastern Mountains", "latitude": 38.353064, "longitude": -122.184659},
-    {"name": "Western Mountains", "latitude": 38.350910, "longitude": -122.407133},
-    {"name": "South Napa", "latitude": 38.236661, "longitude": -122.279416}
+    {"name": "Up Valley", "header": false, "latitude": 38.522564, "longitude": -122.460145},
+
+    {"name": "Down Valley", "header": false, "latitude": 38.388715, "longitude": -122.324584}
+
   ]},
+  "All Regions": { "items": [ {"name":"Select a region"}] },
   "Sonoma": { "items": [
     {"name": "North", "latitude": 38.319979, "longitude": -122.472748 },
     {"name": "East", "latitude": 38.281602 , "longitude": -122.403697 },
@@ -36,6 +90,11 @@ var Neighborhoods = {
     {"name": "Central", "latitude": 38.277319, "longitude": -122.461834 }
   ]},
 }
+
+
+
+
+
 
 function updateMapItinerary() {
       tripsJSON = localStorage.trips;
@@ -56,42 +115,14 @@ function scrollDown() {
           $(window).scrollTop(y-150);
 }
 
-function isScrollListener() {
-  $(window).scroll(function(e) {
-    var anchors = $('.venue-anchor');
-    for (var i = 0; i < anchors.length; ++i) {
-      id = ($(anchors[i]).attr('data-id'));
-      if (isScrolledIntoView(anchors[i])){
-          //markerRefs[id].setAnimation(google.maps.Animation.BOUNCE);
-          m = markerRefs[id].getIcon()
-          m.fillColor = _MARKER_HIGHLIGHT_FILL_COLOR;
-          m.strokeColor = _MARKER_HIGHLIGHT_BORDER_COLOR;
-          m.strokeWeight = 4;
-          markerRefs[id].setIcon(m)
-      } else {
-          m = markerRefs[id].getIcon()        
-          m.fillColor = _MARKER_FILL_COLOR;
-          markerRefs[id].setIcon(m)          
-      }
-    }
-  });
-}
 
-function isScrolledIntoView(elem) {
-  var docViewTop = $(window).scrollTop();
-  var docViewBottom = docViewTop + $(window).height() + 120;
-
-  var elemTop = $(elem).offset().top;
-  var elemBottom = elemTop + $(elem).height();
-
-  return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
-}
 
 function resetMapBounds() {
     var bounds = new google.maps.LatLngBounds();
     for (ob in markerRefs) {
         bounds.extend(markerRefs[ob].getPosition());
         console.log('position:',markerRefs[ob].getPosition());
+
     }
     //map.setCenter(bounds.getCenter());
     // map.fitBounds(bounds);
@@ -124,7 +155,7 @@ function clearSearch() {
 }
 
 function setSubRegions(reg) {
-  var tpl = '{{#items}}<li><a onclick="setMapPos(this);searchSubRegions(\'{{name}}\')" data-latitude="{{latitude}}" data-longitude="{{longitude}}">{{name}}</a></li>{{/items}}';
+  var tpl = '{{#items}}<li {{#divider}}role="separator" class="divider"{{/divider}}>{{^divider}}<a onclick="setMapPos(this);searchSubRegions(\'{{name}}\')" data-latitude="{{latitude}}" data-longitude="{{longitude}}">{{#header}}<b>{{name}}</b>{{/header}}{{^header}}{{name}}{{/header}}</a></li>{{/divider}}{{/items}}';
   $('.subregions').html(Mustache.render(tpl,Neighborhoods[reg]));
   $('#toggle-map-region-label').find('span').html(reg);
   updateMap();
@@ -132,7 +163,7 @@ function setSubRegions(reg) {
 
 function searchSubRegions(reg) {
   $('#toggle-map-subregion-label').find('span').html(reg);
-  updateMap();
+  updateMap({zoom: 12});
 }
 
       var count = 1;
@@ -208,8 +239,16 @@ function searchSubRegions(reg) {
 function setMapPos(e) {
   lat = parseFloat($(e).attr('data-latitude'));
   lon = parseFloat($(e).attr('data-longitude'));
+
   map.setCenter({ lat: lat, lng:lon });
-  map.setZoom(12);
+
+  zoomlevel = ($(e).attr('data-zoom'));
+  if (zoomlevel && zoomlevel != null) {
+    map.setZoom($(e).attr('data-zoom'));
+
+  } else {
+  map.setZoom(11);    
+  }
 }
 
 function unsetMarkers() {
@@ -221,10 +260,17 @@ function unsetMarkers() {
 function updateMap(opts) {
 $('.filter-controls').removeClass('active');
 console.log(Search);
-var bounds = map.getBounds();
 
-var center = bounds.getCenter();
-var ne = bounds.getNorthEast();
+if (map) {
+  var bounds = map.getBounds();
+
+  var center = bounds.getCenter();
+  var ne = bounds.getNorthEast();
+
+  if (opts != null && opts.zoom != null) {
+    map.setZoom(opts.zoom);
+  }
+}
 
 // r = radius of the earth in statute miles
 var r = 3963.0;
@@ -263,7 +309,7 @@ console.log(Search);
       }
 
       req = [];
-      req.push('count=50');
+      req.push('count=40');
       for (k in Search) {
         if (k == 'filterData') {
           continue;
@@ -272,8 +318,10 @@ console.log(Search);
           req.push(k+'='+Search[k]);
         }
       }
+      req.push('field=13');
       req.push('sort=tier')
       req.push('references=1');
+      req.push('strip=h2');
       req = req.join('&');
       if (req){
         req = '&'+req;
@@ -317,7 +365,7 @@ console.log(Search);
               d.items[ri].counter = d.items[ri].counter + 1;
               d.items[ri].story_text = stripTags(d.items[ri].story_text);
               d.items[ri].story_text = d.items[ri].story_text.split(/\n/);
-              d.items[ri].story_text = d.items[ri].story_text[0].replace(/^([\s\S]{230}[^\s]*).*/mg, "$1");
+              d.items[ri].story_text = d.items[ri].story_text[0].replace(/^([\s\S]{130}[^\s]*).*/mg, "$1");
           }
 
         }
@@ -330,13 +378,18 @@ console.log(Search);
           if (!f['tier:1-2'] && !f['tier:3']) {
             f['tier:none'] = true;
           }
+          if (f.story_guid && !f['tier:3'] && (f['tier:1-2'])) {
+            f['tier:1-2'] = false;
+
+            f['tier:story'] = true;
+          }          
           f.trip_item_message = ( _Store.hasTrips ? 'Add To Trip' : 'Create A Trip');
           f.addclass = 'venue-anchor';
 
           return f;
         });
         $('#map-search-results-'+resultsTarget).html(Mustache.render(template,d));
-          console.log('....??');
+
           $(d.items).each(function(i,v) {
 
             results.push({ id: v.id, guid: v.guid, lat: v.latitude, lng: v.longitude, icon: '/partners/thepress/img/markers/partner.png', activeIcon: '/partners/thepress/img/markers/winery.png' });
@@ -348,8 +401,10 @@ console.log(Search);
         addMarker(myLatLng, icon, v);
       });
       isScrollListener();
+      //resetTripReceivers();
       resetTripReceivers();
       resetMapBounds();
+      map.panTo(offsetCenter(map.getCenter(),100,30));
       });
 
 }
@@ -385,7 +440,14 @@ console.log(Search);
       streetViewControl: false,
     }
 
-    function initMap(data) {
+    function initMap(data, pushOpts) {
+
+      // POSTGAMUT: forced neighborhood centering
+      if (pushOpts) {
+        for (k in pushOpts) {
+          options[k] = pushOpts[k];
+        }
+      }
 
       map = new google.maps.Map(document.getElementById('map'), { options });
 
@@ -402,7 +464,6 @@ console.log(Search);
       });
 
       map.addListener('dragend', function() {
-        console.log('????');
         updateMap();
       });
 
@@ -443,7 +504,7 @@ console.log(Search);
           labelClass: "dynamicMapMarker",
           labelAnchor: new google.maps.Point(0, -5),
           icon: {
-            path: 'M258.5,0C144.7,0,62,79.5,62,166.1c0,52.4,21.7,80.4,50.7,131.1C170.6,398.6,258.5,507,258.5,507 s87.9-108.4,145.8-209.8c29-50.7,50.7-78.7,50.7-131.1C455,79.5,372.3,0,258.5,0',
+            path: _MAP_PATH,
             scale: .1,
             fillColor: _MARKER_FILL_COLOR,
             fillOpacity: .9,
@@ -505,13 +566,14 @@ console.log(Search);
           }
         }
         map.fitBounds(bounds);
+
         if (!Modernizr.mq('only screen and (max-width: 768px)')) {
           map.panBy(-250, -50);
         }
       }
 
       getBounds();
-
+      isScrollListener();
 
 
 
@@ -527,9 +589,17 @@ console.log(Search);
         $(this).toggleClass('active');
       })
 
+      var setNeighborhood = getParameterByName('neighborhood');
+      if (setNeighborhood) {
+        preselectedNeighborhood = Neighborhoods.keys[setNeighborhood];
+      } else {
+        preselectedNeighborhood = false;
+      }
 
       template = $('#search-result').html();
-      $.getJSON("/api/v1/venues?category=1&count=50&references=1&sort=tier",function(d) {
+      Search.latitude = (preselectedNeighborhood ? preselectedNeighborhood.lat : 0);
+      Search.longitude = (preselectedNeighborhood ? preselectedNeighborhood.lon : 0);      
+      $.getJSON("/api/v1/venues?category=1&count=50&references=1&strip=h2&field=13&sort=tier"+(preselectedNeighborhood ? '&latitude='+preselectedNeighborhood.lat+'&longitude='+preselectedNeighborhood.lon +'&radius=15' : ''),function(d) {
         mD = localStorage.getItem('messageDismissed')
 
         mD = localStorage.getItem('messageDismissed')
@@ -540,11 +610,11 @@ console.log(Search);
           d.items[ti].addclass = 'venue-anchor';
           d.items[ti].counter = d.items[ti].counter + 1;        
           d.items[ti].quicktip = true;
-
+          d.items[ti].itemClass = 'venue-anchor';
 
           d.items[ti].story_text = stripTags(d.items[ti].story_text);
           d.items[ti].story_text = d.items[ti].story_text.split(/\n/);
-          d.items[ti].story_text = d.items[ti].story_text[0].replace(/^([\s\S]{180}[^\s]*).*/mg, "$1") + ' ... '; 
+          d.items[ti].story_text = d.items[ti].story_text[0].replace(/^([\s\S]{130}[^\s]*).*/mg, "$1") + ' ... '; 
           if (d.items[ti].story_abstract) {
             d.items[ti].story_text = d.items[ti].story_abstract;
           }         
@@ -567,8 +637,14 @@ console.log(Search);
 
           });
 
-        initMap(results);
-        isScrollListener();
+        if (preselectedNeighborhood) {
+          initMap(results,  { lat: preselectedNeighborhood.lat, lon: preselectedNeighborhood.lon, zoom: 8  });
+        } else {
+          initMap(results);
+        }
+
+        
+        
       });
 
 
@@ -635,6 +711,7 @@ console.log(Search);
     $('.back-button').on('click', function(e) {
       $('.mobile-nav a').removeClass('active');
       $(this).addClass('active');
+      $('.hud').removeClass('noscroll');      
       $('.hud-winery').removeClass('inactive');
       $('.hud-trips').addClass('inactive');
       $('.hud-itinerary').removeClass('active');
@@ -679,7 +756,7 @@ console.log(Search);
     // Toggle Huge Filters Popup
     $('.toggle-filters').on('click', function(e) {
       $('.mobile-dropdown').removeClass('active');
-      $('.hud').toggleClass('noscroll');
+      //$('.hud').toggleClass('noscroll');
       $(this).toggleClass('active');
       $('.filter-controls').toggleClass('active');
       e.preventDefault();
