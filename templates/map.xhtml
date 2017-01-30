@@ -12,8 +12,6 @@
     <meta http-equiv="Expires" content="0" />
 
     <title>The Press</title>
-<<<<<<< HEAD
-
     <meta property="og:type" content="<[_ogtype]>" />
     <meta property="og:url" content="<[_ogurl]>" />
     <meta property="og:image" content="<[_ogimage]>" />
@@ -494,7 +492,20 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
             <p class="sans-bold white featured-label">Featured Winery</p>
             <h2 class="serif white">{{name}}</h2>
             <a style="display:none;" href="/place/{{guid}}" class="button button-lg sans-bold bg-olive-alpha">View Profile</a>
-               <p class="sans " style="color: #fff">{{story_text}} <a class="module-story-link" href="/story/{{story_guid}}">Read Review</a></p>
+            <div class="featured-meta">
+              <p class="sans" style="color: #fff">{{story_text}} <a class="module-story-link" href="/story/{{story_guid}}">Read Review</a></p>
+              <div class="row featured-address">
+                <div class="col-xs-6">
+                  <p class="sans-bold white">1000 Marshall Petaluma Rd,<br>
+                    Petaluma, CA 94952</p>
+                    <a class="phone sans-bold" href="tel:(707) 433-1000">(707) 433-1000</a>
+                </div>
+                <div class="col-xs-6">
+                  <p class="sans-bold white">Hours Today</p>
+                  <p class="sans white">10:30am - 5:00pm</p>
+                </div>
+              </div>
+            </div>
           </div>
 
 
@@ -502,7 +513,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
             <div class="col-xs-12">
               <ul style="width:100%;">
                 <li><a xclick="addTrip({id: {{id}}, type:'venues',name: '{{name}}', lat: {{latitude}}, lon: {{longitude}} }, this);" data-type="venues" data-name="{{name}}" data-latitude="{{latitude}}" data-longitude="{{longitude}}" data-id="{{id}}" data-address="{{address}}" class="trip-item-trigger button button-xs bg-olive sans-bold">Add to Trip</a></li>
-                {{#customfield}}<li><a href="/place/{{guid}}?action=opencellarpass" class="olive sans-bold">Book Trip</a></li>{{/customfield}}
+                {{#customfield}}<li class="book"><a href="/place/{{guid}}?action=opencellarpass" class="sans-bold">Book Trip</a></li>{{/customfield}}
               <li class="social">Share <a href="https://twitter.com/home?status={{name}}:%20http://thepress.pointslocal.com/place/{{guid}}" class="bg-olive"><i class="fa fa-twitter"></i></a> <a href="http://www.facebook.com/sharer.php?u=http://thepress.pointslocal.com/place/{{guid}}" class="bg-olive"><i class="fa fa-facebook"></i></a></li>
                 <li class="social" style="display:none;"></li>
                 <li style="display:none;"><a target=_blank href="https://www.google.com/maps/dir//{{address}}/" class="olive sans-bold"><i class="fa fa-location-arrow"></i> Book Trip</a></li>
@@ -534,7 +545,10 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
           </div>
           <div class="row tier-text hidden-xs">
             <div class="col-xs-6">
-              <p class="sans brown" style="font-size: 12px;">{{street}},<br> {{city}}, {{state}} {{zip}}</p>
+              <p class="sans brown" style="font-size: 13px;">{{street}},<br> {{city}}, {{state}} {{zip}}</p>
+            </div>
+            <div class="col-xs-6">
+              <p class="sans-bold brown" style="font-size: 13px;">Hours Today<br><span class="sans">10:30am - 5:00pm</span></p>
             </div>
           </div>
 
@@ -542,7 +556,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
             <div class="col-xs-12">
               <ul>
                 <li><a xclick="addTrip({id: {{id}}, type:'venues',name: '{{name}}', lat: {{latitude}}, lon: {{longitude}} }, this);" data-type="venues" data-name="{{name}}" data-latitude="{{latitude}}" data-longitude="{{longitude}}" data-id="{{id}}" data-address="{{address}}" class="trip-item-trigger button button-xs bg-olive sans-bold">Add to Trip</a></li>
-                {{#customfield}}<li><a href="/place/{{guid}}?action=opencellarpass" class="olive sans-bold">Book Now</a></li>{{/customfield}}
+                {{#customfield}}<li class="book"><a href="/place/{{guid}}?action=opencellarpass" class="olive sans-bold">Book Now</a></li>{{/customfield}}
 
                <li class="social">Share <a href="https://twitter.com/home?status={{name}}:%20http://thepress.pointslocal.com/place/{{guid}}" class="bg-olive"><i class="fa fa-twitter"></i></a> <a href="http://www.facebook.com/sharer.php?u=http://thepress.pointslocal.com/place/{{guid}}" class="bg-olive"><i class="fa fa-facebook"></i></a></li>
               </ul>
@@ -568,8 +582,15 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
               <h3 class="serif darkOlive hidden-sm hidden-md hidden-lg"><a href="single-winery-2.php">{{name}} <span class="featured-badge-lg"></span></a></h3>
               <h4 class="sans-bold olive location-label">{{neighborhood}}</h4>
               <div class="address">
-                <p class="sans brown">{{street}},<br> {{city}}, {{state}} {{zip}}<br> {{phone}}{{venue_phone}}</p>
-                <a data-type="venues" data-name="{{name}}" data-latitude="{{latitude}}" data-longitude="{{longitude}}" data-id="{{id}}" data-address="{{address}}" class="trip-item-trigger button button-xs bg-olive sans-bold hidden-sm hidden-md hidden-lg">Add to Trip</a>
+                <div class="row">
+                  <div class="col-xs-6">
+                    <p class="sans brown">{{street}},<br> {{city}}, {{state}} {{zip}}<br> {{phone}}{{venue_phone}}</p>
+                    <a data-type="venues" data-name="{{name}}" data-latitude="{{latitude}}" data-longitude="{{longitude}}" data-id="{{id}}" data-address="{{address}}" class="trip-item-trigger button button-xs bg-olive sans-bold hidden-sm hidden-md hidden-lg">Add to Trip</a>
+                  </div>
+                  <div class="col-xs-6">
+                    <p class="sans-bold brown" style="font-size: 13px;">Hours Today<br><span class="sans">10:30am - 5:00pm</span></p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -596,7 +617,6 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
             <div class="col-xs-2 tier-badge">
               <span class="partner-badge"></span>
             </div>
-            -->
           </div>
           <div class="row tier-contact">
             <div class="col-xs-5 no-padding">
@@ -606,8 +626,14 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
               <h3 class="serif darkOlive hidden-sm hidden-md hidden-lg"><a href="/place/{{guid}}">{{{name}}} ~<span class="partner-badge"></span></a></h3>
               <h4 class="sans-bold olive location-label">{{neighborhood}}</h4>
               <div class="address">
-                <p class="sans brown">{{street}},<br> {{city}}, {{state}} {{zip}}<br> {{phone}}{{venue_phone}}<br><span class="status sans-bold olive">Open</span></p>
-
+                <div class="row">
+                  <div class="col-xs-6">
+                    <p class="sans brown">{{street}},<br> {{city}}, {{state}} {{zip}}<br> {{phone}}{{venue_phone}}<br><span class="status sans-bold olive">Open</span></p>
+                  </div>
+                  <div class="col-xs-6">
+                    <p class="sans-bold brown" style="font-size: 13px;">Hours Today<br><span class="sans">10:30am - 5:00pm</span></p>
+                  </div>
+                </div>
               </div>
               <div>
                   {{#story_guid}}<a href="/story/{{story_guid}}" class="button button-xs bg-olive sans-bold">Read Review</a>{{/story_guid}}
@@ -641,8 +667,15 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
               <h3 class="serif darkOlive hidden-sm hidden-md hidden-lg"><a href="/place/{{guid}}">{{{name}}} </a></h3>
               <h4 class="sans-bold olive location-label">{{neighborhood}}</h4>
               <div class="address">
-                <p class="sans brown">{{street}},<br> {{city}}, {{state}} {{zip}}</p>
-                <a xclick="addTrip({id: {{id}}, type:'venues',name: '{{name}}', lat: {{latitude}}, lon: {{longitude}} }, this);" data-type="venues" data-name="{{name}}" data-latitude="{{latitude}}" data-longitude="{{longitude}}" data-id="{{id}}" data-address="{{address}}" class="trip-item-trigger button button-xs bg-olive sans-bold hidden-md hidden-lg">Add to Trip</a>
+                <div class="row">
+                  <div class="col-xs-6">
+                    <p class="sans brown">{{street}},<br> {{city}}, {{state}} {{zip}}</p>
+                    <a xclick="addTrip({id: {{id}}, type:'venues',name: '{{name}}', lat: {{latitude}}, lon: {{longitude}} }, this);" data-type="venues" data-name="{{name}}" data-latitude="{{latitude}}" data-longitude="{{longitude}}" data-id="{{id}}" data-address="{{address}}" class="trip-item-trigger button button-xs bg-olive sans-bold hidden-md hidden-lg">Add to Trip</a>
+                  </div>
+                  <div class="col-xs-6">
+                    <p class="sans-bold brown" style="font-size: 13px;">Hours Today<br><span class="sans">10:30am - 5:00pm</span></p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -650,7 +683,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
             <div class="col-xs-12">
               <ul>
                 <li><a xclick="addTrip({id: {{id}}, type:'venues',name: '{{name}}', lat: {{latitude}}, lon: {{longitude}} }, this);" data-type="venues" data-name="{{name}}" data-latitude="{{latitude}}" data-longitude="{{longitude}}" data-id="{{id}}" data-address="{{address}}" class="trip-item-trigger button button-xs bg-olive sans-bold">Add to Trip</a></li>
-                {{#customfield}}<li><a href="/place/{{guid}}?action=opencellarpass" class="olive sans-bold">Book Now</a></li>{{/customfield}}
+                {{#customfield}}<li class="book"><a href="/place/{{guid}}?action=opencellarpass" class="olive sans-bold">Book Now</a></li>{{/customfield}}
                <li class="social">Share <a href="https://twitter.com/home?status={{name}}:%20http://thepress.pointslocal.com/place/{{guid}}" class="bg-olive"><i class="fa fa-twitter"></i></a> <a href="http://www.facebook.com/sharer.php?u=http://thepress.pointslocal.com/place/{{guid}}" class="bg-olive"><i class="fa fa-facebook"></i></a></li>
               </ul>
             </div>
