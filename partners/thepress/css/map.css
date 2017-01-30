@@ -487,7 +487,7 @@ main {
   width: 100%;
   min-height: 240px;
   background-color: #fff;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   position: relative;
   padding: 15px;
   padding-bottom: 5px; /* nk, tightens cards */
@@ -517,6 +517,7 @@ background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNv
 .hud .module.featured .featured-content {
   width: 100%;
   padding: 0 40px;
+  line-height: 21px;
   text-align: center;
   z-index: 999999;
 }
@@ -526,12 +527,16 @@ background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNv
 }
 
 .hud .module.featured {
-  margin-bottom: 100px;
+  margin-bottom: 90px;
   min-height: 340px;
 }
 
 .hud .module.featured p {
   font-size: 16px;
+}
+
+.hud .module.featured .featured-content {
+  margin-top: 20px;
 }
 
 .hud .module.featured .featured-content h2 {
@@ -546,6 +551,7 @@ background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNv
 
 .hud .module.featured .featured-content .featured-meta .featured-address {
   margin-top: 15px;
+  line-height: 17px;
 }
 
 .hud .module.featured .featured-content .featured-meta .featured-address p, a.phone {
@@ -595,9 +601,14 @@ background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNv
   display: none;
 }
 
+.hud .module.quick-tip p {
+  line-height: 21px;
+}
+
 .hud .module.tier1 .tier-text {
   padding: 10px 0;
   background-color: #F9F9F2;
+  line-height: 21px;
 }
 
 .hud .module.tier1 .tier-text a {
