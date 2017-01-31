@@ -528,15 +528,17 @@ background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNv
 
 .hud .module.featured {
   margin-bottom: 90px;
-  min-height: 340px;
+  min-height: 250px;
 }
 
 .hud .module.featured p {
   font-size: 16px;
+  margin-bottom: 5px;
+  line-height: 18px;
 }
 
 .hud .module.featured .featured-content {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .hud .module.featured .featured-content h2 {
@@ -546,7 +548,7 @@ background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNv
 
 .hud .module.featured .featured-content .featured-meta {
   text-align: left;
-  margin-top: 40px;
+  margin-top: 15px;
 }
 
 .hud .module.featured .featured-content .featured-meta .featured-address {
@@ -606,7 +608,7 @@ background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNv
 }
 
 .hud .module.tier1 .tier-text {
-  padding: 10px 0;
+  padding: 5px 0 0 0;
   background-color: #F9F9F2;
   line-height: 21px;
 }
@@ -712,8 +714,12 @@ background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNv
   color: #cccdbe;
 }
 
-.hud .module ul li.book a:hover {
+.hud .module.featured ul li.book a:hover {
   color: #fff !important;
+}
+
+.hud .module.featured ul li.book a:hover {
+  color: #544741 !important;
 }
 
 .hud .module ul li.social a {
@@ -779,11 +785,12 @@ background-color: #82924e;
 
 .hud .module.tier2 .tier-buttons {
   padding: 10px 0 0 0;
+
 }
 
 .hud .module.tier2 .tier-buttons ul {
   width: 100%;
-  max-width: 400px;
+  max-width: 410px;
   display: table;
   text-align: left;
   margin-bottom: 5px;
@@ -792,7 +799,12 @@ background-color: #82924e;
 .hud .module.tier2 .tier-buttons ul li {
   list-style: none;
   vertical-align: middle;
-  display: table-cell;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.hud .module.tier2 .tier-buttons ul li.social {
+  margin-right: 0;
 }
 
 .hud .module.tier2 .tier-buttons ul li.social i {
@@ -953,6 +965,16 @@ background-color: #82924e;
     border-bottom: 1px solid #C4C5B4;
     margin-bottom: 0;
   }
+  .hud .module.featured {
+    margin-bottom: 61px;
+  }
+  .hud .module.featured .featured-content .featured-meta {
+    margin-top: 20px;
+  }
+  .hud .module.featured .featured-content .featured-meta p {
+    font-size: 14px;
+    line-height: 17px;
+  }
   .hud .module.tier1 .tier-buttons {
     padding-top: 0;
   }
@@ -981,16 +1003,15 @@ background-color: #82924e;
    {
      margin-left: 0;
   }
-  .hud .module.tier1 .tier-contact .address br,
-  .hud .module.tier2 .tier-contact .address br {
-    display: none;
-  }
   .hud .module.tier1 .tier-contact h3,
   .hud .module.tier2 .tier-contact h3 {
      margin: 0;
   }
   .hud .module .tier-pic {
     margin: 0;
+  }
+  .hud .module.tier2 .tier-contact .tier-pic {
+    min-height: 200px !important;
   }
   .hud .hud-container,
   .hud .hud-itinerary {
