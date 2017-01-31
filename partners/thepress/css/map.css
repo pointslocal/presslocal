@@ -953,6 +953,9 @@ background-color: #82924e;
     border-bottom: 1px solid #C4C5B4;
     margin-bottom: 0;
   }
+  .hud .module.featured {
+    margin-bottom: 61px;
+  }
   .hud .module.tier1 .tier-buttons {
     padding-top: 0;
   }
@@ -981,16 +984,15 @@ background-color: #82924e;
    {
      margin-left: 0;
   }
-  .hud .module.tier1 .tier-contact .address br,
-  .hud .module.tier2 .tier-contact .address br {
-    display: none;
-  }
   .hud .module.tier1 .tier-contact h3,
   .hud .module.tier2 .tier-contact h3 {
      margin: 0;
   }
   .hud .module .tier-pic {
     margin: 0;
+  }
+  .hud .module.tier2 .tier-contact .tier-pic {
+    min-height: 200px !important;
   }
   .hud .hud-container,
   .hud .hud-itinerary {
