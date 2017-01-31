@@ -8,12 +8,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>The Press</title>
   <script type="text/javascript" src="http://treg-staging.hearstnp.com/treg.js"></script>
-  <meta property="og:type" content="<[_ogtype]>" /> 
-  <meta property="og:url" content="<[_ogurl]>" /> 
-  <meta property="og:image" content="<[_ogimage]>" /> 
-  <meta property="place:location:latitude"  content="<[_oglatitude]>" /> 
-  <meta property="place:location:longitude" content="<[_oglongitude]>" /> 
-  <meta property="og:title" content="<[_ogtitle]>" /> 
+  <meta property="og:type" content="<[_ogtype]>" />
+  <meta property="og:url" content="<[_ogurl]>" />
+  <meta property="og:image" content="<[_ogimage]>" />
+  <meta property="place:location:latitude"  content="<[_oglatitude]>" />
+  <meta property="place:location:longitude" content="<[_oglongitude]>" />
+  <meta property="og:title" content="<[_ogtitle]>" />
     <link rel="shortcut icon" href="/partners/thepress/img/thepress-logo-sm.png" />
     <meta name="description" content="">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
@@ -51,7 +51,7 @@ tripsExist = JSON.parse(localStorage.getItem('trips'));
 console.log(tripsExist);
 if (tripsExist && tripsExist.length > 0) {
   $(document).ready(function() {
-    $('.my-trip-inactive').removeClass('my-trip-inactive'); 
+    $('.my-trip-inactive').removeClass('my-trip-inactive');
   })
 
 }
@@ -98,10 +98,10 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
             <ul class="hidden-xs">
               <li class="search"><a href="#" class="toggle-search"><i class="fa fa-search"></i></a></li>
               <li class="signin"><a href="#" class="button button-sm clear sans toggle-signin" data-toggle="modal" data-target="#signinModal">Sign In</a></li>
-    
+
               <li class="dropdown login hidden">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">user</a>
- 
+
                 <ul class="dropdown-menu">
                   <li><a href="/my-trip">Current Trip</a></li>
                   <li><a href="/my-trips">Saved Trips</a></li>
@@ -177,7 +177,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true sans">&times;</span></button>
         <h4 class="sans-bold brownmodal-title">Login</h4>
         <p class="sans brown">Welcome back. If you already have an account with us, please login below.</p>
-        <p class="sans error" id="login-error"></p>        
+        <p class="sans error red" id="login-error"></p>
       </div>
       <div class="modal-body">
         <form class="signinForm">
@@ -201,7 +201,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true sans">&times;</span></button>
         <h4 class="sans-bold brownmodal-title">Register</h4>
         <p class="sans brown">Create a Profile With ThePress</p>
-        <p class="sans error" id="register-error"></p>
+        <p class="sans error red" id="register-error"></p>
       </div>
       <div class="modal-body">
         <form class="signinForm">
@@ -211,13 +211,13 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
           <div>Passwords must be at least 8 characters, contain upper and lowercase letters and at least one number.</div>
           <div class="form-group">
             <input id="register-username" type="text" placeholder="Username">
-          </div>          
+          </div>
           <div class="form-group">
             <input id="register-password" type="password" placeholder="Password">
           </div>
           <div class="form-group">
             <input id="register-password2" type="password" placeholder="Password (Repeat)">
-          </div>          
+          </div>
         </form>
       </div>
        <div class="modal-buttons">
@@ -249,20 +249,20 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true sans">&times;</span></button>
         <h4 class="sans-bold brownmodal-title">Reset Your Password</h4>
         <p class="sans brown">Create a Profile With ThePress</p>
-        <p class="sans error" id="register-error"></p>
+        <p class="sans error red" id="register-error"></p>
       </div>
       <div class="modal-body">
         <form class="signinForm">
           <div class="form-group">
             <input id="register-email" type="email" placeholder="Email Address">
           </div>
-      
 
-        
+
+
         </form>
       </div>
        <div class="modal-buttons">
-        <button onclick="showModal('login');" type="submit" class="button button-xs bg-olive sans-bold">Cancel</button>   
+        <button onclick="showModal('login');" type="submit" class="button button-xs bg-olive sans-bold">Cancel</button>
       </div>
     </div>
   </div>
@@ -313,6 +313,8 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
     </div>
   </header>
 
+  <main>
+
   <div class="oldmain">
 
   <!-- TRIPS TEASER -->
@@ -339,15 +341,15 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
       </div>
     </div>
   </section>
-        
+
 <!-- 102 -->
 
     <!-- Three Column Block -->
 
-        
+
   <section class="two-column container no-padding">
       <div class="row scrollable" id="scroll1">
-        
+
         <div class="col-sm-6 block-container">
           <a href="/trip/healdsburg-winery-hopping" class="block" style="background: url('image?method=image.crop&context=package&id=48&w=370&h=240') center center no-repeat; background-size: cover;">
             <div class="block-label white"></div>
@@ -361,8 +363,8 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
         </div>
         <div class="col-sm-6 block-container" id="trip-teaser-sponsored">
 
-        </div>        
-        
+        </div>
+
 
         <!-- Additional Mobile Scrolling Items (Appear in Three Column Block Below) -->
         <!--
@@ -404,11 +406,11 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
 
         -->
       </div>
-    </section>        
-    
+    </section>
+
     <section class="three-column container no-padding hidden-xs">
       <div class="row">
-        
+
         <div class="col-sm-4 the-column">
           <a href="/trip/break-out-the-bubbly" class="block" style="background: url('image?method=image.crop&context=package&id=31&w=370&h=240') center center no-repeat; background-size: cover;"></a>
           <div class="block-label lightBrown">Sonoma</div>
@@ -416,14 +418,14 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
             <h4 class="sans-bold orange"><a href="/trip/break-out-the-bubbly">Break out the Bubbly</a></h4>
           </div>
         </div>
-        
+
 
 
         <div class="col-sm-4 the-column trip-teaser-sponsored-small">
 
         </div>
 
-        
+
         <div class="col-sm-4 the-column">
           <a href="/trip/yao-ming-s-best-reds-around" class="block" style="background: url('image?method=image.crop&context=package&id=32&w=370&h=240') center center no-repeat; background-size: cover;"></a>
           <div class="block-label lightBrown">Sonoma</div>
@@ -431,7 +433,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
             <h4 class="sans-bold orange"><a href="/trip/yao-ming-s-best-reds-around">Yao Ming's Best Reds Around</a></h4>
           </div>
         </div>
-                
+
     </section>
 
 
@@ -469,7 +471,7 @@ $(document).ready(function() {
 
 <section class="featured-story container no-padding">
       <div class="row scrollable" id="scroll3">
-        
+
         <div class="col-sm-12 block-container">
           <a href="/story/benovia-winery" class="story-container" style="background: url('/image?method=image.icrop&context=stories&id=262&w=1000&h=-1') center center no-repeat; background-size: cover;">
             <div class="story-content vert-center">
@@ -482,7 +484,7 @@ $(document).ready(function() {
             <span class="date darkOlive">December 13, 2016</span>
           </div>
         </div>
-           
+
         <!-- Additional Mobile Scrolling Items (Appear in Three Column Block Below) -->
         <!--
         <div class="mobile-scroller hidden-sm hidden-md hidden-lg">
@@ -533,7 +535,7 @@ $(document).ready(function() {
 
 <section class="three-column stories container no-padding hidden-xs">
       <div class="row">
-        
+
         <div class="col-sm-4 the-column">
           <a href="/story/paul-hobbs" class="block" style="background: url('/image?method=image.icrop&context=stories&id=263&w=1000&h=-1') center center no-repeat; background-size: cover;"></a>
           <div class="block-label lightBrown">Winery Review</div>
@@ -542,14 +544,14 @@ $(document).ready(function() {
             <span class="date darkOlive">December 13, 2016</span>
           </div>
         </div>
-        
+
 
 
         <div class="col-sm-4 the-column story-teaser-sponsored-small">
 
         </div>
 
-        
+
         <div class="col-sm-4 the-column">
           <a href="/story/la-crema" class="block" style="background: url('/image?method=image.icrop&context=stories&id=264&w=1000&h=-1') center center no-repeat; background-size: cover;"></a>
           <div class="block-label lightBrown">Winery Review</div>
@@ -558,10 +560,10 @@ $(document).ready(function() {
             <span class="date darkOlive">December 13, 2016</span>
           </div>
         </div>
-        
+
 
       </div>
-    </section>    
+    </section>
 
 <script>
 $(document).ready(function() {
@@ -610,7 +612,7 @@ $(document).ready(function() {
           </div>
         </div>
 
-        
+
 
 
         <div class="col-sm-6 block-container ">
@@ -627,7 +629,7 @@ $(document).ready(function() {
             <p class="sans brown hidden-xs"><p>Located on the fabled Silverado Trail in the world-renowned Stags Leap District of California's Napa Valley, our beautiful Cape Dutch-inspired estate winery is recognized as one of the world's premier fine wine producers. </p>
 </p>
           </div>
-        </div>        
+        </div>
 
         <!-- Additional Mobile Scrolling Items (Appear in Three Column Block Below) -->
         <!--
@@ -666,7 +668,7 @@ $(document).ready(function() {
     </section>
 
 
-          
+
 <!-- 108 -->
     <!-- Quad Columns Module -->
     <section class=" quad-column container no-padding hidden-xs">
@@ -707,7 +709,7 @@ $(document).ready(function() {
     </section>
 
 
-  
+
 
   <!-- 109 -->
     <!-- Featured Callout -->
@@ -723,22 +725,22 @@ $(document).ready(function() {
       </div>
     </section>
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
 
 <div style="text-align:center;">
  <!-- hearst/ads/full_banner_A728.tpl -->
     <!-- hmb:a728 full banner A728 ad -->
     <div id="ctpl-fullbanner1" class="ctpl-fullbanner fixed" data-collapse-timer="10">
     <div id="A728" class="ad_deferrable"><script type="text/javascript">/*<![CDATA[*/ hearstPlaceAd("A728"); /*]]>*/</script></div>
-    
+
     <script>
     (function() {
         var checkCount = 120;
@@ -766,12 +768,14 @@ $(document).ready(function() {
         }, 1000);
     })();
     </script>
-    
+
     </div>
 <!-- e hearst/ads/full_banner_A728.tpl -->
 </div>
 
   </div>
+
+  </main>
 
         <footer>
         <div class="container">
