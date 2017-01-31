@@ -956,6 +956,13 @@ background-color: #82924e;
   .hud .module.featured {
     margin-bottom: 61px;
   }
+  .hud .module.featured .featured-content .featured-meta {
+    margin-top: 20px;
+  }
+  .hud .module.featured .featured-content .featured-meta p {
+    font-size: 14px;
+    line-height: 17px;
+  }
   .hud .module.tier1 .tier-buttons {
     padding-top: 0;
   }
