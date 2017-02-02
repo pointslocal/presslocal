@@ -210,6 +210,10 @@ nav.solid .logo-container .tools ul li.search a:hover i {
   padding-bottom: 30px;
 }
 
+.single-content .single-sidebar ul p {
+  margin-bottom: 0;
+}
+
 .single-content .single-sidebar .other-space {
   width: 300px;
   height: 250px;

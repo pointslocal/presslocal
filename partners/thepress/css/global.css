@@ -1777,9 +1777,15 @@ header .cta .date {
   margin: 0 auto;
 }
 
+.header-single .featured-image {
+	height: 500px;
+}
+
 .header-single .featured-image img {
   width: 100%;
   height: auto;
+  height: 500px;
+  object-fit: cover;
 }
 
 /* Single Header Two Column */
@@ -2739,6 +2745,7 @@ Global Modules
   margin: 20px auto;
   position: relative;
   clear: both;
+  max-width: 80%;
 }
 
 .featured-story .story-text p {
@@ -3175,6 +3182,10 @@ Global Modules
   margin-bottom: 0;
   display: inline-block;
   float: left;
+}
+
+.directory .directory-list .directory-item .directory-info h3 a:hover {
+  text-decoration: underline !important;
 }
 
 .directory .directory-list .directory-item .directory-pic a {
