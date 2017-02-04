@@ -16,7 +16,6 @@ var mapMarkerBounds;
 
 
 function offsetCenter(latlng, offsetx, offsety) {
-  console.log('yayayay');
     // latlng is the apparent centre-point
     // offsetx is the distance you want that point to move to the right, in pixels
     // offsety is the distance you want that point to move upwards, in pixels
@@ -76,10 +75,9 @@ EAST/WEST BORDER - as far as the Napa County line in each direction
 var Neighborhoods = {
   "keys": {"napa": { lat: 38.344705, lon: -122.271676}, "All Regions": {}, "sonoma": {lat: 38.488978, lon: -122.690361 } },
   "Napa": { "items": [
-    {"name": "Up Valley", "header": false, "latitude": 38.522564, "longitude": -122.460145},
-
-    {"name": "Down Valley", "header": false, "latitude": 38.388715, "longitude": -122.324584}
-
+    {"name": "Up Valley", "header": false, "latitude": 38.522564, "longitude": -122.460145, "neighborhood": "napa-up-valley" },
+    {"name": "Down Valley", "header": false, "latitude": 38.388715, "longitude": -122.324584},
+    {"name": "South Napa", "header": false, "latitude": 38.388715, "longitude": -122.324584, "neighborhood": "napa-south-napa"}
   ]},
   "All Regions": { "items": [ {"name":"Select a region"}] },
   "Sonoma": { "items": [
@@ -124,8 +122,8 @@ function resetMapBounds() {
         console.log('position:',markerRefs[ob].getPosition());
 
     }
-    //map.setCenter(bounds.getCenter());
-    // map.fitBounds(bounds);
+    map.setCenter(offsetCenter(bounds.getCenter(),100,30));
+    map.fitBounds(bounds);
 }
 
 $(document).ready(function() {
@@ -155,7 +153,7 @@ function clearSearch() {
 }
 
 function setSubRegions(reg) {
-  var tpl = '{{#items}}<li {{#divider}}role="separator" class="divider"{{/divider}}>{{^divider}}<a onclick="setMapPos(this);searchSubRegions(\'{{name}}\')" data-latitude="{{latitude}}" data-longitude="{{longitude}}">{{#header}}<b>{{name}}</b>{{/header}}{{^header}}{{name}}{{/header}}</a></li>{{/divider}}{{/items}}';
+  var tpl = '{{#items}}<li {{#divider}}role="separator" class="divider"{{/divider}}>{{^divider}}<a onclick="setMapPos(this);searchSubRegions(\'{{name}}\')" data-latitude="{{latitude}}" data-neighborhood="{{neighborhood}}" data-longitude="{{longitude}}">{{#header}}<b>{{name}}</b>{{/header}}{{^header}}{{name}}{{/header}}</a></li>{{/divider}}{{/items}}';
   $('.subregions').html(Mustache.render(tpl,Neighborhoods[reg]));
   $('#toggle-map-region-label').find('span').html(reg);
   updateMap();
@@ -239,7 +237,15 @@ function searchSubRegions(reg) {
 function setMapPos(e) {
   lat = parseFloat($(e).attr('data-latitude'));
   lon = parseFloat($(e).attr('data-longitude'));
-
+  $(document).ready(function() {
+    Search.neighborhood = ($(e).attr('data-neighborhood') ? $(e).attr('data-neighborhood') : false);
+    if (Search.neighborhood) {
+      Search.latitude = false;
+      Search.longitude = false;
+      Search.radius = false;
+    }
+  })
+  
   map.setCenter({ lat: lat, lng:lon });
 
   zoomlevel = ($(e).attr('data-zoom'));
@@ -258,50 +264,61 @@ function unsetMarkers() {
 }
 
 function updateMap(opts) {
-$('.filter-controls').removeClass('active');
-console.log(Search);
+  $('.filter-controls').removeClass('active'); 
+  var reposition = true;
+  var limit = 40;
+  if (map) {
+    var bounds = map.getBounds();
 
-if (map) {
-  var bounds = map.getBounds();
+    var center = bounds.getCenter();
+    var ne = bounds.getNorthEast();
 
-  var center = bounds.getCenter();
-  var ne = bounds.getNorthEast();
+    if (opts != null && opts.zoom != null) {
+      map.setZoom(opts.zoom);
+    }
 
-  if (opts != null && opts.zoom != null) {
-    map.setZoom(opts.zoom);
+    if (opts != null && opts.reposition != null) {
+      reposition = opts.reposition;
+    }
   }
-}
 
-// r = radius of the earth in statute miles
-var r = 3963.0;
+  // r = radius of the earth in statute miles
+  var r = 3963.0;
 
-// Convert lat or lng from decimal degrees into radians (divide by 57.2958)
-var lat1 = center.lat() / 57.2958;
-var lon1 = center.lng() / 57.2958;
-var lat2 = ne.lat() / 57.2958;
-var lon2 = ne.lng() / 57.2958;
+  // Convert lat or lng from decimal degrees into radians (divide by 57.2958)
+  var lat1 = center.lat() / 57.2958;
+  var lon1 = center.lng() / 57.2958;
+  var lat2 = ne.lat() / 57.2958;
+  var lon2 = ne.lng() / 57.2958;
 
-// distance = circle radius from center to Northeast corner of bounds
-var dis = r * Math.acos(Math.sin(lat1) * Math.sin(lat2) +
-  Math.cos(lat1) * Math.cos(lat2) * Math.cos(lon2 - lon1));
+  // distance = circle radius from center to Northeast corner of bounds
+  var dis = r * Math.acos(Math.sin(lat1) * Math.sin(lat2) +
+    Math.cos(lat1) * Math.cos(lat2) * Math.cos(lon2 - lon1));
 
-  Search.latitude = center.lat();
-  Search.longitude = center.lng();
-  Search.near = Search.latitude+','+Search.longitude;
-  Search.radius = dis;
+    Search.latitude = center.lat();
+    Search.longitude = center.lng();
+    Search.near = Search.latitude+','+Search.longitude;
+    Search.radius = dis;
+    if (Search.neighborhood) {
+      Search.latitude = false;
+      Search.longitude = false;
+      Search.radius = false;
+      Search.near = false;
+      limit = 100;
+    }
 
-Search.filterData = {};
-$('.search-option:checked').each(function() {
-  type = $(this).attr('data-type');
-  if (!Search.filterData[type]) {
-    Search.filterData[type] = [];
-  }
-  Search.filterData[type].push($(this).attr('data-value'))
-})
+    Search.filterData = {};
+    $('.search-option:checked').each(function() {
+      type = $(this).attr('data-type');
+      if (!Search.filterData[type]) {
+        Search.filterData[type] = [];
+      }
+      Search.filterData[type].push($(this).attr('data-value'))
+    })
 
-console.log(Search);
-Search.filters = JSON.stringify(Search.filterData);
-console.log(Search);
+
+
+      Search.filters = JSON.stringify(Search.filterData);
 
       markerRefs = {};
       if (searchActive) {
@@ -309,7 +326,7 @@ console.log(Search);
       }
 
       req = [];
-      req.push('count=40');
+      req.push('count='+limit);
       for (k in Search) {
         if (k == 'filterData') {
           continue;
@@ -372,7 +389,6 @@ console.log(Search);
         mD = localStorage.getItem('messageDismissed')
         d.quicktip = (mD != null && mD ? false : true );
         d.items = d.items.map(function(f) {
-          console.log('F===',f);
           f['tier:1-2'] = ( (f.feature_level == 1 || f.feature_level) == 2 ? true : false);
           f['tier:3'] = (f.feature_level == 3 ? true : false);
           if (!f['tier:1-2'] && !f['tier:3']) {
@@ -391,20 +407,31 @@ console.log(Search);
         $('#map-search-results-'+resultsTarget).html(Mustache.render(template,d));
 
           $(d.items).each(function(i,v) {
-
             results.push({ id: v.id, guid: v.guid, lat: v.latitude, lng: v.longitude, icon: '/partners/thepress/img/markers/partner.png', activeIcon: '/partners/thepress/img/markers/winery.png' });
-        var myLatLng = {
-          lat: parseFloat(v.latitude),
-          lng: parseFloat(v.longitude)
-        };
+            var myLatLng = {
+              lat: parseFloat(v.latitude),
+              lng: parseFloat(v.longitude)
+            };
 
-        addMarker(myLatLng, icon, v);
+            addMarker(myLatLng, icon, v);
       });
       isScrollListener();
       //resetTripReceivers();
       resetTripReceivers();
-      resetMapBounds();
-      map.panTo(offsetCenter(map.getCenter(),100,30));
+      
+      
+      if (Search.neighborhood) {
+        resetMapBounds();
+        map.panTo(offsetCenter(map.getCenter(),100,30));
+      } else {
+        if (reposition) {
+            resetMapBounds();
+            map.panTo(offsetCenter(map.getCenter(),100,30));
+        } else {
+            map.panTo(map.getCenter());
+        }
+        
+      }
       });
 
 }
@@ -464,7 +491,8 @@ console.log(Search);
       });
 
       map.addListener('dragend', function() {
-        updateMap();
+        Search.neighborhood = false;
+        updateMap({reposition:false});
       });
 
       var count = 1;
@@ -582,7 +610,9 @@ console.log(Search);
 
     $(document).ready(function() {
 
-
+          if (screen.width < 500) {
+            $('.hud-winery').addClass('inactive');
+          }
       var results = [];
 
       $('.filter-dropdown').click(function() {

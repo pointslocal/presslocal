@@ -12,12 +12,36 @@
   box-shadow: 0px 0px 10px rgba(20,20,20,.2);
 }
 
+.mytrips-actions, .mytrips-meta {
+  margin-top: 20px;
+}
+
+.mytrips-item h3 {
+  font-size: 40px !important;
+}
+
+.toggle-signout, .toggle-signin {
+  text-transform: uppercase;
+  font-size: 14px;
+}
+#dropdown-trip-selector {
+  margin-top: 0px;
+}
+
+#dropdown-trip-selector li {
+
+}
+
+#dropdown-trip-selector li a {
+  color: #544741 !important;
+}
+
 #trip-register-error, #register-error {
-  font-weight: bold;
-text-transform: uppercase;
-color: #d95047;
-background-color: #e5e5e5;
-padding: 1em;
+  font-weight: bold; 
+text-transform: uppercase; 
+color: #d95047; 
+background-color: #e5e5e5; 
+padding: 1em; 
 display: none;
 }
 
@@ -38,9 +62,9 @@ body.openmodal {
     display: inline-block;
     padding: 0px;
     padding-bottom: 20px;
-    font-size: 14px;
+    font-size: 14px; 
     font-weight: bold;
-    color: #ccc;
+    color: #ccc;   
     margin-left: -2px;
     margin-right: -2px;
     min-width: 100px;
@@ -103,7 +127,7 @@ body.openmodal {
   #video-list {
     display:none;
     margin-top: 10px;
-  }
+  } 
 }
 
 .fake-ad {
@@ -129,7 +153,7 @@ body.openmodal {
 .filter-dropdown-options label{
   display: block;
   font-size: 16px;
-
+  
 }
 
 .filter-dropdown-options label input {
@@ -146,6 +170,25 @@ body.openmodal {
   text-shadow: 0px 0px 1px #000;
   font-size: 18px;
   width: 50px;
+}
+
+
+.module h2 span, .directory-info h3 span {
+
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgNTEyIDUxMiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTEyIDUxMjsiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+LnN0MHtmaWxsOiNGRjVCNTA7fTwvc3R5bGU+PHBhdGggY2xhc3M9InN0MCIgZD0iTTI1OC41LDBDMTQ0LjcsMCw2Miw3OS41LDYyLDE2Ni4xYzAsNTIuNCwyMS43LDgwLjQsNTAuNywxMzEuMUMxNzAuNiwzOTguNiwyNTguNSw1MDcsMjU4LjUsNTA3czg3LjktMTA4LjQsMTQ1LjgtMjA5LjhjMjktNTAuNyw1MC43LTc4LjcsNTAuNy0xMzEuMUM0NTUsNzkuNSwzNzIuMywwLDI1OC41LDAiLz48L3N2Zz4=);
+    width: 24px;
+    height: 24px;
+    margin-top: -3px;
+    text-align: center;
+    display: inline-block;
+    color: #fff;
+    vertical-align: middle;
+    font-family: europa, Helvetica, arial;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 20px;
+    background-repeat: no-repeat;
+    background-size: 24px 24px;
 }
 
 .module .tier-title span:not(.featured-badge-lg, .featured-badge-sm, .partner-badge, .affiliate-badge, .status) {
@@ -168,7 +211,7 @@ body.openmodal {
 }
 
 .module .tier-title h2 {
-  float: left;
+  display:inline-block;
   max-width: 88%;
 }
 
@@ -196,7 +239,7 @@ body.openmodal {
   display: none !important;
 }
 
-.nonauth-required, .button.button-tag, .button.button-xs.nonauth-required { display: none; }
+.nonauth-required, .button.button-tag, .button.button-xs.nonauth-required { display: none; } 
 
 /* Icons */
 .icon-chevron {
@@ -512,6 +555,16 @@ Colors
   background-color: rgba(255, 91, 80, 1);
 }
 
+.button.bg-clear {
+  color: #C4C5B4 !important;
+  background-color: rgba(255, 148, 78, 0);
+  border: 1px solid #C4C5B4;
+}
+.button.bg-clear:hover {
+  background-color: #A49C7E;
+}
+.button.actions.bg-red { border: 1px solid #FF5B50; }
+
 /*
 ====================
 Typography
@@ -639,11 +692,6 @@ Typography
   z-index: 1;
 }
 
-img.trans-icon {
-  max-width: 48px;
-  height: auto;
-}
-
 .divider.divider-lg {
   font-size: 28px;
 }
@@ -726,6 +774,13 @@ Buttons/Links
   font-size: 12px;
   font-weight: 700px;
   display: inline-block;
+}
+.button.actions {
+  font-weight: bold;
+  border-radius: 6px;
+  text-transform: uppercase;
+  font-size: 14px;
+  padding: 10px 30px;
 }
 
 a {
@@ -951,12 +1006,13 @@ nav.affix {
 }
 
 .nav-wrapper {
-  max-width: 1100px;
+  /*max-width: 1200px; */
 }
 
 nav.nav-sm .nav-wrapper,
 nav.affix .nav-wrapper {
   /* max-width: 850px; */
+  width: 100%;
 }
 
 nav.affix-top {
@@ -1190,6 +1246,18 @@ nav.affix .fixed-tools ul li.divider, nav.nav-sm .fixed-tools ul li.divider {
 }
 
 /* NK */
+.tripselect-plus {
+    color: #000;
+    background-color: #fff;
+    width: 14px;
+    line-height: 13px;
+    height: 14px;
+    font-size: 10px;
+    display: inline-block;
+    border-radius: 20px;
+    text-align: center;
+    vertical-align: middle;
+}
 nav.affix .fixed-tools ul li.tripselect,
 nav.nav-sm .fixed-tools ul li.tripselect {
   padding-right: 15px;
@@ -1212,11 +1280,11 @@ nav.nav-sm .fixed-tools ul li.tripselect {
 }
 
 .tripname {
-  font-weight: bold;
-  color: #93A558;
+  color: #544741;
 }
 
 nav.affix .fixed-tools ul li.tripselect a,
+nav.affix-top .tools ul li.tripselect a,
 nav.nav-sm .fixed-tools ul li.tripselect a{
   text-transform: none;
   font-size: 16px;
@@ -1230,10 +1298,24 @@ nav.nav-sm .fixed-tools ul li.mytrips a {
 }
 
 nav.affix .fixed-tools ul li.mytrips,
-nav.nav-sm .fixed-tools ul li.mytrips {
+nav.nav-sm .fixed-tools ul li.mytrips,  ul li.mytrips {
   line-height: 26px;
 border-left: 1px solid #333;
-    padding-left: 15px;
+    padding-left: 15px;  
+    font-weight: bold;
+}
+
+.home-nav .logo-container ul li.mytrips {
+  border-left: 1px solid #fff;
+}
+
+.home-nav .logo-container .tripname {
+  color: #fff;
+}
+
+.home-nav .logo-container .tripcount {
+  background-color: #fff;
+  color: #544741;
 }
 
 nav.affix .fixed-tools ul li.chronicle,
@@ -1261,7 +1343,7 @@ nav .logo-container .tools ul {
   margin-top: 20px;
 }
 
-nav .logo-container .tools ul li {
+nav .logo-container .tools ul li.header-tool {
   float: left;
   line-height: 55px;
   list-style: none;
@@ -1269,9 +1351,9 @@ nav .logo-container .tools ul li {
 }
 
 nav .logo-container .tools ul li a {
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   color: #fff;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 nav.solid .logo-container .tools ul li a {
@@ -1778,7 +1860,7 @@ header .cta .date {
 }
 
 .header-single .featured-image {
-	height: 500px;
+  height: 500px;
 }
 
 .header-single .featured-image img {
@@ -2814,10 +2896,6 @@ Global Modules
   text-transform: uppercase;
 }
 
-.featured-callout .callout-content .callout-sponsor p {
-  color: #fff;
-}
-
 @media (max-width: 768px) {
   .featured-callout .callout-content {
     padding: 0 40px;
@@ -2867,7 +2945,7 @@ Global Modules
 }
 
 .quad-column .quad-block .event-date {
-  font-size: 25px;
+  font-size: 34px;
   color: #fff;
   z-index: 9999;
   pointer-events: none;
@@ -3142,20 +3220,6 @@ Global Modules
   margin: 30px auto;
 }
 
-.directory #directory-map {
-  overflow: hidden !important;
-}
-
-.directory .sticky-wrapper {
-  position: relative;
-  margin-left: 5px;
-  overflow: hidden;
-}
-
-.directory .sticky-wrapper.is-sticky {
-  position: absolute;
-}
-
 .directory img {
   width: 100%;
   height: auto;
@@ -3176,8 +3240,7 @@ Global Modules
 }
 
 .directory .directory-list .directory-item .directory-info h3 {
-  font-size: 25px;
-  line-height: 1.1em;
+  font-size: 30px;
   margin-top: 0;
   margin-bottom: 0;
   display: inline-block;
@@ -3186,7 +3249,8 @@ Global Modules
 
 .directory .directory-list .directory-item .directory-info h3 a:hover {
   text-decoration: underline !important;
-}
+ }
+
 
 .directory .directory-list .directory-item .directory-pic a {
   position: relative;
@@ -3195,8 +3259,8 @@ Global Modules
 
 .directory .directory-list .directory-item .directory-pic img {
   width: 100%;
+  /* height: auto; */
   min-height: 140px;
-  object-fit: cover;
 }
 
 .directory .directory-list .directory-item .directory-pic a:after {
@@ -3222,7 +3286,7 @@ Global Modules
   font-family: 'europa', Helvetica, Arial, sans-serif;
   font-style: normal;
   font-weight: 700;
-  font-size: 25px;
+  font-size: 34px;
   color: #fff;
   text-transform: uppercase;
   z-index: 9999;
@@ -3644,10 +3708,6 @@ Sign In Modal
   text-align: center;
 }
 
-.modal-dialog .modal-header .error {
-  color: #FF5B50 !important;
-}
-
 .modal-dialog .modal-header .close {
   font-size: 50px;
   font-weight: 300 !important;
@@ -3682,10 +3742,9 @@ Sign In Modal
   border: none;
 }
 
-.modal-dialog .modal-content .modal-buttons a {
+.modal-dialog .modal-content .modal-buttons .forgot-pass {
   margin-top: 15px;
   display: inline-block;
-  color: #93a45c;
 }
 
 .modal-dialog .modal-content .modal-buttons a:hover {

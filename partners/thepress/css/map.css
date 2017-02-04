@@ -78,6 +78,10 @@ main {
   transition: all 0.2s;
 }
 
+.map-filters .container {
+  width: 100%;
+}
+
 .map-filters.inactive {
   transform: translateY(-175px) !important;
   -webkit-transform: translateY(-175px) !important;
