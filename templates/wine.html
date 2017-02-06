@@ -6,38 +6,50 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
     <title>The Press</title>
-  <script type="text/javascript" src="http://treg-staging.hearstnp.com/treg.js"></script>
-  <meta property="og:type" content="<[_ogtype]>" />
-  <meta property="og:url" content="<[_ogurl]>" />
-  <meta property="og:image" content="<[_ogimage]>" />
-  <meta property="place:location:latitude"  content="<[_oglatitude]>" />
-  <meta property="place:location:longitude" content="<[_oglongitude]>" />
-  <meta property="og:title" content="<[_ogtitle]>" />
+  
+    <meta property="og:type" content="<[_ogtype]>" /> 
+    <meta property="og:url" content="<[_ogurl]>" /> 
+    <meta property="og:image" content="<[_ogimage]>" /> 
+    <meta property="place:location:latitude"  content="<[_oglatitude]>" /> 
+    <meta property="place:location:longitude" content="<[_oglongitude]>" /> 
+    <meta property="og:title" content="<[_ogtitle]>" /> 
     <link rel="shortcut icon" href="/partners/thepress/img/thepress-logo-sm.png" />
     <meta name="description" content="">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/partners/thepress/css/global.css?x=587698be41eac">
+    <link rel="stylesheet" href="/partners/thepress/css/global.css?x=5898f845a3825">
     <link rel="stylesheet" href="/partners/thepress/css/index.css">
+
+
   <script type="text/javascript" id="adPositionManagerScriptTag" src="http://aps.hearstnp.com/Scripts/loadAds.js"></script>
-<SCRIPT type="text/javascript" lang="javascript" src="http://cdn.gigya.com/JS/gigya.js?apikey=3_BMFZOCwXDrSMoeTYN2uiVIBZhHski0qbm2oj7S3NL2gKLHcAjq-sx3cuKnLVg_pN"></SCRIPT>
+<SCRIPT type="text/javascript" lang="javascript" src="http://cdn.gigya.com/JS/gigya.js?apikey= 3_O6YwFqa1LkbrVGvTT0uOf2WwL78KJvUTqPQi6IGNF0xg5m1w2g-54pgf6xro1ZyU "></SCRIPT>
+<!-- 3_O6YwFqa1LkbrVGvTT0uOf2WwL78KJvUTqPQi6IGNF0xg5m1w2g-54pgf6xro1ZyU -->
+<!-- prod: 3_BMFZOCwXDrSMoeTYN2uiVIBZhHski0qbm2oj7S3NL2gKLHcAjq-sx3cuKnLVg_pN -->
   <script src="/includes/lib/mustache/mustache.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script src="/partners/thepress/js/thepressx.js?x=browse&tz=587698be41eac&xyz=z"></script>
+<script src="/partners/thepress/js/thepressx.js?x=browse&tz=5898f845a3825&zz=5898f845a3825&xyz=z"></script>
 
 <script type="text/javascript"
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-gHN0lD5gfgKu4bp0h6ZPRM_jkCuIHps&libraries=drawing"></script>
     <script type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js'></script>
 <script src="http://23hfij34r8a3i36ce2tnh9ii.wpengine.netdna-cdn.com/wp-content/themes/wordplate/js/markerwithlabel.js"></script>
     <script src="//use.typekit.net/wuq4anx.js"></script>
+
+
 <script>
 var _LAT = 38.334997;
 var _LON =  -122.298203;
-var _MARKER_FILL_COLOR = '#FF5B50';
-var _MARKER_HIGHLIGHT_FILL_COLOR = '#ffb8b2';
-var _MARKER_HIGHLIGHT_BORDER_COLOR = '#FF5B50';
+var _MARKER_FILL_COLOR = '#93A558'; // '#FF5B50';
+var _MARKER_HIGHLIGHT_FILL_COLOR = '#93A558'; //'#ffb8b2';
+var _MARKER_HIGHLIGHT_BORDER_COLOR = '#93A558'; //'#FF5B50';
 var _MAP_PATH = 'M258.5,0C144.7,0,62,79.5,62,166.1c0,52.4,21.7,80.4,50.7,131.1C170.6,398.6,258.5,507,258.5,507 s87.9-108.4,145.8-209.8c29-50.7,50.7-78.7,50.7-131.1C455,79.5,372.3,0,258.5,0';
+var _xMAP_PATH = 'M950.235781,615.06006 C950.235781,624.482899 933.11789,641.59793 933.11789,641.59793 C933.11789,641.59793 916,624.482899 916,615.06006 C916,605.63722 923.663109,598 933.11789,598 C942.572672,598 950.235781,605.63722 950.235781,615.06006 L950.235781,615.06006 Z';
 if ('<[publication]>' == 'alt') {
   _MARKER_FILL_COLOR = '#cc435a';
   _MARKER_HIGHLIGHT_FILL_COLOR = '#f299a8';
@@ -51,7 +63,7 @@ tripsExist = JSON.parse(localStorage.getItem('trips'));
 console.log(tripsExist);
 if (tripsExist && tripsExist.length > 0) {
   $(document).ready(function() {
-    $('.my-trip-inactive').removeClass('my-trip-inactive');
+    $('.my-trip-inactive').removeClass('my-trip-inactive'); 
   })
 
 }
@@ -82,7 +94,8 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
 </script>
 
   <!-- nav area -->
-  <nav class="clear" data-spy="affix" data-offset-top="90">
+  <!-- #256 LARGE NAV -->
+<nav class="clear home-nav" data-spy="affix" data-offset-top="90">
   <a href="#" class="toggle-nav hidden-lg hidden-md hidden-sm"><i class="fa fa-bars"></i><i class="fa fa-close hidden"></i></a>
   <a href="/map" class="map-button hidden-lg hidden-md hidden-sm"><img class="map-icon" src="/partners/thepress/img/icons/map-icon.png" alt="Go to Map"></a>
   <div class="container nav-wrapper">
@@ -95,21 +108,24 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
             <img class="logo-stamp hidden-xs" src="/partners/thepress/img/thepress-stamp-lg.png" alt="The Press">
           </a>
           <div class="tools">
-            <ul class="hidden-xs">
-              <li class="search"><a href="#" class="toggle-search"><i class="fa fa-search"></i></a></li>
-              <li class="signin"><a href="#" class="button button-sm clear sans toggle-signin" data-toggle="modal" data-target="#signinModal">Sign In</a></li>
+            <ul class="hidden-xs"  style="display:none;" id="auth-container">
+        <li class="signin header-tool" style="display:none;"><a href="#" class="button button-sm clear sans toggle-signin" data-toggle="modal" data-target="#signinModal">Sign In</a></li>
+        <li class="dropdown tripselect header-tool">
+          <a href="#" onclick="initNewTrip();" style="display:none" id="tripselect-noauth"><span class="tripselect-plus">+</span> <span class="">Create New Trip</span></a>        
+          <a href="#" style="display:none" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span class="tripcount"></span> <span class="tripname"></span></a>
+          <ul class="dropdown-menu" id="dropdown-trip-selector">
 
-              <li class="dropdown login hidden">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">user</a>
+                       
+          </ul>
+        </li>        
 
-                <ul class="dropdown-menu">
-                  <li><a href="/my-trip">Current Trip</a></li>
-                  <li><a href="/my-trips">Saved Trips</a></li>
-                  <li><a href="#" onclick="gigyaLogout();">Log out</a></li>
-                </ul>
-              </li>
-              <li class="chronicle hidden-sm"><a href="http://www.sfchronicle.com/foodandhome/wine/"><img src="/partners/thepress/img/sfchronicle-logo-lg.png" alt="SF Chronicle"></a></li>
-              <li class="chronicle-small hidden-lg hidden-md"><a href="#"><img src="/partners/thepress/img/sfchronicle-logo.png" alt="SF Chronicle"></a></li>
+        <li class="mytrips header-tool">
+          <a href="/my-trips">My Trips</a>
+        </li>        
+        <li class="dropdown login header-tool">
+          <a href="#" class="button button-sm clear sans toggle-signin" data-toggle="modal" data-target="#signinModal">Sign In</a>
+          <a href="#" onclick="gigyaLogout();" class="button button-sm clear sans dropdown-toggle toggle-signout " data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></a>
+        </li>
             </ul>
           </div>
         </div>
@@ -118,14 +134,18 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
         <ul class="main-nav sans-bold">
           <li><a href="/map">Map</a></li>
           <li><a href="/trips">Trips</a></li>
-          <li><a href="/stories">Reviews</a></li>
-          <li><a href="/wineries">Places</a></li>
+          <li><a href="/stories">Stories</a></li>
+          <li><a href="/wineries">Directory</a></li>
           <li><a href="/wine-events">Events</a></li>
 
         </ul>
       </div>
       <div class="fixed-tools">
         <ul class="hidden-xs">
+
+
+
+
           <li class="search"><a href="#" class="toggle-search"><i class="fa fa-search"></i></a></li>
           <li class="signin"><a href="#" class="button button-sm clear sans toggle-signin" data-toggle="modal" data-target="#signinModal">Sign In</a></li>
           <li class="dropdown login hidden">
@@ -143,12 +163,15 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
     </div>
 </nav>
 
+<!-- #256 /LARGE NAV -->
+
 <!-- Mobile Dropdown Menu -->
 <nav class="mobile-dropdown hidden-sm hidden-md hidden-lg">
   <div class="search-bar">
     <form class="form-inline" action="/search" role="form" method="post">
-      <input name="search" type="text" placeholder="Search">
       <button type="submit"><i class="fa fa-search"></i></button>
+      <input name="search" type="text" placeholder="Search">
+      
     </form>
   </div>
   <div class="dropdown-nav">
@@ -156,28 +179,27 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
       <li><a href="/map" >Map</a></li>
       <li><a href="/trips" >Trips</a></li>
       <li><a href="/stories" >Stories</a></li>
-      <li><a href="/wineries" >Wineries</a></li>
+      <li><a href="/wineries" >Places</a></li>
       <li><a href="/wine-events" >Events</a></li>
-      <li><a href="/my-trip" >Current Trip</a></li>
-      <li><a href="/my-trips" >Saved Trips</a></li>
+
     </ul>
   </div>
   <div class="login-state">
     <div class="login-state-container">
       <div class="login-pic" style="display:none;"><a href="#" class="toggle-signin" data-toggle="modal" data-target="#signinModal"><img src="/partners/thepress/img/login-pic.png"></a></div>
       <div class="login-name sans-bold white"><a href="#" class="toggle-signin" data-toggle="modal" data-target="#signinModal"></a></div>
-      <div class="login-status white sans-bold"><a href="#" class="toggle-signin" data-toggle="modal" data-target="#signinModal">Log Out</a></div>
+      <div class="login-status white sans-bold"><a href="#" onclick="gigyaLogout();" >Log Out</a></div>
     </div>
   </div>
 </nav><!-- Sign In Popup Modal -->
 <div class="modal fade" tabindex="-1" role="dialog" id="signinModal" aria-labelledby="signinModal">
-  <div class="modal-dialog login">
+  <div class="modal-dialog stdlogin">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true sans">&times;</span></button>
-        <h4 class="sans-bold brownmodal-title">Login</h4>
+        <h4 class="sans-bold brownmodal-title">Sign In</h4>
         <p class="sans brown">Welcome back. If you already have an account with us, please login below.</p>
-        <p class="sans error red" id="login-error"></p>
+        <p class="sans error" id="login-error"></p>        
       </div>
       <div class="modal-body">
         <form class="signinForm">
@@ -190,39 +212,40 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
         </form>
       </div>
        <div class="modal-buttons">
-        <button onclick="gigyaLogin();" type="submit" class="button button-xs bg-olive sans-bold">Login</button> <br>
-        <a href="#" class="forgot-pass sans brown" onclick="showModal('lostpassword');">I've lost my password</a> <span style="display:inline-block;margin-left:20px;"></span> No account? <a href="#" onclick="showModal('register');" class="sans brown">Create One</a>
+        <button onclick="gigyaLogin();" type="submit" class="button button-xs bg-olive sans-bold">Sign In</button> <br>
+        <a href="#" class="forgot-pass sans brown" onclick="showModal('lostpassword');">I've lost my password</a> <span style="display:inline-block;margin-left:20px;"></span> No account? <a href="#" onclick="showModal('stdregister');" class="sans brown">Create One</a>
       </div>
     </div>
   </div>
-  <div class="modal-dialog register" style="display:none;">
+  <div class="modal-dialog stdregister" style="display:none;">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true sans">&times;</span></button>
         <h4 class="sans-bold brownmodal-title">Register</h4>
         <p class="sans brown">Create a Profile With ThePress</p>
-        <p class="sans error red" id="register-error"></p>
+        <p class="sans error" id="register-error"></p>
       </div>
       <div class="modal-body">
         <form class="signinForm">
           <div class="form-group">
             <input id="register-email" type="email" placeholder="Email Address">
           </div>
-          <div>Passwords must be at least 8 characters, contain upper and lowercase letters and at least one number.</div>
+
           <div class="form-group">
             <input id="register-username" type="text" placeholder="Username">
-          </div>
+          </div>   
+          <div>Passwords must be at least 8 characters, contain upper and lowercase letters and at least one number.</div>                 
           <div class="form-group">
             <input id="register-password" type="password" placeholder="Password">
           </div>
           <div class="form-group">
             <input id="register-password2" type="password" placeholder="Password (Repeat)">
-          </div>
+          </div>          
         </form>
       </div>
        <div class="modal-buttons">
         <button onclick="gigyaRegister();" type="submit" class="button button-xs bg-olive sans-bold">Register</button> <br>
-         Already have an account? <a href="#" onclick="showModal('login');" class="sans brown">Sign In</a>
+         Already have an account? <a href="#" onclick="showModal('stdlogin');" class="sans brown">Sign In</a>
       </div>
     </div>
   </div>
@@ -249,20 +272,20 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true sans">&times;</span></button>
         <h4 class="sans-bold brownmodal-title">Reset Your Password</h4>
         <p class="sans brown">Create a Profile With ThePress</p>
-        <p class="sans error red" id="register-error"></p>
+        <p class="sans error" id="register-error"></p>
       </div>
       <div class="modal-body">
         <form class="signinForm">
           <div class="form-group">
             <input id="register-email" type="email" placeholder="Email Address">
           </div>
+      
 
-
-
+        
         </form>
       </div>
        <div class="modal-buttons">
-        <button onclick="showModal('login');" type="submit" class="button button-xs bg-olive sans-bold">Cancel</button>
+        <button onclick="showModal('login');" type="submit" class="button button-xs bg-olive sans-bold">Cancel</button>   
       </div>
     </div>
   </div>
@@ -271,6 +294,185 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
 
 
 </div><!-- Search Modal -->
+
+
+
+
+
+<div class="modal fade" tabindex="-1" role="dialog" id="tripBuildModal" aria-labelledby="tripBuildModal">
+
+  <div class="modal-dialog trips-login" style="display:none;">
+    <div class="modal-content">
+      <div class="modal-header"> 
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true sans">&times;</span></button>
+        <ul class="trip-modal-status">
+            <li class="trip-modal-status-step active">
+              <div>Sign In</div>
+              <span class="trip-modal-status-step-notch active"></span>
+            </li>
+            <li class="trip-modal-status-step ">
+              <div>Name Your Trip</div>
+              <span class="trip-modal-status-step-notch "></span>
+            </li>
+            <li class="trip-modal-status-step ">
+              <div>Trip Saved!</div>
+              <span class="trip-modal-status-step-notch "></span>
+            </li>                  
+        </ul>        
+        <h4 class="sans-bold brownmodal-title">Sign up to start your trip</h4>
+        <p class="sans brown">By signing up for an account, you can create your own wine country trips on The Press: Name and save your trip, add places and events to your trip, and access your trips, map and driving directions right from your mobile device.</p>
+        <p class="sans error" id="login-error"></p>        
+      </div>
+      <div class="modal-body">
+        <form class="signinForm">
+          <div class="form-group">
+            <input id="trip-login-email" type="email" placeholder="Email Address">
+          </div>
+          <div class="form-group">
+            <input id="trip-login-password" type="password" placeholder="Password">
+          </div>
+        </form>
+      </div>
+       <div class="modal-buttons">
+        <button onclick="gigyaTripsLogin();" type="submit" class="button button-xs bg-olive sans-bold">Login</button> <br>
+        <a style="display:none;" href="#" class="forgot-pass sans brown" onclick="showModal('lostpassword');">I've lost my password</a> <span style="display:inline-block;margin-left:20px;"></span> No account? <a href="#" onclick="showModal('register');" class="sans brown">Create One</a>
+      </div>
+    </div>
+  </div>
+  <div class="modal-dialog trips-register">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true sans">&times;</span></button>
+        <ul class="trip-modal-status">
+            <li class="trip-modal-status-step active">
+              <div>Sign In</div>
+              <span class="trip-modal-status-step-notch active"></span>
+            </li>
+            <li class="trip-modal-status-step ">
+              <div>Name Your Trip</div>
+              <span class="trip-modal-status-step-notch "></span>
+            </li>
+            <li class="trip-modal-status-step ">
+              <div>Trip Saved!</div>
+              <span class="trip-modal-status-step-notch "></span>
+            </li>                  
+        </ul>               
+        <h4 class="sans-bold brownmodal-title">Register</h4>
+        <p class="sans brown">By signing up for an account, you can create your own wine country trips on The Press: Name and save your trip, add places and events to your trip, and access your trips, map and driving directions right from your mobile device.</p>
+        <p class="sans error" id="trip-register-error"></p>
+      </div>
+      <div class="modal-body">
+        <form class="signinForm">
+          <div class="form-group">
+            <input id="trip-register-email" type="email" placeholder="Email Address">
+          </div>
+          <div>Passwords must be at least 8 characters, contain upper and lowercase letters and at least one number.</div>
+          <div class="form-group">
+            <input id="trip-register-username" type="text" placeholder="Username">
+          </div>          
+          <div class="form-group">
+            <input id="trip-register-password" type="password" placeholder="Password">
+          </div>
+          <div class="form-group">
+            <input id="trip-register-password2" type="password" placeholder="Password (Repeat)">
+          </div>          
+        </form>
+      </div>
+       <div class="modal-buttons">
+        <button onclick="gigyaTripsRegister();" type="submit" class="button button-xs bg-olive sans-bold">Register</button> <br>
+         Already have an account? <a href="#" onclick="showModal('login');" class="sans brown">Sign In</a>
+      </div>
+    </div>
+  </div>
+  <div class="modal-dialog trips-name" style="display:none;">
+    <div class="modal-content">
+      <div class="modal-header"> 
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true sans">&times;</span></button>
+        <ul class="trip-modal-status">
+            <li class="trip-modal-status-step active">
+              <div>Sign In</div>
+              <span class="trip-modal-status-step-notch active"></span>
+            </li>
+            <li class="trip-modal-status-step active">
+              <div>Name Your Trip</div>
+              <span class="trip-modal-status-step-notch active"></span>
+            </li>
+            <li class="trip-modal-status-step ">
+              <div>Trip Saved!</div>
+              <span class="trip-modal-status-step-notch "></span>
+            </li>                  
+        </ul>           
+        <h4 class="sans-bold brownmodal-title">Give it a name</h4>
+        <p class="sans brown">Give your trip a name and hit save.  We'll add it to your list of trips!</p>
+        <p class="sans error" id="login-error"></p>        
+      </div>
+      <div class="modal-body">
+        <form class="signinForm">
+          <div class="form-group">
+            <input id="new-trip-name" type="text" placeholder="New trip name" maxlength="20">
+          </div>
+
+        </form>
+      </div>
+       <div class="modal-buttons">
+        <button onclick="createNewTrip();" type="submit" class="button button-xs bg-olive sans-bold">Save</button> <br>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-dialog register-success" style="display:none;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true sans">&times;</span></button>
+        <h4 class="sans-bold brownmodal-title">Registration Successful</h4>
+
+      </div>
+      <div class="modal-body">
+        You have successfully registered with The Press.
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="modal-dialog lostpassword" style="display:none;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true sans">&times;</span></button>
+        <h4 class="sans-bold brownmodal-title">Reset Your Password</h4>
+        <p class="sans brown">Create a Profile With ThePress</p>
+        <p class="sans error" id="register-error"></p>
+      </div>
+      <div class="modal-body">
+        <form class="signinForm">
+          <div class="form-group">
+            <input id="register-email" type="email" placeholder="Email Address">
+          </div>
+      
+
+        
+        </form>
+      </div>
+       <div class="modal-buttons">
+        <button onclick="showModal('login');" type="submit" class="button button-xs bg-olive sans-bold">Cancel</button>   
+      </div>
+    </div>
+  </div>
+
+
+
+
+</div><!-- Search Modal -->
+
+
+
+
+
+
+
 <div class="search-modal hidden-xs">
   <div class="search-container">
     <a href="#" class="close-button white sans"><svg width="30" height="30" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1490 1322q0 40-28 68l-136 136q-28 28-68 28t-68-28l-294-294-294 294q-28 28-68 28t-68-28l-136-136q-28-28-28-68t28-68l294-294-294-294q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 294 294-294q28-28 68-28t68 28l136 136q28 28 28 68t-28 68l-294 294 294 294q28 28 28 68z"/></svg></a>
@@ -285,8 +487,8 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
     <!-- Header with Call to Action Module -->
   <header class="header-lg" style="background: url('/partners/thepress/img/headers/front-page.png') center center no-repeat; background-size: cover;">
     <div class="cta vert-center">
-      <h1>Explore The Best of Wine Country</h1>
-      <p>The San Francisco Chronicle's interactive guide to wine tasting in Napa and Sonoma</p>
+      <h1>The San Francisco Chronicle's guide to The Best of Wine Country</h1>
+      <p>Explore the map. Read the reviews. Create your trip. </p>
     </div>
 <div class="where-container">
       <p class="sans-bold sans where-label hidden-sm hidden-md hidden-lg">Where to?</p>
@@ -313,8 +515,6 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
     </div>
   </header>
 
-  <main>
-
   <div class="oldmain">
 
   <!-- TRIPS TEASER -->
@@ -329,27 +529,24 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
       <div class="row">
         <div class="col-sm-12">
           <div class="callout-content">
-            <h1 class="serif brown">Wine Country Trip Planner</h1>
-            <p class="medBrown">Follow recommended itineraries and customize your own</p>
+            <h1 class="serif brown">Inside the best wineries and Tasting Rooms</h1>
+            <p class="medBrown">Hundreds of reviews and stories from our team of journalists</p>
               <a href="/trips" class="button button-cta serif bg-lightOrange">See All Trips</a>
-    <div class="callout-sponsor">
-    <p>Sponsored By</p>
-    <img src="/partners/thepress/img/napa.png" style="max-width:100%;" />
-    </div>
+
           </div>
         </div>
       </div>
     </div>
   </section>
-
+        
 <!-- 102 -->
 
     <!-- Three Column Block -->
 
-
+        
   <section class="two-column container no-padding">
       <div class="row scrollable" id="scroll1">
-
+        
         <div class="col-sm-6 block-container">
           <a href="/trip/healdsburg-winery-hopping" class="block" style="background: url('image?method=image.crop&context=package&id=48&w=370&h=240') center center no-repeat; background-size: cover;">
             <div class="block-label white"></div>
@@ -363,8 +560,8 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
         </div>
         <div class="col-sm-6 block-container" id="trip-teaser-sponsored">
 
-        </div>
-
+        </div>        
+        
 
         <!-- Additional Mobile Scrolling Items (Appear in Three Column Block Below) -->
         <!--
@@ -406,11 +603,11 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
 
         -->
       </div>
-    </section>
-
+    </section>        
+    
     <section class="three-column container no-padding hidden-xs">
       <div class="row">
-
+        
         <div class="col-sm-4 the-column">
           <a href="/trip/break-out-the-bubbly" class="block" style="background: url('image?method=image.crop&context=package&id=31&w=370&h=240') center center no-repeat; background-size: cover;"></a>
           <div class="block-label lightBrown">Sonoma</div>
@@ -418,14 +615,14 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
             <h4 class="sans-bold orange"><a href="/trip/break-out-the-bubbly">Break out the Bubbly</a></h4>
           </div>
         </div>
-
+        
 
 
         <div class="col-sm-4 the-column trip-teaser-sponsored-small">
 
         </div>
 
-
+        
         <div class="col-sm-4 the-column">
           <a href="/trip/yao-ming-s-best-reds-around" class="block" style="background: url('image?method=image.crop&context=package&id=32&w=370&h=240') center center no-repeat; background-size: cover;"></a>
           <div class="block-label lightBrown">Sonoma</div>
@@ -433,7 +630,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
             <h4 class="sans-bold orange"><a href="/trip/yao-ming-s-best-reds-around">Yao Ming's Best Reds Around</a></h4>
           </div>
         </div>
-
+                
     </section>
 
 
@@ -451,7 +648,7 @@ $(document).ready(function() {
       <div class="container no-padding">
         <div class="row">
           <div class="col-sm-12">
-            <h2 class="divider divider-lg red"><span>Reviews</span></h2>
+            <h2 class="divider divider-lg red"><span>Stories</span></h2>
     <img class="stamp" src="/partners/thepress/img/thepress-stamp-red.png" alt="The Press">
           </div>
         </div>
@@ -461,7 +658,7 @@ $(document).ready(function() {
 <div class="story-label white"></div>
               <h1 class="serif brown">A Distinctly Entertaining Experience</h1>
               <p class="medBrown">Stories and tips to inspire your wine country getaway.</p>
-              <a href="/stories" class="button button-cta serif bg-red">See All Stories</a>
+              <a href="/storyindex" class="button button-cta serif bg-red">See All Stories</a>
             </div>
           </div>
         </div>
@@ -471,7 +668,7 @@ $(document).ready(function() {
 
 <section class="featured-story container no-padding">
       <div class="row scrollable" id="scroll3">
-
+        
         <div class="col-sm-12 block-container">
           <a href="/story/benovia-winery" class="story-container" style="background: url('/image?method=image.icrop&context=stories&id=262&w=1000&h=-1') center center no-repeat; background-size: cover;">
             <div class="story-content vert-center">
@@ -484,7 +681,7 @@ $(document).ready(function() {
             <span class="date darkOlive">December 13, 2016</span>
           </div>
         </div>
-
+           
         <!-- Additional Mobile Scrolling Items (Appear in Three Column Block Below) -->
         <!--
         <div class="mobile-scroller hidden-sm hidden-md hidden-lg">
@@ -535,23 +732,23 @@ $(document).ready(function() {
 
 <section class="three-column stories container no-padding hidden-xs">
       <div class="row">
-
+        
         <div class="col-sm-4 the-column">
           <a href="/story/paul-hobbs" class="block" style="background: url('/image?method=image.icrop&context=stories&id=263&w=1000&h=-1') center center no-repeat; background-size: cover;"></a>
           <div class="block-label lightBrown">Winery Review</div>
           <div class="block-content">
-            <h4 class="sans-bold red"><a href="/story/263">Paul Hobbs: Formal Seated Tasting</a></h4>
+            <h4 class="sans-bold red"><a href="/story/263">Paul Hobbs: Where tasting is an Event</a></h4>
             <span class="date darkOlive">December 13, 2016</span>
           </div>
         </div>
-
+        
 
 
         <div class="col-sm-4 the-column story-teaser-sponsored-small">
 
         </div>
 
-
+        
         <div class="col-sm-4 the-column">
           <a href="/story/la-crema" class="block" style="background: url('/image?method=image.icrop&context=stories&id=264&w=1000&h=-1') center center no-repeat; background-size: cover;"></a>
           <div class="block-label lightBrown">Winery Review</div>
@@ -560,10 +757,10 @@ $(document).ready(function() {
             <span class="date darkOlive">December 13, 2016</span>
           </div>
         </div>
-
+        
 
       </div>
-    </section>
+    </section>    
 
 <script>
 $(document).ready(function() {
@@ -580,10 +777,7 @@ $(document).ready(function() {
             <h1 class="serif white">The Complete List of Wineries</h1>
             <p class="white">Plus Select Restaurants & Lodging</p>
             <a href="/wineries" class="button button-cta serif bg-olive-alpha">Places Directory</a>
-    <div class="callout-sponsor">
-    <p>Sponsored By</p>
-    <img src="/partners/thepress/img/sonoma.png" />
-    </div>
+
           </div>
         </div>
       </div>
@@ -612,24 +806,23 @@ $(document).ready(function() {
           </div>
         </div>
 
-
+        
 
 
         <div class="col-sm-6 block-container ">
-          <a href="/place/chimney-rock-winery" class="block-padding sponsored" style="background: url('/image?method=image.icrop&context=venue&id=351&w=2000&h=800') center center no-repeat; background-size: cover;">
+          <a href="/place/bottlerock-napa-valley" class="block-padding sponsored" style="background: url('/image?method=image.icrop&context=venue&id=2737&w=2000&h=800') center center no-repeat; background-size: cover;">
 
             <div class="block-content vert-center hidden-xs">
-              <h3 class="white">Chimney Rock Winery</h3>
+              <h3 class="white">Bottlerock Napa Valley</h3>
               <span class="partner-badge"></span>
             </div>
           </a>
           <div class="block-text">
             <div class="block-label lightBrown"></div>
-            <h2 class="sans-bold olive hidden-sm hidden-md hidden-lg">Chimney Rock Winery</h2>
-            <p class="sans brown hidden-xs"><p>Located on the fabled Silverado Trail in the world-renowned Stags Leap District of California's Napa Valley, our beautiful Cape Dutch-inspired estate winery is recognized as one of the world's premier fine wine producers. </p>
-</p>
+            <h2 class="sans-bold olive hidden-sm hidden-md hidden-lg">Bottlerock Napa Valley</h2>
+            <p class="sans brown hidden-xs">Experience the first taste of summer at BottleRock Napa Valley, May 26 - 28, 2017 featuring the BEST in live music, wine, food and brew.</p>
           </div>
-        </div>
+        </div>        
 
         <!-- Additional Mobile Scrolling Items (Appear in Three Column Block Below) -->
         <!--
@@ -668,7 +861,7 @@ $(document).ready(function() {
     </section>
 
 
-
+          
 <!-- 108 -->
     <!-- Quad Columns Module -->
     <section class=" quad-column container no-padding hidden-xs">
@@ -678,6 +871,14 @@ $(document).ready(function() {
           <div class="block-text">
             <div class="block-label lightBrown"></div>
             <h4 class="sans-bold olive"><a href="/place/alpha-omega-winery">Alpha Omega Winery</a></h4>
+            <span class="partner-badge"></span>
+          </div>
+        </div>
+        <div class="col-sm-3 block-container">
+          <a href="/place/bottlerock-napa-valley" class="quad-block" style="background: url('/image?method=image.icrop&context=venue&id=2737&w=300&h=100') center center no-repeat; background-size: cover;"></a>
+          <div class="block-text">
+            <div class="block-label lightBrown"></div>
+            <h4 class="sans-bold olive"><a href="/place/bottlerock-napa-valley">Bottlerock Napa Valley</a></h4>
             <span class="partner-badge"></span>
           </div>
         </div>
@@ -697,19 +898,11 @@ $(document).ready(function() {
             <span class="partner-badge"></span>
           </div>
         </div>
-        <div class="col-sm-3 block-container">
-          <a href="/place/cobb-wines" class="quad-block" style="background: url('/image?method=image.icrop&context=venue&id=1342&w=300&h=100') center center no-repeat; background-size: cover;"></a>
-          <div class="block-text">
-            <div class="block-label lightBrown"></div>
-            <h4 class="sans-bold olive"><a href="/place/cobb-wines">Cobb Wines</a></h4>
-            <span class="partner-badge"></span>
-          </div>
-        </div>
       </div>
     </section>
 
 
-
+  
 
   <!-- 109 -->
     <!-- Featured Callout -->
@@ -725,22 +918,22 @@ $(document).ready(function() {
       </div>
     </section>
 
+  
 
+  
 
+  
 
+  
 
-
-
-
-
-
+  
 
 <div style="text-align:center;">
  <!-- hearst/ads/full_banner_A728.tpl -->
     <!-- hmb:a728 full banner A728 ad -->
     <div id="ctpl-fullbanner1" class="ctpl-fullbanner fixed" data-collapse-timer="10">
     <div id="A728" class="ad_deferrable"><script type="text/javascript">/*<![CDATA[*/ hearstPlaceAd("A728"); /*]]>*/</script></div>
-
+    
     <script>
     (function() {
         var checkCount = 120;
@@ -768,14 +961,12 @@ $(document).ready(function() {
         }, 1000);
     })();
     </script>
-
+    
     </div>
 <!-- e hearst/ads/full_banner_A728.tpl -->
 </div>
 
   </div>
-
-  </main>
 
         <footer>
         <div class="container">
@@ -789,7 +980,7 @@ $(document).ready(function() {
               <ul>
                 <li><a href="/map">Map</a></li>
                 <li><a href="/trips">Trips</a></li>
-                <li><a href="/stories">Reviews</a></li>
+                <li><a href="/stories">Stories</a></li>
                 <li><a href="/wineries">Places</a></li>
                 <li><a href="/wine-events">Events</a></li>
                 <li><a href="/about">About</a></li>
@@ -806,15 +997,19 @@ $(document).ready(function() {
         </div>
       </footer>
 
+<!-- there -->
+
+<!-- ^ there -->
+
 
 <!-- Begin Hearst analytics --> <script type="text/javascript" src="//nexus.ensighten.com/hearst/news-3p/Bootstrap.js"></script> <!-- End Hearst analytics -->
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script type="text/javascript" src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
     <script type="text/javascript" src="/partners/thepress/js/libs/jquery-touch-punch.js"></script>
     <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
 <script type="text/javascript" src="/partners/thepress/js/libs/markerwithlabel.js"></script><script type="text/javascript" src="/partners/thepress/js/libs/jquery-editable-poshytip.min.js"></script>
-    <script type="text/javascript" src="/partners/thepress/js/libs/iscroll.js?t=587698be41eac"></script>
-<script type="text/javascript" src="/partners/thepress/js/libs/slick.js?t=587698be41eac"></script>
+    <script type="text/javascript" src="/partners/thepress/js/libs/iscroll.js?t=5898f845a3825"></script>
+<script type="text/javascript" src="/partners/thepress/js/libs/slick.js?t=5898f845a3825"></script>
     <script type="text/javascript" src="/partners/thepress/js/global.js?t=1"></script>
 <script type="text/javascript" src="/partners/thepress/js/libs/jquery.sticky.js"></script>
     <script src="/partners/thepress/js/map.js?1470683612"></script>
