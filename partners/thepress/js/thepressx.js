@@ -132,7 +132,8 @@ function updateButtons() {
 		$('.dropdown-toggle .tripcount').html(tripCount);
 		$('.dropdown-toggle .tripcount').attr('data-id',$(el).attr('data-id'));
 		$('.dropdown-toggle .tripname').html(tripName);	
-
+		$('#mobile-trips-container-trips li ').attr('data-active','0');
+		$('#mobile-trips-container-trips li a[data-id="'+id+'"]').closest('li').attr('data-active','1');
 		_WORKING_TRIP = { name: tripName, id: $(el).attr('data-id'), count: tripCount, items: _TRIPS[id].items }	
 		localStorage.setItem('workingTrip', JSON.stringify(_WORKING_TRIP));
 		getCurrentWorkingTrip();
@@ -180,6 +181,7 @@ function updateButtons() {
 			_TripsHTML = outerElement;
 
 			$('#dropdown-trip-selector').html(dropdownElement);
+			$('#mobile-trips-container-trips').html(dropdownElement);
 			$('.trip-receiver').each(function() {
 				/*
 				console.log('trip rec')
@@ -199,6 +201,7 @@ function updateButtons() {
 				$('#tripselect-noauth').show();
 				$('.tripselect .dropdown-toggle').hide();
 			} else {
+				$('.mobile-trips-container').show();
 				$('#tripselect-noauth').hide();
 				$('.tripselect .dropdown-toggle').show();				
 			}
@@ -444,8 +447,9 @@ function onGetAccount(response) {
 
 //	Gigya login callback
 function onLogin(response) {
+	console.log(response);
 	if (response.errorCode > 0) {
-		$('#login-error').text(response.errorMessage + response.errorCode);
+		$('#login-error').text(response.errorMessage + ' : ' + response.errorCode);
 		$('.nonauth-required').show();		
 	} else {
 
@@ -482,9 +486,19 @@ function onRegister(response) {
 		$('#trip-register-error, #register-error').text('Either username or email should be provided');
 	} else {
 		var es = [];
-		response.validationErrors.forEach(function(e) {
-			es.push( e.message );
-		});
+		if (response.validationErrors && response.validationErrors.length > 0) {
+			response.validationErrors.forEach(function(e) {
+				es.push( e.message );
+			});				
+		}
+
+		if (es.length < 1) {
+			msg = response.errorMessage;
+			if (response.errorCode && response.errorCode == 400006) {
+				msg = "Invalid email or password";
+			}
+			es.push( msg );
+		}
 		$('#trip-register-error, #register-error').html(es.join('. '));
 	}
 }
@@ -676,12 +690,12 @@ function getExistingTrip(p) {
 function getTrips() {
 
 	$.getJSON('/api.json?method=events.packages-user',function(d) {
-		console.log('saved trips?????:',d);
+
 		if (d.items != null) {
 		$('#mytrips-info').text(d.items.length+' trip'+(d.items.length > 1 ? 's' : '') );
 	}
 		$('#mytrips-container').html(Mustache.render(TripsTemplate,d));
-	
+		// $('#mobile-trips-container-trips').html(Mustache.render(TripsTemplate,d));	
 	});
 }
 
@@ -854,6 +868,7 @@ function addTripMarkers(marker, secretMessage) {
 }
 
 function clearTrip() {
+	localStorage.setItem('workingTrip','')	
 	localStorage.setItem('workingTripName','')
 	localStorage.setItem('trips',JSON.stringify([]));
 	location.reload();

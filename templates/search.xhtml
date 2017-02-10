@@ -23,17 +23,18 @@
     <meta name="description" content="">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/partners/thepress/css/global.css?x=589dd9d849669">
+    <link rel="stylesheet" href="/partners/thepress/css/global.css?x=589e3cf90a2b0">
     <link rel="stylesheet" href="/partners/thepress/css/index.css">
 
 
   <script type="text/javascript" id="adPositionManagerScriptTag" src="http://aps.hearstnp.com/Scripts/loadAds.js"></script>
-<SCRIPT type="text/javascript" lang="javascript" src="http://cdn.gigya.com/JS/gigya.js?apikey=3_SwXI4hyN9wmzGqer7gFM6ZcaPKuO4YepRCKYkTUQhmUP89-cbi4KAnt5Tp7yyaUs"></SCRIPT>
+<SCRIPT type="text/javascript" lang="javascript" src="http://cdn.gigya.com/JS/gigya.js?apikey=3_BMFZOCwXDrSMoeTYN2uiVIBZhHski0qbm2oj7S3NL2gKLHcAjq-sx3cuKnLVg_pN"></SCRIPT>
+<!-- prod treg: 3_SwXI4hyN9wmzGqer7gFM6ZcaPKuO4YepRCKYkTUQhmUP89-cbi4KAnt5Tp7yyaUs -->
 <!-- 3_O6YwFqa1LkbrVGvTT0uOf2WwL78KJvUTqPQi6IGNF0xg5m1w2g-54pgf6xro1ZyU -->
 <!-- prod: 3_BMFZOCwXDrSMoeTYN2uiVIBZhHski0qbm2oj7S3NL2gKLHcAjq-sx3cuKnLVg_pN -->
   <script src="/includes/lib/mustache/mustache.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script src="/partners/thepress/js/thepressx.js?x=browse&tz=589dd9d849669&zz=589dd9d849669&xyz=z"></script>
+<script src="/partners/thepress/js/thepressx.js?x=browse&tz=589e3cf90a2b0&zz=589e3cf90a2b0&xyz=sz"></script>
 
 <script type="text/javascript"
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-gHN0lD5gfgKu4bp0h6ZPRM_jkCuIHps&libraries=drawing"></script>
@@ -164,11 +165,23 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
 
     </ul>
   </div>
+  <div class="mobile-trips-container" style="display:none;">
+  <div class="row">
+    <div class="col-xs-6"><a href="/my-trips" >My Trips</a></div>
+    <div class="col-xs-6"><a class="mobile-trips-container-logout pull-right" href="#" onclick="gigyaLogout();" >Log Out</a></div>
+    <div class="col-xs-12" style="padding: 0px;">
+      <div id="mobile-trips-container-message"></div>
+      <ul id="mobile-trips-container-trips">
+
+      </ul>
+    </div>
+  </div>
+  </div>
   <div class="login-state">
     <div class="login-state-container">
       <div class="login-pic" style="display:none;"><a href="#" class="toggle-signin" data-toggle="modal" data-target="#signinModal"><img src="/partners/thepress/img/login-pic.png"></a></div>
       <div class="login-name sans-bold white"><a href="#" class="toggle-signin" data-toggle="modal" data-target="#signinModal"></a></div>
-      <div class="login-status white sans-bold"><a href="#" onclick="gigyaLogout();" >Log Out</a></div>
+      <div class="login-status white sans-bold mobile-login-status"><a href="#" onclick="initNewTrip();" >Create New Trip</a></div>
     </div>
   </div>
 </nav><!-- Sign In Popup Modal -->
@@ -827,8 +840,8 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
     <script type="text/javascript" src="/partners/thepress/js/libs/jquery-touch-punch.js"></script>
     <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
 <script type="text/javascript" src="/partners/thepress/js/libs/markerwithlabel.js"></script><script type="text/javascript" src="/partners/thepress/js/libs/jquery-editable-poshytip.min.js"></script>
-    <script type="text/javascript" src="/partners/thepress/js/libs/iscroll.js?t=589dd9d849669"></script>
-<script type="text/javascript" src="/partners/thepress/js/libs/slick.js?t=589dd9d849669"></script>
+    <script type="text/javascript" src="/partners/thepress/js/libs/iscroll.js?t=589e3cf90a2b0"></script>
+<script type="text/javascript" src="/partners/thepress/js/libs/slick.js?t=589e3cf90a2b0"></script>
     <script type="text/javascript" src="/partners/thepress/js/global.js?t=1"></script>
 <script type="text/javascript" src="/partners/thepress/js/libs/jquery.sticky.js"></script>
     <script src="/partners/thepress/js/map.js?1470683612"></script>

@@ -23,17 +23,18 @@
     <meta name="description" content="">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/partners/thepress/css/global.css?x=589dd8fad470e">
+    <link rel="stylesheet" href="/partners/thepress/css/global.css?x=589e3d09ba81c">
     <link rel="stylesheet" href="/partners/thepress/css/index.css">
 
 
   <script type="text/javascript" id="adPositionManagerScriptTag" src="http://aps.hearstnp.com/Scripts/loadAds.js"></script>
-<SCRIPT type="text/javascript" lang="javascript" src="http://cdn.gigya.com/JS/gigya.js?apikey=3_SwXI4hyN9wmzGqer7gFM6ZcaPKuO4YepRCKYkTUQhmUP89-cbi4KAnt5Tp7yyaUs"></SCRIPT>
+<SCRIPT type="text/javascript" lang="javascript" src="http://cdn.gigya.com/JS/gigya.js?apikey=3_BMFZOCwXDrSMoeTYN2uiVIBZhHski0qbm2oj7S3NL2gKLHcAjq-sx3cuKnLVg_pN"></SCRIPT>
+<!-- prod treg: 3_SwXI4hyN9wmzGqer7gFM6ZcaPKuO4YepRCKYkTUQhmUP89-cbi4KAnt5Tp7yyaUs -->
 <!-- 3_O6YwFqa1LkbrVGvTT0uOf2WwL78KJvUTqPQi6IGNF0xg5m1w2g-54pgf6xro1ZyU -->
 <!-- prod: 3_BMFZOCwXDrSMoeTYN2uiVIBZhHski0qbm2oj7S3NL2gKLHcAjq-sx3cuKnLVg_pN -->
   <script src="/includes/lib/mustache/mustache.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script src="/partners/thepress/js/thepressx.js?x=browse&tz=589dd8fad470e&zz=589dd8fad470e&xyz=z"></script>
+<script src="/partners/thepress/js/thepressx.js?x=browse&tz=589e3d09ba81c&zz=589e3d09ba81c&xyz=sz"></script>
 
 <script type="text/javascript"
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-gHN0lD5gfgKu4bp0h6ZPRM_jkCuIHps&libraries=drawing"></script>
@@ -189,11 +190,23 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
 
     </ul>
   </div>
+  <div class="mobile-trips-container" style="display:none;">
+  <div class="row">
+    <div class="col-xs-6"><a href="/my-trips" >My Trips</a></div>
+    <div class="col-xs-6"><a class="mobile-trips-container-logout pull-right" href="#" onclick="gigyaLogout();" >Log Out</a></div>
+    <div class="col-xs-12" style="padding: 0px;">
+      <div id="mobile-trips-container-message"></div>
+      <ul id="mobile-trips-container-trips">
+
+      </ul>
+    </div>
+  </div>
+  </div>
   <div class="login-state">
     <div class="login-state-container">
       <div class="login-pic" style="display:none;"><a href="#" class="toggle-signin" data-toggle="modal" data-target="#signinModal"><img src="/partners/thepress/img/login-pic.png"></a></div>
       <div class="login-name sans-bold white"><a href="#" class="toggle-signin" data-toggle="modal" data-target="#signinModal"></a></div>
-      <div class="login-status white sans-bold"><a href="#" onclick="gigyaLogout();" >Log Out</a></div>
+      <div class="login-status white sans-bold mobile-login-status"><a href="#" onclick="initNewTrip();" >Create New Trip</a></div>
     </div>
   </div>
 </nav><!-- Sign In Popup Modal -->
@@ -666,6 +679,13 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
             <div class="col-sm-8 directory-tools">
               <ul class="tools-container hidden-xs hidden-sm">
                 <li class="dropdown">
+                  <a class="olive dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Region <i class="fa fa-chevron-down"></i></a>
+                  <ul class="dropdown-menu">
+                    <li><a onclick="javascript:resetDirectory({neighborhood:['Napa']});">Napa</a></li>
+                    <li><a onclick="javascript:resetDirectory({neighborhood:['Sonoma']});">Sonoma</a></li>                                                                                               
+                  </ul>
+                </li>    
+                <li class="dropdown">
                   <a class="olive dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Specializing In <i class="fa fa-chevron-down"></i></a>
                   <ul class="dropdown-menu">
                     <li><a onclick="javascript:resetDirectory({specialization:['Cabernet Sauvignon']});">Cabernet Sauvignon</a></li>
@@ -710,10 +730,12 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
               {{#image_id}}<a href="/place/{{guid}}"><img src="/image?method=image.icrop&context=venue&id={{id}}&w=400&h=200" alt=""></a>{{/image_id}}
             </div>
             <div class="col-xs-5 directory-info">
-              <h3 class="serif brown"><span>{{counter}}</span> <a href="/place/{{guid}}">{{name}}</a></h3><span class="partner-badge"></span>
+              <h3 class="serif brown"><span>{{counter}}</span> <a href="/place/{{guid}}">{{name}}</a></h3><span style="display:none;" class="partner-badge"></span>
               <h4 class="sans-bold orange hidden-xs">{{neighborhood}}</h4>
               <div class="address hidden-xs">
-                <p>{{address}}<br> {{phone}}<br> {{custom:hours}} <span style="display:none;" class="status orange">Open</span></p>
+                <p>{{address}}<br> {{phone}}<br> {{custom:hours}} 
+    {{#story_guid}}<a class="module-story-link" href="/story/{{story_guid}}">Read Review</a>{{/story_guid}}
+    <span style="display:none;" class="status orange">Open</span></p>
               </div>
               <div class="address hidden-sm hidden-md hidden-lg">
                 <p>{{address}} <span class="hidden-xs">{{phone}}</span><br> {{hours}} <span class="status orange">Open</span></p>
@@ -765,7 +787,7 @@ function resetDirectory(j) {
 function updateDirectory(opt) {
   opts = [];
   opts.push('category=1')
-
+  opts.push('references=1');
   if (opt && opt.search) {
     opts.push('search='+opt.search);
   }
@@ -968,8 +990,8 @@ $("#winery-map").sticky({topSpacing:0});
     <script type="text/javascript" src="/partners/thepress/js/libs/jquery-touch-punch.js"></script>
     <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
 <script type="text/javascript" src="/partners/thepress/js/libs/markerwithlabel.js"></script><script type="text/javascript" src="/partners/thepress/js/libs/jquery-editable-poshytip.min.js"></script>
-    <script type="text/javascript" src="/partners/thepress/js/libs/iscroll.js?t=589dd8fad470e"></script>
-<script type="text/javascript" src="/partners/thepress/js/libs/slick.js?t=589dd8fad470e"></script>
+    <script type="text/javascript" src="/partners/thepress/js/libs/iscroll.js?t=589e3d09ba81c"></script>
+<script type="text/javascript" src="/partners/thepress/js/libs/slick.js?t=589e3d09ba81c"></script>
     <script type="text/javascript" src="/partners/thepress/js/global.js?t=1"></script>
 <script type="text/javascript" src="/partners/thepress/js/libs/jquery.sticky.js"></script>
     <script src="/partners/thepress/js/map.js?1470683612"></script>

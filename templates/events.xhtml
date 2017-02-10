@@ -1,6 +1,5 @@
 
 
-
 <!DOCTYPE html>
 <html class="no-js">
   <head>
@@ -24,17 +23,18 @@
     <meta name="description" content="">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/partners/thepress/css/global.css?x=5898f852e91b0">
+    <link rel="stylesheet" href="/partners/thepress/css/global.css?x=589e3c774a19c">
     <link rel="stylesheet" href="/partners/thepress/css/index.css">
 
 
   <script type="text/javascript" id="adPositionManagerScriptTag" src="http://aps.hearstnp.com/Scripts/loadAds.js"></script>
-<SCRIPT type="text/javascript" lang="javascript" src="http://cdn.gigya.com/JS/gigya.js?apikey= 3_O6YwFqa1LkbrVGvTT0uOf2WwL78KJvUTqPQi6IGNF0xg5m1w2g-54pgf6xro1ZyU "></SCRIPT>
+<SCRIPT type="text/javascript" lang="javascript" src="http://cdn.gigya.com/JS/gigya.js?apikey=3_BMFZOCwXDrSMoeTYN2uiVIBZhHski0qbm2oj7S3NL2gKLHcAjq-sx3cuKnLVg_pN"></SCRIPT>
+<!-- prod treg: 3_SwXI4hyN9wmzGqer7gFM6ZcaPKuO4YepRCKYkTUQhmUP89-cbi4KAnt5Tp7yyaUs -->
 <!-- 3_O6YwFqa1LkbrVGvTT0uOf2WwL78KJvUTqPQi6IGNF0xg5m1w2g-54pgf6xro1ZyU -->
 <!-- prod: 3_BMFZOCwXDrSMoeTYN2uiVIBZhHski0qbm2oj7S3NL2gKLHcAjq-sx3cuKnLVg_pN -->
   <script src="/includes/lib/mustache/mustache.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script src="/partners/thepress/js/thepressx.js?x=browse&tz=5898f852e91b0&zz=5898f852e91b0&xyz=z"></script>
+<script src="/partners/thepress/js/thepressx.js?x=browse&tz=589e3c774a19c&zz=589e3c774a19c&xyz=sz"></script>
 
 <script type="text/javascript"
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-gHN0lD5gfgKu4bp0h6ZPRM_jkCuIHps&libraries=drawing"></script>
@@ -47,13 +47,13 @@
 var _LAT = 38.334997;
 var _LON =  -122.298203;
 var _MARKER_FILL_COLOR = '#93A558'; // '#FF5B50';
-var _MARKER_HIGHLIGHT_FILL_COLOR = '#93A558'; //'#ffb8b2';
+var _MARKER_HIGHLIGHT_FILL_COLOR = '#c1d973'; //'#93A558'; //'#ffb8b2';
 var _MARKER_HIGHLIGHT_BORDER_COLOR = '#93A558'; //'#FF5B50';
 var _MAP_PATH = 'M258.5,0C144.7,0,62,79.5,62,166.1c0,52.4,21.7,80.4,50.7,131.1C170.6,398.6,258.5,507,258.5,507 s87.9-108.4,145.8-209.8c29-50.7,50.7-78.7,50.7-131.1C455,79.5,372.3,0,258.5,0';
 var _xMAP_PATH = 'M950.235781,615.06006 C950.235781,624.482899 933.11789,641.59793 933.11789,641.59793 C933.11789,641.59793 916,624.482899 916,615.06006 C916,605.63722 923.663109,598 933.11789,598 C942.572672,598 950.235781,605.63722 950.235781,615.06006 L950.235781,615.06006 Z';
 if ('<[publication]>' == 'alt') {
   _MARKER_FILL_COLOR = '#cc435a';
-  _MARKER_HIGHLIGHT_FILL_COLOR = '#f299a8';
+  _MARKER_HIGHLIGHT_FILL_COLOR = '#FFFFFF'; //'#f299a8';
   _MARKER_HIGHLIGHT_BORDER_COLOR = '#cc435a';
 
 }
@@ -190,11 +190,23 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
 
     </ul>
   </div>
+  <div class="mobile-trips-container" style="display:none;">
+  <div class="row">
+    <div class="col-xs-6"><a href="/my-trips" >My Trips</a></div>
+    <div class="col-xs-6"><a class="mobile-trips-container-logout pull-right" href="#" onclick="gigyaLogout();" >Log Out</a></div>
+    <div class="col-xs-12" style="padding: 0px;">
+      <div id="mobile-trips-container-message"></div>
+      <ul id="mobile-trips-container-trips">
+
+      </ul>
+    </div>
+  </div>
+  </div>
   <div class="login-state">
     <div class="login-state-container">
       <div class="login-pic" style="display:none;"><a href="#" class="toggle-signin" data-toggle="modal" data-target="#signinModal"><img src="/partners/thepress/img/login-pic.png"></a></div>
       <div class="login-name sans-bold white"><a href="#" class="toggle-signin" data-toggle="modal" data-target="#signinModal"></a></div>
-      <div class="login-status white sans-bold"><a href="#" onclick="gigyaLogout();" >Log Out</a></div>
+      <div class="login-status white sans-bold mobile-login-status"><a href="#" onclick="initNewTrip();" >Create New Trip</a></div>
     </div>
   </div>
 </nav><!-- Sign In Popup Modal -->
@@ -494,7 +506,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
 <link rel="stylesheet" href="/partners/thepress/css/events.css">
 <script>setNav('events');</script>
     
-<header class="header-sm gradient-cover" style="background: url('/image?method=image.icrop&context=event.yield&w=2000&h=800&id=9765') center center no-repeat; background-size: cover;">
+<header class="header-sm gradient-cover" style="background: url('/image?method=image.icrop&context=event.yield&w=2000&h=800&id=12195') center center no-repeat; background-size: cover;">
     <div class="subnav bg-brown-alpha">
       <ul class="sans-bold">
         <li><a href="#">Napa</a></li>
@@ -503,10 +515,10 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
     </div>
 
     <div class="cta vert-center">
-      <div class="date sans-bold white">February 6, 2017</div>
-      <h1>Nailed It! Pinot Noir Series</h1>
-      <p><p>This series teaches the eight basic characteristics of individual grape varieties, plus how to CIA at Copia debuts classes for the public /page 4 examine wines for color, acidity, alcohol ...</p>
-      <a href="/wine-event/nailed-it-pinot-noir5852f5c3b832d" class="button button-cta serif bg-brown-alpha">View Event</a>
+      <div class="date sans-bold white">February 10, 2017</div>
+      <h1>A Taste Tour of Spain</h1>
+      <p>Back Room Wines takes you on a vinous journey of Spain this Friday evening. Come join us for a tasting of wines from around Spain. We cover six of the ...</p>
+      <a href="/wine-event/a-taste-tour-of-spainfebruary-10-2017589755647ee50" class="button button-cta serif bg-brown-alpha">View Event</a>
     </div>
 
   </header>
@@ -522,32 +534,30 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
       <div class="row scrollable" id="scroll1">
         
         <div class="col-sm-6 block-container">
-          <a href="/wine-event/the-great-grape-study-chardonnayfebruary-9-201758975564d0d32" class="block  gradient-cover" style="background: url('/image?method=image.icrop&context=event.yield&w=1200&h=800&id=12196') center center no-repeat; background-size: cover;">
+          <a href="/wine-event/589c7f423cc3c" class="block  gradient-cover" style="background: url('/image?method=image.icrop&context=event.yield&w=1200&h=800&id=12367') center center no-repeat; background-size: cover;">
             <div class="block-label white">Wine</div>
             <div class="block-content vert-center">
-              <div class="date sans-bold white">February 9, 2017</div>
-              <h3 class="white">The Great Grape Study - Chardonnay</h3>
+              <div class="date sans-bold white">February 11, 2017</div>
+              <h3 class="white">Barrel Tasting</h3>
             </div>
           </a>
           <div class="block-caption">
-            <h4 class="sans-bold brown">Back Room Wines</h4>
-            <p>Our Great Grape Study series continues this Thursday with one of the world's great grapes: CHARDONNAY.
-We have a flight of five Chardonnays for you.
-Burgundy (2 times), Oregon and California (twice) ...</p>
+            <h4 class="sans-bold brown">Dry Creek Vineyard 3770 Lambert Bridge Rd, Healdsburg, CA</h4>
+            <p><p>Join us for a memorable barrel tasting experience! Sample the individual components of an upcoming vintage of Old Vine Zinfandel directly from barrel and interact with members of our winemaking ...</p>
           </div>
         </div>
         
         <div class="col-sm-6 block-container">
-          <a href="/wine-event/a-taste-tour-of-spainfebruary-10-2017589755647ee50" class="block  gradient-cover" style="background: url('/image?method=image.icrop&context=event.yield&w=1200&h=800&id=12195') center center no-repeat; background-size: cover;">
+          <a href="/wine-event/nailed-it-chardonnay5852f70cb7182" class="block  gradient-cover" style="background: url('/image?method=image.icrop&context=event.yield&w=1200&h=800&id=9767') center center no-repeat; background-size: cover;">
             <div class="block-label white">Wine</div>
             <div class="block-content vert-center">
-              <div class="date sans-bold white">February 10, 2017</div>
-              <h3 class="white">A Taste Tour of Spain</h3>
+              <div class="date sans-bold white">February 11, 2017</div>
+              <h3 class="white">Nailed It!: Chardonnay</h3>
             </div>
           </a>
           <div class="block-caption">
-            <h4 class="sans-bold brown">Back Room Wines</h4>
-            <p>Back Room Wines takes you on a vinous journey of Spain this Friday evening. Come join us for a tasting of wines from around Spain. We cover six of the ...</p>
+            <h4 class="sans-bold brown">CIA at Copia</h4>
+            <p><p>This series teaches the eight basic characteristics of individual grape varieties, plus how to examine wines for color, acidity, alcohol level, tannin, and the ever elusive "complexity." Learn shopping, ageing, ...</p>
           </div>
         </div>
         
@@ -561,20 +571,10 @@ Burgundy (2 times), Oregon and California (twice) ...</p>
       <div class="row scrollable" id="scroll2">
         
         <div class="col-sm-4 the-column block-container">
-          <a href="/wine-event/nailed-it-chardonnay5852f70cb7182" class="block  gradient-cover" style="background: url('/image?method=image.icrop&context=event.yield&w=1200&h=800&id=9767&trim=1') center center no-repeat; background-size: cover;"></a>
-          <div class="block-label lightBrown">Wine</div>
-          <div class="block-content">
-            <div class="date sans-bold lightBrown"></div>
-            <h4 class="sans-bold brown"><a href="#">Nailed It!: Chardonnay</a></h4>
-            <h4 class="sans-bold lightBrown"></h4>
-          </div>
-        </div>
-        
-        <div class="col-sm-4 the-column block-container">
           <a href="/wine-event/love-the-wine-you-re-with-at-macphail-wines5897b07c9d6a5" class="block  gradient-cover" style="background: url('/image?method=image.icrop&context=event.yield&w=1200&h=800&id=12198&trim=1') center center no-repeat; background-size: cover;"></a>
           <div class="block-label lightBrown">Wine</div>
           <div class="block-content">
-            <div class="date sans-bold lightBrown"></div>
+            <div class="date sans-bold lightBrown">February 11, 2017</div>
             <h4 class="sans-bold brown"><a href="#">Love the Wine You're with at MacPhail Wines</a></h4>
             <h4 class="sans-bold lightBrown"></h4>
           </div>
@@ -584,8 +584,18 @@ Burgundy (2 times), Oregon and California (twice) ...</p>
           <a href="/wine-event/priest-ranch-double-barrel-bacon-blues587ebe7aea1e4" class="block  gradient-cover" style="background: url('/image?method=image.icrop&context=event.yield&w=1200&h=800&id=11138&trim=1') center center no-repeat; background-size: cover;"></a>
           <div class="block-label lightBrown">Wine</div>
           <div class="block-content">
-            <div class="date sans-bold lightBrown"></div>
+            <div class="date sans-bold lightBrown">February 11, 2017</div>
             <h4 class="sans-bold brown"><a href="#">Priest Ranch Double Barrel, Bacon &amp; Blues</a></h4>
+            <h4 class="sans-bold lightBrown"></h4>
+          </div>
+        </div>
+        
+        <div class="col-sm-4 the-column block-container">
+          <a href="/wine-event/bubbles-for-every-occasion5852f76b5c83d" class="block  gradient-cover" style="background: url('/image?method=image.icrop&context=event.yield&w=1200&h=800&id=9768&trim=1') center center no-repeat; background-size: cover;"></a>
+          <div class="block-label lightBrown">Wine</div>
+          <div class="block-content">
+            <div class="date sans-bold lightBrown">February 11, 2017</div>
+            <h4 class="sans-bold brown"><a href="#">Bubbles for Every Occasion</a></h4>
             <h4 class="sans-bold lightBrown"></h4>
           </div>
         </div>
@@ -605,67 +615,45 @@ Burgundy (2 times), Oregon and California (twice) ...</p>
       <div class="row scrollable" id="scroll3">
         
         <div class="col-sm-3 block-container">
-          <a href="/wine-event/bubbles-for-every-occasion5852f76b5c83d" class="quad-block  gradient-cover" style="background: url('/image?method=image.icrop&context=event.yield&w=300&h=200&id=9768&trim=1') center center no-repeat; background-size: cover;">
+          <a href="/wine-event/napa-valley-wine-train-hosts-coup-de-foudre-for-private-reserve-train-on-saturday-february-11589ca68d0adb8" class="quad-block  gradient-cover" style="background: url('/image?method=image.icrop&context=event.yield&w=300&h=200&id=12370&trim=1') center center no-repeat; background-size: cover;">
             <div class="event-date sans-bold white vert-center">February 11, 2017</div>
           </a>
           <div class="block-text">
-            <h4 class="sans-bold brown"><a href="/wine-event/bubbles-for-every-occasion5852f76b5c83d"></a></h4>
-            <h4 class="sans-bold lightBrown"></h4>
+            <h4 class="sans-bold brown"><a href="/wine-event/napa-valley-wine-train-hosts-coup-de-foudre-for-private-reserve-train-on-saturday-february-11589ca68d0adb8">Napa Valley Wine Train Hosts Coup de Foudre for Private Reserve Train on Saturday, February 11</a></h4>
+            <h4 class="sans-bold lightBrown">Napa Valley Wine Train Station</h4>
             <span class="affiliate-badge"></span>
           </div>
         </div>
         
         <div class="col-sm-3 block-container">
-          <a href="/wine-event/valentine-s-day-dinner-in-the-grill-at-silveradofebruary-14-20175878edca7c2a1" class="quad-block  gradient-cover" style="background: url('/image?method=image.icrop&context=event.yield&w=300&h=200&id=10967&trim=1') center center no-repeat; background-size: cover;">
-            <div class="event-date sans-bold white vert-center">February 14, 2017</div>
+          <a href="/wine-event/connoisseur-tour-and-tasting589cb3b3645c2" class="quad-block  gradient-cover" style="background: url('/image?method=image.icrop&context=event.yield&w=300&h=200&id=12373&trim=1') center center no-repeat; background-size: cover;">
+            <div class="event-date sans-bold white vert-center">February 13, 2017</div>
           </a>
           <div class="block-text">
-            <h4 class="sans-bold brown"><a href="/wine-event/valentine-s-day-dinner-in-the-grill-at-silveradofebruary-14-20175878edca7c2a1"></a></h4>
-            <h4 class="sans-bold lightBrown"></h4>
+            <h4 class="sans-bold brown"><a href="/wine-event/connoisseur-tour-and-tasting589cb3b3645c2">Connoisseur Tour and Tasting</a></h4>
+            <h4 class="sans-bold lightBrown">Clos Pegase Winery</h4>
             <span class="affiliate-badge"></span>
           </div>
         </div>
         
         <div class="col-sm-3 block-container">
-          <a href="/wine-event/the-history-of-napa-valley-in-8-glasses5852f4eb017f2" class="quad-block  gradient-cover" style="background: url('/image?method=image.icrop&context=event.yield&w=300&h=200&id=9763&trim=1') center center no-repeat; background-size: cover;">
-            <div class="event-date sans-bold white vert-center">February 24, 2017</div>
+          <a href="/wine-event/connoisseur-tour-and-tasting589cb409414aa" class="quad-block  gradient-cover" style="background: url('/image?method=image.icrop&context=event.yield&w=300&h=200&id=12374&trim=1') center center no-repeat; background-size: cover;">
+            <div class="event-date sans-bold white vert-center">February 13, 2017</div>
           </a>
           <div class="block-text">
-            <h4 class="sans-bold brown"><a href="/wine-event/the-history-of-napa-valley-in-8-glasses5852f4eb017f2"></a></h4>
-            <h4 class="sans-bold lightBrown"></h4>
+            <h4 class="sans-bold brown"><a href="/wine-event/connoisseur-tour-and-tasting589cb409414aa">Connoisseur Tour and Tasting</a></h4>
+            <h4 class="sans-bold lightBrown">Clos Pegase Winery</h4>
             <span class="affiliate-badge"></span>
           </div>
         </div>
         
         <div class="col-sm-3 block-container">
-          <a href="/wine-event/nailed-it-cabernet-sauvignon5852f48c94b0d" class="quad-block  gradient-cover" style="background: url('/image?method=image.icrop&context=event.yield&w=300&h=200&id=9766&trim=1') center center no-repeat; background-size: cover;">
-            <div class="event-date sans-bold white vert-center">February 25, 2017</div>
+          <a href="/wine-event/connoisseur-tour-and-tasting589cb42238fa6" class="quad-block  gradient-cover" style="background: url('/image?method=image.icrop&context=event.yield&w=300&h=200&id=12375&trim=1') center center no-repeat; background-size: cover;">
+            <div class="event-date sans-bold white vert-center">February 13, 2017</div>
           </a>
           <div class="block-text">
-            <h4 class="sans-bold brown"><a href="/wine-event/nailed-it-cabernet-sauvignon5852f48c94b0d"></a></h4>
-            <h4 class="sans-bold lightBrown"></h4>
-            <span class="affiliate-badge"></span>
-          </div>
-        </div>
-        
-        <div class="col-sm-3 block-container">
-          <a href="/wine-event/bubbles-blooms-festival5892618495581" class="quad-block  gradient-cover" style="background: url('/image?method=image.icrop&context=event.yield&w=300&h=200&id=11972&trim=1') center center no-repeat; background-size: cover;">
-            <div class="event-date sans-bold white vert-center">April 22, 2017</div>
-          </a>
-          <div class="block-text">
-            <h4 class="sans-bold brown"><a href="/wine-event/bubbles-blooms-festival5892618495581"></a></h4>
-            <h4 class="sans-bold lightBrown"></h4>
-            <span class="affiliate-badge"></span>
-          </div>
-        </div>
-        
-        <div class="col-sm-3 block-container">
-          <a href="/wine-event/2017-lake-county-wine-adventure5862bb12b04af" class="quad-block  gradient-cover" style="background: url('/image?method=image.icrop&context=event.yield&w=300&h=200&id=10174&trim=1') center center no-repeat; background-size: cover;">
-            <div class="event-date sans-bold white vert-center">May 20, 2017</div>
-          </a>
-          <div class="block-text">
-            <h4 class="sans-bold brown"><a href="/wine-event/2017-lake-county-wine-adventure5862bb12b04af"></a></h4>
-            <h4 class="sans-bold lightBrown"></h4>
+            <h4 class="sans-bold brown"><a href="/wine-event/connoisseur-tour-and-tasting589cb42238fa6">Connoisseur Tour and Tasting</a></h4>
+            <h4 class="sans-bold lightBrown">Clos Pegase Winery</h4>
             <span class="affiliate-badge"></span>
           </div>
         </div>
@@ -694,7 +682,7 @@ Burgundy (2 times), Oregon and California (twice) ...</p>
               <a href="/wine-event/{{guid}}"><img src="/image?method=image.icrop&context=event.yield&w=300&h=200&id={{parent_id}}&trim=1" alt=""></a>
             </div>
             <div class="col-xs-5 directory-info">
-              <h3 class="sans-bold brown"><span>{{counter}}</span><a href="/wine-event/{{guid}}">{{title}}</a></h3><span class="partner-badge"></span>
+              <h3 class="sans-bold brown"><span>{{counter}}</span><a href="/wine-event/{{guid}}">{{title}}</a></h3><span style="display:none;" class="partner-badge"></span>
               <h4 class="sans-bold brown">{{start_time}}</h4>
               <div class="address hidden-xs">
                 <h4 class="sans-bold brown">{{venue_name}}</h4>
@@ -1013,8 +1001,8 @@ $(document).ready(function() {
     <script type="text/javascript" src="/partners/thepress/js/libs/jquery-touch-punch.js"></script>
     <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
 <script type="text/javascript" src="/partners/thepress/js/libs/markerwithlabel.js"></script><script type="text/javascript" src="/partners/thepress/js/libs/jquery-editable-poshytip.min.js"></script>
-    <script type="text/javascript" src="/partners/thepress/js/libs/iscroll.js?t=5898f852e91b0"></script>
-<script type="text/javascript" src="/partners/thepress/js/libs/slick.js?t=5898f852e91b0"></script>
+    <script type="text/javascript" src="/partners/thepress/js/libs/iscroll.js?t=589e3c774a19c"></script>
+<script type="text/javascript" src="/partners/thepress/js/libs/slick.js?t=589e3c774a19c"></script>
     <script type="text/javascript" src="/partners/thepress/js/global.js?t=1"></script>
 <script type="text/javascript" src="/partners/thepress/js/libs/jquery.sticky.js"></script>
     <script src="/partners/thepress/js/map.js?1470683612"></script>
