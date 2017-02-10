@@ -23,16 +23,17 @@
     <meta name="description" content="">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/partners/thepress/css/global.css?x=5898d93b655cf">
+    <link rel="stylesheet" href="/partners/thepress/css/global.css?x=589dd8214dffb">
     <link rel="stylesheet" href="/partners/thepress/css/index.css">
 
 
   <script type="text/javascript" id="adPositionManagerScriptTag" src="http://aps.hearstnp.com/Scripts/loadAds.js"></script>
-<SCRIPT type="text/javascript" lang="javascript" src="http://cdn.gigya.com/JS/gigya.js?apikey= 3_BMFZOCwXDrSMoeTYN2uiVIBZhHski0qbm2oj7S3NL2gKLHcAjq-sx3cuKnLVg_pN"></SCRIPT>
+<SCRIPT type="text/javascript" lang="javascript" src="http://cdn.gigya.com/JS/gigya.js?apikey=3_SwXI4hyN9wmzGqer7gFM6ZcaPKuO4YepRCKYkTUQhmUP89-cbi4KAnt5Tp7yyaUs"></SCRIPT>
 <!-- 3_O6YwFqa1LkbrVGvTT0uOf2WwL78KJvUTqPQi6IGNF0xg5m1w2g-54pgf6xro1ZyU -->
+<!-- prod: 3_BMFZOCwXDrSMoeTYN2uiVIBZhHski0qbm2oj7S3NL2gKLHcAjq-sx3cuKnLVg_pN -->
   <script src="/includes/lib/mustache/mustache.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script src="/partners/thepress/js/thepressx.js?x=browse&tz=5898d93b655cf&zz=5898d93b655cf&xyz=z"></script>
+<script src="/partners/thepress/js/thepressx.js?x=browse&tz=589dd8214dffb&zz=589dd8214dffb&xyz=z"></script>
 
 <script type="text/javascript"
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-gHN0lD5gfgKu4bp0h6ZPRM_jkCuIHps&libraries=drawing"></script>
@@ -45,13 +46,13 @@
 var _LAT = 38.334997;
 var _LON =  -122.298203;
 var _MARKER_FILL_COLOR = '#93A558'; // '#FF5B50';
-var _MARKER_HIGHLIGHT_FILL_COLOR = '#93A558'; //'#ffb8b2';
+var _MARKER_HIGHLIGHT_FILL_COLOR = '#c1d973'; //'#93A558'; //'#ffb8b2';
 var _MARKER_HIGHLIGHT_BORDER_COLOR = '#93A558'; //'#FF5B50';
 var _MAP_PATH = 'M258.5,0C144.7,0,62,79.5,62,166.1c0,52.4,21.7,80.4,50.7,131.1C170.6,398.6,258.5,507,258.5,507 s87.9-108.4,145.8-209.8c29-50.7,50.7-78.7,50.7-131.1C455,79.5,372.3,0,258.5,0';
 var _xMAP_PATH = 'M950.235781,615.06006 C950.235781,624.482899 933.11789,641.59793 933.11789,641.59793 C933.11789,641.59793 916,624.482899 916,615.06006 C916,605.63722 923.663109,598 933.11789,598 C942.572672,598 950.235781,605.63722 950.235781,615.06006 L950.235781,615.06006 Z';
 if ('<[publication]>' == 'alt') {
   _MARKER_FILL_COLOR = '#cc435a';
-  _MARKER_HIGHLIGHT_FILL_COLOR = '#f299a8';
+  _MARKER_HIGHLIGHT_FILL_COLOR = '#FFFFFF'; //'#f299a8';
   _MARKER_HIGHLIGHT_BORDER_COLOR = '#cc435a';
 
 }
@@ -478,7 +479,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
 
 <div class="dismiss-container module quick-tip bg-lightYellow">
 <a onclick="dismissDialog(this);" class="close">x</a>
-        <h5 class="stronger orange">Sign up to start your trip</h5>
+        <h5 class="stronger orange">Create an account to start your trip</h5>
         <p>By signing up for an account, you can create your own wine country trips on The Press: Name and save your trip, add places and events to your trip, and access your trips, map and driving directions right from your mobile device.<br>
 <br>
 
@@ -557,7 +558,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
             <div class="col-xs-12">
               <ul>
                 <li><a xclick="addTrip({id: {{id}}, type:'venues',name: '{{name}}', lat: {{latitude}}, lon: {{longitude}} }, this);" data-type="venues" data-name="{{name}}" data-latitude="{{latitude}}" data-longitude="{{longitude}}" data-id="{{id}}" data-address="{{address}}" class="trip-item-trigger button button-xs bg-olive sans-bold">Add to Trip</a></li>
-                <li class="book"><a href="/place/{{guid}}?action=opencellarpass" class="olive sans-bold">Book Now</a></li>
+                <li class="book"><a href="/book/{{guid}}?action=opencellarpass" class="olive sans-bold">Book Now</a></li>
 
                <li class="social">Share <a href="https://twitter.com/home?status={{name}}:%20http://thepress.pointslocal.com/place/{{guid}}" class="bg-olive"><i class="fa fa-twitter"></i></a> <a href="http://www.facebook.com/sharer.php?u=http://thepress.pointslocal.com/place/{{guid}}" class="bg-olive"><i class="fa fa-facebook"></i></a></li>
               </ul>
@@ -689,7 +690,7 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
             <div class="col-xs-12">
               <ul>
                 <li><a xclick="addTrip({id: {{id}}, type:'venues',name: '{{name}}', lat: {{latitude}}, lon: {{longitude}} }, this);" data-type="venues" data-name="{{name}}" data-latitude="{{latitude}}" data-longitude="{{longitude}}" data-id="{{id}}" data-address="{{address}}" class="trip-item-trigger button button-xs bg-olive sans-bold">Add to Trip</a></li>
-                {{#customfield}}<li class="book"><a href="/place/{{guid}}?action=opencellarpass" class="olive sans-bold">Book Now</a></li>{{/customfield}}
+                {{#customfield}}<li class="book"><a href="/book/{{guid}}?action=opencellarpass" class="olive sans-bold">Book Now</a></li>{{/customfield}}
                <li class="social">Share <a href="https://twitter.com/home?status={{name}}:%20http://thepress.pointslocal.com/place/{{guid}}" class="bg-olive"><i class="fa fa-twitter"></i></a> <a href="http://www.facebook.com/sharer.php?u=http://thepress.pointslocal.com/place/{{guid}}" class="bg-olive"><i class="fa fa-facebook"></i></a></li>
               </ul>
             </div>
@@ -789,8 +790,8 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
               </ul>
             </li>
             <li class="dropdown trip-toggles">
-              <label>Place</label>
-              <a href="#" class="dropdown-toggle" data-category="1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Wineries <i class="fa fa-angle-down"></i></a>
+              <label style="opacity:0;">Place</label>
+              <a href="#" class="dropdown-xtoggle" data-category="1" data-toggle="xdropdown" aria-haspopup="true" aria-expanded="true">Wineries <i style="display:none;" class="fa fa-angle-down"></i></a>
               <ul class="dropdown-menu">
                 <li><a href="#" data-category="1" class="toggle-winery">Wineries</a></li>
                 <li role="separator" class="divider"></li>
@@ -1285,8 +1286,8 @@ $(document).ready(function() {
     <script type="text/javascript" src="/partners/thepress/js/libs/jquery-touch-punch.js"></script>
     <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
 <script type="text/javascript" src="/partners/thepress/js/libs/markerwithlabel.js"></script><script type="text/javascript" src="/partners/thepress/js/libs/jquery-editable-poshytip.min.js"></script>
-    <script type="text/javascript" src="/partners/thepress/js/libs/iscroll.js?t=5898d93b655cf"></script>
-<script type="text/javascript" src="/partners/thepress/js/libs/slick.js?t=5898d93b655cf"></script>
+    <script type="text/javascript" src="/partners/thepress/js/libs/iscroll.js?t=589dd8214dffb"></script>
+<script type="text/javascript" src="/partners/thepress/js/libs/slick.js?t=589dd8214dffb"></script>
     <script type="text/javascript" src="/partners/thepress/js/global.js?t=1"></script>
 <script type="text/javascript" src="/partners/thepress/js/libs/jquery.sticky.js"></script>
     <script src="/partners/thepress/js/map.js?1470683612"></script>

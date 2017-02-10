@@ -73,19 +73,19 @@ EAST/WEST BORDER - as far as the Napa County line in each direction
 */
 
 var Neighborhoods = {
-  "keys": {"napa": { lat: 38.344705, lon: -122.271676}, "All Regions": {}, "sonoma": {lat: 38.488978, lon: -122.690361 } },
+  "keys": {"napa": { lat: 38.344705, lon: -122.271676}, "All Regions": {}, "sonoma": {lat: 38.488978, lon: -122.690361, "reset": true } },
   "Napa": { "items": [
     {"name": "Up Valley", "header": false, "latitude": 38.522564, "longitude": -122.460145, "neighborhood": "napa-up-valley" },
-    {"name": "Down Valley", "header": false, "latitude": 38.388715, "longitude": -122.324584},
+    {"name": "Down Valley", "header": false, "latitude": 38.388715, "longitude": -122.324584, "neighborhood": "down-valley"},
     {"name": "South Napa", "header": false, "latitude": 38.388715, "longitude": -122.324584, "neighborhood": "napa-south-napa"}
   ]},
   "All Regions": { "items": [ {"name":"Select a region"}] },
   "Sonoma": { "items": [
-    {"name": "North", "latitude": 38.319979, "longitude": -122.472748 },
-    {"name": "East", "latitude": 38.281602 , "longitude": -122.403697 },
-    {"name": "South", "latitude": 38.249799, "longitude": -122.458056 },
-    {"name": "West County", "latitude": 38.283819, "longitude": -122.5089127 },
-    {"name": "Central", "latitude": 38.277319, "longitude": -122.461834 }
+    {"name": "North", "latitude": 38.319979, "longitude": -122.472748, 'neighborhood': 'sonoma-north' },
+    {"name": "East", "latitude": 38.281602 , "longitude": -122.403697, 'neighborhood': 'sonoma-east' },
+    {"name": "South", "latitude": 38.249799, "longitude": -122.458056, 'neighborhood': 'sonoma-south' },
+    {"name": "West County", "latitude": 38.283819, "longitude": -122.5089127, 'neighborhood': 'sonoma-west' },
+    {"name": "Central", "latitude": 38.277319, "longitude": -122.461834, 'neighborhood': 'sonoma-central' }
   ]},
 }
 
@@ -153,6 +153,7 @@ function clearSearch() {
 }
 
 function setSubRegions(reg) {
+  $('#toggle-map-subregion-label > span').text('All Sub Regions');
   var tpl = '{{#items}}<li {{#divider}}role="separator" class="divider"{{/divider}}>{{^divider}}<a onclick="setMapPos(this);searchSubRegions(\'{{name}}\')" data-latitude="{{latitude}}" data-neighborhood="{{neighborhood}}" data-longitude="{{longitude}}">{{#header}}<b>{{name}}</b>{{/header}}{{^header}}{{name}}{{/header}}</a></li>{{/divider}}{{/items}}';
   $('.subregions').html(Mustache.render(tpl,Neighborhoods[reg]));
   $('#toggle-map-region-label').find('span').html(reg);

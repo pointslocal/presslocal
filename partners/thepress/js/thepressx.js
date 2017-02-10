@@ -12,7 +12,7 @@ var _TripsHTML = '';
 var _WORKING_TRIP;
 var _TRIPS = {};
 var markerRefs = {};
-
+var windowRefs = {};
 var _Trip = function() {
 	
 }
@@ -56,7 +56,7 @@ function isScrollListener() {
 
 function isScrolledIntoView(elem) {
   var docViewTop = $(window).scrollTop();
-  var docViewBottom = docViewTop + $(window).height() + 120;
+  var docViewBottom = docViewTop + $(window).height();
 
   var elemTop = $(elem).offset().top;
   var elemBottom = elemTop + $(elem).height();
@@ -418,7 +418,7 @@ function showModal(type) {
 //	Sets Gigya data ::> login area
 function onGetAccount(response) {
 	console.log('Gigya:',response);
-	if (response.isRegistered && response.isVerified) {
+	if (response.isRegistered) {
 		var nickname = response.profile.nickname;
 		if (!nickname) {
 			nickname = response.profile.email.split('@')[0];
@@ -472,13 +472,20 @@ function onRegister(response) {
 		$('#trip-register-error, #register-error').show();
 	} else {
 		$('#trip-register-error, #register-error').hide();
+		setSession(response.UID,response.profile.email);
+		$('.modal').modal('hide');
+		gigya.accounts.getAccountInfo({callback:onGetAccount});
 	}
 	if (response.errorCode == 206001) {
 		$('#trip-register-error, #register-error').text('A verification email was sent to the email address used to sign up. Please confirm the pending verification to log in to your account.');
 	} else if (response.errorCode == 400002) {
 		$('#trip-register-error, #register-error').text('Either username or email should be provided');
 	} else {
-		$('#trip-register-error, #register-error').html(response.errorMessage);
+		var es = [];
+		response.validationErrors.forEach(function(e) {
+			es.push( e.message );
+		});
+		$('#trip-register-error, #register-error').html(es.join('. '));
 	}
 }
 
@@ -583,10 +590,11 @@ function evalTripBar() {
 
 ''
 
+var TripTemplate = '<section class="container directory-alt"><div class=row><div class="col-sm-12 single-toolbar"><ul style=display:none><li class="hidden-xs lightBrown social-label">share<li class=social><a class="sans-bold orange"href="https://twitter.com/home?status=57ea88bcb96ef:%20http://events.sfgate.com/trip/{{guid}}"><i class="fa fa-twitter"></i></a><li class=social><a class="sans-bold orange"href="http://www.facebook.com/sharer.php?u=http://events.sfgate.com.com/trip/{{guid}}"><i class="fa fa-facebook-square"></i></a></ul></div></div>{{#items}}<div class="row mytrip-item-row"><div class="col-sm-12 directory-list mytrip-item"><div class="row directory-item"><div class="col-sm-12 item-container"><div class=row><div class="hidden-xs col-sm-1 directory-marker"><span>{{counter}}</span></div>{{#isEvent}}<div class="directory-pic col-xs-3"><div class="sans-bold event-date vert-center white">Feb 9</div><a href=/wine-event/the-great-grape-study-chardonnayfebruary-9-201758975564d0d32><img alt=""src="/image?method=image.icrop&context=event.yield&w=300&h=200&id=12196&trim=1"></a></div>{{/isEvent}}<div class="col-sm-{{#isEvent}}5{{/isEvent}}{{^isEvent}}8{{/isEvent}} directory-info"><h3 class="brown serif"><a href=/{{#isEvent}}wine-event{{/isEvent}}{{^isEvent}}place{{/isEvent}}/{{element_guid}}>{{{name}}}</a></h3><span style=display:none class=partner-badge></span><h4 class="sans-bold orange">{{neighborhood}}</h4><div class=address><p>{{#street}}{{street}},<br>{{/street}}{{#city}}{{city}},{{/city}} {{#state}}{{state}}{{/state}} {{#zip}}{{zip}}{{/zip}}{{^street}}{{address}}{{/street}}{{#phone}}<br>{{phone}}<br>{{/phone}}<span style=display:none>10AM-5PM</span> <span style=display:none class="orange status">Open</span></div></div><div class="hidden-xs col-sm-3 directory-button"><a class="sans-bold button button-xs bg-red pull-right"onclick="removeTrip({id:\'{{id}}\'{{#package_nid}},packageID:\'{{package_nid}}\'{{/package_nid}}},this)">Remove From Trip</a> <a class="sans-bold button button-xs bg-red trip-receiver"style=display:none data-package-id={{package_id}} data-venue_id={{id}}>Move To Trip</a> <a class="sans-bold orange"href=# style=display:none>Website</a> <a class="sans-bold orange"href=# style=display:none><i class="fa fa-location-arrow"></i> Directions</a></div><div class="col-sm-4 directory-buttons hidden-lg hidden-md hidden-sm"><ul><li><a class="sans-bold button button-xs pull-right bg-lightOrange"onclick="removeTrip({id:\'{{id}}\'{{#package_id}},packageID:\'{{package_id}}\'{{/package_id}}},this)">Remove From Trip</a><li><a class="sans-bold orange"href=#><i class="fa fa-map-o"></i> Map</a></ul></div></div></div></div></div></div>{{/items}}</section>';
 
-var TripTemplate = '<section class="container directory-alt"><div class="row"><div class="col-sm-12 single-toolbar"><ul><li class="social-label lightBrown hidden-xs">share</li><li class="social"><a href="https://twitter.com/home?status=57ea88bcb96ef:%20http://events.sfgate.com/trip/{{guid}}" class="orange sans-bold"><i class="fa fa-twitter"></i></a></li><li class="social"><a href="http://www.facebook.com/sharer.php?u=http://events.sfgate.com.com/trip/{{guid}}" class="orange sans-bold"><i class="fa fa-facebook-square"></i></a></li></ul></div></div>{{#items}}<div class=row><div class="col-sm-12 directory-list"><div class="row directory-item"><div class="col-sm-12 item-container"><div class=row><div class="hidden-xs col-sm-2 directory-pic"><a href="/place/{{venue_guid}}"><img alt=""src="/image?method=image.icrop&context={{context}}&id={{id}}&w=300&h=-1" style="margin-bottom:5px;"></a></div><div class="col-sm-7 directory-info"><h3 class="brown serif"><a href="/place/{{venue_guid}}">{{{name}}}</a></h3><span style="display:none;" class=partner-badge></span><h4 class="sans-bold orange">{{neighborhood}}</h4><div class=address><p>{{#street}}{{street}},<br>{{/street}}{{#city}}{{city}},{{/city}} {{#state}}{{state}}{{/state}} {{#zip}}{{zip}}{{/zip}}{{#phone}}<br>{{phone}}<br>{{/phone}}<span style="display:none;">10AM-5PM</span> <span class="orange status" style="display:none;">Open</span></div></div><div class="hidden-xs col-sm-3 directory-button"><a onclick="removeTrip({id:\'{{id}}\'{{#package_nid}},packageID:\'{{package_nid}}\'{{/package_nid}}},this)" class="sans-bold bg-lightOrange button button-xs">Remove From Trip</a> <a  class="trip-receiver sans-bold bg-lightOrange button button-xs" data-venue_id="{{id}}" data-package-id="{{package_id}}" style="display:none;">Move To Trip</a> <a href=# class="sans-bold orange" style="display:none;">Website</a> <a href=# class="sans-bold orange" style="display:none;"><i class="fa fa-location-arrow"></i> Directions</a></div><div class="col-sm-4 directory-buttons hidden-lg hidden-md hidden-sm"><ul><li><a onclick="removeTrip({id:\'{{id}}\'{{#package_id}},packageID:\'{{package_id}}\'{{/package_id}}},this)" class="sans-bold bg-lightOrange button button-xs">Remove From Trip</a><li><a href=# class="sans-bold orange"><i class="fa fa-map-o"></i> Map</a></ul></div></div></div></div></div></div>{{/items}}</section>';
+var xTripTemplate = '<section class="container directory-alt"><div class="row"><div class="col-sm-12 single-toolbar"><ul><li class="social-label lightBrown hidden-xs">share</li><li class="social"><a href="https://twitter.com/home?status=57ea88bcb96ef:%20http://events.sfgate.com/trip/{{guid}}" class="orange sans-bold"><i class="fa fa-twitter"></i></a></li><li class="social"><a href="http://www.facebook.com/sharer.php?u=http://events.sfgate.com.com/trip/{{guid}}" class="orange sans-bold"><i class="fa fa-facebook-square"></i></a></li></ul></div></div>{{#items}}<div class=row><div class="col-sm-12 directory-list"><div class="row directory-item"><div class="col-sm-12 item-container"><div class=row><div class="hidden-xs col-sm-2 directory-pic"><a href="/place/{{venue_guid}}"><img alt=""src="/image?method=image.icrop&context={{context}}&id={{id}}&w=300&h=-1" style="margin-bottom:5px;"></a></div><div class="col-sm-7 directory-info"><h3 class="brown serif"><a href="/place/{{venue_guid}}">{{{name}}}</a></h3><span style="display:none;" class=partner-badge></span><h4 class="sans-bold orange">{{neighborhood}}</h4><div class=address><p>{{#street}}{{street}},<br>{{/street}}{{#city}}{{city}},{{/city}} {{#state}}{{state}}{{/state}} {{#zip}}{{zip}}{{/zip}}{{#phone}}<br>{{phone}}<br>{{/phone}}<span style="display:none;">10AM-5PM</span> <span class="orange status" style="display:none;">Open</span></div></div><div class="hidden-xs col-sm-3 directory-button"><a onclick="removeTrip({id:\'{{id}}\'{{#package_nid}},packageID:\'{{package_nid}}\'{{/package_nid}}},this)" class="sans-bold bg-lightOrange button button-xs">Remove From Trip</a> <a  class="trip-receiver sans-bold bg-lightOrange button button-xs" data-venue_id="{{id}}" data-package-id="{{package_id}}" style="display:none;">Move To Trip</a> <a href=# class="sans-bold orange" style="display:none;">Website</a> <a href=# class="sans-bold orange" style="display:none;"><i class="fa fa-location-arrow"></i> Directions</a></div><div class="col-sm-4 directory-buttons hidden-lg hidden-md hidden-sm"><ul><li><a onclick="removeTrip({id:\'{{id}}\'{{#package_id}},packageID:\'{{package_id}}\'{{/package_id}}},this)" class="sans-bold bg-lightOrange button button-xs">Remove From Trip</a><li><a href=# class="sans-bold orange"><i class="fa fa-map-o"></i> Map</a></ul></div></div></div></div></div></div>{{/items}}</section>';
 
-var TripsTemplate = "<section class='directory container'><div class='col-sm-12 directory-list'>{{^items}} <h3 style='text-align:center;'>You haven’t created anything yet!</h3> <p>Create your first Trip. Visit the map page and use the filters to sort through over 200 Napa and Sonoma wineries. <p> <p>Make sure you log in or create an account to access and customize The Press Trip Planner: Name and save your trip, add places and events, and access your trip map and driving directions right from your mobile device.</p> {{/items}}{{#items}}<div id=\"my-trip-{{package_id}}\" class=\"directory-item row\"><div class=\"col-xs-9 directory-info mytrips-item\"><h3 class=\"brown serif\"><a href='/my-trip/{{package_guid}}' id='' class='editable-trip-title serif brown ' style='display: inline-block;'>{{package_title}}</a></h3><div class=\"mytrips-meta\"><h4 style='text-align:left;' class=\"hidden-xs orange sans-bold\">{{date}}</h4> <h4>{{package_length}} items</h4></div> <div class=\"mytrips-actions\"><a class='button button-sm bg-clear actions'>View Trip</a> <a class='button button-sm bg-red actions'>Remove Trip</a></div><p>{{package_text}}</p><div class=\"hidden-xs address\"><p></div><div class=\"address hidden-lg hidden-md hidden-sm\"><p></div></div><div class=\"hidden-xs col-xs-3 directory-button\">{{#package_id}}<a href='/my-trip/{{package_guid}}'><img src='/image?method=image.icrop&context=package.items&id={{package_id}}&w=600&h=-1&noimg=/partners/thepress/img/thepress-default.png' /></a>{{/package_id}}</div></div>{{/items}}</div></section>";
+var TripsTemplate = "<section class='directory container'><div class='col-sm-12 directory-list'>{{^items}} <h3 style='text-align:center;'>You haven’t created anything yet!</h3> <p>Create your first Trip. Visit the map page and use the filters to sort through over 200 Napa and Sonoma wineries. <p> <p>Make sure you log in or create an account to access and customize The Press Trip Planner: Name and save your trip, add places and events, and access your trip map and driving directions right from your mobile device.</p> {{/items}}{{#items}}<div id=\"my-trip-{{package_id}}\" class=\"directory-item row\"><div class=\"col-xs-9 directory-info mytrips-item\"><h3 class=\"brown serif\"><a href='/my-trip/{{package_guid}}' id='' class='editable-trip-title serif brown ' style='display: inline-block;'>{{package_title}}</a></h3><div class=\"mytrips-meta\"><h4 style='text-align:left;' class=\"hidden-xs orange sans-bold\">{{date}}</h4> <h4>{{package_length}} items</h4></div> <div class=\"mytrips-actions\"><a class='button button-sm bg-clear actions' href='/my-trip/{{package_guid}}'>View Trip</a> <a onclick=\"deleteTrip({{package_id}});\" class='button button-sm bg-red actions'>Remove Trip</a></div><p>{{package_text}}</p><div class=\"hidden-xs address\"><p></div><div class=\"address hidden-lg hidden-md hidden-sm\"><p></div></div><div class=\"hidden-xs col-xs-3 directory-button\">{{#package_id}}<a href='/my-trip/{{package_guid}}'><img src='/image?method=image.icrop&context=package.items&id={{package_id}}&w=600&h=-1&noimg=/partners/thepress/img/thepress-default.png' /></a>{{/package_id}}</div></div>{{/items}}</div></section>";
 
 var o0TripsTemplate = "<section class='directory container'><div class='col-sm-12 directory-list'>{{^items}} <h3 style='text-align:center;'>You haven’t created anything yet!</h3> <p>Create your first Trip. Visit the map page and use the filters to sort through over 200 Napa and Sonoma wineries. <p> <p>Make sure you log in or create an account to access and customize The Press Trip Planner: Name and save your trip, add places and events, and access your trip map and driving directions right from your mobile device.</p> {{/items}}{{#items}}<div id=\"my-trip-{{package_id}}\" class=\"directory-item row\"><div class=\"col-xs-6 directory-info\"><h3 class=\"brown serif\"><a href='/my-trip/{{package_guid}}' id='' class='editable-trip-title serif brown ' style='display: inline-block;'>{{package_title}}</a></h3><h4 style='text-align:left;' class=\"hidden-xs orange sans-bold\">{{date}}</h4><p>{{package_text}}</p><div class=\"hidden-xs address\"><p></div><div class=\"address hidden-lg hidden-md hidden-sm\"><p></div></div><div class=\"hidden-xs col-xs-3 directory-button\">{{#package_id}}<a href='/my-trip/{{package_guid}}'><img src='/image?method=image.icrop&context=package.items&id={{package_id}}&w=600&h=-1&noimg=/partners/thepress/img/thepress-default.png' /></a>{{/package_id}}</div><div class=\" col-xs-4 directory-button\"><a href=/my-trip/{{package_guid}} class=\"sans-bold bg-lightOrange button button-xs\" style=\"display:none\">View Trip</a> <a onclick=\"deleteTrip({{package_id}});\" class=\"sans-bold bxg-lightOrange xbutton bxutton-xs\"><svg width=\"30\" height=\"30\" viewBox=\"0 0 1792 1792\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M1490 1322q0 40-28 68l-136 136q-28 28-68 28t-68-28l-294-294-294 294q-28 28-68 28t-68-28l-136-136q-28-28-28-68t28-68l294-294-294-294q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 294 294-294q28-28 68-28t68 28l136 136q28 28 28 68t-28 68l-294 294 294 294q28 28 28 68z\"></path></svg></a></div></div>{{/items}}</div></section>";
 
@@ -594,7 +602,7 @@ var SponsoredTripTemplate = '{{#items}}<a href="/trip/{{guid}}" class="block spo
 
 var SponsoredTripTemplateSmall = '{{#items}}          <a href="/trip/{{guid}}" class="block" style="background: url(\'image?method=image.crop&context=package&id={{id}}&w=370&h=240\') center center no-repeat; background-size: cover;"></a><div class="block-content"><span class="partner-badge"></span><h4 class="sans-bold orange"><a href="/trip/{{guid}}">{{&title}}</a></h4></div>{{/items}}';
 
-var SponsoredStoryTemplateSmall = '{{#items}}          <a href="/story/{{guid}}" class="block" style="background: url(\'image?method=image.icrop&context=stories&id={{id}}&w=370&h=240\') center center no-repeat; background-size: cover;"></a><div class="block-label lightBrown no-accent">Sponsored Content</div><div class="block-content"><h4 class="sans-bold orange"><a href="/story/{{guid}}">{{&title}}</a></h4><span class="partner-badge"></span></div>{{/items}}';
+var SponsoredStoryTemplateSmall = '{{#items}}          <a href="/story/{{guid}}" class="block" style="background: url(\'image?method=image.icrop&context=stories&id={{id}}&w=370&h=240\') center center no-repeat; background-size: cover;"></a><div class="block-label lightBrown no-accent"><span class="partner-badge"></span></div><div class="block-content"><h4 class="sans-bold orange"><a href="/story/{{guid}}">{{&title}}</a></h4></div>{{/items}}';
 
 var MapItineraryTemplate = '{{#items}}<div class="row itinerary-item ui-sortable-handle"><div class="col-xs-2"><div class="num sans-bold">{{counter}}</div></div><div class="col-xs-8 no-padding"><h4 class="sans-bold olive item-title">{{name}}</h4><p class="address sans black">{{address}}</p></div><div class="col-xs-1 no-padding"><a href="#" onclick="removeTrip({id:{{id}}});updateMapItinerary();" class="remove-item sans-bold lightBeige">×</a></div></div>{{/items}}';
 
@@ -653,7 +661,10 @@ function saveFullTrip() {
 
 function getExistingTrip(p) {
 	$.getJSON('/api.json?method=events.package-user&guid='+p,function(d) {
-				d.guid = 'foooo';
+		trueCounter = 1;
+		if (d.items) {
+			d.items = d.items.map(function(di) { di.counter = trueCounter; trueCounter++; return di });
+		}
 		$('.header-title h1').text(d.name);
 		$('#trip-description').text(d.description);
 		console.log('package data::',d);
@@ -666,7 +677,9 @@ function getTrips() {
 
 	$.getJSON('/api.json?method=events.packages-user',function(d) {
 		console.log('saved trips?????:',d);
+		if (d.items != null) {
 		$('#mytrips-info').text(d.items.length+' trip'+(d.items.length > 1 ? 's' : '') );
+	}
 		$('#mytrips-container').html(Mustache.render(TripsTemplate,d));
 	
 	});
@@ -799,6 +812,7 @@ function deleteTrip(id) {
 			resetTripReceivers();
 			tripReceiverDropdowns();
 			getCurrentWorkingTrip();
+			clearTrip();
 		},500);		
 	})
 }
@@ -810,18 +824,10 @@ function cloneTrip(id) {
 }
 
 function saveTrip() {
-    trips = (JSON.parse(localStorage.trips));
-    venueIDs = [];
-    for(k in trips) {
-    	if (!trips[k] || !trips[k].id) {
-    		continue;
-    	}
-    venueIDs.push(trips[k].type+':'+trips[k].id);
-    }
+	
+
     var tripName = $('.header-title h1').text();
-    if (!tripName) {
-    	tripName = localStorage.workingTripName;
-    }
+
     $.ajax({
     	url: '/api.json?method=events.update-user-package',
     	method: 'post',
@@ -933,6 +939,7 @@ function getTrip(tr,tripID) {
 	          optimized: false
 	        });
 
+	      /*
         tripMarkers[tripI] = new google.maps.Marker({
           id: count,
           position: { lat: parseFloat(trips[k].lat), lng: parseFloat(trips[k].lon) },
@@ -950,7 +957,28 @@ function getTrip(tr,tripID) {
             origin: new google.maps.Point(0, 0)
           },
           optimized: false
+        }); */
+
+        tripMarkers[tripI] = new MarkerWithLabel({
+          position: { lat: parseFloat(trips[k].lat), lng: parseFloat(trips[k].lon) },
+          map: map,
+          title: name,
+          labelContent: trips[k].counter,
+          labelClass: "dynamicMapMarker",
+          labelAnchor: new google.maps.Point(25, 35),
+          icon: {
+          	anchor: new google.maps.Point(250, 480),
+            path: _MAP_PATH,
+            scale: .1,
+            fillColor: _MARKER_FILL_COLOR,
+            fillOpacity: .9,
+            size: new google.maps.Size(60, 72),
+            scaledSize: new google.maps.Size(30, 36),
+            origin: new google.maps.Point(0, 0)
+          },
+          optimized: false
         });
+
 
 
 	        tripWindowData[tripI] = '<div id="poi-window">'+
@@ -986,6 +1014,9 @@ function getTrip(tr,tripID) {
 
 	    			if (!ti.story_abstract) {
 	    				ti.story_abstract = '???';
+	    			}
+	    			if (ti.type == 'event') {
+	    				ti.isEvent = true;
 	    			}
 	    			return ti;
 	    		});

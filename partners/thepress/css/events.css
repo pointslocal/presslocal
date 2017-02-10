@@ -60,18 +60,6 @@ nav.solid .logo-container .tools ul li.search a:hover i {
   margin-bottom: 0;
 }
 
-.quad-column .quad-block:before {
-  content: '';
-  width: 100%;
-  position: absolute;
-  z-index: 999;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.25);
-}
-
 .directory .directory-list .directory-item .directory-pic a:after {
   background-color: rgba(84, 71, 65, 0.6) !important;
 }
@@ -85,18 +73,6 @@ nav.solid .logo-container .tools ul li.search a:hover i {
 
 .directory .directory-list .directory-item .directory-info .address {
   margin: 10px 0;
-}
-
-.directory .directory-list .directory-item .directory-pic a:before {
-  content: '';
-  width: 100%;
-  position: absolute;
-  z-index: 999;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.25);
 }
 
 /* Sub Nav */

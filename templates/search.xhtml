@@ -23,7 +23,7 @@
     <meta name="description" content="">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/partners/thepress/css/global.css?x=589dd8af11847">
+    <link rel="stylesheet" href="/partners/thepress/css/global.css?x=589dd9d849669">
     <link rel="stylesheet" href="/partners/thepress/css/index.css">
 
 
@@ -33,7 +33,7 @@
 <!-- prod: 3_BMFZOCwXDrSMoeTYN2uiVIBZhHski0qbm2oj7S3NL2gKLHcAjq-sx3cuKnLVg_pN -->
   <script src="/includes/lib/mustache/mustache.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script src="/partners/thepress/js/thepressx.js?x=browse&tz=589dd8af11847&zz=589dd8af11847&xyz=z"></script>
+<script src="/partners/thepress/js/thepressx.js?x=browse&tz=589dd9d849669&zz=589dd9d849669&xyz=z"></script>
 
 <script type="text/javascript"
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-gHN0lD5gfgKu4bp0h6ZPRM_jkCuIHps&libraries=drawing"></script>
@@ -94,42 +94,19 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
 </script>
 
   <!-- nav area -->
-  <!-- #268 INTERNAL HEADER -->
-<nav class="solid affix-top" data-spy="affix" data-offset-top="90">
-  <a href="#" class="toggle-nav hidden-lg hidden-md hidden-sm"><i class="fa fa-bars"></i><i class="fa fa-close hidden"></i></a>
-  <a href="/map" class="map-button hidden-lg hidden-md hidden-sm"><img class="map-icon" src="/partners/thepress/img/icons/map-icon.png" alt="Go to Map"></a>
+  <!-- MAP NAV -->
+<nav class="nav-sm affix-top">
+
+  <a href="#" class="toggle-nav hidden-lg hidden-md hidden-sm"><i class="fa fa-bars"></i><i class="fa fa-close hidden"></i></a><a href="#" class="map-button toggle-filters hidden-lg hidden-md hidden-sm"><img class="filter-icon" src="/partners/thepress/img/icons/filter-icon.png" alt="Map Filters"></a>
 
   <div class="container nav-wrapper">
     <div class="row logo-container">
       <div class="col-sm-12">
         <a href="/wine">
-          <img class="logo hidden-xs" src="/partners/thepress/img/thepress-logo-brown.png" alt="The Press">
+          <img class="logo hidden-xs" src="/partners/thepress/img/thepress-logo.png" alt="The Press">
           <img class="logo-mobile hidden-sm hidden-md hidden-lg" src="/partners/thepress/img/thepress-logo-mobile.png" alt="The Press">
           <img class="logo-fixed" src="/partners/thepress/img/thepress-logo-sm.png" alt="The Press">
-          <img class="logo-stamp hidden-xs" src="/partners/thepress/img/thepress-stamp-lg-brown.png" alt="The Press">
         </a>
-        <div class="tools">
-          <ul class="hidden-xs header-tools" style="display:none;" id="auth-container">
-        <li class="signin header-tool" style="display:none;"><a href="#" class="button button-sm clear sans toggle-signin" data-toggle="modal" data-target="#signinModal">Sign In</a></li>
-        <li class="dropdown tripselect header-tool">
-          <a href="#" onclick="initNewTrip();" style="display:none" id="tripselect-noauth"><span class="">+</span> <span class="">Create New Trip</span></a>        
-          <a href="#" style="display:none" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span class="tripcount"></span> <span class="tripname"></span></a>
-          <ul class="dropdown-menu" id="dropdown-trip-selector">
-
-                       
-          </ul>
-        </li>        
-
-        <li class="mytrips header-tool">
-          <a href="/my-trips">My Trips</a>
-        </li>        
-        <li class="dropdown login header-tool">
-          <a href="#" class="button button-sm clear sans toggle-signin" data-toggle="modal" data-target="#signinModal">Sign In</a>
-          <a href="#" onclick="gigyaLogout();" class="button button-sm clear sans toggle-signin dropdown-toggle toggle-signout " data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></a>
-        </li>
-            <li class="chronicle-small hidden-lg hidden-md header-tool"><a href="#"><img src="/partners/thepress/img/sfchronicle-logo.png" alt="SF Chronicle"></a></li>
-          </ul>
-        </div>
       </div>
     </div>
     <div class="row nav-container hidden-xs">
@@ -139,13 +116,12 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
         <li><a href="/stories" class="nav-reviews">Stories</a></li>
         <li><a href="/wineries" class="nav-places">Directory</a></li>
         <li><a href="/wine-events" class="nav-events">Events</a></li>
-        <li><a href="#" class="toggle-search"><i class="fa fa-search"></i></a></li>
-
-
+        <li class="search"><a href="#" class="toggle-search"><i class="fa fa-search"></i></a></li>
       </ul>
     </div>
     <div class="fixed-tools">
-      <ul class="hidden-xs">
+      <ul class="hidden-xs" style="display:none;" id="auth-container">
+        
         <li class="signin" style="display:none;"><a href="#" class="button button-sm clear sans toggle-signin" data-toggle="modal" data-target="#signinModal">Sign In</a></li>
         <li class="dropdown tripselect ">
           <a href="#" onclick="initNewTrip();" style="display:none" id="tripselect-noauth"><span class="">+</span> <span class="">Create New Trip</span></a>        
@@ -161,14 +137,13 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
         </li>        
         <li class="dropdown login ">
           <a href="#" class="button button-sm clear sans toggle-signin" data-toggle="modal" data-target="#signinModal">Sign In</a>
-          <a href="#" onclick="gigyaLogout();" class="dropdown-toggle toggle-signout " data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></a>
-        <li class="chronicle"><a href="#"><img src="/partners/thepress/img/sfchronicle-logo.png" alt="SF Chronicle"></a></li>
+          <a href="#" onclick="gigyaLogout();" class="dropdown-toggle toggle-signout " data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="display:none;"></a>
+        </li>
+        <li class="chronicle"><a href="http://www.sfchronicle.com/foodandhome/wine/"><img src="/partners/thepress/img/sfchronicle-logo.png" alt="SF Chronicle"></a></li>
       </ul>
-      <a href="#" class="toggle-nav hidden-lg hidden-md hidden-sm"><i class="fa fa-bars"></i></a>
     </div>
   </div>
 </nav>
-<!-- 268 /INTERNAL HEADER -->
 
 <!-- Mobile Dropdown Menu -->
 <nav class="mobile-dropdown hidden-sm hidden-md hidden-lg">
@@ -489,303 +464,272 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
 </div>
 
 
-  <!-- #275 STORIES LIST -->
-<script src="/partners/thepress/js/stories.js"></script>
-<link rel="stylesheet" href="/partners/thepress/css/stories.css">
-<script>setNav('reviews');</script>
-<header class="header-sm gradient-cover" style="background: url('http://imagecdn-sfgate.pointslocal.com/image?method=image.icrop&context=stories&id=266&w=1000&h=-1') center center no-repeat; background-size: cover;">
-    <div class="subnav bg-red-alpha">
-      <ul class="sans-bold">
-        <li><a href="#">Napa</a></li>
-        <li><a href="#">Sonoma</a></li>
-      </ul>
-    </div>
-    <div class="cta vert-center">
-      <h1>Syrah: The Winemaker's Grape</h1>
-      <p></p>
-      <a href="/story/syrah-the-winemaker-s-grape" class="button button-cta serif bg-red-alpha">Read Story</a>
-    </div>
-  </header>
-
-
-
-    <!-- Featured Story -->
-<main>
-    <section class="featured-story container no-padding">
-      <div class="row">
-        <div class="col-sm-12">
-          <h2 class="divider divider-lg red"><span>Reviews & Stories</span></h2>
-        </div>
-      </div>
-      <div class="row scrollable" id="scroll3">
-        
-        <div class="col-sm-12 block-container">
-          <a href="/story/lauterbach-cellars" class="story-container gradient-cover" style="background: url('http://imagecdn-sfgate.pointslocal.com/image?method=image.icrop&context=stories&id=265&w=1000&h=-1') center center no-repeat; background-size: cover;">
-            <div class="story-content vert-center">
-              <div class="story-label white">Winery Review</div>
-              <h1 class="white">Lauterbach Cellars: Nitty-Gritty Winemaking</h1>
-            </div>
-          </a>
-          <div class="story-text hidden-xs">
-            <p class="sans brown"></p>
-            <span class="date darkOlive" style="display:none;">December 13, 2016</span>
-          </div>
-        </div>
-        
-        <!-- Additional Mobile Scrolling Items (Appear in Three Column Block Below) -->
-        <div class="mobile-scroller hidden-sm hidden-md hidden-lg" style="display:none;">
-          <div class="col-sm-12 block-container">
-            <a href="/story/" class="story-container gradient-cover" style="background: url('img/backgrounds/wine-growers.png') center center no-repeat; background-size: cover;">
-              <div class="story-content vert-center">
-                <div class="story-label white"></div>
-                <h1 class="white">The title of a Featured Story About California Wine Growers</h1>
-              </div>
-            </a>
-            <div class="story-text hidden-xs">
-              <p class="sans brown">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus varius risus eu tellus.</p>
-              <span class="date darkOlive" style="display:none;">June 1, 2016</span>
-            </div>
-          </div>
-          <div class="col-sm-12 block-container">
-            <a href="/story/" class="story-container" style="background: url('img/backgrounds/wine-growers.png') center center no-repeat; background-size: cover;">
-              <div class="story-content vert-center">
-                <div class="story-label white">Category</div>
-                <h1 class="white">The title of a Featured Story About California Wine Growers</h1>
-              </div>
-            </a>
-            <div class="story-text hidden-xs">
-              <p class="sans brown">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus varius risus eu tellus.</p>
-              <span class="date darkOlive">June 1, 2016</span>
-            </div>
-          </div>
-          <div class="col-sm-12 block-container">
-            <a href="/story/" class="story-container" style="background: url('img/backgrounds/wine-growers.png') center center no-repeat; background-size: cover;">
-              <div class="story-content vert-center">
-                <div class="story-label white"></div>
-                <h1 class="white">The title of a Featured Story About California Wine Growers</h1>
-              </div>
-            </a>
-            <div class="story-text hidden-xs">
-              <p class="sans brown">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus varius risus eu tellus.</p>
-              <span class="date darkOlive">June 1, 2016</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-</main>
-
-    <!-- Two Panel (Side by Side) -->
-    <section class="two-panel container bg-superLightOrange">
-      
-      <div class="row">
-        <div class="col-sm-6 no-padding panel-block hidden-xs">
-          <a href="/story/la-crema"><div class="panel-pic" style="background: url('http://imagecdn-sfgate.pointslocal.com/image?method=image.icrop&context=stories&id=264&w=1000&h=-1') center center no-repeat; background-size: cover;"></div></a>
-        </div>
-        <div class="col-sm-6 panel-padding no-padding">
-          <div class="panel-content vert-center">
-            <a href="/story/la-crema"><img src="/partners/thepress/img/backgrounds/wine-glasses3.png" class="hidden-sm hidden-md hidden-lg"></a>
-            <div class="panel-label lightBrown">Winery Review</div>
-            <h1 class="serif red"><a href="/story/la-crema">La Crema: Scenic Saralee Vineyard</a></h1>
-            <p class="sans-bold brown">Every casual wine consumer is undoubtedly familiar with this big name wine brand. Because its wines are accessible at almost any grocery store, one may not even consider that there's a formal tasting room to visit. </p>
-            <span class="date darkOlive" style="display:none;">December 13, 2016</span>
-          </div>
-        </div>
-      </div>
-      
-    </section>
-<!-- #275 /STORIES LIST -->
+  
 
   <div class="oldmain">
 
+  <!-- SEARCH RESULTS -->
+  <!-- Header Two Column Module -->
+  <header class="header-single header-two-column" style="">
+    <div class="container no-padding">
+      <div class="row">
+        <div class="col-sm-12 header-title">
+          <div class="header-label no-accent lightBrown">Search Results For</div>
+          <h1 class="sans brown">wine</h1>
+          <div class="header-label no-accent lightBrown">17 Results</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Directory Header Module -->
+    <section class="directory-header hidden-xs" style="display:none;">
+      <div class="container-fluid directory-container bg-lightGray">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-6 directory-filters">
+              <ul class="tools-container hidden-xs hidden-sm">
+                <li class="dropdown">
+                  <a class="brown dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Region <i class="fa fa-chevron-down"></i></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a class="brown dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Sub Region <i class="fa fa-chevron-down"></i></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a class="brown dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Category <i class="fa fa-chevron-down"></i></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <div class="col-sm-6 directory-tools">
+              <ul class="tools-container hidden-xs hidden-sm">
+                <li><a class="brown" href="#"><img class="filter-icon" src="img/icons/filter-icon.png" alt="Show Filters"> Filters</a></li>
+                <li><a class="brown" href="#">Clear</a></li>
+              </ul>
+              <div class="dropdown">
+                <a href="#" class="toggle-filters brown hidden-md hidden-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><img class="filter-icon" src="img/icons/filter-icon.png" alt="Show Filters"></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- One Column (Listings) -->
+
+    <section class="one-column container" style="display:none;">
+      <div class="row">
+        <div class="col-sm-12">
+          <h2 class="divider divider-sm olive"><span>Listings</span></h2>
+        </div>
+      </div>
+      <div class="row">
+
+        <div class="col-sm-12 content">
+          <div class="featured-image" style=""></div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- Quad Columns Divider Module -->
+    <section class="quad-column quad-column-divider no-borders container no-padding">
+      <div class="row">
+        <div class="col-sm-12 text-center">
+          <p class="sans-bold lightBrown">Sponsored Ads</p>
+        </div>
+      </div>
+      <div class="row scrollable" id="scroll1">
+
+
+        <div class="col-sm-3 block-container">
+          <a href="/place/chimney-rock-winery" class="quad-block" style="background: url('/image?method=image.icrop&context=venue&id=351&w=400&h=-1') center center no-repeat; background-size: cover;">
+          </a>
+          <div class="block-text">
+            <h4 class="sans-bold lightBrown"><a href="/place/chimney-rock-winery">Chimney Rock Winery</a></h4>
+            <img src="img/icons/activities.png" style="display:none;" alt="Activites">
+          </div>
+        </div>
+
+
+        <div class="col-sm-3 block-container">
+          <a href="/place/beau-wine-tours-limousine-service" class="quad-block" style="background: url('/image?method=image.icrop&context=venue&id=641&w=400&h=-1') center center no-repeat; background-size: cover;">
+          </a>
+          <div class="block-text">
+            <h4 class="sans-bold lightBrown"><a href="/place/beau-wine-tours-limousine-service">Beau Wine Tours &amp; Limousine Service</a></h4>
+            <img src="img/icons/activities.png" style="display:none;" alt="Activites">
+          </div>
+        </div>
+
+
+        <div class="col-sm-3 block-container">
+          <a href="/place/ferrari-carano-vineyards-winery" class="quad-block" style="background: url('/image?method=image.icrop&context=venue&id=646&w=400&h=-1') center center no-repeat; background-size: cover;">
+          </a>
+          <div class="block-text">
+            <h4 class="sans-bold lightBrown"><a href="/place/ferrari-carano-vineyards-winery">Ferrari-Carano Vineyards &amp; Winery</a></h4>
+            <img src="img/icons/activities.png" style="display:none;" alt="Activites">
+          </div>
+        </div>
+
+
+        <div class="col-sm-3 block-container">
+          <a href="/place/ledson-winery-vineyards" class="quad-block" style="background: url('/image?method=image.icrop&context=venue&id=648&w=400&h=-1') center center no-repeat; background-size: cover;">
+          </a>
+          <div class="block-text">
+            <h4 class="sans-bold lightBrown"><a href="/place/ledson-winery-vineyards">Ledson Winery &amp; Vineyards</a></h4>
+            <img src="img/icons/activities.png" style="display:none;" alt="Activites">
+          </div>
+        </div>
+
+
+      </div>
+
+    </section>
+
+     <!-- Two Panel (Side by Side) -->
+
+
+    <!-- Quad Columns Divider Module -->
+
+    <section class="quad-column quad-column-divider container no-padding">
+      <div class="row">
+        <div class="col-sm-12">
+          <h2 class="divider divider-xs red"><span>Stories</span></h2>
+        </div>
+      </div>
+      <div class="row scrollable stories directory-alt" id="scroll2">
+      <div class="col-sm-12 directory-list">
+
+
+<div class="col-sm-12 directory-list"><div class="row directory-item"><div class="col-sm-12 item-container"><div class="row"><div class="hidden-xs col-sm-3 directory-pic"><a href="/story/garagiste-wine-festival-features-renegade-wineries"><img alt="" src="/image?method=image.icrop&context=stories&id=48&w=400&h=-1"></a></div><div class="col-sm-9 directory-info" style="min-height: 150px;text-align: left"><h3 class="brown serif"><a href="#">Garagiste Wine Festival features renegade wineries</a></h3><h4 class="sans-bold orange"></h4><div class="address"><p> The Garagiste Wine Festival, launched in Paso Robles in 2011, is finally getting some northern exposure as it uncorks its first event in Oakland.
+</p></div></div><div class="col-sm-4 directory-buttons hidden-lg hidden-md hidden-sm"><ul><li><a href="#" class="sans-bold bg-lightOrange button button-xs">Remove From Trip</a></li><li><a href="#" class="sans-bold orange"><i class="fa fa-map-o"></i> Map</a></li></ul></div></div></div></div></div>
+
+
+
+<div class="col-sm-12 directory-list"><div class="row directory-item"><div class="col-sm-12 item-container"><div class="row"><div class="hidden-xs col-sm-3 directory-pic"><a href="/story/acorn-winery"><img alt="" src="/image?method=image.icrop&context=stories&id=69&w=400&h=-1"></a></div><div class="col-sm-9 directory-info" style="min-height: 150px;text-align: left"><h3 class="brown serif"><a href="#">ACORN Winery: Italian-Inspired Red Wines</a></h3><h4 class="sans-bold orange"></h4><div class="address"><p> </p></div></div><div class="col-sm-4 directory-buttons hidden-lg hidden-md hidden-sm"><ul><li><a href="#" class="sans-bold bg-lightOrange button button-xs">Remove From Trip</a></li><li><a href="#" class="sans-bold orange"><i class="fa fa-map-o"></i> Map</a></li></ul></div></div></div></div></div>
+
+
+
+<div class="col-sm-12 directory-list"><div class="row directory-item"><div class="col-sm-12 item-container"><div class="row"><div class="hidden-xs col-sm-3 directory-pic"><a href="/story/bobdog-wines"><img alt="" src="/image?method=image.icrop&context=stories&id=73&w=400&h=-1"></a></div><div class="col-sm-9 directory-info" style="min-height: 150px;text-align: left"><h3 class="brown serif"><a href="#">BobDog Wines: Walk with a Winemaker</a></h3><h4 class="sans-bold orange"></h4><div class="address"><p> </p></div></div><div class="col-sm-4 directory-buttons hidden-lg hidden-md hidden-sm"><ul><li><a href="#" class="sans-bold bg-lightOrange button button-xs">Remove From Trip</a></li><li><a href="#" class="sans-bold orange"><i class="fa fa-map-o"></i> Map</a></li></ul></div></div></div></div></div>
+
+
+
+<div class="col-sm-12 directory-list"><div class="row directory-item"><div class="col-sm-12 item-container"><div class="row"><div class="hidden-xs col-sm-3 directory-pic"><a href="/story/br-cohn"><img alt="" src="/image?method=image.icrop&context=stories&id=74&w=400&h=-1"></a></div><div class="col-sm-9 directory-info" style="min-height: 150px;text-align: left"><h3 class="brown serif"><a href="#">BR Cohn Winery: Wine, Food and Gorgeous Gardens</a></h3><h4 class="sans-bold orange"></h4><div class="address"><p> </p></div></div><div class="col-sm-4 directory-buttons hidden-lg hidden-md hidden-sm"><ul><li><a href="#" class="sans-bold bg-lightOrange button button-xs">Remove From Trip</a></li><li><a href="#" class="sans-bold orange"><i class="fa fa-map-o"></i> Map</a></li></ul></div></div></div></div></div>
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <h2 class="divider divider-xs orange"><span>Trips</span></h2>
+        </div>
+      </div>
+        
+        <div class="row scrollable trips directory-alt" id="scroll3">
+      <div class="col-sm-12 directory-list">        
+
+
+
+<div class="col-sm-12 directory-list"><div class="row directory-item"><div class="col-sm-12 item-container"><div class="row"><div class="hidden-xs col-sm-3 directory-pic"><a href="/story/"><img alt="" src="/image?method=image.icrop&context=package&id=12&w=400&h=-1"></a></div><div class="col-sm-9 directory-info" style="min-height: 190px;text-align: left"><h3 class="brown serif"><a href="#">Wineries with &quot;Wagging&quot; Rights</a></h3><h4 class="sans-bold orange"></h4><div class="address"><p> It's never easy saying goodbye to those big round eyes as you leave your four-legged companion at home for the day.  But if you're in the mood for winetasting, luckily there are plenty of dog-friendly tasting rooms you two can visit together.  Head over to any of these ...</p></div></div><div class="col-sm-4 directory-buttons hidden-lg hidden-md hidden-sm"><ul><li><a href="#" class="sans-bold bg-lightOrange button button-xs">Remove From Trip</a></li><li><a href="#" class="sans-bold orange"><i class="fa fa-map-o"></i> Map</a></li></ul></div></div></div></div></div>
+
+
+
+
+
+<div class="col-sm-12 directory-list"><div class="row directory-item"><div class="col-sm-12 item-container"><div class="row"><div class="hidden-xs col-sm-3 directory-pic"><a href="/story/"><img alt="" src="/image?method=image.icrop&context=package&id=13&w=400&h=-1"></a></div><div class="col-sm-9 directory-info" style="min-height: 190px;text-align: left"><h3 class="brown serif"><a href="#">A Study in Wine</a></h3><h4 class="sans-bold orange"></h4><div class="address"><p> With an immensely vast range of winery programs that both Napa and Sonoma Valley have to offer, there are certain wineries that are perfect for anyone seeking a bit more depth of knowledge from their wine-tasting experience.  Whether looking to learn about a region's unique history, the winemaker's eclectic ...</p></div></div><div class="col-sm-4 directory-buttons hidden-lg hidden-md hidden-sm"><ul><li><a href="#" class="sans-bold bg-lightOrange button button-xs">Remove From Trip</a></li><li><a href="#" class="sans-bold orange"><i class="fa fa-map-o"></i> Map</a></li></ul></div></div></div></div></div>
+
+
+
+
+
+<div class="col-sm-12 directory-list"><div class="row directory-item"><div class="col-sm-12 item-container"><div class="row"><div class="hidden-xs col-sm-3 directory-pic"><a href="/story/"><img alt="" src="/image?method=image.icrop&context=package&id=14&w=400&h=-1"></a></div><div class="col-sm-9 directory-info" style="min-height: 190px;text-align: left"><h3 class="brown serif"><a href="#">The Pinot Path</a></h3><h4 class="sans-bold orange"></h4><div class="address"><p> Branching off near downtown Healdsburg, Westside Road is a remarkably concentrated corridor of wineries and tasting rooms. The long, windy road runs parallel to the Russian River, and you won't find a winery along it that doesn't make Pinot. Many of the grape's early, formative producers are here, like Williams-Selyem ...</p></div></div><div class="col-sm-4 directory-buttons hidden-lg hidden-md hidden-sm"><ul><li><a href="#" class="sans-bold bg-lightOrange button button-xs">Remove From Trip</a></li><li><a href="#" class="sans-bold orange"><i class="fa fa-map-o"></i> Map</a></li></ul></div></div></div></div></div>
+
+
+
+
+
+<div class="col-sm-12 directory-list"><div class="row directory-item"><div class="col-sm-12 item-container"><div class="row"><div class="hidden-xs col-sm-3 directory-pic"><a href="/story/"><img alt="" src="/image?method=image.icrop&context=package&id=17&w=400&h=-1"></a></div><div class="col-sm-9 directory-info" style="min-height: 190px;text-align: left"><h3 class="brown serif"><a href="#">The Chardonnay Style Spectrum</a></h3><h4 class="sans-bold orange"></h4><div class="address"><p> The best way to explore Chardonnay's vast potential is to visit wineries that interpret the grape differently. Start off at Stony Hill, where the wines see only neutral oak and never undergo malolactic fermentation; then visit Hanzell, where their flagship Chardonnay sees some (though not much) new oak and a ...</p></div></div><div class="col-sm-4 directory-buttons hidden-lg hidden-md hidden-sm"><ul><li><a href="#" class="sans-bold bg-lightOrange button button-xs">Remove From Trip</a></li><li><a href="#" class="sans-bold orange"><i class="fa fa-map-o"></i> Map</a></li></ul></div></div></div></div></div>
+
+
+        </div>
+        </div>
+        
+      <div class="row">
+        <div class="col-sm-12">
+          <h2 class="divider divider-xs lightBrown"><span>Events</span></h2>
+        </div>
+      </div>
+      <div class="row scrollable" id="scroll4">
+        <div class="col-sm-3 block-container">
+          <a href="#" class="quad-block" style="background: url('/image?method=image.icrop&context=event.yield&id=9763&w=400&h=-1') center center no-repeat; background-size: cover;">
+            <div class="event-date sans-bold white vert-center">February 24</div>
+          </a>
+          <div class="block-text">
+            <h4 class="sans-bold brown"><a href="#">The History of Napa Valley in 8 Glasses</a></h4>
+            <h4 class="sans-bold lightBrown"></h4>
+            <span class="affiliate-badge"></span>
+          </div>
+        </div>
+        <div class="col-sm-3 block-container">
+          <a href="#" class="quad-block" style="background: url('/image?method=image.icrop&context=event.yield&id=9766&w=400&h=-1') center center no-repeat; background-size: cover;">
+            <div class="event-date sans-bold white vert-center">February 25</div>
+          </a>
+          <div class="block-text">
+            <h4 class="sans-bold brown"><a href="#">Nailed It!: Cabernet Sauvignon</a></h4>
+            <h4 class="sans-bold lightBrown"></h4>
+            <span class="affiliate-badge"></span>
+          </div>
+        </div>
+        <div class="col-sm-3 block-container">
+          <a href="#" class="quad-block" style="background: url('/image?method=image.icrop&context=event.yield&id=9766&w=400&h=-1') center center no-repeat; background-size: cover;">
+            <div class="event-date sans-bold white vert-center">February 27</div>
+          </a>
+          <div class="block-text">
+            <h4 class="sans-bold brown"><a href="#">Nailed It!: Cabernet Sauvignon</a></h4>
+            <h4 class="sans-bold lightBrown"></h4>
+            <span class="affiliate-badge"></span>
+          </div>
+        </div>
+        <div class="col-sm-3 block-container">
+          <a href="#" class="quad-block" style="background: url('/image?method=image.icrop&context=event.yield&id=9767&w=400&h=-1') center center no-repeat; background-size: cover;">
+            <div class="event-date sans-bold white vert-center">February 11</div>
+          </a>
+          <div class="block-text">
+            <h4 class="sans-bold brown"><a href="#">Nailed It!: Chardonnay</a></h4>
+            <h4 class="sans-bold lightBrown"></h4>
+            <span class="affiliate-badge"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
   
 
-  <!-- #277 STORIES CONTINUED -->
-<section class="two-column two-column-divider no-padding container">
-      <div class="row scrollable" id="scroll1">
-        
-        <div class="col-sm-6 block-container">
-          <a href="/story/benovia-winery" class="block-padding gradient-cover" style="background: url('/image?method=image.icrop&context=stories&id=262&w=600&h=-1') center center no-repeat; background-size: cover;">
-            <div class="block-content vert-center">
-              <h3 class="white">Benovia: Cozy Fireside Wine Tasting</h3>
-            </div>
-          </a>
-          <div class="block-text">
-            <div class="block-label lightBrown">Winery Review</div>
-            <p class="sans brown">Driving through the entrance gates and down a vineyard-lined gravel path, you can't help but think &quot;I've arrived.&quot; </p>
-          </div>
-        </div>
-        
-        <div class="col-sm-6 block-container">
-          <a href="/story/banshee-wines-cool-kids-and-fine-wine" class="block-padding gradient-cover" style="background: url('/image?method=image.icrop&context=stories&id=260&w=600&h=-1') center center no-repeat; background-size: cover;">
-            <div class="block-content vert-center">
-              <h3 class="white">Banshee Wines: Cool Kids and Fine Wine</h3>
-            </div>
-          </a>
-          <div class="block-text">
-            <div class="block-label lightBrown">Winery Review</div>
-            <p class="sans brown"></p>
-          </div>
-        </div>
-        
-      </div>
-    </section>
-
-
-
-
-<section class="three-column stories container no-padding hidden-xs">
-      <div class="row">
-      
-        <div class="col-sm-4 the-column">
-          <a href="/story/rochioli-vineyards-and-winery" class="block gradient-cover" style="background: url('/image?method=image.icrop&context=stories&id=257&w=500&h=-1') center center no-repeat; background-size: cover;"></a>
-          <div class="block-label lightBrown">Winery Review</div>
-          <div class="block-content">
-            <h4 class="sans-bold red"><a href="/story/rochioli-vineyards-and-winery">Rochioli: Family Winemaking History</a></h4>
-            <span class="date darkOlive" style="display:none;">November 23, 2016</span>
-          </div>
-        </div>
-        <script>_STORIESLASTID = 257;</script>
-        
-        <div class="col-sm-4 the-column">
-          <a href="/story/top-restaurants-in-yountville" class="block gradient-cover" style="background: url('/image?method=image.icrop&context=stories&id=256&w=500&h=-1') center center no-repeat; background-size: cover;"></a>
-          <div class="block-label lightBrown">Food</div>
-          <div class="block-content">
-            <h4 class="sans-bold red"><a href="/story/top-restaurants-in-yountville">Top Restaurants in Yountville</a></h4>
-            <span class="date darkOlive" style="display:none;">November 17, 2016</span>
-          </div>
-        </div>
-        <script>_STORIESLASTID = 256;</script>
-        
-        <div class="col-sm-4 the-column">
-          <a href="/story/downtown-napa-s-sizzling-restaurant-scene" class="block gradient-cover" style="background: url('/image?method=image.icrop&context=stories&id=255&w=500&h=-1') center center no-repeat; background-size: cover;"></a>
-          <div class="block-label lightBrown">Food</div>
-          <div class="block-content">
-            <h4 class="sans-bold red"><a href="/story/downtown-napa-s-sizzling-restaurant-scene">Downtown Napa's Sizzling Restaurant Scene</a></h4>
-            <span class="date darkOlive" style="display:none;">November 17, 2016</span>
-          </div>
-        </div>
-        <script>_STORIESLASTID = 255;</script>
-        
-
-      </div>
-
-
-
-      <div class="row" id="stories-receiver">
-        <div class="col-sm-12 text-center">
-          <a href="/storyindex" class="button button-cta serif bg-red">See More Stories</a>
-        </div>
-      </div>
-    </section>
-
-
-
-<div class="row" style="display:none;">
-        <div class="col-sm-12">
-          <h2 class="divider divider-sm red"><span>Wine Country News</span></h2>
-        </div>
-      </div>
-
-
-
-<div class="row scrollable" id="scroll2" style="display:none;">
-        <div class="col-sm-3 block-container">
-          <a href="#" class="quad-block" style="background: url('img/backgrounds/wine-pour.png') center center no-repeat; background-size: cover;"></a>
-          <div class="block-text">
-            <h4 class="sans-bold lightBrown"><a href="#">Title of Editorial Story with Partner Content</a></h4>
-          </div>
-        </div>
-        <div class="col-sm-3 block-container">
-          <a href="#" class="quad-block" style="background: url('img/backgrounds/wine-cheese.png') center center no-repeat; background-size: cover;"></a>
-          <div class="block-text">
-            <h4 class="sans-bold lightBrown"><a href="#">Title of Recommended Editorial Story</a></h4>
-          </div>
-        </div>
-        <div class="col-sm-3 block-container">
-          <a href="#" class="quad-block" style="background: url('img/backgrounds/wine-pour.png') center center no-repeat; background-size: cover;"></a>
-          <div class="block-text">
-            <h4 class="sans-bold lightBrown"><a href="#">Title of Editorial Story with Partner Content</a></h4>
-          </div>
-        </div>
-        <div class="col-sm-3 block-container">
-          <a href="#" class="quad-block" style="background: url('img/backgrounds/wine-cheese.png') center center no-repeat; background-size: cover;"></a>
-          <div class="block-text">
-            <h4 class="sans-bold lightBrown"><a href="#">Title of Recommended Editorial Story</a></h4>
-          </div>
-        </div>
-        <div class="mobile-scroller hidden-sm hidden-md hidden-lg">
-          <div class="col-sm-3 block-container">
-            <a href="#" class="quad-block" style="background: url('img/backgrounds/wine-pour.png') center center no-repeat; background-size: cover;"></a>
-            <div class="block-text">
-              <h4 class="sans-bold lightBrown"><a href="#">Title of Editorial Story with Partner Content</a></h4>
-            </div>
-          </div>
-          <div class="col-sm-3 block-container">
-            <a href="#" class="quad-block" style="background: url('img/backgrounds/wine-cheese.png') center center no-repeat; background-size: cover;"></a>
-            <div class="block-text">
-              <h4 class="sans-bold lightBrown"><a href="#">Title of Recommended Editorial Story</a></h4>
-            </div>
-          </div>
-          <div class="col-sm-3 block-container">
-            <a href="#" class="quad-block" style="background: url('img/backgrounds/wine-pour.png') center center no-repeat; background-size: cover;"></a>
-            <div class="block-text">
-              <h4 class="sans-bold lightBrown"><a href="#">Title of Editorial Story with Partner Content</a></h4>
-              <span class="partner-badge"></span>
-            </div>
-          </div>
-          <div class="col-sm-3 block-container">
-            <a href="#" class="quad-block" style="background: url('img/backgrounds/wine-cheese.png') center center no-repeat; background-size: cover;"></a>
-            <div class="block-text">
-              <h4 class="sans-bold lightBrown"><a href="#">Title of Recommended Editorial Story</a></h4>
-            </div>
-          </div>
-        </div>
-      </div>          
-
-<!-- #277 /STORIES CONTINUED -->
-
-  <section class="contributors bg-superLightOrange" style="background: url('/partners/thepress/img/backgrounds/illustration2.png') #F9F4E4 center 50px no-repeat; background-size: contain;">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12">
-            <h2 class="divider divider-xs red"><span>Contributors</span></h2>
-          </div>
-        </div>
-        <div class="row avatar-wrapper">
-          <div class="col-sm-4 avatar-container">
-            <a href="/contributor/esther-mobley"><div class="avatar" style="background: url('/image?method=image.icrop&context=story.author&id=1&w=200&h=200') #FF5B50 center center no-repeat; background-size: cover;"></div></a>
-            <h2 class="serif brown">Esther Mobley</h2>
-            <p class="sans-bold brown">Writer</p>
-          </div>
-          <div class="col-sm-4 avatar-container">
-            <a href="/contributor/stacy-briscoe"><div class="avatar" style="background: url('/image?method=image.icrop&context=story.author&id=2&w=200&h=200') #FF5B50 center center no-repeat; background-size: cover;"></div></a>
-            <h2 class="serif brown">Stacy Briscoe</h2>
-            <p class="sans-bold brown">Content Producer &amp; Editor</p>
-          </div>
-          <div class="col-sm-4 avatar-container">
-            <a href="/contributor/julie-albin"><div class="avatar" style="background: url('/image?method=image.icrop&context=story.author&id=3&w=200&h=200') #FF5B50 center center no-repeat; background-size: cover;"></div></a>
-            <h2 class="serif brown">Julie Albin</h2>
-            <p class="sans-bold brown">Writer</p>
-          </div>
-          <div class="col-sm-4 avatar-container">
-            <a href="/contributor/carey-sweet"><div class="avatar" style="background: url('/image?method=image.icrop&context=story.author&id=4&w=200&h=200') #FF5B50 center center no-repeat; background-size: cover;"></div></a>
-            <h2 class="serif brown">Carey Sweet</h2>
-            <p class="sans-bold brown">Writer</p>
-          </div>
-          <div class="col-sm-4 avatar-container">
-            <a href="/contributor/bryce-wiatrak"><div class="avatar" style="background: url('/image?method=image.icrop&context=story.author&id=5&w=200&h=200') #FF5B50 center center no-repeat; background-size: cover;"></div></a>
-            <h2 class="serif brown">Bryce Wiatrak</h2>
-            <p class="sans-bold brown">Writer</p>
-          </div>
-          <div class="col-sm-4 avatar-container">
-            <a href="/contributor/michael-bauer"><div class="avatar" style="background: url('/image?method=image.icrop&context=story.author&id=6&w=200&h=200') #FF5B50 center center no-repeat; background-size: cover;"></div></a>
-            <h2 class="serif brown">Michael Bauer</h2>
-            <p class="sans-bold brown">Writer</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  
 
   
 
@@ -883,8 +827,8 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
     <script type="text/javascript" src="/partners/thepress/js/libs/jquery-touch-punch.js"></script>
     <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
 <script type="text/javascript" src="/partners/thepress/js/libs/markerwithlabel.js"></script><script type="text/javascript" src="/partners/thepress/js/libs/jquery-editable-poshytip.min.js"></script>
-    <script type="text/javascript" src="/partners/thepress/js/libs/iscroll.js?t=589dd8af11847"></script>
-<script type="text/javascript" src="/partners/thepress/js/libs/slick.js?t=589dd8af11847"></script>
+    <script type="text/javascript" src="/partners/thepress/js/libs/iscroll.js?t=589dd9d849669"></script>
+<script type="text/javascript" src="/partners/thepress/js/libs/slick.js?t=589dd9d849669"></script>
     <script type="text/javascript" src="/partners/thepress/js/global.js?t=1"></script>
 <script type="text/javascript" src="/partners/thepress/js/libs/jquery.sticky.js"></script>
     <script src="/partners/thepress/js/map.js?1470683612"></script>
