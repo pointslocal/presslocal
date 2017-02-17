@@ -6,33 +6,57 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>The Press</title>
 
-  <meta property="og:type" content="<[_ogtype]>" />
-  <meta property="og:url" content="<[_ogurl]>" />
-  <meta property="og:image" content="<[_ogimage]>" />
-  <meta property="place:location:latitude"  content="<[_oglatitude]>" />
-  <meta property="place:location:longitude" content="<[_oglongitude]>" />
-  <meta property="og:title" content="<[_ogtitle]>" />
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+    <title>The Press</title>
+  
+    <meta property="og:type" content="<[_ogtype]>" /> 
+    <meta property="og:url" content="<[_ogurl]>" /> 
+    <meta property="og:image" content="<[_ogimage]>" /> 
+    <meta property="place:location:latitude"  content="<[_oglatitude]>" /> 
+    <meta property="place:location:longitude" content="<[_oglongitude]>" /> 
+    <meta property="og:title" content="<[_ogtitle]>" /> 
     <link rel="shortcut icon" href="/partners/thepress/img/thepress-logo-sm.png" />
     <meta name="description" content="">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/partners/thepress/css/global.css">
-    <link rel="stylesheet" href="/partners/thepress/css/trips.css">
+    <link rel="stylesheet" href="/partners/thepress/css/global.css?x=589e3d3df0614">
+    <link rel="stylesheet" href="/partners/thepress/css/index.css">
+
+
   <script type="text/javascript" id="adPositionManagerScriptTag" src="http://aps.hearstnp.com/Scripts/loadAds.js"></script>
 <SCRIPT type="text/javascript" lang="javascript" src="http://cdn.gigya.com/JS/gigya.js?apikey=3_BMFZOCwXDrSMoeTYN2uiVIBZhHski0qbm2oj7S3NL2gKLHcAjq-sx3cuKnLVg_pN"></SCRIPT>
+<!-- prod treg: 3_SwXI4hyN9wmzGqer7gFM6ZcaPKuO4YepRCKYkTUQhmUP89-cbi4KAnt5Tp7yyaUs -->
+<!-- 3_O6YwFqa1LkbrVGvTT0uOf2WwL78KJvUTqPQi6IGNF0xg5m1w2g-54pgf6xro1ZyU -->
+<!-- prod: 3_BMFZOCwXDrSMoeTYN2uiVIBZhHski0qbm2oj7S3NL2gKLHcAjq-sx3cuKnLVg_pN -->
   <script src="/includes/lib/mustache/mustache.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script src="/partners/thepress/js/thepressx.js?x=browse&tz=5852c7ca7079e"></script>
+<script src="/partners/thepress/js/thepressx.js?x=browse&tz=589e3d3df0614&zz=589e3d3df0614&xyz=sz"></script>
 
 <script type="text/javascript"
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-gHN0lD5gfgKu4bp0h6ZPRM_jkCuIHps&libraries=drawing"></script>
     <script type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js'></script>
+<script src="http://23hfij34r8a3i36ce2tnh9ii.wpengine.netdna-cdn.com/wp-content/themes/wordplate/js/markerwithlabel.js"></script>
     <script src="//use.typekit.net/wuq4anx.js"></script>
+
+
 <script>
 var _LAT = 38.334997;
 var _LON =  -122.298203;
+var _MARKER_FILL_COLOR = '#93A558'; // '#FF5B50';
+var _MARKER_HIGHLIGHT_FILL_COLOR = '#c1d973'; //'#93A558'; //'#ffb8b2';
+var _MARKER_HIGHLIGHT_BORDER_COLOR = '#93A558'; //'#FF5B50';
+var _MAP_PATH = 'M258.5,0C144.7,0,62,79.5,62,166.1c0,52.4,21.7,80.4,50.7,131.1C170.6,398.6,258.5,507,258.5,507 s87.9-108.4,145.8-209.8c29-50.7,50.7-78.7,50.7-131.1C455,79.5,372.3,0,258.5,0';
+var _xMAP_PATH = 'M950.235781,615.06006 C950.235781,624.482899 933.11789,641.59793 933.11789,641.59793 C933.11789,641.59793 916,624.482899 916,615.06006 C916,605.63722 923.663109,598 933.11789,598 C942.572672,598 950.235781,605.63722 950.235781,615.06006 L950.235781,615.06006 Z';
+if ('<[publication]>' == 'alt') {
+  _MARKER_FILL_COLOR = '#cc435a';
+  _MARKER_HIGHLIGHT_FILL_COLOR = '#FFFFFF'; //'#f299a8';
+  _MARKER_HIGHLIGHT_BORDER_COLOR = '#cc435a';
+
+}
 </script>
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
 <script>
@@ -40,7 +64,7 @@ tripsExist = JSON.parse(localStorage.getItem('trips'));
 console.log(tripsExist);
 if (tripsExist && tripsExist.length > 0) {
   $(document).ready(function() {
-    $('.my-trip-inactive').removeClass('my-trip-inactive');
+    $('.my-trip-inactive').removeClass('my-trip-inactive'); 
   })
 
 }
@@ -55,8 +79,8 @@ display: none;
 
 </style>
 <div id="modal-background" style="display:none;"></div><div id="modal" style="display:none;"></div>
-<div id="trip-bar" style="display:none"><div class="trip-details"><a href="/my-trip">My Trip</a> <span>0 items </span> </div><div class="trip-meta"><span id="trip-bar-name" contenteditable=true>My Trip</span></div></div>
-<div style="display:none" id="toast">Added To <a href="/my-trip">My Trip</a></div>
+
+<div style="display:none" id="toast">Added To <a href="/my-trip">Current Trip</a></div>
 <script>
 function addTrip(id,el) {
   $('#toast').slideDown(100);
@@ -71,32 +95,40 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
 </script>
 
   <!-- nav area -->
-  <nav class="solid affix-top" data-spy="affix" data-offset-top="90">
+  <!-- #268 INTERNAL HEADER -->
+<nav class="solid affix-top" data-spy="affix" data-offset-top="90">
   <a href="#" class="toggle-nav hidden-lg hidden-md hidden-sm"><i class="fa fa-bars"></i><i class="fa fa-close hidden"></i></a>
-  <a href="/partners/thepress/map.php" class="map-button hidden-lg hidden-md hidden-sm"><img class="map-icon" src="/partners/thepress/img/icons/map-icon.png" alt="Go to Map"></a>
+  <a href="/map" class="map-button hidden-lg hidden-md hidden-sm"><img class="map-icon" src="/partners/thepress/img/icons/map-icon.png" alt="Go to Map"></a>
+
   <div class="container nav-wrapper">
     <div class="row logo-container">
       <div class="col-sm-12">
-        <a href="/">
+        <a href="/wine">
           <img class="logo hidden-xs" src="/partners/thepress/img/thepress-logo-brown.png" alt="The Press">
           <img class="logo-mobile hidden-sm hidden-md hidden-lg" src="/partners/thepress/img/thepress-logo-mobile.png" alt="The Press">
           <img class="logo-fixed" src="/partners/thepress/img/thepress-logo-sm.png" alt="The Press">
           <img class="logo-stamp hidden-xs" src="/partners/thepress/img/thepress-stamp-lg-brown.png" alt="The Press">
         </a>
         <div class="tools">
-          <ul class="hidden-xs">
-            <li class="search"><a href="#" class="toggle-search"><i class="fa fa-search"></i></a></li>
-            <li class="signin"><a href="#" class="button button-sm clear sans toggle-signin" data-toggle="modal" data-target="#signinModal">Sign In</a></li>
-            <li class="dropdown login hidden">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">user</a>
-              <ul class="dropdown-menu">
-                <li><a href="/my-trip">Current Trip</a></li>
-                <li><a href="/my-trips">Saved Trips</a></li>
-                <li><a href="#" onclick="gigyaLogout();">Log out</a></li>
-              </ul>
-            </li>
-            <li class="chronicle hidden-sm"><a href="http://www.sfchronicle.com/foodandhome/wine/"><img src="/partners/thepress/img/sfchronicle-logo-lg.png" alt="SF Chronicle"></a></li>
-            <li class="chronicle-small hidden-lg hidden-md"><a href="#"><img src="/partners/thepress/img/sfchronicle-logo.png" alt="SF Chronicle"></a></li>
+          <ul class="hidden-xs header-tools" style="display:none;" id="auth-container">
+        <li class="signin header-tool" style="display:none;"><a href="#" class="button button-sm clear sans toggle-signin" data-toggle="modal" data-target="#signinModal">Sign In</a></li>
+        <li class="dropdown tripselect header-tool">
+          <a href="#" onclick="initNewTrip();" style="display:none" id="tripselect-noauth"><span class="">+</span> <span class="">Create New Trip</span></a>        
+          <a href="#" style="display:none" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span class="tripcount"></span> <span class="tripname"></span></a>
+          <ul class="dropdown-menu" id="dropdown-trip-selector">
+
+                       
+          </ul>
+        </li>        
+
+        <li class="mytrips header-tool">
+          <a href="/my-trips">My Trips</a>
+        </li>        
+        <li class="dropdown login header-tool">
+          <a href="#" class="button button-sm clear sans toggle-signin" data-toggle="modal" data-target="#signinModal">Sign In</a>
+          <a href="#" onclick="gigyaLogout();" class="button button-sm clear sans toggle-signin dropdown-toggle toggle-signout " data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></a>
+        </li>
+            <li class="chronicle-small hidden-lg hidden-md header-tool"><a href="#"><img src="/partners/thepress/img/sfchronicle-logo.png" alt="SF Chronicle"></a></li>
           </ul>
         </div>
       </div>
@@ -105,37 +137,47 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
       <ul class="main-nav sans-bold">
         <li><a href="/map" class="nav-map">Map</a></li>
         <li><a href="/trips" class="nav-trips">Trips</a></li>
-        <li><a href="/stories" class="nav-reviews">Reviews</a></li>
-        <li><a href="/wineries" class="nav-places">Places</a></li>
+        <li><a href="/stories" class="nav-reviews">Stories</a></li>
+        <li><a href="/wineries" class="nav-places">Directory</a></li>
         <li><a href="/wine-events" class="nav-events">Events</a></li>
+        <li><a href="#" class="toggle-search"><i class="fa fa-search"></i></a></li>
+
 
       </ul>
     </div>
     <div class="fixed-tools">
       <ul class="hidden-xs">
-        <li class="search"><a href="#" class="toggle-search"><i class="fa fa-search"></i></a></li>
-        <li class="signin"><a href="#" class="button button-sm clear sans toggle-signin" data-toggle="modal" data-target="#signinModal">Sign In</a></li>
-        <li class="dropdown login hidden">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><img src="/partners/thepress/img/login-pic.png"></a>
-          <ul class="dropdown-menu">
-            <li><a href="/my-trip">Current Trip</a></li>
-            <li><a href="/my-trips">Saved Trips</a></li>
-            <li><a href="#" onclick="gigyaLogout();">Log out</a></li>
+        <li class="signin" style="display:none;"><a href="#" class="button button-sm clear sans toggle-signin" data-toggle="modal" data-target="#signinModal">Sign In</a></li>
+        <li class="dropdown tripselect ">
+          <a href="#" onclick="initNewTrip();" style="display:none" id="tripselect-noauth"><span class="">+</span> <span class="">Create New Trip</span></a>        
+          <a href="#" style="display:none" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span class="tripcount"></span> <span class="tripname"></span></a>
+          <ul class="dropdown-menu" id="dropdown-trip-selector">
+
+                       
           </ul>
-        </li>
+        </li>        
+
+        <li class="mytrips">
+          <a href="/my-trips">My Trips</a>
+        </li>        
+        <li class="dropdown login ">
+          <a href="#" class="button button-sm clear sans toggle-signin" data-toggle="modal" data-target="#signinModal">Sign In</a>
+          <a href="#" onclick="gigyaLogout();" class="dropdown-toggle toggle-signout " data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></a>
         <li class="chronicle"><a href="#"><img src="/partners/thepress/img/sfchronicle-logo.png" alt="SF Chronicle"></a></li>
       </ul>
       <a href="#" class="toggle-nav hidden-lg hidden-md hidden-sm"><i class="fa fa-bars"></i></a>
     </div>
   </div>
 </nav>
+<!-- 268 /INTERNAL HEADER -->
 
 <!-- Mobile Dropdown Menu -->
 <nav class="mobile-dropdown hidden-sm hidden-md hidden-lg">
   <div class="search-bar">
     <form class="form-inline" action="/search" role="form" method="post">
-      <input name="search" type="text" placeholder="Search">
       <button type="submit"><i class="fa fa-search"></i></button>
+      <input name="search" type="text" placeholder="Search">
+      
     </form>
   </div>
   <div class="dropdown-nav">
@@ -143,27 +185,39 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
       <li><a href="/map" >Map</a></li>
       <li><a href="/trips" >Trips</a></li>
       <li><a href="/stories" >Stories</a></li>
-      <li><a href="/wineries" >Wineries</a></li>
-      <li><a href="/events" >Events</a></li>
-      <li><a href="/mytrip" >My Trip</a></li>
+      <li><a href="/wineries" >Places</a></li>
+      <li><a href="/wine-events" >Events</a></li>
+
     </ul>
+  </div>
+  <div class="mobile-trips-container" style="display:none;">
+  <div class="row">
+    <div class="col-xs-6"><a href="/my-trips" >My Trips</a></div>
+    <div class="col-xs-6"><a class="mobile-trips-container-logout pull-right" href="#" onclick="gigyaLogout();" >Log Out</a></div>
+    <div class="col-xs-12" style="padding: 0px;">
+      <div id="mobile-trips-container-message"></div>
+      <ul id="mobile-trips-container-trips">
+
+      </ul>
+    </div>
+  </div>
   </div>
   <div class="login-state">
     <div class="login-state-container">
       <div class="login-pic" style="display:none;"><a href="#" class="toggle-signin" data-toggle="modal" data-target="#signinModal"><img src="/partners/thepress/img/login-pic.png"></a></div>
       <div class="login-name sans-bold white"><a href="#" class="toggle-signin" data-toggle="modal" data-target="#signinModal"></a></div>
-      <div class="login-status white sans-bold"><a href="#" class="toggle-signin" data-toggle="modal" data-target="#signinModal">Log Out</a></div>
+      <div class="login-status white sans-bold mobile-login-status"><a href="#" onclick="initNewTrip();" >Create New Trip</a></div>
     </div>
   </div>
 </nav><!-- Sign In Popup Modal -->
 <div class="modal fade" tabindex="-1" role="dialog" id="signinModal" aria-labelledby="signinModal">
-  <div class="modal-dialog login">
+  <div class="modal-dialog stdlogin">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true sans">&times;</span></button>
-        <h4 class="sans-bold brownmodal-title">Login</h4>
+        <h4 class="sans-bold brownmodal-title">Sign In</h4>
         <p class="sans brown">Welcome back. If you already have an account with us, please login below.</p>
-        <p class="sans error" id="login-error"></p>
+        <p class="sans error" id="login-error"></p>        
       </div>
       <div class="modal-body">
         <form class="signinForm">
@@ -176,12 +230,12 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
         </form>
       </div>
        <div class="modal-buttons">
-        <button onclick="gigyaLogin();" type="submit" class="button button-xs bg-olive sans-bold">Login</button> <br>
-        <a href="#" class="forgot-pass sans brown" onclick="showModal('lostpassword');">I've lost my password</a> <span style="display:inline-block;margin-left:20px;"></span> No account? <a href="#" onclick="showModal('register');" class="sans brown">Create One</a>
+        <button onclick="gigyaLogin();" type="submit" class="button button-xs bg-olive sans-bold">Sign In</button> <br>
+        <a href="#" class="forgot-pass sans brown" onclick="showModal('lostpassword');">I've lost my password</a> <span style="display:inline-block;margin-left:20px;"></span> No account? <a href="#" onclick="showModal('stdregister');" class="sans brown">Create One</a>
       </div>
     </div>
   </div>
-  <div class="modal-dialog register" style="display:none;">
+  <div class="modal-dialog stdregister" style="display:none;">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true sans">&times;</span></button>
@@ -194,21 +248,22 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
           <div class="form-group">
             <input id="register-email" type="email" placeholder="Email Address">
           </div>
-          <div>Passwords must be at least 8 characters, contain upper and lowercase letters and at least one number.</div>
+
           <div class="form-group">
             <input id="register-username" type="text" placeholder="Username">
-          </div>
+          </div>   
+          <div>Passwords must be at least 8 characters, contain upper and lowercase letters and at least one number.</div>                 
           <div class="form-group">
             <input id="register-password" type="password" placeholder="Password">
           </div>
           <div class="form-group">
             <input id="register-password2" type="password" placeholder="Password (Repeat)">
-          </div>
+          </div>          
         </form>
       </div>
        <div class="modal-buttons">
         <button onclick="gigyaRegister();" type="submit" class="button button-xs bg-olive sans-bold">Register</button> <br>
-         Already have an account? <a href="#" onclick="showModal('login');" class="sans brown">Sign In</a>
+         Already have an account? <a href="#" onclick="showModal('stdlogin');" class="sans brown">Sign In</a>
       </div>
     </div>
   </div>
@@ -242,13 +297,13 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
           <div class="form-group">
             <input id="register-email" type="email" placeholder="Email Address">
           </div>
+      
 
-
-
+        
         </form>
       </div>
        <div class="modal-buttons">
-        <button onclick="showModal('login');" type="submit" class="button button-xs bg-olive sans-bold">Cancel</button>
+        <button onclick="showModal('login');" type="submit" class="button button-xs bg-olive sans-bold">Cancel</button>   
       </div>
     </div>
   </div>
@@ -257,19 +312,201 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
 
 
 </div><!-- Search Modal -->
+
+
+
+
+
+<div class="modal fade" tabindex="-1" role="dialog" id="tripBuildModal" aria-labelledby="tripBuildModal">
+
+  <div class="modal-dialog trips-login" style="display:none;">
+    <div class="modal-content">
+      <div class="modal-header"> 
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true sans">&times;</span></button>
+        <ul class="trip-modal-status">
+            <li class="trip-modal-status-step active">
+              <div>Sign In</div>
+              <span class="trip-modal-status-step-notch active"></span>
+            </li>
+            <li class="trip-modal-status-step ">
+              <div>Name Your Trip</div>
+              <span class="trip-modal-status-step-notch "></span>
+            </li>
+            <li class="trip-modal-status-step ">
+              <div>Trip Saved!</div>
+              <span class="trip-modal-status-step-notch "></span>
+            </li>                  
+        </ul>        
+        <h4 class="sans-bold brownmodal-title">Sign up to start your trip</h4>
+        <p class="sans brown">By signing up for an account, you can create your own wine country trips on The Press: Name and save your trip, add places and events to your trip, and access your trips, map and driving directions right from your mobile device.</p>
+        <p class="sans error" id="login-error"></p>        
+      </div>
+      <div class="modal-body">
+        <form class="signinForm">
+          <div class="form-group">
+            <input id="trip-login-email" type="email" placeholder="Email Address">
+          </div>
+          <div class="form-group">
+            <input id="trip-login-password" type="password" placeholder="Password">
+          </div>
+        </form>
+      </div>
+       <div class="modal-buttons">
+        <button onclick="gigyaTripsLogin();" type="submit" class="button button-xs bg-olive sans-bold">Login</button> <br>
+        <a style="display:none;" href="#" class="forgot-pass sans brown" onclick="showModal('lostpassword');">I've lost my password</a> <span style="display:inline-block;margin-left:20px;"></span> No account? <a href="#" onclick="showModal('register');" class="sans brown">Create One</a>
+      </div>
+    </div>
+  </div>
+  <div class="modal-dialog trips-register">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true sans">&times;</span></button>
+        <ul class="trip-modal-status">
+            <li class="trip-modal-status-step active">
+              <div>Sign In</div>
+              <span class="trip-modal-status-step-notch active"></span>
+            </li>
+            <li class="trip-modal-status-step ">
+              <div>Name Your Trip</div>
+              <span class="trip-modal-status-step-notch "></span>
+            </li>
+            <li class="trip-modal-status-step ">
+              <div>Trip Saved!</div>
+              <span class="trip-modal-status-step-notch "></span>
+            </li>                  
+        </ul>               
+        <h4 class="sans-bold brownmodal-title">Register</h4>
+        <p class="sans brown">By signing up for an account, you can create your own wine country trips on The Press: Name and save your trip, add places and events to your trip, and access your trips, map and driving directions right from your mobile device.</p>
+        <p class="sans error" id="trip-register-error"></p>
+      </div>
+      <div class="modal-body">
+        <form class="signinForm">
+          <div class="form-group">
+            <input id="trip-register-email" type="email" placeholder="Email Address">
+          </div>
+          <div>Passwords must be at least 8 characters, contain upper and lowercase letters and at least one number.</div>
+          <div class="form-group">
+            <input id="trip-register-username" type="text" placeholder="Username">
+          </div>          
+          <div class="form-group">
+            <input id="trip-register-password" type="password" placeholder="Password">
+          </div>
+          <div class="form-group">
+            <input id="trip-register-password2" type="password" placeholder="Password (Repeat)">
+          </div>          
+        </form>
+      </div>
+       <div class="modal-buttons">
+        <button onclick="gigyaTripsRegister();" type="submit" class="button button-xs bg-olive sans-bold">Register</button> <br>
+         Already have an account? <a href="#" onclick="showModal('login');" class="sans brown">Sign In</a>
+      </div>
+    </div>
+  </div>
+  <div class="modal-dialog trips-name" style="display:none;">
+    <div class="modal-content">
+      <div class="modal-header"> 
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true sans">&times;</span></button>
+        <ul class="trip-modal-status">
+            <li class="trip-modal-status-step active">
+              <div>Sign In</div>
+              <span class="trip-modal-status-step-notch active"></span>
+            </li>
+            <li class="trip-modal-status-step active">
+              <div>Name Your Trip</div>
+              <span class="trip-modal-status-step-notch active"></span>
+            </li>
+            <li class="trip-modal-status-step ">
+              <div>Trip Saved!</div>
+              <span class="trip-modal-status-step-notch "></span>
+            </li>                  
+        </ul>           
+        <h4 class="sans-bold brownmodal-title">Give it a name</h4>
+        <p class="sans brown">Give your trip a name and hit save.  We'll add it to your list of trips!</p>
+        <p class="sans error" id="login-error"></p>        
+      </div>
+      <div class="modal-body">
+        <form class="signinForm">
+          <div class="form-group">
+            <input id="new-trip-name" type="text" placeholder="New trip name" maxlength="20">
+          </div>
+
+        </form>
+      </div>
+       <div class="modal-buttons">
+        <button onclick="createNewTrip();" type="submit" class="button button-xs bg-olive sans-bold">Save</button> <br>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-dialog register-success" style="display:none;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true sans">&times;</span></button>
+        <h4 class="sans-bold brownmodal-title">Registration Successful</h4>
+
+      </div>
+      <div class="modal-body">
+        You have successfully registered with The Press.
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="modal-dialog lostpassword" style="display:none;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true sans">&times;</span></button>
+        <h4 class="sans-bold brownmodal-title">Reset Your Password</h4>
+        <p class="sans brown">Create a Profile With ThePress</p>
+        <p class="sans error" id="register-error"></p>
+      </div>
+      <div class="modal-body">
+        <form class="signinForm">
+          <div class="form-group">
+            <input id="register-email" type="email" placeholder="Email Address">
+          </div>
+      
+
+        
+        </form>
+      </div>
+       <div class="modal-buttons">
+        <button onclick="showModal('login');" type="submit" class="button button-xs bg-olive sans-bold">Cancel</button>   
+      </div>
+    </div>
+  </div>
+
+
+
+
+</div><!-- Search Modal -->
+
+
+
+
+
+
+
 <div class="search-modal hidden-xs">
   <div class="search-container">
     <a href="#" class="close-button white sans"><svg width="30" height="30" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1490 1322q0 40-28 68l-136 136q-28 28-68 28t-68-28l-294-294-294 294q-28 28-68 28t-68-28l-136-136q-28-28-28-68t28-68l294-294-294-294q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 294 294-294q28-28 68-28t68 28l136 136q28 28 28 68t-28 68l-294 294 294 294q28 28 28 68z"/></svg></a>
     <form class="form-inline" role="form" action="/search" method="post">
-      <input type="text" name="search" id="masterSearch" placeholder="Search">
+      <input type="text" name="search" placeholder="Search">
       <button type="submit" class="hidden"><i class="fa fa-search"></i></button>
     </form>
   </div>
 </div>
 
-<!-- FEATURED TRIPS LIST -->
+
+  <!-- #269 FEATURED TRIPS LIST -->
+<script src="/partners/thepress/js/trips.js"></script>
+<link rel="stylesheet" href="/partners/thepress/css/trips.css">
 <script>setNav('trips');</script>
-<header class="header-sm gradient-cover" data-cache="background" style="background: url('/image?method=image.icrop&context=package&id=48&w=1200&h=-1') center center no-repeat; background-size: cover;">
+<header class="header-sm gradient-cover" data-cache="background" style="background: url('http://imagecdn-sfgate.pointslocal.com/image?method=image.icrop&context=package&id=349&w=1200&h=-1') center center no-repeat; background-size: cover;">
     <div class="subnav bg-orange-alpha">
       <ul class="sans-bold">
         <li><a href="#">Napa</a></li>
@@ -277,13 +514,11 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
       </ul>
     </div>
     <div class="cta vert-center">
-      <h1>Winery Hopping in Healdsburg</h1>
-      <p></p>
-      <a href="/trip/healdsburg-winery-hopping" class="button button-cta serif bg-orange-alpha">View Trip</a>
+      <h1>Cruise through Carneros</h1>
+      <p>Pinot Noir, Chardonnay, Sparkling Wine -- there's something for every palate in this dual Napa-Sonoma AVA</p>
+      <a href="/trip/cruise-through-carneros" class="button button-cta serif bg-orange-alpha">View Trip</a>
     </div>
   </header>
-
-<main>
 
 <section class="two-column container no-padding">
       <div class="row">
@@ -292,26 +527,62 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
         </div>
       </div>
       <div class="row scrollable" id="scroll1">
-
-
+        
+        
         <div class="col-sm-6 block-container">
-          <a href="/trip/break-out-the-bubbly"  data-cache="background" class="block gradient-cover" style="background: url('/image?method=image.icrop&context=package&id=31&w=600&h=-1') center center no-repeat; background-size: cover;">
+          <a href="/trip/carneros-the-quaint-side-of-napa"  data-cache="background" class="block gradient-cover" style="background: url('http://imagecdn-sfgate.pointslocal.com//image?method=image.icrop&context=package&id=350&w=600&h=-1') center center no-repeat; background-size: cover;">
             <div class="block-label white">Sonoma</div>
             <div class="block-content vert-center">
-              <h3 class="white">Break out the Bubbly</h3>
+              <h3 class="white">Carneros: The Quaint Side of Napa</h3>
             </div>
           </a>
           <div class="block-caption hidden-xs">
-            <p>There's something special about California sparkling wine. Here are our top stops for bubbles in Napa &amp; Sonoma</p>
+            <p>Travel away from the hustle and bustle and into the heart of Cab Country</p>
           </div>
         </div>
-
-
-
-
-
+        
+        
+        
+        
+        
         <div class="col-sm-6 block-container" id="trip-teaser-sponsored">
-
+          
+        </div>        
+        <!-- Additional Mobile Scrolling Items (Appear in Three Column Block Below) -->
+        <div class="mobile-scroller hidden-sm hidden-md hidden-lg" style="display:none;">
+          <div class="col-sm-6 block-container">
+            <a href="#" class="block" style="background: url('img/backgrounds/wine-couple.png') center center no-repeat; background-size: cover;">
+              <div class="block-label white">Napa</div>
+              <div class="block-content vert-center">
+                <h3 class="white">The name of a sponsored trip in Napa</h3>
+              </div>
+            </a>
+            <div class="block-caption hidden-xs">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vestibulum odio id nibh dapibus tincidunt. Phasellus scelerisque gravida posuere. <a href="#">Sponsored Content</a></p>
+            </div>
+          </div>
+          <div class="col-sm-6 block-container">
+            <a href="#" class="block" style="background: url('img/backgrounds/bonfire-group.png') center center no-repeat; background-size: cover;">
+              <div class="block-label white">Napa</div>
+              <div class="block-content vert-center">
+                <h3 class="white">The name of a sponsored trip in Napa</h3>
+              </div>
+            </a>
+            <div class="block-caption hidden-xs">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vestibulum odio id nibh dapibus tincidunt. Phasellus scelerisque gravida posuere. <a href="#">Sponsored Content</a></p>
+            </div>
+          </div>
+          <div class="col-sm-6 block-container">
+            <a href="#" class="block" style="background: url('img/backgrounds/wine-couple.png') center center no-repeat; background-size: cover;">
+              <div class="block-label white">Napa</div>
+              <div class="block-content vert-center">
+                <h3 class="white">The name of a sponsored trip in Napa</h3>
+              </div>
+            </a>
+            <div class="block-caption hidden-xs">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vestibulum odio id nibh dapibus tincidunt. Phasellus scelerisque gravida posuere. <a href="#">Sponsored Content</a></p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -319,37 +590,40 @@ $('#toast').html('Added to <a href="/my-trip">My Trip</a>');
 
 <section class="three-column container no-padding hidden-xs">
       <div class="row">
-
+      
         <div class="col-sm-4 the-column">
-          <a href="/trip/geek-out-wine-trail" class="block" data-cache="background" style="background: url('/image?method=image.icrop&context=package&id=13&w=600&h=-1') center center no-repeat; background-size: cover;"></a>
+          <a href="/trip/healdsburg-winery-hopping" class="block" data-cache="background" style="background: url('http://imagecdn-sfgate.pointslocal.com//image?method=image.icrop&context=package&id=48&w=600&h=-1') center center no-repeat; background-size: cover;"></a>
           <div class="block-label lightBrown">Sonoma</div>
           <div class="block-content">
-            <h4 class="sans-bold orange"><a href="/trip/geek-out-wine-trail">A Study in Wine</a></h4>
+            <h4 class="sans-bold orange"><a href="/trip/healdsburg-winery-hopping">Winery Hopping in Healdsburg</a></h4>
           </div>
         </div>
-
+        <script>_TRIPSLASTID = {id}};</script>
+      
 
 
         <div class="col-sm-4 the-column trip-teaser-sponsored-small">
 
         </div>
 
-
+      
         <div class="col-sm-4 the-column">
-          <a href="/trip/celebrate-sauv-blanc" class="block" data-cache="background" style="background: url('/image?method=image.icrop&context=package&id=26&w=600&h=-1') center center no-repeat; background-size: cover;"></a>
+          <a href="/trip/break-out-the-bubbly" class="block" data-cache="background" style="background: url('http://imagecdn-sfgate.pointslocal.com//image?method=image.icrop&context=package&id=31&w=600&h=-1') center center no-repeat; background-size: cover;"></a>
           <div class="block-label lightBrown">Sonoma</div>
           <div class="block-content">
-            <h4 class="sans-bold orange"><a href="/trip/celebrate-sauv-blanc">Follow the Sauv-Blanc Road</a></h4>
+            <h4 class="sans-bold orange"><a href="/trip/break-out-the-bubbly">Break out the Bubbly</a></h4>
           </div>
         </div>
-
+        <script>_TRIPSLASTID = 31;</script>        
+            
       </div>
-      <div class="row">
+      <a name="moreTrips"></a>
+      <div class="row" id="more-trips-receiver">
         <div class="col-sm-12 text-center">
-          <a href="/trip/" class="button button-cta serif bg-lightOrange">See More Trips</a>
+          <a onclick="tripsLoadMore();" class="button button-cta serif bg-lightOrange">See More Trips</a>
         </div>
       </div>
-    </section>
+    </section>  
 
 <script>
 $(document).ready(function() {
@@ -357,21 +631,22 @@ $(document).ready(function() {
     getSponsoredTrip();
 
 });
-</script>
+</script>    
+<!-- #269 /FEATURED TRIPS LIST -->
 
   <div class="oldmain">
 
+  
 
+  
 
-
-
-
+  
 <div style="text-align:center;">
  <!-- hearst/ads/full_banner_A728.tpl -->
     <!-- hmb:a728 full banner A728 ad -->
     <div id="ctpl-fullbanner1" class="ctpl-fullbanner fixed" data-collapse-timer="10">
     <div id="A728" class="ad_deferrable"><script type="text/javascript">/*<![CDATA[*/ hearstPlaceAd("A728"); /*]]>*/</script></div>
-
+    
     <script>
     (function() {
         var checkCount = 120;
@@ -399,7 +674,7 @@ $(document).ready(function() {
         }, 1000);
     })();
     </script>
-
+    
     </div>
 </div>
 
@@ -407,10 +682,10 @@ $(document).ready(function() {
 <section class="quad-column quad-column-divider container no-padding">
       <div class="row">
         <div class="col-sm-12">
-          <h2 class="divider divider-sm orange"><span>Napas Best On the Press</span></h2>
+          <h2 class="divider divider-sm orange"><span>More Wine Country Activities</span></h2>
         </div>
       </div>
-      <div class="row sub-header">
+      <div class="row sub-header" style="display:none;">
         <div class="col-sm-12">
           <p class="sans brown">We've gone out of our way to find you the best winery experiences in Napa from not-to-be-missed tours and tastings, to the most sought after vintages.</p>
         </div>
@@ -422,13 +697,6 @@ $(document).ready(function() {
         </div>
       </div>
       <div class="row scrollable " id="scroll2">
-        <div class="col-sm-3 block-container">
-          <a href="/place/frank-family-vineyards" class="quad-block" style="background: url('/image?method=image.icrop&context=venue&id=516&w=600&h=250') center center no-repeat; background-size: cover;"></a>
-          <div class="block-text">
-            <h4 class="sans-bold orange"><a href="/place/frank-family-vineyards">Frank Family Vineyards</a></h4>
-            <span class="affiliate-badge"></span>
-          </div>
-        </div>
         <div class="col-sm-3 block-container">
           <a href="/place/hog-island-oyster-company" class="quad-block" style="background: url('/image?method=image.icrop&context=venue&id=638&w=600&h=250') center center no-repeat; background-size: cover;"></a>
           <div class="block-text">
@@ -460,16 +728,23 @@ $(document).ready(function() {
       </div>
       <div class="row scrollable" id="scroll2">
         <div class="col-sm-3 block-container">
-          <a href="/place/greek-theater-berkeley" class="quad-block" style="background: url('/image?method=image.icrop&context=venue&id=93&w=600&h=250') center center no-repeat; background-size: cover;"></a>
+          <a href="/place/dry-creek-inn" class="quad-block" style="background: url('/image?method=image.icrop&context=venue&id=2780&w=600&h=250') center center no-repeat; background-size: cover;"></a>
           <div class="block-text">
-            <h4 class="sans-bold orange"><a href="/place/greek-theater-berkeley">Hearst Greek Theatre</a></h4>
+            <h4 class="sans-bold orange"><a href="/place/dry-creek-inn">Dry Creek Inn</a></h4>
             <span class="affiliate-badge"></span>
           </div>
         </div>
         <div class="col-sm-3 block-container">
-          <a href="/place/napa-inn-bed-breakfast" class="quad-block" style="background: url('/image?method=image.icrop&context=venue&id=2276&w=600&h=250') center center no-repeat; background-size: cover;"></a>
+          <a href="/place/hotel-les-mars" class="quad-block" style="background: url('/image?method=image.icrop&context=venue&id=2766&w=600&h=250') center center no-repeat; background-size: cover;"></a>
           <div class="block-text">
-            <h4 class="sans-bold orange"><a href="/place/napa-inn-bed-breakfast">Napa Inn Bed &amp; Breakfast</a></h4>
+            <h4 class="sans-bold orange"><a href="/place/hotel-les-mars">Hotel Les Mars</a></h4>
+            <span class="affiliate-badge"></span>
+          </div>
+        </div>
+        <div class="col-sm-3 block-container">
+          <a href="/place/sonoma-valley-inn" class="quad-block" style="background: url('/image?method=image.icrop&context=venue&id=2767&w=600&h=250') center center no-repeat; background-size: cover;"></a>
+          <div class="block-text">
+            <h4 class="sans-bold orange"><a href="/place/sonoma-valley-inn">Sonoma Valley Inn</a></h4>
             <span class="affiliate-badge"></span>
           </div>
         </div>
@@ -491,9 +766,23 @@ $(document).ready(function() {
       </div>
       <div class="row scrollable" id="scroll2">
         <div class="col-sm-3 block-container">
+          <a href="/place/bottlerock-napa-valley" class="quad-block" style="background: url('/image?method=image.icrop&context=venue&id=2737&w=600&h=250') center center no-repeat; background-size: cover;"></a>
+          <div class="block-text">
+            <h4 class="sans-bold orange"><a href="/place/bottlerock-napa-valley">Bottlerock Napa Valley</a></h4>
+            <span class="affiliate-badge"></span>
+          </div>
+        </div>
+        <div class="col-sm-3 block-container">
           <a href="/place/christopher-hill-gallery" class="quad-block" style="background: url('/image?method=image.icrop&context=venue&id=640&w=600&h=250') center center no-repeat; background-size: cover;"></a>
           <div class="block-text">
             <h4 class="sans-bold orange"><a href="/place/christopher-hill-gallery">Christopher Hill Gallery</a></h4>
+            <span class="affiliate-badge"></span>
+          </div>
+        </div>
+        <div class="col-sm-3 block-container">
+          <a href="/place/flavor-napa-valley" class="quad-block" style="background: url('/image?method=image.icrop&context=venue&id=2735&w=600&h=250') center center no-repeat; background-size: cover;"></a>
+          <div class="block-text">
+            <h4 class="sans-bold orange"><a href="/place/flavor-napa-valley">Flavor! Napa Valley</a></h4>
             <span class="affiliate-badge"></span>
           </div>
         </div>
@@ -505,28 +794,30 @@ $(document).ready(function() {
 
     </section>
 
-
-
-
-<section class="two-up-divider container no-padding">
-  <div class="row">
+  <!--
+<div class="row">
         <div class="col-sm-12 text-center">
           <img src="/partners/thepress/img/icons/transportation.png" class="trans-icon" alt="Transportation">
           <h2 class="divider divider-sm lightBrown"><span>Transportation Partners</span></h2>
         </div>
       </div>
+
+
+<section class="two-up-divider container no-padding">
+
   <div class="row scrollable" id="scroll5">
 
       </div>
 
 
     </section>
+  
+  
+  -->
 
 
-
-
-
-  <section class="directory-header">
+  <!-- #272 PLACES DIRECTORY -->
+<section class="directory-header">
       <div class="container">
         <div class="row">
           <div class="col-sm-12">
@@ -543,10 +834,17 @@ $(document).ready(function() {
         <div class="container">
           <div class="row">
             <div class="col-sm-4 directory-label">
-              <h3 class="sans-bold brown">Napa Destinations</h3><span class="num-label lightBrown">200 Listings</span>
+              <h3 class="sans-bold brown">Destinations</h3><span class="num-label lightBrown">200 Listings</span>
             </div>
             <div class="col-sm-8 directory-tools">
               <ul class="tools-container hidden-xs hidden-sm">
+                <li class="dropdown">
+                  <a class="orange dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Region <i class="fa fa-chevron-down"></i></a>
+                  <ul class="dropdown-menu">
+                    <li><a onclick="javascript:resetDirectory({neighborhood:['Napa']});">Napa</a></li>
+                    <li><a onclick="javascript:resetDirectory({neighborhood:['Sonoma']});">Sonoma</a></li>                                                                                               
+                  </ul>
+                </li>              
                 <li class="dropdown">
                   <a class="orange dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Specializing In <i class="fa fa-chevron-down"></i></a>
                   <ul class="dropdown-menu">
@@ -559,19 +857,26 @@ $(document).ready(function() {
                     <li><a onclick="javascript:resetDirectory({specialization:['Petite Sirah']});">Petite Sirah</a></li>
                     <li><a onclick="javascript:resetDirectory({specialization:['Other whites']});">Other whites</a></li>
                     <li><a onclick="javascript:resetDirectory({specialization:['Other reds']});">Other reds</a></li>
-                    <li><a onclick="javascript:resetDirectory({specialization:['Sparkling wine']});">Sparkling wine</a></li>
+                    <li><a onclick="javascript:resetDirectory({specialization:['Sparkling wine']});">Sparkling wine</a></li>                                                                                                                                            
                   </ul>
                 </li>
                 <li style="display:none;"><a class="orange" href="#"><img class="filter-icon" src="/partners/thepress/img/icons/filter-icon-orange.png" alt="Show Filters"> Filters</a></li>
-                <li><a class="search orange" href="#" data-toggle="popover" data-placement="top"><i class="fa fa-search"></i></a></li>
+                <li style="display:none;"><a class="search orange" href="#"><i class="fa fa-search"></i></a></li>
                 <li><a class="orange" onclick="updateDirectory();">Clear</a></li>
               </ul>
               <div class="dropdown">
                 <a href="#" class="toggle-filters orange hidden-md hidden-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><img class="filter-icon" src="/partners/thepress/img/icons/filter-icon-orange.png" alt="Show Filters"></a>
                 <ul class="dropdown-menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
+                    <li><a onclick="javascript:resetDirectory({specialization:['Cabernet Sauvignon']});">Cabernet Sauvignon</a></li>
+                    <li><a onclick="javascript:resetDirectory({specialization:['Pinot Noir']});">Pinot Noir</a></li>
+                    <li><a onclick="javascript:resetDirectory({specialization:['Chardonnay']});">Chardonnay</a></li>
+                    <li><a onclick="javascript:resetDirectory({specialization:['Sauvignon Blanc']});">Sauvignon Blanc</a></li>
+                    <li><a onclick="javascript:resetDirectory({specialization:['Zinfandel']});">Zinfandel</a></li>
+                    <li><a onclick="javascript:resetDirectory({specialization:['Syrah']});">Syrah</a></li>
+                    <li><a onclick="javascript:resetDirectory({specialization:['Petite Sirah']});">Petite Sirah</a></li>
+                    <li><a onclick="javascript:resetDirectory({specialization:['Other whites']});">Other whites</a></li>
+                    <li><a onclick="javascript:resetDirectory({specialization:['Other reds']});">Other reds</a></li>
+                    <li><a onclick="javascript:resetDirectory({specialization:['Sparkling wine']});">Sparkling wine</a></li>   
                 </ul>
               </div>
             </div>
@@ -579,38 +884,45 @@ $(document).ready(function() {
         </div>
       </div>
     </section>
-
-
+        
+        
         <div id="search-result" style="display:none;">
           <!-- Directory Item -->
           {{#items}}
+          <a name="venue_card_516" data-id="{{id}}" class="venue-anchor"></a>          
           <div class="row directory-item">
             <div class="col-xs-4 directory-pic">
-              <a href="#"><img src="/image?method=image.icrop&context=venue&id={{id}}&w=400&h=200" alt=""></a>
+              <a href="/place/{{guid}}"><img src="/image?method=image.icrop&context=venue&id={{id}}&w=400&h=200" alt=""></a>
             </div>
             <div class="col-xs-5 directory-info">
-              <h3 class="serif brown"><a href="/place/{{guid}}">{{name}}</a></h3><span style="display:none;" class="partner-badge"></span>
+              <h3 class="serif brown"><span>{{counter}}</span><a href="/place/{{guid}}">{{name}}</a></h3><span style="display:none;" class="partner-badge"></span>
               <h4 class="sans-bold orange hidden-xs">{{neighborhood}}</h4>
               <div class="address hidden-xs">
-                <p>{{address}}<br> {{phone}}<br> {{custom:hours}} <span class="status orange" style="display:none;">Open</span></p>
+                <p>{{address}}<br> {{phone}}<br> {{custom:hours}} 
+        {{#story_guid}}<a class="module-story-link" href="/story/{{story_guid}}">Read Review</a>{{/story_guid}}
+    <span class="status orange" style="display:none;">Open</span></p>
               </div>
               <div class="address hidden-sm hidden-md hidden-lg">
                 <p>{{address}} <span class="hidden-xs">{{phone}}</span><br> {{hours}} <span class="status orange">Open</span></p>
               </div>
               <div class="directory-buttons hidden-sm hidden-md hidden-lg">
                 <ul>
-                  <li><a href="#" class="button button-xs sans-bold bg-lightOrange">Add To Trip</a></li>
+                  <li><a data-type="venues" data-name="{{name}}" data-latitude="{{latitude}}" data-longitude="{{longitude}}" data-id="{{id}}" data-address="{{address}}" class="button button-xs sans-bold bg-olive trip-item-trigger">Add To Trip</a></li>
                   <li><a href="#" class="sans-bold orange"><i class="fa fa-map-o"></i> Map</a></li>
                 </ul>
               </div>
             </div>
             <div class="col-xs-3 directory-button hidden-xs">
-              <a href="#" onclick="addTrip({id: {{id}}, type:'venue',name: '{{name}}', lat: {{latitude}}, lon: {{longitude}} }, this);" class="button button-xs sans-bold bg-lightOrange">Add To Trip</a>
-              <a style="display:none;" href="#" class="sans-bold orange">Website</a>
+              <a data-type="venues" data-name="{{name}}" data-latitude="{{latitude}}" data-longitude="{{longitude}}" data-id="{{id}}" data-address="{{address}}" hxnclick="addTrip({id: {{id}}, type:'venue',name: '{{name}}', lat: {{latitude}}, lon: {{longitude}} }, this);" class="trip-item-trigger button button-xs sans-bold bg-olive">Add To Trip</a>
+              <a  href="/place/{{guid}}" class="sans-bold orange">Directory</a>
               <a style="display:none;" href="#" class="sans-bold orange"><i class="fa fa-location-arrow"></i> Directions</a>
+              {{#customfield}}<a href="/book/{{guid}}">Book Now</a>{{/customfield}}
             </div>
           </div>
           {{/items}}
+          <div class="pagination">
+          <a class="button button-xs bg-olive" onclick="_VenuesPage++;updateDirectory();">Next Page</a>
+          </div>          
         </div>
 
 
@@ -623,8 +935,8 @@ $(document).ready(function() {
 
 
         </div>
-        <div class="col-sm-3 directory-map hidden-xs">
-          <div id="directory-map" style="width:100%;height:400px;"></div>
+        <div class="col-sm-3 directory-map hidden-xs" style="overflow:hidden;">
+          <div id="directory-map" style="width:280px;height:400px;"></div>
         </div>
       </div>
     </section>
@@ -632,9 +944,13 @@ $(document).ready(function() {
 
 
 <script>
+var _VenuesPage = 1;
+tripReceiverDropdowns();
 function resetDirectory(j) {
   updateDirectory(j);
 }
+
+
 
 function updateDirectory(opt) {
   opts = [];
@@ -643,7 +959,10 @@ function updateDirectory(opt) {
   if (opt) {
     opts.push('filters='+encodeURI( JSON.stringify(opt)) );
   }
-
+    opts.push('page='+_VenuesPage);
+opts.push('field=13');
+  opts.push('sort=featured.random');
+opts.push('features=1');
   data = opts.join('&');
   template = $('#search-result').html();
   allMarkers.forEach(function(t) {
@@ -653,19 +972,50 @@ function updateDirectory(opt) {
     for(i=0;i<d.items.length;i++) {
       it = d.items[i];
       myLatLng = {lat: parseFloat(it.latitude), lng: parseFloat(it.longitude)};
+      d.items[i].counter = parseInt(d.items[i].counter) + 1;
 
-       marker = new google.maps.Marker({
+        /*
+       xmarker = new google.maps.Marker({
         position: myLatLng,
         map: map,
         icon: {
-          url: '/partners/thepress/img/markers/partner.png',
-          size: new google.maps.Size(30, 36),
-          scaledSize: new google.maps.Size(30, 36),
+            anchor: new google.maps.Point(250, 480),
+            path: 'M258.5,0C144.7,0,62,79.5,62,166.1c0,52.4,21.7,80.4,50.7,131.1C170.6,398.6,258.5,507,258.5,507 s87.9-108.4,145.8-209.8c29-50.7,50.7-78.7,50.7-131.1C455,79.5,372.3,0,258.5,0',
+            scale: .1,
+            fillColor: _MARKER_FILL_COLOR,
+            fillOpacity: .9,
+            size: new google.maps.Size(60, 72),
+            scaledSize: new google.maps.Size(30, 36),
+            
+            origin: new google.maps.Point(0, 0)
         },
-        optimized: false,
+        optimized: false,        
         title: it.name
       });
-       allMarkers.push(marker);
+      */
+
+
+        marker = new MarkerWithLabel({
+          id: count,
+          position: myLatLng,
+          map: map,
+          title: name,
+          labelContent: d.items[i].counter,
+          labelClass: "dynamicMapMarker",
+          labelAnchor: new google.maps.Point(0, -5),
+          icon: {
+            path: _MAP_PATH,
+            scale: .1,
+            fillColor: _MARKER_FILL_COLOR,
+            fillOpacity: .9,
+            size: new google.maps.Size(60, 72),
+            scaledSize: new google.maps.Size(30, 36),
+
+          },
+          optimized: false
+        });
+        markerRefs[d.items[i].id] = marker;
+        allMarkers.push(marker);
        console.log(parseFloat(it.latitude), parseFloat(it.longitude))
     }
         var bounds = new google.maps.LatLngBounds();
@@ -675,18 +1025,19 @@ function updateDirectory(opt) {
             bounds.extend(allMarkers[i].getPosition());
           }
         }
-        map.fitBounds(bounds);
+        map.fitBounds(bounds);    
     $('.directory-list').html(Mustache.render(template,d));
+      isScrollListener()    
+    resetTripReceivers();
+    tripReceiverDropdowns('left');
   });
-
+  
 }
 
 
  var map;
  var allMarkers = [];
 $(document).ready(function() {
-
-
 
   function initMap() {
     map = new google.maps.Map(document.getElementById('directory-map'), {
@@ -695,25 +1046,29 @@ $(document).ready(function() {
     });
   }
   initMap();
-  updateDirectory();
+   $("#directory-map").sticky({topSpacing:62});
 
+  updateDirectory();
+  setFooterActive();
 })
 </script>
 
+<!-- #272 /PLACES DIRECTORY -->
 
+  
 
+  
 
+  
 
-
-
-
+  
 
 <div style="text-align:center;">
  <!-- hearst/ads/full_banner_A728.tpl -->
     <!-- hmb:a728 full banner A728 ad -->
     <div id="ctpl-fullbanner1" class="ctpl-fullbanner fixed" data-collapse-timer="10">
     <div id="A728" class="ad_deferrable"><script type="text/javascript">/*<![CDATA[*/ hearstPlaceAd("A728"); /*]]>*/</script></div>
-
+    
     <script>
     (function() {
         var checkCount = 120;
@@ -741,14 +1096,12 @@ $(document).ready(function() {
         }, 1000);
     })();
     </script>
-
+    
     </div>
 <!-- e hearst/ads/full_banner_A728.tpl -->
 </div>
 
   </div>
-
-</main>
 
         <footer>
         <div class="container">
@@ -762,12 +1115,13 @@ $(document).ready(function() {
               <ul>
                 <li><a href="/map">Map</a></li>
                 <li><a href="/trips">Trips</a></li>
-                <li><a href="/stories">Reviews</a></li>
+                <li><a href="/stories">Stories</a></li>
                 <li><a href="/wineries">Places</a></li>
                 <li><a href="/wine-events">Events</a></li>
                 <li><a href="/about">About</a></li>
               </ul>
             </div>
+    <div id="treg_container"></div>
           </div>
           <div class="row">
             <div class="col-sm-12 footer-copyright">
@@ -777,16 +1131,23 @@ $(document).ready(function() {
           </div>
         </div>
       </footer>
-  <script src="/partners/pointslocal/js/cache.js" type="text/javascript"></script>
+
+<!-- there -->
+
+<!-- ^ there -->
+
+
 <!-- Begin Hearst analytics --> <script type="text/javascript" src="//nexus.ensighten.com/hearst/news-3p/Bootstrap.js"></script> <!-- End Hearst analytics -->
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script type="text/javascript" src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
     <script type="text/javascript" src="/partners/thepress/js/libs/jquery-touch-punch.js"></script>
     <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
 <script type="text/javascript" src="/partners/thepress/js/libs/markerwithlabel.js"></script><script type="text/javascript" src="/partners/thepress/js/libs/jquery-editable-poshytip.min.js"></script>
-    <script type="text/javascript" src="/partners/thepress/js/libs/slick.js?t=<[timestamp]>"></script>
+    <script type="text/javascript" src="/partners/thepress/js/libs/iscroll.js?t=589e3d3df0614"></script>
+<script type="text/javascript" src="/partners/thepress/js/libs/slick.js?t=589e3d3df0614"></script>
     <script type="text/javascript" src="/partners/thepress/js/global.js?t=1"></script>
+<script type="text/javascript" src="/partners/thepress/js/libs/jquery.sticky.js"></script>
     <script src="/partners/thepress/js/map.js?1470683612"></script>
     <script src="/partners/thepress/js/index.js?1467835203"></script>
   </body>
-</html><!-- Cannot open <b>/mnt/pointslocal-app/partners/thepress/templates/site/media/media_stream.template</b> --><!-- -->
+</html><!-- Cannot open <b>/mnt/pointslocal-app/partners/thepress/templates/site/media/media_stream.template</b> --><!-- --><!-- from cache -->

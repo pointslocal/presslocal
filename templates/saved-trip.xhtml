@@ -1,0 +1,683 @@
+
+
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+    <title>The Press</title>
+  
+    <meta property="og:type" content="<[_ogtype]>" /> 
+    <meta property="og:url" content="<[_ogurl]>" /> 
+    <meta property="og:image" content="<[_ogimage]>" /> 
+    <meta property="place:location:latitude"  content="<[_oglatitude]>" /> 
+    <meta property="place:location:longitude" content="<[_oglongitude]>" /> 
+    <meta property="og:title" content="<[_ogtitle]>" /> 
+    <link rel="shortcut icon" href="/partners/thepress/img/thepress-logo-sm.png" />
+    <meta name="description" content="">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/partners/thepress/css/global.css?x=589e3d3c91274">
+    <link rel="stylesheet" href="/partners/thepress/css/index.css">
+
+
+  <script type="text/javascript" id="adPositionManagerScriptTag" src="http://aps.hearstnp.com/Scripts/loadAds.js"></script>
+<SCRIPT type="text/javascript" lang="javascript" src="http://cdn.gigya.com/JS/gigya.js?apikey=3_BMFZOCwXDrSMoeTYN2uiVIBZhHski0qbm2oj7S3NL2gKLHcAjq-sx3cuKnLVg_pN"></SCRIPT>
+<!-- prod treg: 3_SwXI4hyN9wmzGqer7gFM6ZcaPKuO4YepRCKYkTUQhmUP89-cbi4KAnt5Tp7yyaUs -->
+<!-- 3_O6YwFqa1LkbrVGvTT0uOf2WwL78KJvUTqPQi6IGNF0xg5m1w2g-54pgf6xro1ZyU -->
+<!-- prod: 3_BMFZOCwXDrSMoeTYN2uiVIBZhHski0qbm2oj7S3NL2gKLHcAjq-sx3cuKnLVg_pN -->
+  <script src="/includes/lib/mustache/mustache.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="/partners/thepress/js/thepressx.js?x=browse&tz=589e3d3c91274&zz=589e3d3c91274&xyz=sz"></script>
+
+<script type="text/javascript"
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-gHN0lD5gfgKu4bp0h6ZPRM_jkCuIHps&libraries=drawing"></script>
+    <script type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js'></script>
+<script src="http://23hfij34r8a3i36ce2tnh9ii.wpengine.netdna-cdn.com/wp-content/themes/wordplate/js/markerwithlabel.js"></script>
+    <script src="//use.typekit.net/wuq4anx.js"></script>
+
+
+<script>
+var _LAT = 38.334997;
+var _LON =  -122.298203;
+var _MARKER_FILL_COLOR = '#93A558'; // '#FF5B50';
+var _MARKER_HIGHLIGHT_FILL_COLOR = '#c1d973'; //'#93A558'; //'#ffb8b2';
+var _MARKER_HIGHLIGHT_BORDER_COLOR = '#93A558'; //'#FF5B50';
+var _MAP_PATH = 'M258.5,0C144.7,0,62,79.5,62,166.1c0,52.4,21.7,80.4,50.7,131.1C170.6,398.6,258.5,507,258.5,507 s87.9-108.4,145.8-209.8c29-50.7,50.7-78.7,50.7-131.1C455,79.5,372.3,0,258.5,0';
+var _xMAP_PATH = 'M950.235781,615.06006 C950.235781,624.482899 933.11789,641.59793 933.11789,641.59793 C933.11789,641.59793 916,624.482899 916,615.06006 C916,605.63722 923.663109,598 933.11789,598 C942.572672,598 950.235781,605.63722 950.235781,615.06006 L950.235781,615.06006 Z';
+if ('<[publication]>' == 'alt') {
+  _MARKER_FILL_COLOR = '#cc435a';
+  _MARKER_HIGHLIGHT_FILL_COLOR = '#FFFFFF'; //'#f299a8';
+  _MARKER_HIGHLIGHT_BORDER_COLOR = '#cc435a';
+
+}
+</script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+<script>
+tripsExist = JSON.parse(localStorage.getItem('trips'));
+console.log(tripsExist);
+if (tripsExist && tripsExist.length > 0) {
+  $(document).ready(function() {
+    $('.my-trip-inactive').removeClass('my-trip-inactive'); 
+  })
+
+}
+</script>
+  </head>
+  <body class="index <[_class]>"><!-- Main Nav (Clear) -->
+
+<style>
+.subnav {
+display: none;
+}
+
+</style>
+<div id="modal-background" style="display:none;"></div><div id="modal" style="display:none;"></div>
+
+<div style="display:none" id="toast">Added To <a href="/my-trip">Current Trip</a></div>
+<script>
+function addTrip(id,el) {
+  $('#toast').slideDown(100);
+$('#toast').html('Added to <a href="/my-trip">My Trip</a>');
+  setTimeout(function() { $('#toast').slideUp(); }, 5000);
+  addToTrip(id,el);
+}
+
+
+
+
+</script>
+
+  <!-- nav area -->
+  <!-- #263 BASIC HEADER -->
+<nav class="nav-sm affix-top">
+  <a href="#" class="toggle-nav hidden-lg hidden-md hidden-sm"><i class="fa fa-bars"></i><i class="fa fa-close hidden"></i></a><a href="/map" class="map-button hidden-lg hidden-md hidden-sm"><img class="map-icon" src="/partners/thepress/img/icons/map-icon.png" alt="Go to Map"></a>
+  <div class="container nav-wrapper">
+    <div class="row logo-container">
+      <div class="col-sm-12">
+        <a href="/wine">
+          <img class="logo hidden-xs" src="/partners/thepress/img/thepress-logo.png" alt="The Press">
+          <img class="logo-mobile hidden-sm hidden-md hidden-lg" src="/partners/thepress/img/thepress-logo-mobile.png" alt="The Press">
+          <img class="logo-fixed" src="/partners/thepress/img/thepress-logo-sm.png" alt="The Press">
+        </a>
+      </div>
+    </div>
+    <div class="row nav-container hidden-xs">
+      <ul class="main-nav sans-bold"  style="display:none;" id="auth-container">
+        <li><a href="/map" class="nav-map">Map</a></li>
+        <li><a href="/trips" class="nav-trips">Trips</a></li>
+        <li><a href="/stories" class="nav-stories">Stories</a></li>
+        <li><a href="/wineries" class="nav-places">Directory</a></li>
+        <li><a href="/wine-events" class="nav-events">Events</a></li>
+        <li class="search"><a href="#" class="toggle-search"><i class="fa fa-search"></i></a></li>
+      </ul>
+    </div>
+    <div class="fixed-tools">
+      <ul class="hidden-xs">
+        <li class="signin" style="display:none;"><a href="#" class="button button-sm clear sans toggle-signin" data-toggle="modal" data-target="#signinModal">Sign In</a></li>
+        <li class="dropdown tripselect ">
+          <a href="#" onclick="initNewTrip();" style="display:none" id="tripselect-noauth"><span class="">+</span> <span class="">Create New Trip</span></a>        
+          <a href="#" style="display:none" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span class="tripcount"></span> <span class="tripname"></span></a>
+          <ul class="dropdown-menu" id="dropdown-trip-selector">
+
+                       
+          </ul>
+        </li>        
+
+        <li class="mytrips">
+          <a href="/my-trips">My Trips</a>
+        </li>        
+        <li class="dropdown login ">
+          <a href="#" class="button button-sm clear sans toggle-signin" data-toggle="modal" data-target="#signinModal">Sign In</a>
+          <a href="#" onclick="gigyaLogout();" class="dropdown-toggle toggle-signout " data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="display:none;"></a>
+        </li>
+        <li class="chronicle"><a href="#"><img src="/partners/thepress/img/sfchronicle-logo.png" alt="SF Chronicle"></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- #263 /BASIC HEADER -->
+
+<!-- Mobile Dropdown Menu -->
+<nav class="mobile-dropdown hidden-sm hidden-md hidden-lg">
+  <div class="search-bar">
+    <form class="form-inline" action="/search" role="form" method="post">
+      <button type="submit"><i class="fa fa-search"></i></button>
+      <input name="search" type="text" placeholder="Search">
+      
+    </form>
+  </div>
+  <div class="dropdown-nav">
+    <ul>
+      <li><a href="/map" >Map</a></li>
+      <li><a href="/trips" >Trips</a></li>
+      <li><a href="/stories" >Stories</a></li>
+      <li><a href="/wineries" >Places</a></li>
+      <li><a href="/wine-events" >Events</a></li>
+
+    </ul>
+  </div>
+  <div class="mobile-trips-container" style="display:none;">
+  <div class="row">
+    <div class="col-xs-6"><a href="/my-trips" >My Trips</a></div>
+    <div class="col-xs-6"><a class="mobile-trips-container-logout pull-right" href="#" onclick="gigyaLogout();" >Log Out</a></div>
+    <div class="col-xs-12" style="padding: 0px;">
+      <div id="mobile-trips-container-message"></div>
+      <ul id="mobile-trips-container-trips">
+
+      </ul>
+    </div>
+  </div>
+  </div>
+  <div class="login-state">
+    <div class="login-state-container">
+      <div class="login-pic" style="display:none;"><a href="#" class="toggle-signin" data-toggle="modal" data-target="#signinModal"><img src="/partners/thepress/img/login-pic.png"></a></div>
+      <div class="login-name sans-bold white"><a href="#" class="toggle-signin" data-toggle="modal" data-target="#signinModal"></a></div>
+      <div class="login-status white sans-bold mobile-login-status"><a href="#" onclick="initNewTrip();" >Create New Trip</a></div>
+    </div>
+  </div>
+</nav><!-- Sign In Popup Modal -->
+<div class="modal fade" tabindex="-1" role="dialog" id="signinModal" aria-labelledby="signinModal">
+  <div class="modal-dialog stdlogin">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true sans">&times;</span></button>
+        <h4 class="sans-bold brownmodal-title">Sign In</h4>
+        <p class="sans brown">Welcome back. If you already have an account with us, please login below.</p>
+        <p class="sans error" id="login-error"></p>        
+      </div>
+      <div class="modal-body">
+        <form class="signinForm">
+          <div class="form-group">
+            <input id="login-email" type="email" placeholder="Email Address">
+          </div>
+          <div class="form-group">
+            <input id="login-password" type="password" placeholder="Password">
+          </div>
+        </form>
+      </div>
+       <div class="modal-buttons">
+        <button onclick="gigyaLogin();" type="submit" class="button button-xs bg-olive sans-bold">Sign In</button> <br>
+        <a href="#" class="forgot-pass sans brown" onclick="showModal('lostpassword');">I've lost my password</a> <span style="display:inline-block;margin-left:20px;"></span> No account? <a href="#" onclick="showModal('stdregister');" class="sans brown">Create One</a>
+      </div>
+    </div>
+  </div>
+  <div class="modal-dialog stdregister" style="display:none;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true sans">&times;</span></button>
+        <h4 class="sans-bold brownmodal-title">Register</h4>
+        <p class="sans brown">Create a Profile With ThePress</p>
+        <p class="sans error" id="register-error"></p>
+      </div>
+      <div class="modal-body">
+        <form class="signinForm">
+          <div class="form-group">
+            <input id="register-email" type="email" placeholder="Email Address">
+          </div>
+
+          <div class="form-group">
+            <input id="register-username" type="text" placeholder="Username">
+          </div>   
+          <div>Passwords must be at least 8 characters, contain upper and lowercase letters and at least one number.</div>                 
+          <div class="form-group">
+            <input id="register-password" type="password" placeholder="Password">
+          </div>
+          <div class="form-group">
+            <input id="register-password2" type="password" placeholder="Password (Repeat)">
+          </div>          
+        </form>
+      </div>
+       <div class="modal-buttons">
+        <button onclick="gigyaRegister();" type="submit" class="button button-xs bg-olive sans-bold">Register</button> <br>
+         Already have an account? <a href="#" onclick="showModal('stdlogin');" class="sans brown">Sign In</a>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal-dialog register-success" style="display:none;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true sans">&times;</span></button>
+        <h4 class="sans-bold brownmodal-title">Registration Successful</h4>
+
+      </div>
+      <div class="modal-body">
+        You have successfully registered with The Press.
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="modal-dialog lostpassword" style="display:none;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true sans">&times;</span></button>
+        <h4 class="sans-bold brownmodal-title">Reset Your Password</h4>
+        <p class="sans brown">Create a Profile With ThePress</p>
+        <p class="sans error" id="register-error"></p>
+      </div>
+      <div class="modal-body">
+        <form class="signinForm">
+          <div class="form-group">
+            <input id="register-email" type="email" placeholder="Email Address">
+          </div>
+      
+
+        
+        </form>
+      </div>
+       <div class="modal-buttons">
+        <button onclick="showModal('login');" type="submit" class="button button-xs bg-olive sans-bold">Cancel</button>   
+      </div>
+    </div>
+  </div>
+
+
+
+
+</div><!-- Search Modal -->
+
+
+
+
+
+<div class="modal fade" tabindex="-1" role="dialog" id="tripBuildModal" aria-labelledby="tripBuildModal">
+
+  <div class="modal-dialog trips-login" style="display:none;">
+    <div class="modal-content">
+      <div class="modal-header"> 
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true sans">&times;</span></button>
+        <ul class="trip-modal-status">
+            <li class="trip-modal-status-step active">
+              <div>Sign In</div>
+              <span class="trip-modal-status-step-notch active"></span>
+            </li>
+            <li class="trip-modal-status-step ">
+              <div>Name Your Trip</div>
+              <span class="trip-modal-status-step-notch "></span>
+            </li>
+            <li class="trip-modal-status-step ">
+              <div>Trip Saved!</div>
+              <span class="trip-modal-status-step-notch "></span>
+            </li>                  
+        </ul>        
+        <h4 class="sans-bold brownmodal-title">Sign up to start your trip</h4>
+        <p class="sans brown">By signing up for an account, you can create your own wine country trips on The Press: Name and save your trip, add places and events to your trip, and access your trips, map and driving directions right from your mobile device.</p>
+        <p class="sans error" id="login-error"></p>        
+      </div>
+      <div class="modal-body">
+        <form class="signinForm">
+          <div class="form-group">
+            <input id="trip-login-email" type="email" placeholder="Email Address">
+          </div>
+          <div class="form-group">
+            <input id="trip-login-password" type="password" placeholder="Password">
+          </div>
+        </form>
+      </div>
+       <div class="modal-buttons">
+        <button onclick="gigyaTripsLogin();" type="submit" class="button button-xs bg-olive sans-bold">Login</button> <br>
+        <a style="display:none;" href="#" class="forgot-pass sans brown" onclick="showModal('lostpassword');">I've lost my password</a> <span style="display:inline-block;margin-left:20px;"></span> No account? <a href="#" onclick="showModal('register');" class="sans brown">Create One</a>
+      </div>
+    </div>
+  </div>
+  <div class="modal-dialog trips-register">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true sans">&times;</span></button>
+        <ul class="trip-modal-status">
+            <li class="trip-modal-status-step active">
+              <div>Sign In</div>
+              <span class="trip-modal-status-step-notch active"></span>
+            </li>
+            <li class="trip-modal-status-step ">
+              <div>Name Your Trip</div>
+              <span class="trip-modal-status-step-notch "></span>
+            </li>
+            <li class="trip-modal-status-step ">
+              <div>Trip Saved!</div>
+              <span class="trip-modal-status-step-notch "></span>
+            </li>                  
+        </ul>               
+        <h4 class="sans-bold brownmodal-title">Register</h4>
+        <p class="sans brown">By signing up for an account, you can create your own wine country trips on The Press: Name and save your trip, add places and events to your trip, and access your trips, map and driving directions right from your mobile device.</p>
+        <p class="sans error" id="trip-register-error"></p>
+      </div>
+      <div class="modal-body">
+        <form class="signinForm">
+          <div class="form-group">
+            <input id="trip-register-email" type="email" placeholder="Email Address">
+          </div>
+          <div>Passwords must be at least 8 characters, contain upper and lowercase letters and at least one number.</div>
+          <div class="form-group">
+            <input id="trip-register-username" type="text" placeholder="Username">
+          </div>          
+          <div class="form-group">
+            <input id="trip-register-password" type="password" placeholder="Password">
+          </div>
+          <div class="form-group">
+            <input id="trip-register-password2" type="password" placeholder="Password (Repeat)">
+          </div>          
+        </form>
+      </div>
+       <div class="modal-buttons">
+        <button onclick="gigyaTripsRegister();" type="submit" class="button button-xs bg-olive sans-bold">Register</button> <br>
+         Already have an account? <a href="#" onclick="showModal('login');" class="sans brown">Sign In</a>
+      </div>
+    </div>
+  </div>
+  <div class="modal-dialog trips-name" style="display:none;">
+    <div class="modal-content">
+      <div class="modal-header"> 
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true sans">&times;</span></button>
+        <ul class="trip-modal-status">
+            <li class="trip-modal-status-step active">
+              <div>Sign In</div>
+              <span class="trip-modal-status-step-notch active"></span>
+            </li>
+            <li class="trip-modal-status-step active">
+              <div>Name Your Trip</div>
+              <span class="trip-modal-status-step-notch active"></span>
+            </li>
+            <li class="trip-modal-status-step ">
+              <div>Trip Saved!</div>
+              <span class="trip-modal-status-step-notch "></span>
+            </li>                  
+        </ul>           
+        <h4 class="sans-bold brownmodal-title">Give it a name</h4>
+        <p class="sans brown">Give your trip a name and hit save.  We'll add it to your list of trips!</p>
+        <p class="sans error" id="login-error"></p>        
+      </div>
+      <div class="modal-body">
+        <form class="signinForm">
+          <div class="form-group">
+            <input id="new-trip-name" type="text" placeholder="New trip name" maxlength="20">
+          </div>
+
+        </form>
+      </div>
+       <div class="modal-buttons">
+        <button onclick="createNewTrip();" type="submit" class="button button-xs bg-olive sans-bold">Save</button> <br>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-dialog register-success" style="display:none;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true sans">&times;</span></button>
+        <h4 class="sans-bold brownmodal-title">Registration Successful</h4>
+
+      </div>
+      <div class="modal-body">
+        You have successfully registered with The Press.
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="modal-dialog lostpassword" style="display:none;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true sans">&times;</span></button>
+        <h4 class="sans-bold brownmodal-title">Reset Your Password</h4>
+        <p class="sans brown">Create a Profile With ThePress</p>
+        <p class="sans error" id="register-error"></p>
+      </div>
+      <div class="modal-body">
+        <form class="signinForm">
+          <div class="form-group">
+            <input id="register-email" type="email" placeholder="Email Address">
+          </div>
+      
+
+        
+        </form>
+      </div>
+       <div class="modal-buttons">
+        <button onclick="showModal('login');" type="submit" class="button button-xs bg-olive sans-bold">Cancel</button>   
+      </div>
+    </div>
+  </div>
+
+
+
+
+</div><!-- Search Modal -->
+
+
+
+
+
+
+
+<div class="search-modal hidden-xs">
+  <div class="search-container">
+    <a href="#" class="close-button white sans"><svg width="30" height="30" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1490 1322q0 40-28 68l-136 136q-28 28-68 28t-68-28l-294-294-294 294q-28 28-68 28t-68-28l-136-136q-28-28-28-68t28-68l294-294-294-294q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 294 294-294q28-28 68-28t68 28l136 136q28 28 28 68t-28 68l-294 294 294 294q28 28 28 68z"/></svg></a>
+    <form class="form-inline" role="form" action="/search" method="post">
+      <input type="text" name="search" placeholder="Search">
+      <button type="submit" class="hidden"><i class="fa fa-search"></i></button>
+    </form>
+  </div>
+</div>
+
+
+  <!-- MY TRIP -->
+<script>
+var package = 'tripio589e24dde9ae8';
+</script>
+<link rel="stylesheet" href="/partners/thepress/css/single-trip.css">
+<script src="/partners/thepress/js/single-trip.js"></script>
+<style>
+.social i {
+font-size: 25px;
+}
+</style>
+
+
+<header class="header-single">
+    <div class="container-fluid header-map no-padding hidden-sm hidden-md hidden-lg">
+
+
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 header-title">
+          <h1 class="serif brown editable" contenteditable="true" >Current Trip</h1>
+  <textarea rows="5" id="trip-description" style="width:100%;background-color:transparent;" placeholder="Describe this trip"></textarea>
+          <div><a id="my-trips-save-button" href="#" onclick="saveTrip();" style="display:none;" class="button button-xs bg-lightOrange sans-bold tooltip-container tooltip-left" data-tooltip="Save This Trip to Your Trips">Save Trip</a>    <a href="#" onclick="clearTrip();" class="button button-xs bg-lightOrange sans-bold tooltip-container" data-tooltip="Remove all items from this trip" style="display:none;">Remove All</a></div>
+
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid header-map no-padding">
+
+
+      <div id="my-trip-map" style="width:100%;height:500px;"></div>
+    </div>
+  </header>
+
+<main>
+<div id="my-trip-data">
+
+</div>
+
+
+<section class="quad-column quad-column-divider container no-padding">
+      <div class="row">
+        <div class="col-sm-12">
+          <h2 class="divider divider-sm lightBrown"><span>Recommended</span></h2>
+        </div>
+      </div>
+      <div class="row scrollable" id="scroll1">
+        <div class="col-sm-3 block-container">
+          <a href="#" class="quad-block" style="background: url('img/backgrounds/wine-pour.png') center center no-repeat; background-size: cover;"></a>
+          <div class="block-text">
+            <div class="block-label lightBrown">Sonoma</div>
+            <h4 class="sans-bold orange"><a href="#">Title of Editorial Story with Partner Content</a></h4>
+            <span class="affiliate-badge"></span>
+          </div>
+        </div>
+        <div class="col-sm-3 block-container">
+          <a href="#" class="quad-block" style="background: url('img/backgrounds/wine-cheese.png') center center no-repeat; background-size: cover;"></a>
+          <div class="block-text">
+            <div class="block-label lightBrown">Napa</div>
+            <h4 class="sans-bold orange"><a href="#">Title of Recommended Editorial Story</a></h4>
+          </div>
+        </div>
+        <div class="col-sm-3 block-container">
+          <a href="#" class="quad-block" style="background: url('img/backgrounds/wine-pour.png') center center no-repeat; background-size: cover;"></a>
+          <div class="block-text">
+            <div class="block-label lightBrown">Sonoma</div>
+            <h4 class="sans-bold orange"><a href="#">Title of Editorial Story with Partner Content</a></h4>
+            <span class="affiliate-badge"></span>
+          </div>
+        </div>
+        <div class="col-sm-3 block-container">
+          <a href="#" class="quad-block" style="background: url('img/backgrounds/wine-cheese.png') center center no-repeat; background-size: cover;"></a>
+          <div class="block-text">
+            <div class="block-label lightBrown">Napa</div>
+            <h4 class="sans-bold orange"><a href="#">Title of Recommended Editorial Story</a></h4>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+</main>
+<script>
+if (package == '') {
+  
+setTimeout(getTrip, 500);
+  
+ }else {
+ getExistingTrip(package);
+ }
+</script>
+
+  <div class="oldmain">
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+<div style="text-align:center;">
+ <!-- hearst/ads/full_banner_A728.tpl -->
+    <!-- hmb:a728 full banner A728 ad -->
+    <div id="ctpl-fullbanner1" class="ctpl-fullbanner fixed" data-collapse-timer="10">
+    <div id="A728" class="ad_deferrable"><script type="text/javascript">/*<![CDATA[*/ hearstPlaceAd("A728"); /*]]>*/</script></div>
+    
+    <script>
+    (function() {
+        var checkCount = 120;
+        var intervalID = setInterval(function() {
+            if(checkCount > 0) {
+                checkCount--;
+                setTimeout(function() {
+                    if(document.getElementById("A728").offsetHeight > 3) {
+                        if(!document.documentElement.classList.contains("header-ad") && !document.documentElement.classList.contains("cropped")) {
+                            document.documentElement.className += " header-ad header-A728 header-adSlide";
+                            setTimeout(function() {
+                                document.documentElement.classList.remove("header-adSlide");
+                            }, 500);
+                            clearInterval(intervalID);
+                        }
+                    }
+                }, 2500);
+            }
+            else {
+                if(document.getElementById("A728").offsetHeight <= 3) {
+                    document.documentElement.className += " header-noAd";
+                }
+                clearInterval(intervalID);
+            }
+        }, 1000);
+    })();
+    </script>
+    
+    </div>
+<!-- e hearst/ads/full_banner_A728.tpl -->
+</div>
+
+  </div>
+
+        <footer>
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12 footer-logo">
+              <a href="/wine"><img src="/partners/thepress/img/thepress-logo-green.png" alt="The Press"></a>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12 footer-links">
+              <ul>
+                <li><a href="/map">Map</a></li>
+                <li><a href="/trips">Trips</a></li>
+                <li><a href="/stories">Stories</a></li>
+                <li><a href="/wineries">Places</a></li>
+                <li><a href="/wine-events">Events</a></li>
+                <li><a href="/about">About</a></li>
+              </ul>
+            </div>
+    <div id="treg_container"></div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12 footer-copyright">
+              <a href="http://www.sfchronicle.com/foodandhome/wine/"><img src="/partners/thepress/img/sfchronicle-logo-lg.png" alt="SF Chronicle"></a>
+              <p class="sans lightBrown">&copy; 2016 Hearst Corporation</p>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+<!-- there -->
+
+<!-- ^ there -->
+
+
+<!-- Begin Hearst analytics --> <script type="text/javascript" src="//nexus.ensighten.com/hearst/news-3p/Bootstrap.js"></script> <!-- End Hearst analytics -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/partners/thepress/js/libs/jquery-touch-punch.js"></script>
+    <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
+<script type="text/javascript" src="/partners/thepress/js/libs/markerwithlabel.js"></script><script type="text/javascript" src="/partners/thepress/js/libs/jquery-editable-poshytip.min.js"></script>
+    <script type="text/javascript" src="/partners/thepress/js/libs/iscroll.js?t=589e3d3c91274"></script>
+<script type="text/javascript" src="/partners/thepress/js/libs/slick.js?t=589e3d3c91274"></script>
+    <script type="text/javascript" src="/partners/thepress/js/global.js?t=1"></script>
+<script type="text/javascript" src="/partners/thepress/js/libs/jquery.sticky.js"></script>
+    <script src="/partners/thepress/js/map.js?1470683612"></script>
+    <script src="/partners/thepress/js/index.js?1467835203"></script>
+  </body>
+</html><!-- Cannot open <b>/mnt/pointslocal-app/partners/thepress/templates/site/media/media_stream.template</b> --><!-- --><!-- from cache -->

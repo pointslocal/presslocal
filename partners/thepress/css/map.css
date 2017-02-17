@@ -3,6 +3,10 @@
 Map
 ======================= */
 
+
+
+
+
 body.map {
   height: 100%;
 }
@@ -17,12 +21,13 @@ main {
   padding: 0;
 }
 
+/* NK: updated so map set correct */
 #map {
   width: 100%;
   height: 100%;
   position: fixed !important;
   z-index: 1;
-  top: 0;
+  top: 0px;
   left: 0;
 }
 
@@ -71,6 +76,10 @@ main {
   transform: translateY(0);
   -webkit-transform: translateY(0);
   transition: all 0.2s;
+}
+
+.map-filters .container {
+  width: 100%;
 }
 
 .map-filters.inactive {
@@ -480,11 +489,31 @@ main {
 
 .hud .module {
   width: 100%;
-  min-height: 250px;
+  min-height: 240px;
   background-color: #fff;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   position: relative;
   padding: 15px;
+  padding-bottom: 5px; /* nk, tightens cards */
+}
+
+.module-tier3-counter {
+background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgNTEyIDUxMiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTEyIDUxMjsiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+LnN0MHtmaWxsOiM5M2E1NTg7fTwvc3R5bGU+PHBhdGggY2xhc3M9InN0MCIgZD0iTTI1OC41LDBDMTQ0LjcsMCw2Miw3OS41LDYyLDE2Ni4xYzAsNTIuNCwyMS43LDgwLjQsNTAuNywxMzEuMUMxNzAuNiwzOTguNiwyNTguNSw1MDcsMjU4LjUsNTA3czg3LjktMTA4LjQsMTQ1LjgtMjA5LjhjMjktNTAuNyw1MC43LTc4LjcsNTAuNy0xMzEuMUM0NTUsNzkuNSwzNzIuMywwLDI1OC41LDAiLz48L3N2Zz4=);
+    width: 28px;
+    height: 28px;
+    margin-top: -3px;
+    text-align: center;
+    display: inline-block;
+    color: #fff;
+    vertical-align: middle;
+    font-family: europa, Helvetica, arial;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 24px;
+    background-repeat: no-repeat;
+    background-size: 28px 28px;
+    z-index: 999999;
+    position: relative;
 }
 
 /* HUD Featured Module */
@@ -492,7 +521,28 @@ main {
 .hud .module.featured .featured-content {
   width: 100%;
   padding: 0 40px;
+  line-height: 21px;
   text-align: center;
+  z-index: 999999;
+}
+
+.hud .module.featured .tier-buttons ul li a.olive:hover, .hud .module.featured .tier-buttons ul li a.olive:active {
+  color: #fff !important;
+}
+
+.hud .module.featured {
+  margin-bottom: 90px;
+  min-height: 250px;
+}
+
+.hud .module.featured p {
+  font-size: 16px;
+  margin-bottom: 5px;
+  line-height: 18px;
+}
+
+.hud .module.featured .featured-content {
+  margin-top: 10px;
 }
 
 .hud .module.featured .featured-content h2 {
@@ -500,12 +550,40 @@ main {
   margin: 0;
 }
 
+.hud .module.featured .featured-content .featured-meta {
+  text-align: left;
+  margin-top: 15px;
+}
+
+.hud .module.featured .featured-content .featured-meta .featured-address {
+  margin-top: 15px;
+  line-height: 17px;
+}
+
+.hud .module.featured .featured-content .featured-meta .featured-address p, a.phone {
+  font-size: 13px;
+  margin-bottom: 0;
+}
+
+.hud .module.featured .featured-content .featured-meta .featured-address a.phone {
+  color: #93a558;
+}
+
+.hud .module.featured .tier-buttons {
+  background-color: #4c423c;
+}
+
 /* HUD Tier 1 Module */
 
 .hud .module.tier1 .tier-title h2 {
-  font-size: 30px;
+  font-size: 24px;
   margin: 0;
   padding-bottom: 10px;
+}
+
+.hud .module.tier1 .tier-title .col-xs-9,
+.hud .module.tier2 .tier-title .col-xs-9 {
+  padding-right: 0;
 }
 
 .hud .module.tier1 .tier-title .tier-badge .partner-badge,
@@ -529,9 +607,46 @@ main {
   display: none;
 }
 
+.hud .module.quick-tip p {
+  line-height: 21px;
+}
+
 .hud .module.tier1 .tier-text {
-  padding: 10px 0;
+  padding: 5px 0 0 0;
   background-color: #F9F9F2;
+  line-height: 21px;
+}
+
+.hud .module.tier1 .tier-text a {
+  color: #ff5b50 !important;
+}
+
+.hud .module.tier1 .tier-text a:hover {
+  color: #4c423c !important;
+}
+
+.hud .module.featured .tier-buttons {
+  border-top: 1px solid rgba(150, 129, 117, 0.5);
+}
+
+.hud .module .gradient-background {
+  display: none !important;
+}
+
+.hud .module.gradient-cover:before {
+  content: '';
+  width: 100%;
+  position: absolute;
+  z-index: 9;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(76, 66, 60, 0.5);
+}
+
+.hud .module .tier-buttons ul {
+  width: 100%;
 }
 
 .hud .module.tier1 .tier-pic img {
@@ -556,31 +671,83 @@ main {
 
 .hud .module.tier1 .tier-contact .status {
   text-transform: uppercase;
-  margin-left: 10px;
+  margin-left: 0;
 }
 
-.hud .module.tier1 .tier-buttons {
-  padding: 15px 0 0 0;
+.hud .module.tier1 .tier-buttons, .hud .module.featured .tier-buttons {
+  padding: 10px 0 0 0;
 }
 
 .hud .module.tier1 .tier-buttons ul {
   display: table;
   text-align: left;
+  margin-bottom: 5px;
+}
+
+.hud .module.featured .tier-buttons ul {
+  display: table;
+  text-align: left;
   margin-bottom: 10px;
 }
 
-.hud .module.tier1 .tier-buttons ul li {
+.hud .module.tier1 .tier-buttons ul li, .hud .module.featured .tier-buttons ul li {
   list-style: none;
   vertical-align: middle;
   display: inline-block;
   margin-right: 10px;
 }
 
-.hud .module.tier1 .tier-buttons ul li.social i {
-  font-size: 25px;
+.hud .module.tier1 .tier-buttons ul li.social i, .hud .module.tier2 .tier-buttons ul li.social i, .hud .module.tier2 .tier-buttons ul li.social i, .hud .module.featured .tier-buttons ul li.social i {
+  font-size: 16px !important;
 }
 
-.hud .module.tier1 .tier-buttons ul li a {
+.hud .module ul li.social {
+  float: right;
+    color: #d4d5c8;
+    font-weight: bold;
+    font-size: 11px;
+    line-height: 40px;
+    text-transform: uppercase;
+}
+
+.hud .module ul li.book {
+  margin-top: -2px;
+}
+
+.hud .module ul li.book a {
+  color: #cccdbe;
+}
+
+.hud .module.featured ul li.book a:hover {
+  color: #fff !important;
+}
+
+.hud .module.featured ul li.book a:hover {
+  color: #544741 !important;
+}
+
+.hud .module ul li.social a {
+  width: 26px;
+  height: 26px;
+  color: #fff;
+  line-height: 25px;
+  display: inline-block;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 28px;
+  text-align: center;
+}
+
+.hud .module ul li.social a:first-child {
+  margin-left: 5px;
+}
+
+
+.hud .module ul li.social a:hover {
+background-color: #82924e;
+ }
+
+.hud .module.tier1 .tier-buttons ul li a, .hud .module.featured .tier-buttons ul li a {
   text-transform: uppercase;
   font-size: 14px;
   vertical-align: middle;
@@ -593,7 +760,7 @@ main {
 }
 
 .hud .module.tier2 .tier-title h2 {
-  font-size: 30px;
+  font-size: 26px;
   margin: 0;
   padding-bottom: 10px;
 }
@@ -617,24 +784,31 @@ main {
 
 .hud .module.tier2 .tier-contact .status {
   text-transform: uppercase;
-  margin-left: 10px;
+  margin-left: 0;
 }
 
 .hud .module.tier2 .tier-buttons {
-  padding: 15px 0 0 0;
+  padding: 10px 0 0 0;
+
 }
 
 .hud .module.tier2 .tier-buttons ul {
   width: 100%;
-  max-width: 400px;
+  max-width: 410px;
   display: table;
   text-align: left;
+  margin-bottom: 5px;
 }
 
 .hud .module.tier2 .tier-buttons ul li {
   list-style: none;
   vertical-align: middle;
-  display: table-cell;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.hud .module.tier2 .tier-buttons ul li.social {
+  margin-right: 0;
 }
 
 .hud .module.tier2 .tier-buttons ul li.social i {
@@ -656,7 +830,7 @@ main {
   transition: all 0.2s;
   position: absolute;
   z-index: 9999;
-  top: -40px;
+  top: 0px;
   left: 0;
 }
 
@@ -667,10 +841,12 @@ main {
 
 .hud .hud-itinerary .back-button {
   display: block;
-  position: absolute;
+  position: relative;
   z-index: 999;
-  top: -40px;
+  top: 0;
   left: 0;
+  margin-top: -10px;
+  margin-bottom: 20px;
   font-size: 18px;
 }
 
@@ -793,6 +969,16 @@ main {
     border-bottom: 1px solid #C4C5B4;
     margin-bottom: 0;
   }
+  .hud .module.featured {
+    margin-bottom: 61px;
+  }
+  .hud .module.featured .featured-content .featured-meta {
+    margin-top: 20px;
+  }
+  .hud .module.featured .featured-content .featured-meta p {
+    font-size: 14px;
+    line-height: 17px;
+  }
   .hud .module.tier1 .tier-buttons {
     padding-top: 0;
   }
@@ -821,16 +1007,15 @@ main {
    {
      margin-left: 0;
   }
-  .hud .module.tier1 .tier-contact .address br,
-  .hud .module.tier2 .tier-contact .address br {
-    display: none;
-  }
   .hud .module.tier1 .tier-contact h3,
   .hud .module.tier2 .tier-contact h3 {
      margin: 0;
   }
   .hud .module .tier-pic {
     margin: 0;
+  }
+  .hud .module.tier2 .tier-contact .tier-pic {
+    min-height: 200px !important;
   }
   .hud .hud-container,
   .hud .hud-itinerary {

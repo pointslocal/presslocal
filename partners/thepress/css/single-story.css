@@ -7,7 +7,7 @@ Single Story
     font-weight: 700;
 }
 .single-content .single-body h2 {
-    font-size: 28px;
+    font-size: 20px;
     text-transform: uppercase;
     letter-spacing: 5px;
     margin: 0 0 25px 0;
@@ -50,6 +50,7 @@ font-family: 'Gza', Georgia, 'Times New Roman', Times, serif;
 .single-content .single-body ul li:before {
     content: counter(step-counter);
     margin-right: 10px;
+    margin-top: -3px;
     float: left;
     color: #FF5B50;
     font-weight: 700;
@@ -207,6 +208,10 @@ nav.solid .logo-container .tools ul li.search a:hover i {
 .single-content .single-sidebar {
   padding-top: 70px;
   padding-bottom: 30px;
+}
+
+.single-content .single-sidebar ul p {
+  margin-bottom: 0;
 }
 
 .single-content .single-sidebar .other-space {
